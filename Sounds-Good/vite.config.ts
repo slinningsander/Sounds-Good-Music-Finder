@@ -8,6 +8,7 @@ import react from "@vitejs/plugin-react-swc";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: "/project2",
   esbuild: {
     //this for mui testing. Found in mui vitest example on GitHub
     jsxInject: "import React from 'react'",
