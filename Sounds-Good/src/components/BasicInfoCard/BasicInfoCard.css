@@ -1,0 +1,20 @@
+.wrapper:hover {
+  opacity: 0.5;
+}
+.wrapper {
+  margin-bottom: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.albumCover {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 5px;
+}
+.textContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 400px;
+}
