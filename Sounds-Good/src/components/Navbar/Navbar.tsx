@@ -26,22 +26,19 @@ export const Navbar = () => {
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
-            }}
-          >
+            }}>
             Sounds Good
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: "flex" }}>
             <Button
               onClick={() => navigate(`/project2/`)}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
+              sx={{ my: 2, color: "white", display: "block" }}>
               Home
             </Button>
             <Button
               onClick={() => navigate(`/project2/playlists`)}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
+              sx={{ my: 2, color: "white", display: "block" }}>
               Playlists
             </Button>
           </Box>
