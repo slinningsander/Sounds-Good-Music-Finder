@@ -3,10 +3,9 @@
 **/.hg
 **/node_modules
 
-**/.git
-**/.svn
-**/.hg
-
 # Ignore artifacts:
 build
 coverage
+
+.md
+
