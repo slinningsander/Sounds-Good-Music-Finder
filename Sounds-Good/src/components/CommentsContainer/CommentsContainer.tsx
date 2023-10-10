@@ -4,7 +4,7 @@ import './CommentsContainer.css'
 export const CommentsContainer = () => {
   return (
     <>
-      <div className="wrapper">
+      <div className="CommentsWrapper">
         <h2>Comments</h2>
         <div className="CommentsContainer">
           <CommentComponent text="This is a comment" />
