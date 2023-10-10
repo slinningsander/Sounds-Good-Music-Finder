@@ -5,14 +5,14 @@ import {
   Container,
   Toolbar,
   Typography,
-} from "@mui/material";
-import { useNavigate } from "react-router-dom";
+} from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 export const Navbar = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
-    <AppBar sx={{ backgroundColor: "orange" }}>
+    <AppBar sx={{ backgroundColor: 'orange' }}>
       <Container maxWidth="xl">
         <Toolbar>
           <Typography
@@ -20,30 +20,33 @@ export const Navbar = () => {
             noWrap
             sx={{
               mr: 2,
-              display: "flex",
-              fontFamily: "monospace",
+              display: 'flex',
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}>
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
             Sounds Good
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: "flex" }}>
+          <Box sx={{ flexGrow: 1, display: 'flex' }}>
             <Button
               onClick={() => navigate(`/project2/`)}
-              sx={{ my: 2, color: "white", display: "block" }}>
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
               Home
             </Button>
             <Button
               onClick={() => navigate(`/project2/playlists`)}
-              sx={{ my: 2, color: "white", display: "block" }}>
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
               Playlists
             </Button>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
-  );
-};
+  )
+}
