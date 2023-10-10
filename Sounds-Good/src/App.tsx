@@ -15,7 +15,7 @@ function App() {
         <Route path="/project2/:artist/:song" element={<Detailspage />} />
       </Routes>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

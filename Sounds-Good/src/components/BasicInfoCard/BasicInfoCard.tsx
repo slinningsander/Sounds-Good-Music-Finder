@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 
 type Props = {
-  song: string;
-  artist: string;
-  album: string;
-  img: string;
-};
+  song: string
+  artist: string
+  album: string
+  img: string
+}
 
 export default function BasicInfoCard(props: Props) {
   const navigate = useNavigate();
@@ -40,5 +40,5 @@ export default function BasicInfoCard(props: Props) {
         </CardContent>
       </Card>
     </div>
-  );
+  )
 }

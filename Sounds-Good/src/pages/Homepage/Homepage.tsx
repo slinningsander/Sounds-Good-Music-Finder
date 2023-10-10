@@ -1,14 +1,16 @@
-import BasicInfoCard from "../../components/BasicInfoCard/BasicInfoCard";
-// import { Navbar } from "../../components/Navbar/Navbar";
-// import DetailedCard from "../../components/DetailedCard/DetailedCard";
-import image from "/src/assets/Graduation.jpeg";
+import { Searchbar } from '../../components/Searchbar/Searchbar'
 
 export default function Homepage() {
   return (
     <>
-      {/* <Navbar /> */}
       <h1>This is the Homepage!</h1>
-      <BasicInfoCard song={"Flashing Lights"} artist={"Kanye West"} album={"Graduation"} img={image} />
+      <Searchbar
+        isRequired={true}
+        searchbarName="searchbarHome"
+        labelValue="Search music. Do it!"
+        placeholder="Dancing Que..."
+        ariaLabel="Search for music result"
+      />
     </>
-  );
+  )
 }
