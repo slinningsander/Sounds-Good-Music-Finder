@@ -1,4 +1,5 @@
 import './Searchbar.css'
+import React from 'react'
 
 type SearchbarProps = {
   searchbarName: string
@@ -6,6 +7,7 @@ type SearchbarProps = {
   labelValue: string
   placeholder: string
   ariaLabel: string
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 export function Searchbar({
   searchbarName,
@@ -13,26 +15,28 @@ export function Searchbar({
   labelValue,
   placeholder,
   ariaLabel,
+  onChange,
 }: SearchbarProps) {
   return (
     <div className="searchbar-container">
-      <form
+      {/*<form
         className="searchbar-form"
         method="get"
         action="/project2/searchResult"
-      >
-        <label className="searchbar-label" htmlFor={searchbarName}>
-          {labelValue}
-        </label>
-        <input
-          type="search"
-          className="searchbar"
-          name={searchbarName}
-          required={isRequired}
-          placeholder={placeholder}
-          aria-aria-label={ariaLabel}
-        />
-      </form>
+      >*/}
+      <label className="searchbar-label" htmlFor={searchbarName}>
+        {labelValue}
+      </label>
+      <input
+        type="search"
+        className="searchbar"
+        name={searchbarName}
+        required={isRequired}
+        placeholder={placeholder}
+        aria-label={ariaLabel}
+        onChange={onChange}
+      />
+      {/*</form>*/}
     </div>
   )
 }
