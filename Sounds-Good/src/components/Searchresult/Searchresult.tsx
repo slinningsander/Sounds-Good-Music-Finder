@@ -2,7 +2,10 @@ import './Searchresult.module.css'
 import BasicInfoCard from '../BasicInfoCard/BasicInfoCard.tsx'
 import graduation from '../../assets/Graduation.jpeg'
 
-export function Searchresult() {
+type SearchresultProps = {
+  isVisible: boolean
+}
+export function Searchresult({ isVisible }: SearchresultProps) {
   const CARD_AMOUNT = 10
   const resultDisplay = Array(CARD_AMOUNT)
     .fill(null)
@@ -15,6 +18,13 @@ export function Searchresult() {
         song={'Junjoe'}
       />
     ))
-  return <div className="search-container">{resultDisplay}</div>
+  return (
+    isVisible && (
+      <>
+        <div>{resultDisplay}</div>
+      </>
+    )
+  )
 }
+
 export default Searchresult

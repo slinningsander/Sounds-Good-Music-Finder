@@ -1,17 +1,10 @@
-import { Searchbar } from '../../components/Searchbar/Searchbar'
-import { Searchresult } from '../../components/Searchresult/Searchresult.tsx'
+import Search from '../../components/Search/Search.tsx'
 export default function Homepage() {
   return (
+    //TODO
     <>
       <h1>This is the Homepage!</h1>
-      <Searchbar
-        isRequired={true}
-        searchbarName="searchbarHome"
-        labelValue="Search music. Do it!"
-        placeholder="Dancing Que..."
-        ariaLabel="Search for music result"
-      />
-      <Searchresult />
+      <Search />
     </>
   )
 }
