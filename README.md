@@ -2,7 +2,7 @@
 
 ## Description
 
-Sounds Good is a web application that allows you to search for different songs. It also allows you to comment on different songs.
+Sounds Good is a web application that allows you to search for different songs and view details about. It also allows you to look at and post comments.
 
 ## Installation
 
