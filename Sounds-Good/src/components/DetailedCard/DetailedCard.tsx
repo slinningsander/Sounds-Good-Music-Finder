@@ -18,23 +18,19 @@ const DetailedCard = ({
   lyrics,
 }: Props) => {
   return (
-    <div
-      style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        display: 'flex',
-      }}
-    >
-      <div className="container">
-        <h1 className="title">{title}</h1>
-        <h2>{artist}</h2>
-        <img src={img} alt={title} />
-        <h3>{length}</h3>
-        <h3>{credits}</h3>
-        <h3>Lyrics</h3>
-        <p>{lyrics}</p>
+    <>
+      <div className="contentWrapper">
+        <div className="contentContainer">
+          <h1 className="children">{title}</h1>
+          <h2 className="children">{artist}</h2>
+          <img src={img} alt={title} className="image" />
+          <h3 className="children">{length}</h3>
+          <h3 className="children">{credits}</h3>
+          <h3 className="children">Lyrics</h3>
+          <p className="children">{lyrics}</p>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
