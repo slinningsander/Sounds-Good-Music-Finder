@@ -1,5 +1,5 @@
 import { Searchbar } from '../../components/Searchbar/Searchbar'
-
+import { Searchresult } from '../../components/Searchresult/Searchresult.tsx'
 export default function Homepage() {
   return (
     <>
@@ -11,6 +11,7 @@ export default function Homepage() {
         placeholder="Dancing Que..."
         ariaLabel="Search for music result"
       />
+      <Searchresult />
     </>
   )
 }
