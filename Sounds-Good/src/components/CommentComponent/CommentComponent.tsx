@@ -1,4 +1,4 @@
-import './CommentComponent.css'
+import styles from './CommentComponent.module.css'
 
 type Props = {
   text: string
@@ -6,7 +6,7 @@ type Props = {
 
 export const CommentComponent = (props: Props) => {
   return (
-    <div className="CommentComponent">
+    <div className={styles.CommentComponent}>
       <h3>Username</h3>
       <p>{props.text}</p>
     </div>

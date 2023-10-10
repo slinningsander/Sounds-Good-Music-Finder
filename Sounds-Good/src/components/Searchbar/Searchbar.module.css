@@ -1,4 +1,4 @@
-.searchbar-container {
+.searchbarContainer {
   color: white;
   display: flex;
   flex-direction: column;
@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.searchbar-label {
+.searchbarLabel {
   display: block;
 }
 
