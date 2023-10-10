@@ -1,0 +1,9 @@
+.container{
+    background-color: plum;
+    min-width: 60%;
+    border-radius: 2ch;
+    padding: 2ch;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
