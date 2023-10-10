@@ -1,12 +1,12 @@
-import "./Searchbar.css";
+import './Searchbar.css'
 
 type SearchbarProps = {
-  searchbarName: string;
-  isRequired: boolean;
-  labelValue: string;
-  placeholder: string;
-  ariaLabel: string;
-};
+  searchbarName: string
+  isRequired: boolean
+  labelValue: string
+  placeholder: string
+  ariaLabel: string
+}
 export function Searchbar({
   searchbarName,
   isRequired,
@@ -19,7 +19,8 @@ export function Searchbar({
       <form
         className="searchbar-form"
         method="get"
-        action="/project2/searchResult">
+        action="/project2/searchResult"
+      >
         <label className="searchbar-label" htmlFor={searchbarName}>
           {labelValue}
         </label>
@@ -33,6 +34,6 @@ export function Searchbar({
         />
       </form>
     </div>
-  );
+  )
 }
-export default Searchbar;
+export default Searchbar
