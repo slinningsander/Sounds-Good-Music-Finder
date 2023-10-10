@@ -1,17 +1,30 @@
-import "./DetailedCard.css";
+import './DetailedCard.css'
 
 type Props = {
-  title: string;
-  artist: string;
-  img: string;
-  length: string;
-  credits: string;
-  lyrics: string;
-};
+  title: string
+  artist: string
+  img: string
+  length: string
+  credits: string
+  lyrics: string
+}
 
-const DetailedCard= ({title, artist, img, length, credits, lyrics}: Props) => {
+const DetailedCard = ({
+  title,
+  artist,
+  img,
+  length,
+  credits,
+  lyrics,
+}: Props) => {
   return (
-    <div style={{justifyContent: "center", alignItems:"center", display:"flex"}}>
+    <div
+      style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        display: 'flex',
+      }}
+    >
       <div className="container">
         <h1 className="title">{title}</h1>
         <h2>{artist}</h2>
@@ -22,8 +35,7 @@ const DetailedCard= ({title, artist, img, length, credits, lyrics}: Props) => {
         <p>{lyrics}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-
-export default DetailedCard;
+export default DetailedCard
