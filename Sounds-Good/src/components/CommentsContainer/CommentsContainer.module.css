@@ -17,19 +17,19 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.comment-form {
+.commentForm {
   display: flex;
   flex-direction: column;
 }
 
-.comment-form input[type='text'] {
+.commentForm input[type='text'] {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 0.5rem;
 }
 
-.comment-form button[type='submit'] {
+.commentForm button[type='submit'] {
   padding: 0.5rem;
   background-color: purple;
   color: #fff;
@@ -37,6 +37,6 @@
   border-radius: 4px;
   cursor: pointer;
 }
-.comment-form button[type='submit']:hover {
+.commentForm button[type='submit']:hover {
   opacity: 0.5;
 }

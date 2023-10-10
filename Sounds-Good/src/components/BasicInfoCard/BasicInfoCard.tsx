@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from '@mui/material'
-import './BasicInfoCard.css'
+import styles from './BasicInfoCard.module.css'
 import { useNavigate } from 'react-router-dom'
 
 type Props = {
@@ -13,7 +13,7 @@ export default function BasicInfoCard(props: Props) {
   const navigate = useNavigate()
   return (
     <div
-      className="wrapper"
+      className={styles.wrapper}
       onClick={() => {
         navigate('/project2/' + props.artist + '/' + props.song, {
           state: {
@@ -28,9 +28,16 @@ export default function BasicInfoCard(props: Props) {
         })
       }}
     >
-      <Card variant="outlined" sx={{ width: 1, backgroundColor: 'white' }}>
+      <Card
+        variant="outlined"
+        sx={{ width: 1, backgroundColor: 'white', cursor: 'pointer' }}
+      >
         <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
-          <img className="albumCover" src={props.img} alt="Album cover" />
+          <img
+            className={styles.albumCover}
+            src={props.img}
+            alt="Album cover"
+          />
           <div>
             <Typography variant="h6" component="div">
               {props.song}

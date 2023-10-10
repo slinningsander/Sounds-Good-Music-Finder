@@ -1,4 +1,3 @@
-import './Searchresult.module.css'
 import BasicInfoCard from '../BasicInfoCard/BasicInfoCard.tsx'
 import graduation from '../../assets/Graduation.jpeg'
 

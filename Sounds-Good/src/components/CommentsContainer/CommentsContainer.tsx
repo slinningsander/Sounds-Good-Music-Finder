@@ -1,18 +1,18 @@
 import CommentComponent from '../CommentComponent/CommentComponent'
-import './CommentsContainer.css'
+import styles from './CommentsContainer.module.css'
 
 export const CommentsContainer = () => {
   return (
     <>
-      <div className="CommentsWrapper">
+      <div className={styles.CommentsWrapper}>
         <h2>Comments</h2>
-        <div className="CommentsContainer">
+        <div className={styles.CommentsContainer}>
           <CommentComponent text="This is a comment" />
           <CommentComponent text="This is another comment" />
           <CommentComponent text="This is yet another comment" />
         </div>
         <h2>Add a comment</h2>
-        <div className="comment-form">
+        <div className={styles.commentForm}>
           <input type="text" />
           <button
             type="submit"

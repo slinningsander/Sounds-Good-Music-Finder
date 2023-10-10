@@ -1,4 +1,4 @@
-import './DetailedCard.css'
+import styles from './DetailedCard.module.css'
 
 type Props = {
   title: string
@@ -19,15 +19,15 @@ const DetailedCard = ({
 }: Props) => {
   return (
     <>
-      <div className="contentWrapper">
-        <div className="contentContainer">
-          <h1 className="children">{title}</h1>
-          <h2 className="children">{artist}</h2>
-          <img src={img} alt={title} className="image" />
-          <h3 className="children">{length}</h3>
-          <h3 className="children">{credits}</h3>
-          <h3 className="children">Lyrics</h3>
-          <p className="children">{lyrics}</p>
+      <div className={styles.contentWrapper}>
+        <div className={styles.contentContainer}>
+          <h1 className={styles.children}>{title}</h1>
+          <h2 className={styles.children}>{artist}</h2>
+          <img src={img} alt={title} className={styles.image} />
+          <h3 className={styles.children}>{length}</h3>
+          <h3 className={styles.children}>{credits}</h3>
+          <h3 className={styles.children}>Lyrics</h3>
+          <p className={styles.children}>{lyrics}</p>
         </div>
       </div>
     </>

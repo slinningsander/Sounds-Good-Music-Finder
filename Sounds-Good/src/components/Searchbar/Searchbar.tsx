@@ -1,4 +1,4 @@
-import './Searchbar.css'
+import styles from './Searchbar.module.css'
 import React from 'react'
 
 type SearchbarProps = {
@@ -18,23 +18,24 @@ export function Searchbar({
   onChange,
 }: SearchbarProps) {
   return (
-    <div className="searchbar-container">
+    <div className={styles.searchbarContainer}>
       {/*<form
         className="searchbar-form"
         method="get"
         action="/project2/searchResult"
       >*/}
-      <label className="searchbar-label" htmlFor={searchbarName}>
+      <label className={styles.searchbarLabel} htmlFor={searchbarName}>
         {labelValue}
       </label>
       <input
         type="search"
-        className="searchbar"
+        className={styles.searchbar}
         name={searchbarName}
         required={isRequired}
         placeholder={placeholder}
         aria-label={ariaLabel}
         onChange={onChange}
+        autoComplete="off"
       />
       {/*</form>*/}
     </div>
