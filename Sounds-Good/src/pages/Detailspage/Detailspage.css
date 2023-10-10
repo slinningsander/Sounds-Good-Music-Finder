@@ -1,0 +1,22 @@
+.container {
+  margin-top: 10ch;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  background-color: plum;
+  border-radius: 2ch;
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+  }
+  .container > * {
+    width: 100%;
+  }
+}
+    
+
