@@ -1,0 +1,43 @@
+type Artist {
+	artist_name: String!
+	songsMadeBy: [Song!]! @relationship(type: "MADE_BY", direction: IN)
+}
+
+type Genre {
+	genre: String!
+	songsHasGenre: [Song!]! @relationship(type: "HAS_GENRE", direction: IN)
+}
+
+type Song {
+	acousticness: Float!
+	age: Float!
+	communication: Float!
+	danceability: Float!
+	dating: Float!
+	energy: Float!
+	family/gospel: Float!
+	family/spiritual: Float!
+	feelings: Float!
+	hasGenreGenres: [Genre!]! @relationship(type: "HAS_GENRE", direction: OUT)
+	id: BigInt!
+	instrumentalness: String!
+	len: BigInt!
+	light/visual perceptions: Float!
+	like/girls: Float!
+	loudness: Float!
+	lyrics: String!
+	madeByArtists: [Artist!]! @relationship(type: "MADE_BY", direction: OUT)
+	movement/places: Float!
+	music: Float!
+	night/time: Float!
+	obscene: Float!
+	release_date: BigInt!
+	romantic: Float!
+	sadness: Float!
+	shake the audience: Float!
+	topic: String!
+	track_name: String!
+	valence: Float!
+	violence: Float!
+	world/life: Float!
+}
