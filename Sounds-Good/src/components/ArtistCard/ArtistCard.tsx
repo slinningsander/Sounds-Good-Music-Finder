@@ -1,4 +1,4 @@
-import './ArtistCard.module.css'
+import styles from './ArtistCard.module.css'
 
 type ArtistCardProps = {
   artistName: string
@@ -6,7 +6,7 @@ type ArtistCardProps = {
 
 const ArtistCard = ({ artistName }: ArtistCardProps) => {
   return (
-    <div className="container">
+    <div className={styles.container}>
       <h3>{artistName}</h3>
     </div>
   )
