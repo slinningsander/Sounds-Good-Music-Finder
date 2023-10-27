@@ -1,0 +1,164 @@
+Artist: The Weeknd, Album: Starboy
+Artist: The Weeknd, Album: After Hours
+Artist: The Weeknd, Album: Beauty Behind the Madness
+Artist: The Weeknd, Album: My Dear Melancholy,
+Artist: The Weeknd, Album: dawn FM
+Artist: Taylor Swift, Album: Lover
+Artist: Taylor Swift, Album: Fearless
+Artist: Taylor Swift, Album: 1989
+Artist: Taylor Swift, Album: Reputation
+Artist: Taylor Swift, Album: FOlKlORE
+Artist: Drake, Album: Views
+Artist: Drake, Album: So Far Gone
+Artist: Drake, Album: Scorpion
+Artist: Drake, Album: More Life
+Artist: Drake, Album: CERTIFIED LOVER BOY
+Artist: Kanye West, Album: Graduation
+Artist: Kanye West, Album: My Beautiful Dark Twisted Fantasy
+Artist: Kanye West, Album: 808s & Heartbreak
+Artist: Kanye West, Album: Late Registration
+Artist: Kanye West, Album: Yeezus
+Artist: Lana Del Rey, Album: Born to Die - The Paradise Edition
+Artist: Lana Del Rey, Album: Born to Die
+Artist: Lana Del Rey, Album: Norman Fucking Rockwell!
+Artist: Lana Del Rey, Album: Ultraviolence (Deluxe)
+Artist: Lana Del Rey, Album: Lust For Life
+Artist: Doja Cat, Album: Planet Her
+Artist: Doja Cat, Album: Hot Pink
+Artist: Doja Cat, Album: Kiss Me More (feat. SZA)
+Artist: Doja Cat, Album: Amala (Deluxe Version)
+Artist: Doja Cat, Album: Kiss Me More (feat. SZA)
+Artist: Kendrick Lamar, Album: Black Panther the Album Music From and Inspired By
+Artist: Travis Scott, Album: (null)
+Artist: Travis Scott, Album: Days Before Rodeo
+Artist: Travis Scott, Album: Antidote
+Artist: Jay-Z, Album: Watch The Throne (Deluxe)
+Artist: Brent Faiyaz, Album: Gravity (feat. Tyler, The Creator)
+Artist: 21 Savage, Album: Savage Mode II
+Artist: Elton John, Album: Goodbye Yellow Brick Road (Remastered)
+Artist: Imagine Dragons, Album: Origins (Deluxe)
+Artist: Kid Cudi, Album: Man On The Moon: The End Of Day (Deluxe)
+Artist: Eyedress, Album: Something About You
+Artist: David Guetta, Album: Nothing But The Beat
+Artist: Seeb, Album: seaside_demo
+Artist: Seeb, Album: loving u is harder
+Artist: Seeb, Album: god of the sunsets
+Artist: Seeb, Album: f**k it, i'm the man
+Artist: Seeb, Album: Coney Island
+Artist: José González, Album: Imperial Recordings Best of
+Artist: Björn Rosenström, Album: Låtar som är sådär...
+Artist: CLMD, Album: DANCE
+Artist: Tungevaag, Album: Ride With Me (feat. Kid Ink) [Brennan Heart Remix]
+Artist: Tungevaag, Album: Samsara (feat. Emila)
+Artist: Tungevaag, Album: Wicked Wonderland
+Artist: AVABEREE, Album: 100 Songs 2012: Part 3
+Artist: Vigiland, Album: Be Your Friend
+Artist: Alesso, Album: Going Dumb
+Artist: Kygo, Album: It Ain't Me (with Selena Gomez)
+Artist: Ina Wroldsen, Album: Favela
+Artist: Ina Wroldsen, Album: Obsessed
+Artist: Julie Bergan, Album: Kiss Somebody
+Artist: Alphabeat, Album: 10,000 Nights Of Thunder
+Artist: Axwell, Album: Leave The World Behind
+Artist: Lido, Album: Spacesuit
+Artist: Gabrielle, Album: 5 fine frøkner
+Artist: Christopher, Album: When I Get Old
+Artist: Lemaitre, Album: Relativity 2
+Artist: Lemaitre, Album: Relativity 3
+Artist: Lemaitre, Album: The Friendly Sound EP
+Artist: Lemaitre, Album: Relativity 1
+Artist: Lemaitre, Album: Kitsuné Maison Compilation 12: The Good Fun Issue
+Artist: Benny Andersson, Album: Mamma Mia!
+Artist: Benny Andersson, Album: Mamma Mia
+Artist: Benny Andersson, Album: Kristina Från Duvemåla
+Artist: Zara Larsson, Album: Never Forget You
+Artist: Doja Cat, Album: Kiss Me More (feat. SZA)
+Artist: Kendrick Lamar, Album: Black Panther the Album Music From and Inspired By
+Artist: Travis Scott, Album: (null)
+Artist: Travis Scott, Album: Days Before Rodeo
+Artist: Travis Scott, Album: Antidote
+Artist: Jay-Z, Album: Watch The Throne (Deluxe)
+Artist: Brent Faiyaz, Album: Gravity (feat. Tyler, The Creator)
+Artist: 21 Savage, Album: Savage Mode II
+Artist: Elton John, Album: Goodbye Yellow Brick Road (Remastered)
+Artist: Imagine Dragons, Album: Origins (Deluxe)
+Artist: Kid Cudi, Album: Man On The Moon: The End Of Day (Deluxe)
+Artist: Eyedress, Album: Something About You
+Artist: David Guetta, Album: Nothing But The Beat
+Artist: Seeb, Album: seaside_demo
+Artist: Seeb, Album: loving u is harder
+Artist: Seeb, Album: god of the sunsets
+Artist: Seeb, Album: f**k it, i'm the man
+Artist: Seeb, Album: Coney Island
+Artist: José González, Album: Imperial Recordings Best of
+Artist: Björn Rosenström, Album: Låtar som är sådär...
+Artist: CLMD, Album: DANCE
+Artist: Tungevaag, Album: Ride With Me (feat. Kid Ink) [Brennan Heart Remix]
+Artist: Tungevaag, Album: Samsara (feat. Emila)
+Artist: Tungevaag, Album: Wicked Wonderland
+Artist: AVABEREE, Album: 100 Songs 2012: Part 3
+Artist: Vigiland, Album: Be Your Friend
+Artist: Alesso, Album: Going Dumb
+Artist: Kygo, Album: It Ain't Me (with Selena Gomez)
+Artist: Ina Wroldsen, Album: Favela
+Artist: Ina Wroldsen, Album: Obsessed
+Artist: Julie Bergan, Album: Kiss Somebody
+Artist: Alphabeat, Album: 10,000 Nights Of Thunder
+Artist: Axwell, Album: Leave The World Behind
+Artist: Lido, Album: Spacesuit
+Artist: Gabrielle, Album: 5 fine frøkner
+Artist: Christopher, Album: When I Get Old
+Artist: Lemaitre, Album: Relativity 2
+Artist: Lemaitre, Album: Relativity 3
+Artist: Lemaitre, Album: The Friendly Sound EP
+Artist: Lemaitre, Album: Relativity 1
+Artist: Lemaitre, Album: Kitsuné Maison Compilation 12: The Good Fun Issue
+Artist: Benny Andersson, Album: Mamma Mia!
+Artist: Benny Andersson, Album: Mamma Mia
+Artist: Benny Andersson, Album: Kristina Från Duvemåla
+Artist: Zara Larsson, Album: Never Forget You
+Artist: Doja Cat, Album: Kiss Me More (feat. SZA)
+Artist: Kendrick Lamar, Album: Black Panther the Album Music From and Inspired By
+Artist: Travis Scott, Album: (null)
+Artist: Travis Scott, Album: Days Before Rodeo
+Artist: Travis Scott, Album: Antidote
+Artist: Jay-Z, Album: Watch The Throne (Deluxe)
+Artist: Brent Faiyaz, Album: Gravity (feat. Tyler, The Creator)
+Artist: 21 Savage, Album: Savage Mode II
+Artist: Elton John, Album: Goodbye Yellow Brick Road (Remastered)
+Artist: Imagine Dragons, Album: Origins (Deluxe)
+Artist: Kid Cudi, Album: Man On The Moon: The End Of Day (Deluxe)
+Artist: Eyedress, Album: Something About You
+Artist: David Guetta, Album: Nothing But The Beat
+Artist: Seeb, Album: seaside_demo
+Artist: Seeb, Album: loving u is harder
+Artist: Seeb, Album: god of the sunsets
+Artist: Seeb, Album: f**k it, i'm the man
+Artist: Seeb, Album: Coney Island
+Artist: José González, Album: Imperial Recordings Best of
+Artist: Björn Rosenström, Album: Låtar som är sådär...
+Artist: CLMD, Album: DANCE
+Artist: Tungevaag, Album: Ride With Me (feat. Kid Ink) [Brennan Heart Remix]
+Artist: Tungevaag, Album: Samsara (feat. Emila)
+Artist: Tungevaag, Album: Wicked Wonderland
+Artist: AVABEREE, Album: 100 Songs 2012: Part 3
+Artist: Vigiland, Album: Be Your Friend
+Artist: Alesso, Album: Going Dumb
+Artist: Kygo, Album: It Ain't Me (with Selena Gomez)
+Artist: Ina Wroldsen, Album: Favela
+Artist: Ina Wroldsen, Album: Obsessed
+Artist: Julie Bergan, Album: Kiss Somebody
+Artist: Alphabeat, Album: 10,000 Nights Of Thunder
+Artist: Axwell, Album: Leave The World Behind
+Artist: Lido, Album: Spacesuit
+Artist: Gabrielle, Album: 5 fine frøkner
+Artist: Christopher, Album: When I Get Old
+Artist: Lemaitre, Album: Relativity 2
+Artist: Lemaitre, Album: Relativity 3
+Artist: Lemaitre, Album: The Friendly Sound EP
+Artist: Lemaitre, Album: Relativity 1
+Artist: Lemaitre, Album: Kitsuné Maison Compilation 12: The Good Fun Issue
+Artist: Benny Andersson, Album: Mamma Mia!
+Artist: Benny Andersson, Album: Mamma Mia
+Artist: Benny Andersson, Album: Kristina Från Duvemåla
+Artist: Zara Larsson, Album: Never Forget You
