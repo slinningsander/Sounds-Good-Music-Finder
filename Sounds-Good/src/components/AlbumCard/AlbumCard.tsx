@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from '@mui/material'
-import styles from './BasicInfoCard.module.css'
+import styles from './AlbumCard.module.css'
 import { useNavigate } from 'react-router-dom'
 
 type Props = {
@@ -37,12 +37,10 @@ export default function BasicInfoCard(props: Props) {
             alt="Album cover"
           />
           <div>
-            <Typography variant="h6" component="div">
+            <Typography sx={{ mb: 1 }} variant="h6" component="div">
               {props.album}
             </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {props.artist}
-            </Typography>
+            <Typography color="text.secondary">{props.artist}</Typography>
           </div>
         </CardContent>
       </Card>
