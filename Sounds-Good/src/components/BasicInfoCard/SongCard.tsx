@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from '@mui/material'
-import styles from './BasicInfoCard.module.css'
+import styles from './SongCard.module.css'
 import { useNavigate } from 'react-router-dom'
 
 type Props = {
