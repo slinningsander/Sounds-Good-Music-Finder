@@ -3,8 +3,8 @@ import fs from "fs";
 import neo4j from "neo4j-driver";
 
 const driver = neo4j.driver(
-  "neo4j+s://7b3aeb69.databases.neo4j.io",
-  neo4j.auth.basic("neo4j", "I09dveAi5CoB3DRtw4uKKHbvLaJy1ZKs4bdQ6MTGIlU")
+  "bolt://localhost:7687",
+  neo4j.auth.basic("neo4j", "123456789")
 );
 
 const sessionFactory = () =>

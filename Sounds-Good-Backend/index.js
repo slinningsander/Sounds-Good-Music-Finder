@@ -6,53 +6,44 @@ import path from "path";
 import fs from "fs";
 
 const typeDefsString = `#graphql
+type Album {
+	album_art: String!
+	album_title: String!
+	artistsCreatedAlbum: [Artist!]! @relationship(type: "CREATED_ALBUM", direction: IN)
+	hasTagTags: [Tag!]! @relationship(type: "HAS_TAG", direction: OUT)
+	hasTrackTracks: [Track!]! @relationship(type: "HAS_TRACK", direction: OUT)
+	id: String!
+	summary: String!
+}
+
 type Artist {
-  artist_name: String!
-  songsMadeBy: [Song!]! @relationship(type: "MADE_BY", direction: IN)
+	artist_bio: String!
+	artist_name: String!
+	createdAlbumAlbums: [Album!]! @relationship(type: "CREATED_ALBUM", direction: OUT)
+	createdTrackTracks: [Track!]! @relationship(type: "CREATED_TRACK", direction: OUT)
+	id: String!
+	listeners: BigInt!
 }
 
-type Genre {
-  genre: String!
-  songsHasGenre: [Song!]! @relationship(type: "HAS_GENRE", direction: IN)
+type Tag {
+	albumsHasTag: [Album!]! @relationship(type: "HAS_TAG", direction: IN)
+	id: String!
+	tag_name: String!
 }
 
-type Song {
-  acousticness: Float!
-  age: Float!
-  communication: Float!
-  danceability: Float!
-  dating: Float!
-  energy: Float!
-  family_gospel: Float!
-  family_spiritual: Float!
-  feelings: Float!
-  hasGenreGenres: [Genre!]! @relationship(type: "HAS_GENRE", direction: OUT)
-  id: BigInt!
-  instrumentalness: String!
-  len: BigInt!
-  light_visual_perceptions: Float!
-  like_girls: Float!
-  loudness: Float!
-  lyrics: String!
-  madeByArtists: [Artist!]! @relationship(type: "MADE_BY", direction: OUT)
-  movement_places: Float!
-  music: Float!
-  night_time: Float!
-  obscene: Float!
-  release_date: BigInt!
-  romantic: Float!
-  sadness: Float!
-  shake_the_audience: Float!
-  topic: String!
-  track_name: String!
-  valence: Float!
-  violence: Float!
-  world_life: Float!
+type Track {
+	albumsHasTrack: [Album!]! @relationship(type: "HAS_TRACK", direction: IN)
+	artistsCreatedTrack: [Artist!]! @relationship(type: "CREATED_TRACK", direction: IN)
+	cover_art: String!
+	duration: BigInt!
+	id: String!
+	rank: BigInt!
+	track_title: String!
 }`;
 
 const driver = neo4j.driver(
-  "neo4j+s://7b3aeb69.databases.neo4j.io",
-  neo4j.auth.basic("neo4j", "I09dveAi5CoB3DRtw4uKKHbvLaJy1ZKs4bdQ6MTGIlU")
+  "bolt://it2810-23.idi.ntnu.no:7687",
+  neo4j.auth.basic("neo4j", "password")
 );
 
 const neoSchema = new Neo4jGraphQL({ typeDefs: typeDefsString, driver });
