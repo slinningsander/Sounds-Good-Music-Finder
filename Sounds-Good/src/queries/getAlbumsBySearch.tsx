@@ -1,7 +1,7 @@
 import { gql, useQuery } from '@apollo/client'
 
-const GET_ALBUM = gql`
-  query GetAlbum($where: AlbumWhere) {
+const GET_ALBUMS_BY_SEARCH = gql`
+  query GetAlbumsBySearch($where: AlbumWhere) {
     albums(where: $where) {
       album_art
       album_title
@@ -12,8 +12,8 @@ const GET_ALBUM = gql`
   }
 `
 
-export default function GetArtist(input: string) {
-  const result = useQuery(GET_ALBUM, {
+export default function GetAlbumsBySearch(input: string) {
+  const result = useQuery(GET_ALBUMS_BY_SEARCH, {
     variables: { where: { track_title_STARTS_WITH: input } },
   })
 
