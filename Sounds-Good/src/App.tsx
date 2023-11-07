@@ -3,6 +3,7 @@ import Homepage from './pages/Homepage/Homepage.tsx'
 import Detailspage from './pages/Detailspage/Detailspage'
 import { Navbar } from './components/Navbar/Navbar'
 import Artistpage from './pages/Artistpage/Artistpage.tsx'
+import Albumpage from './pages/Albumpage/Albumpage.tsx'
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route path="/project2" element={<Homepage />} />
         <Route path="/project2/:artist/:song" element={<Detailspage />} />
         <Route path="/project2/:artist" element={<Artistpage />} />
-        <Route path="/project2/:artist/album/:album" element={<div></div>} />
+        <Route path="/project2/:artist/album/:album" element={<Albumpage />} />
       </Routes>
     </>
   )
