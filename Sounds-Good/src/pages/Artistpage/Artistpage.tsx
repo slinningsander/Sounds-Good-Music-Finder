@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import styles from './Artistpage.module.css'
 import Page from '../../components/Page/Page'
 import GetArtist from '../../queries/getArtist'
+import { useNavigate } from 'react-router-dom'
 
 type Album = {
   album_art: string | undefined
@@ -10,6 +11,7 @@ type Album = {
 
 const Artistpage = () => {
   const url = new URL(window.location.href)
+  const navigate = useNavigate()
 
   // Extract the value of the parameter "name" from the URL
   const artistName = url.pathname.split('/').pop() // Extracts "Kanye%20West"
@@ -53,7 +55,11 @@ const Artistpage = () => {
             {data.artists[0].createdAlbumAlbums.map((album: Album) => (
               <div className={styles.albums}>
                 <p> {album.album_title}</p>
-                <img src={album.album_art} className={styles.albumCover} />
+                <img
+                  src={album.album_art}
+                  className={styles.albumCover}
+                  onClick={() => navigate('album/' + album.album_title)}
+                />
               </div>
             ))}
           </div>
