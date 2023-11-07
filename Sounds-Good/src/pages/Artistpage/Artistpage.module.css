@@ -11,10 +11,15 @@
 }
 
 .bio {
-  font-size: x-large;
+  font-size: larger;
   text-align: center;
 }
-
+h1 {
+  margin-bottom: 0;
+}
+h2 {
+  margin-bottom: 0;
+}
 .albumCover {
   width: 20rem;
   height: 20rem;

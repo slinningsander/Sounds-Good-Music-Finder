@@ -23,7 +23,10 @@ const Artistpage = () => {
 
   const sanitizedBio = data?.artists[0].artist_bio.replace(
     /<a\b[^>]*>.*?<\/a>/g,
-    ''
+    '...'
+  )
+  const formattedlisteners = new Intl.NumberFormat('UK').format(
+    data?.artists[0].listeners
   )
 
   useEffect(() => {
@@ -48,6 +51,8 @@ const Artistpage = () => {
         <div className={styles.container}>
           <div className={styles.infoContainer}>
             <h1>{data.artists[0].artist_name}</h1>
+            <h3>Last.fm listeners: {formattedlisteners}</h3>
+            <h2>About</h2>
             <p className={styles.bio}>{sanitizedBio}</p>
           </div>
           <h2>Most Popular Albums</h2>
