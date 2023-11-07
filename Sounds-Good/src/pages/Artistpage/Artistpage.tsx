@@ -48,7 +48,7 @@ const Artistpage = () => {
             <h1>{data.artists[0].artist_name}</h1>
             <p className={styles.bio}>{sanitizedBio}</p>
           </div>
-          <h2>Albums</h2>
+          <h2>Most Popular Albums</h2>
           <div className={styles.albumContainer}>
             {data.artists[0].createdAlbumAlbums.map((album: Album) => (
               <div className={styles.albums}>
