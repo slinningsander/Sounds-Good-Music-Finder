@@ -15,12 +15,10 @@ const GET_TRACK = gql`
   }
 `
 
-export default function GetArtist(input: string, offset: number) {
+export default function GetTrack(input: string) {
   const result = useQuery(GET_TRACK, {
     variables: {
-      where: { track_title_STARTS_WITH: input },
-      offset: { offset },
-      limit: { limit: 10 },
+      where: { track_title: input },
     },
   })
 
