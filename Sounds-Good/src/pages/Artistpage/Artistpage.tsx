@@ -40,7 +40,6 @@ const Artistpage = () => {
       console.log(data.artists[0])
     }
   }, [data, error, loading])
-  // Replace with actual artist data
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error</p>
