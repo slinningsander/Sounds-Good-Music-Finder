@@ -1,4 +1,4 @@
-import BasicInfoCard from '../BasicInfoCard/BasicInfoCard.tsx'
+import BasicInfoCard from '../../../BasicInfoCard/BasicInfoCard.tsx'
 import graduation from '../../assets/Graduation.jpeg'
 
 type SearchresultProps = {
