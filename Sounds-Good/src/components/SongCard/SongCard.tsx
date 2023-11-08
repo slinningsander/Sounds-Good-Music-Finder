@@ -21,18 +21,7 @@ export default function BasicInfoCard(props: Props) {
             '/album/' +
             encodeURIComponent(props.album) +
             '/song/' +
-            encodeURIComponent(props.song),
-          {
-            state: {
-              title: props.song,
-              artist: props.artist,
-              album: props.album,
-              img: props.img,
-              length: '3:57',
-              credits: 'Kanye West, Eric Hudson',
-              lyrics: 'Flashing Lights',
-            },
-          }
+            encodeURIComponent(props.song)
         )
       }}
     >
