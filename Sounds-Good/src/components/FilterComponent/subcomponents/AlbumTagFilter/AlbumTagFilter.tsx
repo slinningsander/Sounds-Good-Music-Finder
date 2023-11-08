@@ -6,15 +6,37 @@ import {
   TextField,
   styled,
 } from '@mui/material'
+import GetAllTags from '../../../../queries/getAllTags'
 
 export function AlbumTagFilter() {
-  const options = mockData.map((option) => {
-    const firstLetter = option.title[0].toUpperCase()
+  const { data, loading, error } = GetAllTags()
+  const alltags: string[] = []
+  for (let i = 0; i < 559; i++) {
+    if (!loading) {
+      // console.log(data.tags[i].tag_name)
+      alltags.push(data.tags[i].tag_name)
+    }
+  }
+
+  // const options = mockData.map((option) => {
+  //   const firstLetter = option.title[0].toUpperCase()
+  //   return {
+  //     firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+  //     ...option,
+  //   }
+  // })
+
+  const options = alltags.map((option) => {
+    const firstLetter = option.charAt(0).toUpperCase()
     return {
       firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
-      ...option,
+      // Assign the entire string to a property
+      option: option,
     }
   })
+  const optionValues = options.map((o) => o.option)
+  console.log(options)
+
   const GroupHeader = styled('div')({
     position: 'sticky',
     top: '-8px',
@@ -29,19 +51,22 @@ export function AlbumTagFilter() {
   })
 
   const [values, setValues] = React.useState<string[]>([])
+  if (loading) return <h1>loading..</h1>
+  if (error) return <h1>error</h1>
+
+  function getPickedTags(values: string[]) {
+    //den lagger med å hente verdier!
+    console.log(values)
+  }
   return (
     <>
-      <div>{`value: ${
-        values !== null
-          ? `'${values.forEach((value) => console.log(value.title))}'`
-          : 'null'
-      }`}</div>
       <FormControlLabel
         control={
           <Autocomplete
             value={values}
-            onChange={(_event: unknown, value: string[]) => {
-              setValues(value)
+            onChange={(event: unknown, newValue: string[] | null) => {
+              setValues(newValue || [])
+              getPickedTags(values)
             }}
             multiple
             limitTags={2}
@@ -50,8 +75,9 @@ export function AlbumTagFilter() {
             options={options.sort(
               (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
             )}
+            // options={options}
             groupBy={(option) => option.firstLetter}
-            getOptionLabel={(option) => option.title}
+            getOptionLabel={(option) => option.option}
             renderInput={(params) => (
               <TextField {...params} label="Tags" placeholder="Rock" />
             )}
