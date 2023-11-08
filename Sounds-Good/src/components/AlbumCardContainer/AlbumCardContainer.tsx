@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import GetAlbumBySearch from '../../queries/getAlbumsBySearch'
 import AlbumCard from '../AlbumCard/AlbumCard'
 import styles from './AlbumCardContainer.module.css'
+import { useApolloClient } from '@apollo/client'
 
 type AlbumCardContainerProps = {
   input: string
@@ -16,8 +17,11 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
     more,
     setMore
   )
+  const client = useApolloClient()
+
 
   useEffect(() => {
+    client.resetStore()
     if (loading) {
       console.log('loading')
     } else if (error) {
