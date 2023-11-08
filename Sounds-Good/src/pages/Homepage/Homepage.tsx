@@ -1,6 +1,13 @@
-// import Search from '../../components/Search/Search.tsx'
+import { useEffect, useState } from 'react'
 import Searchbar from '../../components/Search/subcomponents/Searchbar/Searchbar.tsx'
+import SongCardContainer from '../../components/SongCardContainer/SongCardContainer.tsx'
 export default function Homepage() {
+  const [searchbarValue, setSearchbarValue] = useState('')
+
+  useEffect(() => {
+    console.log(searchbarValue)
+  }, [searchbarValue])
+
   return (
     <>
       <h1>This is the Homepage!</h1>
@@ -10,7 +17,9 @@ export default function Homepage() {
         placeholder="Drake"
         labelValue="Search"
         ariaLabel="Searchbar"
+        setSearchbarValue={setSearchbarValue}
       />
+      {searchbarValue && <SongCardContainer input={searchbarValue} />}
     </>
   )
 }
