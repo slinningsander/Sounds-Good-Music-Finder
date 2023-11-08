@@ -57,6 +57,7 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
           setMore(true)
           setOffset(data.tracks.length)
         }}
+        className={styles.button}
       >
         Show More
       </button>

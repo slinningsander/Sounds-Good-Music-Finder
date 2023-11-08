@@ -9,8 +9,16 @@ import {
 import { pink, orange, green } from '@mui/material/colors'
 import React from 'react'
 
-export function SearchFilter() {
-  const [selectedValue, setSelectedValue] = React.useState('ARTIST')
+type SearchFilterProps = {
+  selectedValue: string
+  setSelectedValue: (selectedValue: string) => void
+}
+
+export function SearchFilter({
+  selectedValue,
+  setSelectedValue,
+}: SearchFilterProps) {
+  // const [selectedValue, setSelectedValue] = React.useState('ARTIST')
   const handleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value)
     return selectedValue
