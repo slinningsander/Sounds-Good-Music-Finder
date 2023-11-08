@@ -10,6 +10,10 @@
   padding-bottom: 2rem;
 }
 
+.albumArt {
+  width: 30rem;
+  height: 30rem;
+}
 .bio {
   font-size: larger;
   text-align: center;
@@ -20,14 +24,8 @@ h1 {
 h2 {
   margin-bottom: 0;
 }
-.albumCover {
-  width: 20rem;
-  height: 20rem;
-  margin: 0 auto;
-  transition: transform 0.2s;
-}
 
-.albumCover:hover {
+.track:hover {
   transform: scale(1.05);
   cursor: pointer;
 }
@@ -42,11 +40,12 @@ h2 {
   gap: 2rem;
 }
 
-.albums {
+.track {
   display: flex;
   flex-direction: column;
   border-radius: 2ch;
   text-align: center;
+  transition: transform 0.2s;
 }
 
 .infoContainer {

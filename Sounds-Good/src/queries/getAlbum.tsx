@@ -1,14 +1,19 @@
 import { gql, useQuery } from '@apollo/client'
 
 const GET_ALBUM = gql`
-  query GetAlbum($where: AlbumWhere) {
+  query GetAlbum(
+    $where: AlbumWhere
+    $artistsCreatedAlbumWhere2: ArtistWhere
+    $options: TrackOptions
+  ) {
     albums(where: $where) {
       album_title
+      summary
       album_art
-      artistsCreatedAlbum {
+      artistsCreatedAlbum(where: $artistsCreatedAlbumWhere2) {
         artist_name
       }
-      tracksOnAlbum {
+      hasTrackTracks(options: $options) {
         track_title
         rank
         duration
@@ -16,9 +21,26 @@ const GET_ALBUM = gql`
     }
   }
 `
-export default function GetAlbum(input: string) {
+export default function GetAlbum(
+  album_title: string | undefined,
+  artist_name: string | undefined
+) {
   const result = useQuery(GET_ALBUM, {
-    variables: { where: { album_title: input } },
+    variables: {
+      where: {
+        album_title: album_title,
+      },
+      artistsCreatedAlbumWhere2: {
+        artist_name: artist_name,
+      },
+      options: {
+        sort: [
+          {
+            rank: 'ASC',
+          },
+        ],
+      },
+    },
   })
 
   return result
