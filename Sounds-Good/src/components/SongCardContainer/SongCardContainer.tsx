@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import GetSongBySearch from '../../queries/getTracksBySearch'
 import SongCard from '../SongCard/SongCard'
 import styles from './SongCardContainer.module.css'
+import { useApolloClient } from '@apollo/client'
 
 type SongCardContainerProps = {
   input: string
@@ -12,16 +13,20 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
   const [more, setMore] = useState(false)
   const { data, error, loading } = GetSongBySearch(input, offset, more, setMore)
 
+  const client = useApolloClient()
+
   useEffect(() => {
+    client.resetStore()
+    console.log(input)
     if (loading) {
       console.log('loading')
     } else if (error) {
       console.log(error)
     } else {
       console.log(data.tracks)
-      setOffset(data.tracks.length)
+      setOffset(0)
     }
-  }, [data, error])
+  }, [input])
 
   return (
     <div className={styles.wrapper}>
@@ -47,7 +52,14 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
         )
       )}
 
-      <button onClick={() => setMore(true)}>Show More</button>
+      <button
+        onClick={() => {
+          setMore(true)
+          setOffset(data.tracks.length)
+        }}
+      >
+        Show More
+      </button>
     </div>
   )
 }
