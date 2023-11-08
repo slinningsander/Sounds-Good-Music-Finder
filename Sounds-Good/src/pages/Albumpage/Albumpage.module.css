@@ -1,0 +1,56 @@
+.container {
+  margin-top: 10ch;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  background-color: plum;
+  border-radius: 2ch;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 2rem;
+}
+
+.albumArt {
+  width: 30rem;
+  height: 30rem;
+}
+.bio {
+  font-size: larger;
+  text-align: center;
+}
+h1 {
+  margin-bottom: 0;
+}
+h2 {
+  margin-bottom: 0;
+}
+
+.track:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.albumContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2ch;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 5rem;
+}
