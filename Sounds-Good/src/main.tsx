@@ -22,6 +22,12 @@ const client = new ApolloClient({
               return [...existing, ...incoming]
             },
           },
+          tracks: {
+            keyArgs: false,
+            merge(existing = [], incoming) {
+              return [...existing, ...incoming]
+            },
+          },
         },
       },
     },
