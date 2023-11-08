@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Searchbar from '../../components/Search/subcomponents/Searchbar/Searchbar.tsx'
-import SongCardContainer from '../../components/SongCardContainer/SongCardContainer.tsx'
 export default function Homepage() {
   const [searchbarValue, setSearchbarValue] = useState('')
 
