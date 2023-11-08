@@ -3,6 +3,8 @@ import GetAlbum from '../../queries/getAlbum'
 import styles from './Albumpage.module.css'
 import Page from '../../components/Page/Page'
 import formatDuration from '../../utils/formatDuration'
+import { useApolloClient } from '@apollo/client'
+import { useEffect } from 'react'
 
 const Albumpage = () => {
   const url = new URL(window.location.href)
@@ -11,6 +13,12 @@ const Albumpage = () => {
   const artist_name = url.pathname.split('/')[2]
   const decodedArtistName = decodeURIComponent(artist_name || '')
   const decodedAlbumTitle = decodeURIComponent(album_title || '')
+  const client = useApolloClient()
+
+  useEffect(() => {
+    client.resetStore()
+  }, [client])
+
   const { data, loading, error } = GetAlbum(
     decodedAlbumTitle,
     decodedArtistName
@@ -19,6 +27,7 @@ const Albumpage = () => {
     /<a\b[^>]*>.*?<\/a>/g,
     '...'
   )
+
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error</p>
   return (
@@ -42,12 +51,7 @@ const Albumpage = () => {
               <div
                 className={styles.track}
                 onClick={() =>
-                  navigate(
-                    '/project2/' +
-                      data.albums[0].artistsCreatedAlbum[0].artist_name +
-                      '/song/' +
-                      track.track_title
-                  )
+                  navigate('song/' + encodeURIComponent(track.track_title))
                 }
               >
                 <p>

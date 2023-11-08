@@ -5,29 +5,19 @@ type Props = {
   artist: string
   img: string
   length: string
-  credits: string
-  lyrics: string
+  album: string
 }
 
-const DetailedCard = ({
-  title,
-  artist,
-  img,
-  length,
-  credits,
-  lyrics,
-}: Props) => {
+const DetailedCard = ({ title, artist, img, length, album }: Props) => {
   return (
     <>
       <div className={styles.contentWrapper}>
         <div className={styles.contentContainer}>
           <h1 className={styles.children}>{title}</h1>
           <h2 className={styles.children}>{artist}</h2>
+          <h3 className={styles.children}>{album}</h3>
           <img src={img} alt={title} className={styles.image} />
           <h3 className={styles.children}>{length}</h3>
-          <h3 className={styles.children}>{credits}</h3>
-          <h3 className={styles.children}>Lyrics</h3>
-          <p className={styles.children}>{lyrics}</p>
         </div>
       </div>
     </>
