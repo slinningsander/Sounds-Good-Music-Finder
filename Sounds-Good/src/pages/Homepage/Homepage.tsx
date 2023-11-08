@@ -1,5 +1,8 @@
 // import Search from '../../components/Search/Search.tsx'
 import Searchbar from '../../components/Search/subcomponents/Searchbar/Searchbar.tsx'
+import { SearchFilter } from '../../components/FilterComponent/subcomponents/SearchFilter/SearchFilter.tsx'
+
+import Search from '../../components/Search/Search.tsx'
 export default function Homepage() {
   return (
     <>
@@ -11,6 +14,7 @@ export default function Homepage() {
         labelValue="Search"
         ariaLabel="Searchbar"
       />
+      <SearchFilter />
     </>
   )
 }
