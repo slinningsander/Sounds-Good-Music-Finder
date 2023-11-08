@@ -1,8 +1,8 @@
-import '../Searchbar/Searchbar.tsx'
-import '../Searchresult/Searchresult.tsx'
+import './subcomponents/Searchbar/Searchbar.tsx'
+import './subcomponents/Searchresult/Searchresult.tsx'
 import { useState } from 'react'
-import Searchbar from '../Searchbar/Searchbar.tsx'
-import Searchresult from '../Searchresult/Searchresult.tsx'
+import Searchbar from './subcomponents/Searchbar/Searchbar.tsx'
+import Searchresult from './subcomponents/Searchresult/Searchresult.tsx'
 
 export function Search() {
   const [inputValue, setInputValue] = useState('')
