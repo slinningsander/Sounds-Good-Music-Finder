@@ -42,7 +42,7 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
             <div>
               <AlbumCard
                 album={album.album_title}
-                artist={album.artistsCreatedAlbum}
+                artist={album.artistsCreatedAlbum[0].artist_name}
                 img={album.album_art}
               />
             </div>
