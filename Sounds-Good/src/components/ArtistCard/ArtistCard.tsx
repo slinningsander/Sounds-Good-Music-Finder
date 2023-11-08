@@ -5,6 +5,8 @@ type ArtistCardProps = {
 }
 
 const ArtistCard = ({ artistName }: ArtistCardProps) => {
+  
+
   return (
     <div className={styles.container}>
       <h3>{artistName}</h3>
