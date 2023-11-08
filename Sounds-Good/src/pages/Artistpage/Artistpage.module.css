@@ -1,0 +1,52 @@
+.container {
+  margin-top: 10ch;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  background-color: plum;
+  border-radius: 2ch;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 2rem;
+}
+
+.bio {
+  font-size: x-large;
+  text-align: center;
+}
+
+.albumCover {
+  width: 20rem;
+  height: 20rem;
+  margin: 0 auto;
+  transition: transform 0.2s;
+}
+
+.albumCover:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.albumContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.albums {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2ch;
+  text-align: center;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 5rem;
+}

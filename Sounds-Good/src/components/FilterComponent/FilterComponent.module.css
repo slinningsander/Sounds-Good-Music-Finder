@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.formGroup {
+  border: 2px solid rgb(101, 101, 101);
+  padding: 0.5em;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  border-radius: 0.5em;
+}
+.filterCheck {
+  width: fit-content;
+  border-radius: 0.5em;
+}
+
+.tagSearch {
+  width: fit-content;
+}

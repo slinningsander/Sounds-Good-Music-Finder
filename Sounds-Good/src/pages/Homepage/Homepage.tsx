@@ -1,11 +1,16 @@
-import Search from '../../components/Search/Search.tsx'
-import ArtistCardContainer from '../../components/ArtistCardContainer/ArtistCardContainer.tsx'
+// import Search from '../../components/Search/Search.tsx'
+import Searchbar from '../../components/Search/subcomponents/Searchbar/Searchbar.tsx'
 export default function Homepage() {
   return (
     <>
       <h1>This is the Homepage!</h1>
-      <Search />
-      <ArtistCardContainer input="A" />
+      <Searchbar
+        searchbarName="homePageSearch"
+        isRequired={true}
+        placeholder="Drake"
+        labelValue="Search"
+        ariaLabel="Searchbar"
+      />
     </>
   )
 }

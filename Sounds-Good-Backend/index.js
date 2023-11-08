@@ -41,20 +41,26 @@ type Track {
 	track_title: String!
 }`;
 
-const driver = neo4j.driver(
-  "bolt://it2810-23.idi.ntnu.no:7687",
-  neo4j.auth.basic("neo4j", "password")
-);
+const initializeServer = async () => {
+  const driver = neo4j.driver(
+    "bolt://it2810-23.idi.ntnu.no:7687",
+    neo4j.auth.basic("neo4j", "password")
+  );
 
-const neoSchema = new Neo4jGraphQL({ typeDefs: typeDefsString, driver });
+  const neoSchema = new Neo4jGraphQL({ typeDefs: typeDefsString, driver });
 
-const server = new ApolloServer({
-  schema: await neoSchema.getSchema(),
+  const server = new ApolloServer({
+    schema: await neoSchema.getSchema(),
+  });
+
+  const { url: serverUrl } = await startStandaloneServer(server, {
+    context: async ({ req }) => ({ req }),
+    listen: { port: 4000 },
+  });
+
+  console.log(`🚀 Server ready at ${serverUrl}`);
+};
+
+initializeServer().catch((error) => {
+  console.error("Error starting the server:", error);
 });
-
-const { url: serverUrl } = await startStandaloneServer(server, {
-  context: async ({ req }) => ({ req }),
-  listen: { port: 4000 },
-});
-
-console.log(`🚀 Server ready at ${serverUrl}`);
