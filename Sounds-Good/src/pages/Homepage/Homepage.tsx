@@ -19,7 +19,6 @@ export default function Homepage() {
         ariaLabel="Searchbar"
         setSearchbarValue={setSearchbarValue}
       />
-      {searchbarValue && <SongCardContainer input={searchbarValue} />}
     </>
   )
 }
