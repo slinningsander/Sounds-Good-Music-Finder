@@ -26,14 +26,12 @@ export function SearchFilter({
 
   return (
     <>
-      <p>{selectedValue}</p>
       <FormControl>
-        <FormLabel id="search-filter-radio-group">Filter search</FormLabel>
         <RadioGroup
           row
           aria-labelledby="filter search radio group"
           name="search-filter-radio-group"
-          defaultValue="ARTIST"
+          defaultValue="TRACK"
         >
           <FormControlLabel
             value="ARTIST"
