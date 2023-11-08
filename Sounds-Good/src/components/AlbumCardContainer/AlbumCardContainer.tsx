@@ -27,9 +27,9 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
       console.log(error)
     } else {
       console.log(data.albums)
-      setOffset(data.albums.length)
+      setOffset(0)
     }
-  }, [data, error])
+  }, [input])
 
   return (
     <div className={styles.wrapper}>
@@ -53,7 +53,13 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
         )
       )}
 
-      <button onClick={() => setMore(true)} className={styles.button}>
+      <button
+        onClick={() => {
+          setMore(true)
+          setOffset(data.albums.length)
+        }}
+        className={styles.button}
+      >
         Show More
       </button>
     </div>

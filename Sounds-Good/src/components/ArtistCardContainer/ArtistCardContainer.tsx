@@ -13,10 +13,6 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
   const { data, error, loading } = GetArtist(input, offset, more, setMore)
   const client = useApolloClient()
 
-  const getArtists = () => {
-    setOffset(data.artists.length)
-  }
-
   useEffect(() => {
     client.resetStore()
     if (loading) {
@@ -25,9 +21,10 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
       console.log(error)
     } else {
       console.log(data.artists)
-      getArtists()
+      setOffset(0)
     }
-  }, [data, error])
+  }, [input])
+
 
   return (
     <div className={styles.wrapper}>
@@ -41,7 +38,13 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
         ))
       )}
 
-      <button onClick={() => setMore(true)} className={styles.button}>
+      <button
+        onClick={() => {
+          setMore(true)
+          setOffset(data.artists.length)
+        }}
+        className={styles.button}
+      >
         Show More
       </button>
     </div>
