@@ -39,7 +39,8 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
               <SongCard
                 song={song.track_title}
                 artist={song.artistsCreatedTrack[0].artist_name}
-                img={song.cover_art}
+                img={song.albumsHasTrack[0].album_art}
+                album={song.albumsHasTrack[0].album_title}
               />
             </div>
           )
