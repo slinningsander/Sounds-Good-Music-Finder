@@ -2,9 +2,13 @@
 
 ## Description
 
-Sounds Good is a web application that allows you to search for different songs and view details about. It also allows you to look at and post comments.
+Sounds Good is a web application that allows you to search for different artists, albums, and songs and view details about them. It should also allow you to look at and post comments (not yet implemented).
 
 ## Installation
+
+The project is fully functional [here](http://it2810-23.idi.ntnu.no/project2).
+
+If you for some reason want to use the application locally you can follow these steps:
 
 Navigate to the Sounds-Good folder like this:
 
@@ -20,9 +24,15 @@ Then finally to run the project:
 
 This will run the project locally on localhost.
 
+**Note:** This will also use the backend that is hosted on the server. To use a local backend you have to change the ApolloClient URI in main.tsx to localhost, and start the backend manually:
+
+    cd Sounds-Good-Backend
+
+    node index
+
 ## Usage
 
-Currently the app doesn't contain any real functionality. This will come in the next version.
+You can now search for artists, albums and songs and view details about them.
 
 ## Roadmap
 
@@ -43,6 +53,18 @@ Currently the app doesn't contain any real functionality. This will come in the 
   Date: 22. November
 
   Description: Improve the app and add other important things such as web accessibility and make the code more sustainable.
+
+## Dataset
+
+We got our dataset from last.fm. We have taken data from the 150 most popular artists, their top 5 albums and all the songs on those albums. Our dataset is big enough so that search functionality is a natural part of our application.
+
+## Database
+
+Since we already were going to use GraphQL instead of REST, we chose to make a Neo4j database. The reason for this is that GraphQL naturally supports graph databases like Neo4j. By choosing this database we avoid coding our own resolvers, and thus save a lot of time.
+
+## Sorting and filtering
+
+We have created a search where you first choose what category you want to search. Either artists, albums or songs. When searching for artists you have the ability to further filter the search by amount of listeners, which in reality means their popularity. When searching for albums you have the ability to filter by multiple tags. These tags are user-generated in the dataset, so some tags might only apply to one album. When searching for songs you can further filter by the duration of the song.
 
 ## Components
 
