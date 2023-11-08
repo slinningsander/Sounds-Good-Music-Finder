@@ -54,6 +54,7 @@ You can now search for artists, albums and songs and view details about them.
 
   Description: Improve the app and add other important things such as web accessibility and make the code more sustainable.
 
+
 ## Dataset
 
 We got our dataset from last.fm. We have taken data from the 150 most popular artists, their top 5 albums and all the songs on those albums. Our dataset is big enough so that search functionality is a natural part of our application.
@@ -73,3 +74,13 @@ We have used [MUI](https://mui.com) to create some of the more complex component
 ## Global state management
 
 We have chosen Redux for our global state management. We have not yet put it to use, but we will in the future.
+
+## Discussion
+
+For _V1.0_ we have set up the database, deployed the backend and further developed the frontend. We have generated a dataset by making API calls to the last.fm open API. From this we got JSON data, which we generated a graphDB with nodes and relations.
+
+The webpage is still centered around the homepage. Here it is possible to search for either artist, album or track. There is a filter which configurates search category that can be picked both before and after search. It is also possible to filter on tracks by duration in seconds. There is also functionality to sort search result either ascending or descending alphabeticaly. 
+
+We wanted to be able to filter on all three search-categories(artist, album and track), but we had alot of issues dealing with MaterialUI components and the graphQL query language, and were only able to filter the track category by duration. We have filter components in FilterComponent -> subcomponent mostly done and will develope these further.
+
+All in all, we have a large dataset and there is a lot of database content to view on the site. 
