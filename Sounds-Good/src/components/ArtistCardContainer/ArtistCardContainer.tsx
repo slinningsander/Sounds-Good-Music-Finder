@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import GetArtist from '../../queries/getArtist'
+import GetArtist from '../../queries/getArtistsBySearch'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import styles from './ArtistCardContainer.module.css'
 
