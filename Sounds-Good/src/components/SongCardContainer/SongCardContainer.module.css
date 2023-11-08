@@ -5,3 +5,12 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.button{
+    width: 20%;
+    border: 1px solid #000000;
+    background-color: rgb(195, 62, 106);
+    border-radius: 1ch;
+    font-size: large;
+    align-self: center;
+}

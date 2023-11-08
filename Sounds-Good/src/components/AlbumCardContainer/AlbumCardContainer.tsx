@@ -19,7 +19,6 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
   )
   const client = useApolloClient()
 
-
   useEffect(() => {
     client.resetStore()
     if (loading) {
@@ -54,7 +53,9 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
         )
       )}
 
-      <button onClick={() => setMore(true)}>Show More</button>
+      <button onClick={() => setMore(true)} className={styles.button}>
+        Show More
+      </button>
     </div>
   )
 }

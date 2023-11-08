@@ -13,7 +13,6 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
   const { data, error, loading } = GetArtist(input, offset, more, setMore)
   const client = useApolloClient()
 
-
   const getArtists = () => {
     setOffset(data.artists.length)
   }
@@ -42,7 +41,9 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
         ))
       )}
 
-      <button onClick={() => setMore(true)}>Show More</button>
+      <button onClick={() => setMore(true)} className={styles.button}>
+        Show More
+      </button>
     </div>
   )
 }
