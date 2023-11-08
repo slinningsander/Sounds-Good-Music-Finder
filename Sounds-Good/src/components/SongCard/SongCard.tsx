@@ -16,7 +16,7 @@ export default function BasicInfoCard(props: Props) {
       className={styles.wrapper}
       onClick={() => {
         navigate(
-          '/project2/artist/' +
+          '/project2/' +
             encodeURIComponent(props.artist) +
             '/album/' +
             encodeURIComponent(props.album) +

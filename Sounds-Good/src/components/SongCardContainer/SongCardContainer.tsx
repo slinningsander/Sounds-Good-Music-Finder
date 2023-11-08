@@ -6,17 +6,35 @@ import { useApolloClient } from '@apollo/client'
 
 type SongCardContainerProps = {
   input: string
+  maxDuration: number
+  minDuration: number
+  sortingDirection: string
 }
 
-const SongCardContainer = ({ input }: SongCardContainerProps) => {
+const SongCardContainer = ({
+  input,
+  maxDuration,
+  minDuration,
+  sortingDirection,
+}: SongCardContainerProps) => {
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
-  const { data, error, loading } = GetSongBySearch(input, offset, more, setMore)
+  const { data, error, loading } = GetSongBySearch(
+    input,
+    offset,
+    more,
+    maxDuration,
+    minDuration,
+    sortingDirection,
+    setMore
+  )
 
   const client = useApolloClient()
 
   useEffect(() => {
     client.resetStore()
+    console.log('minDuration: ' + minDuration)
+    console.log('maxDuration: ' + maxDuration)
     console.log(input)
     if (loading) {
       console.log('loading')
@@ -26,7 +44,7 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
       console.log(data.tracks)
       setOffset(0)
     }
-  }, [input])
+  }, [input, maxDuration, minDuration, sortingDirection])
 
   return (
     <div className={styles.wrapper}>
