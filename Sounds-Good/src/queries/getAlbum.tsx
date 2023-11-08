@@ -8,6 +8,7 @@ const GET_ALBUM = gql`
   ) {
     albums(where: $where) {
       album_title
+      summary
       album_art
       artistsCreatedAlbum(where: $artistsCreatedAlbumWhere2) {
         artist_name
