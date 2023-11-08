@@ -1,8 +1,8 @@
 import { gql, useQuery } from '@apollo/client'
 
-const GET_ALBUMS_BY_SEARCH = gql`
-  query GetAlbumsBySearch($where: AlbumWhere) {
-    albums(where: $where) {
+const GET_ALBUM = gql`
+  query GetAlbum($options: AlbumOptions, $where: AlbumWhere) {
+    albums(options: $options, where: $where) {
       album_art
       album_title
       artistsCreatedAlbum {
@@ -12,10 +12,45 @@ const GET_ALBUMS_BY_SEARCH = gql`
   }
 `
 
-export default function GetAlbumsBySearch(input: string) {
-  const result = useQuery(GET_ALBUMS_BY_SEARCH, {
-    variables: { where: { track_title_STARTS_WITH: input } },
+export default function GetArtist(
+  input: string,
+  offset: number,
+  more: boolean,
+  setMore: (more: boolean) => void
+) {
+  const result = useQuery(GET_ALBUM, {
+    variables: {
+      where: { album_title_STARTS_WITH: input },
+      options: {
+        limit: 5,
+        offset: offset,
+      },
+    },
   })
+
+  console.log(more)
+
+  const fetchMoreAlbums = () => {
+    result
+      .fetchMore({
+        variables: {
+          options: {
+            limit: 5,
+            offset: offset,
+          },
+        },
+      })
+      .then((res) => {
+        console.log(res)
+      })
+    console.log('fetching more')
+    console.log(result.data)
+    setMore(false)
+  }
+
+  if (more) {
+    fetchMoreAlbums()
+  }
 
   return result
 }
