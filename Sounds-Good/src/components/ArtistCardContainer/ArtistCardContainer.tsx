@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import GetArtist from '../../queries/getArtistsBySearch'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import styles from './ArtistCardContainer.module.css'
+import { useApolloClient } from '@apollo/client'
 
 type ArtistCardContainerProps = {
   input: string
@@ -10,21 +11,20 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
   const { data, error, loading } = GetArtist(input, offset, more, setMore)
-
-  const getArtists = () => {
-    setOffset(data.artists.length)
-  }
+  const client = useApolloClient()
 
   useEffect(() => {
+    client.resetStore()
     if (loading) {
       console.log('loading')
     } else if (error) {
       console.log(error)
     } else {
       console.log(data.artists)
-      getArtists()
+      setOffset(0)
     }
-  }, [data, error])
+  }, [input])
+
 
   return (
     <div className={styles.wrapper}>
@@ -38,7 +38,15 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
         ))
       )}
 
-      <button onClick={() => setMore(true)}>Show More</button>
+      <button
+        onClick={() => {
+          setMore(true)
+          setOffset(data.artists.length)
+        }}
+        className={styles.button}
+      >
+        Show More
+      </button>
     </div>
   )
 }

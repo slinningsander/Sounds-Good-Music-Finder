@@ -1,14 +1,17 @@
 import { Box, Slider } from '@mui/material'
 import React from 'react'
 
-export function TrackDurationFilter() {
+type TrackDurationFilterProps = {
+  setMaxDuration: (value: number) => void
+  setMinDuration: (value: number) => void
+}
+
+export function TrackDurationFilter({
+  setMaxDuration,
+  setMinDuration,
+}: TrackDurationFilterProps) {
   const [value, setValue] = React.useState<number[]>([0, 600])
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
-    setValue(newValue as number[])
-    console.log(value[0])
-    console.log(value[1])
-  }
   return (
     <Box
       sx={{
@@ -23,7 +26,12 @@ export function TrackDurationFilter() {
         size="small"
         value={value}
         disableSwap
-        onChangeCommitted={handleChange}
+        onChangeCommitted={(_, value) => {
+          setValue(value as number[])
+          setMinDuration(value[0])
+          setMaxDuration(value[1])
+          console.log(value)
+        }}
         min={0}
         max={600}
       />

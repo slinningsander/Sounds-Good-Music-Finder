@@ -5,7 +5,7 @@ export const CommentsContainer = () => {
   return (
     <>
       <div className={styles.CommentsWrapper}>
-        <h2>Comments</h2>
+        <h2>Comments (not implemented)</h2>
         <div className={styles.CommentsContainer}>
           <CommentComponent text="This is a comment" />
           <CommentComponent text="This is another comment" />

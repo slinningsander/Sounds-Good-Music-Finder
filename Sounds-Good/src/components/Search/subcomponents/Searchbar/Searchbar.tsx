@@ -7,7 +7,7 @@ type SearchbarProps = {
   labelValue: string
   placeholder: string
   ariaLabel: string
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  setSearchbarValue: (searchbarValue: string) => void
 }
 export function Searchbar({
   searchbarName,
@@ -15,7 +15,7 @@ export function Searchbar({
   labelValue,
   placeholder,
   ariaLabel,
-  onChange,
+  setSearchbarValue,
 }: SearchbarProps) {
   return (
     <div className={styles.searchbarContainer}>
@@ -34,7 +34,7 @@ export function Searchbar({
         required={isRequired}
         placeholder={placeholder}
         aria-label={ariaLabel}
-        onChange={onChange}
+        onChange={(event) => setSearchbarValue(event.target.value)}
         autoComplete="off"
       />
       {/*</form>*/}

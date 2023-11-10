@@ -15,18 +15,30 @@ const GET_TRACK = gql`
   }
 `
 
-export default function GetArtist(
+export default function GetSongBySearch(
   input: string,
   offset: number,
   more: boolean,
+  maxDuration: number,
+  minDuration: number,
+  sortingDirection: string,
   setMore: (more: boolean) => void
 ) {
   const result = useQuery(GET_TRACK, {
     variables: {
-      where: { track_title_STARTS_WITH: input },
+      where: {
+        track_title_STARTS_WITH: input,
+        duration_LTE: maxDuration.toString(),
+        duration_GTE: minDuration.toString(),
+      },
       options: {
         limit: 5,
         offset: offset,
+        sort: [
+          {
+            track_title: sortingDirection,
+          },
+        ],
       },
     },
   })
