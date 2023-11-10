@@ -1,4 +1,5 @@
 import { gql, useMutation } from '@apollo/client'
+import { GET_COMMENTS } from '../queries/getComments'
 
 const CREATE_COMMENT = gql`
   mutation CreateComment($input: [CommentCreateInput!]!) {
@@ -18,6 +19,10 @@ export default function CreateComment(
   const [createComments, { data, loading, error }] = useMutation(
     CREATE_COMMENT,
     {
+      refetchQueries: [
+        GET_COMMENTS, // DocumentNode object parsed with gql
+        'Comments', // Query name
+      ],
       variables: {
         input: [
           {
