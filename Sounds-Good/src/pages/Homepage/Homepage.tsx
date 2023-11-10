@@ -35,7 +35,6 @@ export default function Homepage() {
         setSearchbarValue={setSearchbarValue}
       />
       <div className={styles.filterContainer}>
-        <AlbumTagFilter />
         <div className={styles.children}>
           <SearchFilter
             selectedValue={selectedValue}
@@ -62,6 +61,7 @@ export default function Homepage() {
             </div>
           </>
         )}
+        {selectedValue === 'ALBUM' && <AlbumTagFilter />}
       </div>
 
       {searchbarValue && selectedValue === 'ARTIST' && (
