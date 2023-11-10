@@ -39,7 +39,14 @@ type Track {
 	id: String!
 	rank: BigInt!
 	track_title: String!
-}`;
+	comments: [Comment!]! @relationship(type: "COMMENTED_ON_TRACK", direction: IN)
+}
+
+type Comment {
+	id: String
+	text: String!
+	commentedOnTrack: [Track!]! @relationship(type: "COMMENTED_ON_TRACK", direction: OUT)
+  }`;
 
 const initializeServer = async () => {
   const driver = neo4j.driver(
