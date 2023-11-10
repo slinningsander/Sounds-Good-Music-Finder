@@ -7,35 +7,44 @@ import {
   styled,
 } from '@mui/material'
 import GetAllTags from '../../../../queries/getAllTags'
+import GetAlbumsByTags from '../../../../queries/getAlbumsByTags'
 
 export function AlbumTagFilter() {
   const { data, loading, error } = GetAllTags()
   const alltags: string[] = []
-  for (let i = 0; i < 559; i++) {
+  for (let i = 0; i < 558; i++) {
     if (!loading) {
-      // console.log(data.tags[i].tag_name)
       alltags.push(data.tags[i].tag_name)
     }
   }
-
-  // const options = mockData.map((option) => {
-  //   const firstLetter = option.title[0].toUpperCase()
-  //   return {
-  //     firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
-  //     ...option,
-  //   }
-  // })
-
   const options = alltags.map((option) => {
     const firstLetter = option.charAt(0).toUpperCase()
     return {
       firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
-      // Assign the entire string to a property
       option: option,
     }
   })
-  const optionValues = options.map((o) => o.option)
-  console.log(options)
+
+  const [selectedTags, setSelectedTags] = React.useState<string[]>([])
+  const {
+    data: albumsData,
+    loading: albumsLoading,
+    error: albumsError,
+  } = GetAlbumsByTags(selectedTags)
+
+  React.useEffect(() => {
+    console.log('Selected Tags:', selectedTags)
+  }, [selectedTags])
+
+  React.useEffect(() => {
+    if (albumsLoading) {
+      console.log('albumsData is loading')
+    } else if (albumsError) {
+      console.log('albumsData is error', albumsError)
+    } else if (albumsData) {
+      console.log('Album Data: ', albumsData)
+    }
+  }, [albumsData, albumsLoading, albumsError])
 
   const GroupHeader = styled('div')({
     position: 'sticky',
@@ -54,9 +63,12 @@ export function AlbumTagFilter() {
   if (loading) return <h1>loading..</h1>
   if (error) return <h1>error</h1>
 
-  function getPickedTags(values: string[]) {
-    //den lagger med å hente verdier!
-    console.log(values)
+  function getPickedTags(newValues: any[]) {
+    console.log('New Tags Selected: ', newValues)
+    const tagsQueryFormat = newValues.map((item) => ({ tag_name: item.option }))
+    console.log('Formatted tags for query: ', tagsQueryFormat)
+    setValues(newValues)
+    setSelectedTags(tagsQueryFormat) // updates selectedTags with tagsQueryFormat (expected object)
   }
   return (
     <>
@@ -66,8 +78,11 @@ export function AlbumTagFilter() {
             value={values}
             onChange={(event: unknown, newValue: string[] | null) => {
               setValues(newValue || [])
-              getPickedTags(values)
+              getPickedTags(newValue || [])
             }}
+            isOptionEqualToValue={(option, value) =>
+              option.option === value.option
+            }
             multiple
             limitTags={2}
             size="small"
@@ -94,16 +109,14 @@ export function AlbumTagFilter() {
         label="Search tags"
         className={styles.tagSearch}
       />
+
+      {/* {albumsData && albumsData.albumsConnection && (
+        <ul className={styles.albums_by_tags_list}>
+          {albumsData.albumsConnection.edges.map((edge, index) => (
+            <li key={index}>{edge.node.album_title}</li>
+          ))}
+        </ul>
+      )} */}
     </>
   )
 }
-
-const mockData = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 },
-  { title: '12 Angry Men', year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: 'Pulp Fiction', year: 1994 },
-]
