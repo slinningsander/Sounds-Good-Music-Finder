@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 
-const GET_COMMENTS = gql`
+export const GET_COMMENTS = gql`
   query Comments($where: CommentWhere) {
     comments(where: $where) {
       text
