@@ -33,10 +33,6 @@ export function AlbumTagFilter() {
   } = GetAlbumsByTags(selectedTags)
 
   React.useEffect(() => {
-    console.log('Selected Tags:', selectedTags)
-  }, [selectedTags])
-
-  React.useEffect(() => {
     if (albumsLoading) {
       console.log('albumsData is loading')
     } else if (albumsError) {
@@ -64,7 +60,6 @@ export function AlbumTagFilter() {
   if (error) return <h1>error</h1>
 
   function getPickedTags(newValues: any[]) {
-    console.log('New Tags Selected: ', newValues)
     const tagsQueryFormat = newValues.map((item) => ({ tag_name: item.option }))
     console.log('Formatted tags for query: ', tagsQueryFormat)
     setValues(newValues)
