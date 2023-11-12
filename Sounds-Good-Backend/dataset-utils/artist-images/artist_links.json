@@ -1,0 +1,467 @@
+{
+    "The_Weeknd": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/9/95/The_Weeknd_Cannes_2023.png/220px-The_Weeknd_Cannes_2023.png"
+    },
+    "Taylor_Swift": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png/220px-Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png"
+    },
+    "Drake": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/28/Drake_July_2016.jpg/220px-Drake_July_2016.jpg"
+    },
+    "Kanye_West": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kanye_West_at_the_2009_Tribeca_Film_Festival_%28crop_2%29.jpg/220px-Kanye_West_at_the_2009_Tribeca_Film_Festival_%28crop_2%29.jpg"
+    },
+    "Lana_Del_Rey": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Lana_Del_Rey_%40_Grammy_Museum_10_13_2019_%2849311023203%29.jpg/220px-Lana_Del_Rey_%40_Grammy_Museum_10_13_2019_%2849311023203%29.jpg"
+    },
+    "Doja_Cat": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/6/67/Doja_Cat_2020_Vogue_Taiwan_01.png/220px-Doja_Cat_2020_Vogue_Taiwan_01.png"
+    },
+    "Kendrick_Lamar": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Pulitzer2018-portraits-kendrick-lamar.jpg/220px-Pulitzer2018-portraits-kendrick-lamar.jpg"
+    },
+    "Tyler,_The_Creator": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/7/71/Tyler_the_Creator_%2852163761341%29_%28cropped%29.jpg/220px-Tyler_the_Creator_%2852163761341%29_%28cropped%29.jpg"
+    },
+    "Arctic_Monkeys": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/0/04/Arctic_Monkeys_-_Orange_Stage_-_Roskilde_Festival_2014.jpg/300px-Arctic_Monkeys_-_Orange_Stage_-_Roskilde_Festival_2014.jpg"
+    },
+    "Olivia_Rodrigo": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Olivia_Rodrigo_with_Dr_Fauci_1.png/220px-Olivia_Rodrigo_with_Dr_Fauci_1.png"
+    },
+    "Billie_Eilish": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/7/78/BillieEilishO2160622_%2811_of_45%29_%2852152972296%29_%28cropped_2%29.jpg/220px-BillieEilishO2160622_%2811_of_45%29_%2852152972296%29_%28cropped_2%29.jpg"
+    },
+    "Rihanna": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Rihanna_Fenty_2018.png/220px-Rihanna_Fenty_2018.png"
+    },
+    "Sza": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Ctrl_the_tour%282%29.jpg/220px-Ctrl_the_tour%282%29.jpg"
+    },
+    "Mitski": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/29/Mitksi_%2846927277872%29_%28cropped%29.jpg/220px-Mitksi_%2846927277872%29_%28cropped%29.jpg"
+    },
+    "Frank_Ocean": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Frank_Ocean_2022_Blonded.jpg/220px-Frank_Ocean_2022_Blonded.jpg"
+    },
+    "Radiohead": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/f/f4/RadioheadMid2010s.jpg/300px-RadioheadMid2010s.jpg"
+    },
+    "Travis_Scott": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/14/Travis_Scott_-_Openair_Frauenfeld_2019_08.jpg/220px-Travis_Scott_-_Openair_Frauenfeld_2019_08.jpg"
+    },
+    "Steve_Lacy": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Steve_Lacy_%40_Rialto_Theatre.jpg/220px-Steve_Lacy_%40_Rialto_Theatre.jpg"
+    },
+    "Ariana_Grande": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Ariana_Grande_during_The_Honeymoon_Tour_in_Jakarta_2015.jpg/220px-Ariana_Grande_during_The_Honeymoon_Tour_in_Jakarta_2015.jpg"
+    },
+    "Tame_Impala": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/13/Tame_Impala_at_Flow_Festival_Helsinki_Aug_10_2019_-24.jpg/300px-Tame_Impala_at_Flow_Festival_Helsinki_Aug_10_2019_-24.jpg"
+    },
+    "Lady_Gaga": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Lady_Gaga_at_Joe_Biden%27s_inauguration_%28cropped_5%29.jpg/220px-Lady_Gaga_at_Joe_Biden%27s_inauguration_%28cropped_5%29.jpg"
+    },
+    "Beyoncé": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Beyonc%C3%A9_-_Tottenham_Hotspur_Stadium_-_1st_June_2023_%282_of_118%29_%2852946288505%29_%28cropped%29.jpg/220px-Beyonc%C3%A9_-_Tottenham_Hotspur_Stadium_-_1st_June_2023_%282_of_118%29_%2852946288505%29_%28cropped%29.jpg"
+    },
+    "Childish_Gambino": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Donald_Glover_TIFF_2015.jpg/220px-Donald_Glover_TIFF_2015.jpg"
+    },
+    "Coldplay": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2e/ColdplayBBC071221_%28cropped%29.jpg/300px-ColdplayBBC071221_%28cropped%29.jpg"
+    },
+    "The_Neighbourhood": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/16/The_Neighbourhood_-_2018153150556_2018-06-02_Rock_am_Ring_-_5DS_R_-_0046_-_5DSR5992.jpg/300px-The_Neighbourhood_-_2018153150556_2018-06-02_Rock_am_Ring_-_5DS_R_-_0046_-_5DSR5992.jpg"
+    },
+    "Harry_Styles": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b2/HarryStylesWembley170623_%2865_of_93%29_%2852982678051%29_%28cropped_2%29.jpg/220px-HarryStylesWembley170623_%2865_of_93%29_%2852982678051%29_%28cropped_2%29.jpg"
+    },
+    "Paramore": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/3/37/Paramore_-_The_O2_-_Friday_12th_January_2018_DSC03984ParamoreO2Jan18_%2825112969047%29.jpg/300px-Paramore_-_The_O2_-_Friday_12th_January_2018_DSC03984ParamoreO2Jan18_%2825112969047%29.jpg"
+    },
+    "Bruno_Mars": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b0/BrunoMars24KMagicWorldTourLive_%28cropped%29.jpg/220px-BrunoMars24KMagicWorldTourLive_%28cropped%29.jpg"
+    },
+    "Post_Malone": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/12/Post_Malone_at_the_2019_American_Music_Awards.png/220px-Post_Malone_at_the_2019_American_Music_Awards.png"
+    },
+    "Kali_Uchis": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/5/59/KaliUchisPerf.jpg/220px-KaliUchisPerf.jpg"
+    },
+    "Metro_Boomin": {
+        "link": "https://images.genius.com/9d81eefc42c86b80b47cb16958ade910.640x640x1.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "The_Smiths": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/The_Smiths_1985.jpg/260px-The_Smiths_1985.jpg"
+    },
+    "Pinkpantheress": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/9/90/PinkPantheress%2C_2022.jpg/220px-PinkPantheress%2C_2022.jpg"
+    },
+    "Nirvana": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/19/Nirvana_around_1992.jpg/250px-Nirvana_around_1992.jpg"
+    },
+    "Gorillaz": {
+        "link": "//upload.wikimedia.org/wikipedia/en/thumb/c/c6/Gorillaz_family.jpg/240px-Gorillaz_family.jpg"
+    },
+    "Mac_Demarco": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Mac_DeMarco_2019_%2848210650642%29_%28cropped%29.jpg/220px-Mac_DeMarco_2019_%2848210650642%29_%28cropped%29.jpg"
+    },
+    "Lil_Uzi_Vert": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Lil_Uzi_Vert_Day_N_Night_Festival.png/220px-Lil_Uzi_Vert_Day_N_Night_Festival.png"
+    },
+    "Katy_Perry": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Katy_Perry_for_Vogue_Magazine%2C_2023.png/220px-Katy_Perry_for_Vogue_Magazine%2C_2023.png"
+    },
+    "Nicki_Minaj": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/8/87/Nicki_Minaj_VMAs_2018_%282%29_%28cropped%29.jpg/220px-Nicki_Minaj_VMAs_2018_%282%29_%28cropped%29.jpg"
+    },
+    "Tv_Girl": {
+        "link": "https://upload.wikimedia.org/wikipedia/commons/4/40/TV_Girl_au_Casa_Del_Popolo_--_1.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Mac_Miller": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/49/Mac_Miller_%287%29_%E2%80%93_splash%21_Festival_20_%282017%29_%28cropped%29.jpg/220px-Mac_Miller_%287%29_%E2%80%93_splash%21_Festival_20_%282017%29_%28cropped%29.jpg"
+    },
+    "Dua_Lipa": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/DuaLipaO2020522_%28101_of_110%29_%2852052470251%29_%28cropped%29.jpg/220px-DuaLipaO2020522_%28101_of_110%29_%2852052470251%29_%28cropped%29.jpg"
+    },
+    "Eminem": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Eminem_-_Concert_for_Valor_in_Washington%2C_D.C._Nov._11%2C_2014_%282%29_%28Cropped%29.jpg/220px-Eminem_-_Concert_for_Valor_in_Washington%2C_D.C._Nov._11%2C_2014_%282%29_%28Cropped%29.jpg"
+    },
+    "Fleetwood_Mac": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Fleetwood_Mac_Billboard_1977.jpg/220px-Fleetwood_Mac_Billboard_1977.jpg"
+    },
+    "Lorde": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/19/LordeRoundhse010622_%2817_of_66%29_%2852119260286%29_%28cropped2%29.jpg/220px-LordeRoundhse010622_%2817_of_66%29_%2852119260286%29_%28cropped2%29.jpg"
+    },
+    "Playboi_Carti": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Playboi_Carti_%28cropped%29.jpg/220px-Playboi_Carti_%28cropped%29.jpg"
+    },
+    "Clairo": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Clairo_%40_The_Greek_L.A._04_02_2022_%2852297741431%29_%28cropped%29.jpg/220px-Clairo_%40_The_Greek_L.A._04_02_2022_%2852297741431%29_%28cropped%29.jpg"
+    },
+    "Miley_Cyrus": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/5/52/Miley_Cyrus_Primavera19_-226_%2848986293772%29_%28cropped%29.jpg/220px-Miley_Cyrus_Primavera19_-226_%2848986293772%29_%28cropped%29.jpg"
+    },
+    "Queen": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Queen_A_Night_At_The_Opera_%281975_Elektra_publicity_photo_02%29.jpg/300px-Queen_A_Night_At_The_Opera_%281975_Elektra_publicity_photo_02%29.jpg"
+    },
+    "Joji": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/3/3d/Joji_Performing_Live_in_2018_%28cropped%29_%28better_quality%29.png"
+    },
+    "The_Beatles": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d8/The_Beatles_members_at_New_York_City_in_1964.jpg/220px-The_Beatles_members_at_New_York_City_in_1964.jpg"
+    },
+    "A$Ap_Rocky": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/f/fb/South_by_Southwest_2019_4_-_46628270064_%28cropped%29.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "J._Cole": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/a/ae/J._Cole_in_2023.png/220px-J._Cole_in_2023.png"
+    },
+    "Troye_Sivan": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/6/69/2018.06.10_Troye_Sivan_at_Capital_Pride_w_Sony_A7III%2C_Washington%2C_DC_USA_03462_%2842690655572%29_%28cropped%29.jpg/220px-2018.06.10_Troye_Sivan_at_Capital_Pride_w_Sony_A7III%2C_Washington%2C_DC_USA_03462_%2842690655572%29_%28cropped%29.jpg"
+    },
+    "Justin_Bieber": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/da/Justin_Bieber_in_2015.jpg/220px-Justin_Bieber_in_2015.jpg"
+    },
+    "Jay-Z": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Jay-Z_%40_Shawn_%27Jay-Z%27_Carter_Foundation_Carnival_%28crop_2%29.jpg/220px-Jay-Z_%40_Shawn_%27Jay-Z%27_Carter_Foundation_Carnival_%28crop_2%29.jpg"
+    },
+    "Xxxtentacion": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Xxxtentacion_%28cropped%29.jpg/220px-Xxxtentacion_%28cropped%29.jpg"
+    },
+    "Deftones": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Deftones2011.jpg/300px-Deftones2011.jpg"
+    },
+    "Newjeans": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/NewJeans_X_OLENS_1_%28cropped%29.jpg/281px-NewJeans_X_OLENS_1_%28cropped%29.jpg"
+    },
+    "The_Strokes": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/6/61/The_Strokes_live_collage_2019%E2%80%932020.jpg/275px-The_Strokes_live_collage_2019%E2%80%932020.jpg"
+    },
+    "Calvin_Harris": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Calvin_Harris.jpg/220px-Calvin_Harris.jpg"
+    },
+    "The_Cure": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/21/The_Cure_Live_in_Singapore_2-_1st_August_2007.jpg/300px-The_Cure_Live_in_Singapore_2-_1st_August_2007.jpg"
+    },
+    "Baby_Keem": {
+        "link": "//images.genius.com/e36741e8abe6151819f1841bc0628376.1000x1000x1.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Future": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/9/93/Future_-_Openair_Frauenfeld_2019_01_%28cropped%29.jpg/220px-Future_-_Openair_Frauenfeld_2019_01_%28cropped%29.jpg"
+    },
+    "Michael_Jackson": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Michael_Jackson_in_1988.jpg/220px-Michael_Jackson_in_1988.jpg"
+    },
+    "Maroon_5": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Maroon_5_performing_in_Sydney.jpg/300px-Maroon_5_performing_in_Sydney.jpg"
+    },
+    "Adele": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/5/52/Adele_for_Vogue_in_2021.png/220px-Adele_for_Vogue_in_2021.png"
+    },
+    "Britney_Spears": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/da/Britney_Spears_2013_%28Straighten_Crop%29.jpg/200px-Britney_Spears_2013_%28Straighten_Crop%29.jpg"
+    },
+    "Charli_Xcx": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/8/83/Charli_XCX_2022_amfAR_Gala.jpg/220px-Charli_XCX_2022_amfAR_Gala.jpg"
+    },
+    "Cigarettes_After_Sex": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/40/POS17_%40Kristsll-197_%2835166607974%29.jpg/250px-POS17_%40Kristsll-197_%2835166607974%29.jpg"
+    },
+    "Green_Day": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Green_Day_-_Hella_Mega_Tour_-_August_10%2C_2021.jpg/300px-Green_Day_-_Hella_Mega_Tour_-_August_10%2C_2021.jpg"
+    },
+    "Hozier": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Hozier_2015_01_%28cropped%29.jpg/220px-Hozier_2015_01_%28cropped%29.jpg"
+    },
+    "Brent_Faiyaz": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Brent_Faiyaz.jpg/220px-Brent_Faiyaz.jpg"
+    },
+    "Foo_Fighters": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Glasto2023_%2865_of_468%29_%28cropped%29.jpg/300px-Glasto2023_%2865_of_468%29_%28cropped%29.jpg"
+    },
+    "Linkin_Park": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/42/LinkinParkBerlin2010.jpg/300px-LinkinParkBerlin2010.jpg"
+    },
+    "Phoebe_Bridgers": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/0/07/Glastonbury2022_%28112_of_413%29_%2852182452613%29_Cropped.jpg/220px-Glastonbury2022_%28112_of_413%29_%2852182452613%29_Cropped.jpg"
+    },
+    "Red_Hot_Chili_Peppers": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/14/RHCP_Live_in_London_26_June_2022.jpg/300px-RHCP_Live_in_London_26_June_2022.jpg"
+    },
+    "Beabadoobee": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Beabadoobee_%40_The_Fonda_11_21_2021_%2851782737102%29_%28cropped%29.jpg/220px-Beabadoobee_%40_The_Fonda_11_21_2021_%2851782737102%29_%28cropped%29.jpg"
+    },
+    "21_Savage": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c1/21_Savage_2018.jpg/220px-21_Savage_2018.jpg"
+    },
+    "Ed_Sheeran": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Ed_Sheeran-6886_%28cropped%29.jpg/220px-Ed_Sheeran-6886_%28cropped%29.jpg"
+    },
+    "Men_I_Trust": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Men_I_Trust_%40_The_Belasco_10_16_2021_%2851784136254%29.jpg/260px-Men_I_Trust_%40_The_Belasco_10_16_2021_%2851784136254%29.jpg"
+    },
+    "Conan_Gray": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/6/68/Conan_Gray_U_Street_Music_Hall_March_2019_1.jpg/220px-Conan_Gray_U_Street_Music_Hall_March_2019_1.jpg"
+    },
+    "Elton_John": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Glasto2023_%28419_of_468%29_%2853009098414%29_%28cropped%29.jpg/220px-Glasto2023_%28419_of_468%29_%2853009098414%29_%28cropped%29.jpg"
+    },
+    "My_Chemical_Romance": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/MCR820_%28cropped%29.jpg/300px-MCR820_%28cropped%29.jpg"
+    },
+    "Girl_In_Red": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/3/37/Girl_in_Red_EOTR1.jpg/220px-Girl_in_Red_EOTR1.jpg"
+    },
+    "Imagine_Dragons": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/8/81/Imagine_Dragons_at_LoveLoud_2018_%2842462959830%29.jpg/300px-Imagine_Dragons_at_LoveLoud_2018_%2842462959830%29.jpg"
+    },
+    "Daft_Punk": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/db/Daft_Punk_in_2013.jpg/267px-Daft_Punk_in_2013.jpg"
+    },
+    "Kid_Cudi": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/44/Kid_Cudi_2010_2_%28crop%29.jpg/220px-Kid_Cudi_2010_2_%28crop%29.jpg"
+    },
+    "Pink_Floyd": {
+        "link": "//upload.wikimedia.org/wikipedia/en/thumb/d/d6/Pink_Floyd_-_all_members.jpg/250px-Pink_Floyd_-_all_members.jpg"
+    },
+    "Beach_House": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/7/72/Beach_House_at_House_of_Blues_San_Diego_on_July_1_2012.jpg/300px-Beach_House_at_House_of_Blues_San_Diego_on_July_1_2012.jpg"
+    },
+    "Alex_G": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Alex_G.jpg/220px-Alex_G.jpg"
+    },
+    "Gunna": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/de/Gunna_in_2021.png/220px-Gunna_in_2021.png"
+    },
+    "Daniel_Caesar": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/48/Daniel_Caesar_-_Coachella_2018.jpg/220px-Daniel_Caesar_-_Coachella_2018.jpg"
+    },
+    "Twenty_One_Pilots": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Twenty_One_Pilots_-_Southside_Festival_2022_-_IMG_6029_-_1_%28cropped%29.jpg/260px-Twenty_One_Pilots_-_Southside_Festival_2022_-_IMG_6029_-_1_%28cropped%29.jpg"
+    },
+    "Eyedress": {
+        "link": "//images.genius.com/067133d823fcad25074a33627328f72d.670x670x1.png",
+        "error": "link was not available. Will be added manualy"
+    },
+    "David_Bowie": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg/220px-David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg"
+    },
+    "David_Guetta": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/4b/David_Guetta_live_%40_MTV_EMA_2018.png/220px-David_Guetta_live_%40_MTV_EMA_2018.png"
+    },
+    "Sabrina_Carpenter": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Sabrina_Carpenter_Vogue_2020_%2808%29.png/220px-Sabrina_Carpenter_Vogue_2020_%2808%29.png"
+    },
+    "Dominic_Fike": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/19/2021_Shaky_Knees_Dominic_Fike_%283%29_%28cropped%29.jpg/220px-2021_Shaky_Knees_Dominic_Fike_%283%29_%28cropped%29.jpg"
+    },
+    "One_Direction": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/3/3a/One_Direction_Sydney_4.jpg/300px-One_Direction_Sydney_4.jpg"
+    },
+    "Yung_Lean": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Yung_Lean_at_the_Vogue_March_31st%2C_2016_%2825973856650%29_%28cropped%29.jpg/220px-Yung_Lean_at_the_Vogue_March_31st%2C_2016_%2825973856650%29_%28cropped%29.jpg"
+    },
+    "Seeb": {
+        "link": "https://images.genius.com/d387ae8e2d4cba608e2017a51741ea77.1000x1000x1.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Abba": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ABBA_-_TopPop_1974_5.png/235px-ABBA_-_TopPop_1974_5.png"
+    },
+    "Anna_Of_The_North": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/6/66/Anna_of_the_North_11_08_2018_-8_%2831609641257%29.jpg/220px-Anna_of_the_North_11_08_2018_-8_%2831609641257%29.jpg"
+    },
+    "Robyn": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/0/05/Robyn_face.jpg/220px-Robyn_face.jpg"
+    },
+    "Avicii": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Avicii_2014_003.jpg/220px-Avicii_2014_003.jpg"
+    },
+    "José_González": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/c/c4/José_Gonzales_at_La_Route_du_Rock_2008%2C_b.jpg/500px-José_Gonzales_at_La_Route_du_Rock_2008%2C_b.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Björn_Rosenström": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Cb_bj%C3%B6rn_1_AN-1-.JPG/200px-Cb_bj%C3%B6rn_1_AN-1-.JPG"
+    },
+    "Iceage": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/9/90/Iceage_DSC04334.jpg/250px-Iceage_DSC04334.jpg"
+    },
+    "Dagny": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/c/c3/Dagny_Sentrum_Scene_2022_210649.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Mando_Diao": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Mando_Diao_230613-01.jpg/320px-Mando_Diao_230613-01.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Clmd": {
+        "link": "//images.genius.com/b29526da3f9206e00f570422df8899ae.640x640x1.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Tungevaag": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Tungevaag_-_Press_1.1.jpg/240px-Tungevaag_-_Press_1.1.jpg"
+    },
+    "Swedish_House_Mafia": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Swedish_house_mafia_2.jpg/300px-Swedish_house_mafia_2.jpg"
+    },
+    "Lykke_Li": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Lykke_Li_4.jpg/220px-Lykke_Li_4.jpg"
+    },
+    "Avaberee": {
+        "link": "//media.theweekendedition.com.au/wp-content/uploads/2012/11/20121122_Avaberee-28-892x595-c-default.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Icona_Pop": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Icona_Pop_-_Way_Out_West_2014_%28cropped%29.jpg/220px-Icona_Pop_-_Way_Out_West_2014_%28cropped%29.jpg"
+    },
+    "First_Aid_Kit": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/5/53/Coachella18W1-208_%2842057786281%29.jpg/300px-Coachella18W1-208_%2842057786281%29.jpg"
+    },
+    "Aurora": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Aurora_at_Parkenfestivalen_2023_%28cropped%29.jpg/220px-Aurora_at_Parkenfestivalen_2023_%28cropped%29.jpg"
+    },
+    "Karpe": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Karpe4.jpg/260px-Karpe4.jpg"
+    },
+    "Todd_Terje": {
+        "link": "//images.genius.com/fe51b698f7749463743636d30868fa20.469x469x1.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Lukas_Graham": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Lukas_Graham_Stavernfestivalen_%28181424%29.jpg/220px-Lukas_Graham_Stavernfestivalen_%28181424%29.jpg"
+    },
+    "Tove_Lo": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/26/Tove_Lo_%282%29_By_Daniel_%C3%85hs_Karlsson.jpeg/220px-Tove_Lo_%282%29_By_Daniel_%C3%85hs_Karlsson.jpeg"
+    },
+    "Emilie_Nicolas": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/0/07/Emilie_Nicolas_Sentrum_Scene_2018_210918.jpg/220px-Emilie_Nicolas_Sentrum_Scene_2018_210918.jpg"
+    },
+    "Vigiland": {
+        "link": "//images.genius.com/509a2f73e6287237027f52239f56990d.616x616x1.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Alesso": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Alesso_profile.png/220px-Alesso_profile.png"
+    },
+    "Alan_Walker": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Alan_Walker_%28cropped%29.jpg/220px-Alan_Walker_%28cropped%29.jpg"
+    },
+    "Kygo": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Kygo_%2828481718120%29_%282%29.jpg/220px-Kygo_%2828481718120%29_%282%29.jpg"
+    },
+    "Marcus_&_Martinus": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/0/05/Melodifestivalen_2023_Lidk%C3%B6ping_Marcus_%26_Martinus_4.jpg/300px-Melodifestivalen_2023_Lidk%C3%B6ping_Marcus_%26_Martinus_4.jpg"
+    },
+    "Ina_Wroldsen": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ina_Wroldsen_%28cropped%29.jpg/220px-Ina_Wroldsen_%28cropped%29.jpg"
+    },
+    "Julie_Bergan": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/5/57/046A4258_2_Julie_Bergan2.jpg/220px-046A4258_2_Julie_Bergan2.jpg"
+    },
+    "Alphabeat": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Alphabeat_.jpg/220px-Alphabeat_.jpg"
+    },
+    "Axwell": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/DJ_Axwell_-_Melbourn_Central_2007_%28cropped%29.jpg/285px-DJ_Axwell_-_Melbourn_Central_2007_%28cropped%29.jpg"
+    },
+    "Matoma": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/0/04/Matoma_Stavernfestivalen_2019_%28163257%29.jpg/300px-Matoma_Stavernfestivalen_2019_%28163257%29.jpg"
+    },
+    "Lido": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Peder_Losneg%C3%A5rd_-_Lido.jpg/250px-Peder_Losneg%C3%A5rd_-_Lido.jpg"
+    },
+    "Boy_Pablo": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Boy_Pablo_Piknik_i_Parken_2019_%28170641%29.jpg/220px-Boy_Pablo_Piknik_i_Parken_2019_%28170641%29.jpg"
+    },
+    "Gabrielle": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Gabrielle_Spelleman_souncheck.png/220px-Gabrielle_Spelleman_souncheck.png"
+    },
+    "Christopher": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/b/be/BStrozziCristof1.jpg/220px-BStrozziCristof1.jpg"
+    },
+    "Highasakite": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/6/6c/HIGHASAKITE_2018_by_J%C3%B8rgen_Nordby.jpg/260px-HIGHASAKITE_2018_by_J%C3%B8rgen_Nordby.jpg"
+    },
+    "Sabina_Ddumba": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Sabina_Ddumba_in_2015.jpg/200px-Sabina_Ddumba_in_2015.jpg"
+    },
+    "Jenny_Hval": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/20/Jenny-hval_DSC03270.jpg/300px-Jenny-hval_DSC03270.jpg"
+    },
+    "Of_Monsters_And_Men": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/22/Of_Monsters_And_Men.jpg/300px-Of_Monsters_And_Men.jpg"
+    },
+    "Mø": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Festival_des_Vieilles_Charrues_2018_-_M%C3%98_-_022.jpg/220px-Festival_des_Vieilles_Charrues_2018_-_M%C3%98_-_022.jpg"
+    },
+    "Sigrid": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/9/92/Sigrid_på_scenen_i_Oslo_Spektrum_i_2022._211328.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Lemaitre": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Lemaitre_2015.jpg/220px-Lemaitre_2015.jpg"
+    },
+    "Cezinando": {
+        "link": "https://images.genius.com/926b4469759253ecd97065f0993bf97a.959x959x1.jpg",
+        "error": "link was not available. Will be added manualy"
+    },
+    "Astrid_S": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Astrid_S._02_25_2019_-6_%2832317466737%29.jpg/220px-Astrid_S._02_25_2019_-6_%2832317466737%29.jpg"
+    },
+    "Benny_Andersson": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/28/Benny_Andersson_2012-09-24_001_%28cropped%29.jpg/220px-Benny_Andersson_2012-09-24_001_%28cropped%29.jpg"
+    },
+    "Tix": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/8/88/Norwegian_artist_Andreas_%E2%80%9CTIX%E2%80%9D_Haukeland_at_VG-lista_2022_01.jpg/220px-Norwegian_artist_Andreas_%E2%80%9CTIX%E2%80%9D_Haukeland_at_VG-lista_2022_01.jpg"
+    },
+    "Zara_Larsson": {
+        "link": "//upload.wikimedia.org/wikipedia/commons/thumb/2/27/Zara_Larsson_-_2021_%2851654739994%29_%28cropped%29.jpg/220px-Zara_Larsson_-_2021_%2851654739994%29_%28cropped%29.jpg"
+    }
+}
