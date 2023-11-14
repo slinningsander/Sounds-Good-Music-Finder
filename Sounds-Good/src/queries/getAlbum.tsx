@@ -1,16 +1,12 @@
 import { gql, useQuery } from '@apollo/client'
 
 const GET_ALBUM = gql`
-  query GetAlbum(
-    $where: AlbumWhere
-    $artistsCreatedAlbumWhere2: ArtistWhere
-    $options: TrackOptions
-  ) {
+  query GetAlbum($where: AlbumWhere, $options: TrackOptions) {
     albums(where: $where) {
       album_title
       summary
       album_art
-      artistsCreatedAlbum(where: $artistsCreatedAlbumWhere2) {
+      artistsCreatedAlbum {
         artist_name
       }
       hasTrackTracks(options: $options) {
@@ -29,9 +25,9 @@ export default function GetAlbum(
     variables: {
       where: {
         album_title: album_title,
-      },
-      artistsCreatedAlbumWhere2: {
-        artist_name: artist_name,
+        artistsCreatedAlbum_SINGLE: {
+          artist_name: artist_name,
+        },
       },
       options: {
         sort: [
