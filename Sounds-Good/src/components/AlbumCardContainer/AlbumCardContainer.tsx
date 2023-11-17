@@ -10,7 +10,7 @@ type AlbumCardContainerProps = {
 
 const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
   const [offset, setOffset] = useState(0)
-  const [more, setMore] = useState(false)
+  const [more, setMore] = useState(true)
   const { data, error, loading } = GetAlbumBySearch(
     input,
     offset,
@@ -53,15 +53,16 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
         )
       )}
 
-      <button
-        onClick={() => {
-          setMore(true)
-          setOffset(data.albums.length)
-        }}
-        className={styles.button}
-      >
-        Show More
-      </button>
+      {more && data && data.albums.length == offset + 5 && (
+        <button
+          onClick={() => {
+            setOffset(data.albums.length)
+          }}
+          className={styles.button}
+        >
+          Show More
+        </button>
+      )}
     </div>
   )
 }
