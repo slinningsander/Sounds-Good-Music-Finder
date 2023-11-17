@@ -1,14 +1,16 @@
 .container:hover {
-    opacity: 0.5;
-  }
-  .container {
-    margin-bottom: 20px;
-    margin-left: 25%;
-    margin-right: 25%;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+  opacity: 0.5;
+}
+.container {
+  margin-bottom: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
