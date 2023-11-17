@@ -42,7 +42,7 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
             album_art: string
             artistsCreatedAlbum: string
           }) => (
-            <div>
+            <div className={styles.childWrapper}>
               <AlbumCard
                 album={album.album_title}
                 artist={album.artistsCreatedAlbum[0].artist_name}

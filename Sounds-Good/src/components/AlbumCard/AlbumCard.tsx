@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import styles from './AlbumCard.module.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 type Props = {
   artist: string
@@ -11,16 +11,14 @@ type Props = {
 export default function BasicInfoCard(props: Props) {
   const navigate = useNavigate()
   return (
-    <div
-      className={styles.wrapper}
-      onClick={() => {
-        navigate(
-          '/project2/' +
-            encodeURIComponent(props.artist) +
-            '/album/' +
-            encodeURIComponent(props.album)
-        )
-      }}
+    <Link
+      className={styles.container}
+      to={
+        '/project2/' +
+        encodeURIComponent(props.artist) +
+        '/album/' +
+        encodeURIComponent(props.album)
+      }
     >
       <Card
         variant="outlined"
@@ -40,6 +38,6 @@ export default function BasicInfoCard(props: Props) {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </Link>
   )
 }
