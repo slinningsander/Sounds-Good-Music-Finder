@@ -18,10 +18,8 @@ export function SearchFilter({
   selectedValue,
   setSelectedValue,
 }: SearchFilterProps) {
-  // const [selectedValue, setSelectedValue] = React.useState('ARTIST')
   const handleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value)
-    return selectedValue
   }
 
   return (
@@ -31,7 +29,8 @@ export function SearchFilter({
           row
           aria-labelledby="filter search radio group"
           name="search-filter-radio-group"
-          defaultValue="TRACK"
+          value={selectedValue}
+          onChange={handleValue}
         >
           <FormControlLabel
             value="ARTIST"
@@ -44,8 +43,6 @@ export function SearchFilter({
                 inputProps={{
                   'aria-label': 'Artist',
                 }}
-                // checked={selectedValue === 'ARTIST'}
-                onChange={handleValue}
               />
             }
             label="Artist"
@@ -62,8 +59,6 @@ export function SearchFilter({
                 inputProps={{
                   'aria-label': 'Album',
                 }}
-                // checked={selectedValue === 'ALBUM'}
-                onChange={handleValue}
               />
             }
             label="Album"
@@ -80,8 +75,6 @@ export function SearchFilter({
                 inputProps={{
                   'aria-label': 'Tracks',
                 }}
-                onChange={handleValue}
-                // checked={selectedValue === 'TRACK'}
               />
             }
             label="Track"
