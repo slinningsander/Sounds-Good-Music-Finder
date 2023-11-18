@@ -1,8 +1,9 @@
 import { gql, useQuery } from '@apollo/client'
+import { useEffect } from 'react'
 
 const GET_ALBUM = gql`
-  query GetAlbum($options: AlbumOptions, $where: AlbumWhere) {
-    albums(options: $options, where: $where) {
+  query GetAlbum($options: AlbumOptions, $fulltext: AlbumFulltext) {
+    albums(options: $options, fulltext: $fulltext) {
       album_art
       album_title
       artistsCreatedAlbum {
@@ -12,7 +13,7 @@ const GET_ALBUM = gql`
   }
 `
 
-export default function GetArtist(
+export default function GetAlbum(
   input: string,
   offset: number,
   more: boolean,
@@ -20,15 +21,17 @@ export default function GetArtist(
 ) {
   const result = useQuery(GET_ALBUM, {
     variables: {
-      where: { album_title_STARTS_WITH: input },
+      fulltext: {
+        AlbumTitle: {
+          phrase: input + '*',
+        },
+      },
       options: {
         limit: 5,
         offset: offset,
       },
     },
   })
-
-  console.log(more)
 
   const fetchMoreAlbums = () => {
     result
@@ -41,16 +44,16 @@ export default function GetArtist(
         },
       })
       .then((res) => {
-        console.log(res)
+        setMore(false)
       })
-    console.log('fetching more')
-    console.log(result.data)
-    setMore(false)
   }
 
-  if (more) {
-    fetchMoreAlbums()
-  }
+  // Only call fetchMoreAlbums if more is true
+  useEffect(() => {
+    if (more) {
+      fetchMoreAlbums()
+    }
+  }, [more, offset, input])
 
   return result
 }

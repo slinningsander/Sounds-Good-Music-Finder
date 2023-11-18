@@ -24,9 +24,6 @@ export function Searchbar({
         method="get"
         action="/project2/searchResult"
       >*/}
-      <label className={styles.searchbarLabel} htmlFor={searchbarName}>
-        {labelValue}
-      </label>
       <input
         type="search"
         className={styles.searchbar}

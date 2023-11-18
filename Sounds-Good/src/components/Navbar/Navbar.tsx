@@ -38,15 +38,6 @@ export const Navbar = () => {
             >
               Home
             </Button>
-            <Button
-              onClick={() => {
-                navigate(`/project2/playlists`)
-                alert('not implemented')
-              }}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              Playlists
-            </Button>
           </Box>
         </Toolbar>
       </Container>
