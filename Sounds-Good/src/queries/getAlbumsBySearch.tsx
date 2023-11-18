@@ -2,8 +2,8 @@ import { gql, useQuery } from '@apollo/client'
 import { useEffect } from 'react'
 
 const GET_ALBUM = gql`
-  query GetAlbum($options: AlbumOptions, $where: AlbumWhere) {
-    albums(options: $options, where: $where) {
+  query GetAlbum($options: AlbumOptions, $fulltext: AlbumFulltext) {
+    albums(options: $options, fulltext: $fulltext) {
       album_art
       album_title
       artistsCreatedAlbum {
@@ -21,7 +21,11 @@ export default function GetAlbum(
 ) {
   const result = useQuery(GET_ALBUM, {
     variables: {
-      where: { album_title_STARTS_WITH: input },
+      fulltext: {
+        AlbumTitle: {
+          phrase: input + '*',
+        },
+      },
       options: {
         limit: 5,
         offset: offset,

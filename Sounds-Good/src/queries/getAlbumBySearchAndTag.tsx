@@ -4,11 +4,13 @@ const GET_ALBUM_BY_TAGS_AND_SEARCH = gql`
   query AlbumsConnection(
     $tagsConnectionWhere: [TagWhere!]
     $albumTitleStartsWith: String
+    $fulltext: AlbumFulltext
   ) {
     albumsConnection(
       where: {
         hasTagTags_SOME: { OR: $tagsConnectionWhere }
         AND: { album_title_STARTS_WITH: $albumTitleStartsWith }
+        fulltext: $fulltext
       }
     ) {
       edges {
@@ -28,8 +30,12 @@ export default function GetAlbumBySearchAndTag(
 ) {
   const result = useQuery(GET_ALBUM_BY_TAGS_AND_SEARCH, {
     variables: {
+      fulltext: {
+        AlbumTitle: {
+          phrase: searchInput + '*',
+        },
+      },
       where: {
-        album_title_STARTS_WITH: searchInput,
         hasTagTags_SOME: tagInput,
       },
       options: {

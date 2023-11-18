@@ -1,8 +1,12 @@
 import { gql, useQuery } from '@apollo/client'
 
 const GET_TRACK = gql`
-  query GetTrack($options: TrackOptions, $where: TrackWhere) {
-    tracks(options: $options, where: $where) {
+  query GetTrack(
+    $options: TrackOptions
+    $where: TrackWhere
+    $fulltext: TrackFulltext
+  ) {
+    tracks(options: $options, where: $where, fulltext: $fulltext) {
       track_title
       albumsHasTrack {
         album_title
@@ -27,9 +31,13 @@ export default function GetSongBySearch(
   const result = useQuery(GET_TRACK, {
     variables: {
       where: {
-        track_title_STARTS_WITH: input,
         duration_LTE: maxDuration.toString(),
         duration_GTE: minDuration.toString(),
+      },
+      fulltext: {
+        TrackTitle: {
+          phrase: input + '*',
+        },
       },
       options: {
         limit: 5,
