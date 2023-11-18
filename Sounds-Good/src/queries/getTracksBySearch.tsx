@@ -1,4 +1,5 @@
 import { gql, useQuery } from '@apollo/client'
+import { useEffect } from 'react'
 
 const GET_TRACK = gql`
   query GetTrack(
@@ -28,6 +29,25 @@ export default function GetSongBySearch(
   sortingDirection: string,
   setMore: (more: boolean) => void
 ) {
+  let options = {}
+
+  if (sortingDirection === 'Default') {
+    options = {
+      limit: 5,
+      offset: offset,
+    }
+  } else {
+    options = {
+      limit: 5,
+      offset: offset,
+      sort: [
+        {
+          track_title: sortingDirection,
+        },
+      ],
+    }
+  }
+
   const result = useQuery(GET_TRACK, {
     variables: {
       where: {
@@ -39,15 +59,7 @@ export default function GetSongBySearch(
           phrase: input + '*',
         },
       },
-      options: {
-        limit: 5,
-        offset: offset,
-        sort: [
-          {
-            track_title: sortingDirection,
-          },
-        ],
-      },
+      options: options,
     },
   })
 
@@ -57,23 +69,19 @@ export default function GetSongBySearch(
     result
       .fetchMore({
         variables: {
-          options: {
-            limit: 5,
-            offset: offset,
-          },
+          options: options,
         },
       })
       .then((res) => {
         console.log(res)
+        setMore(false)
       })
-    console.log('fetching more')
-    console.log(result.data)
-    setMore(false)
   }
-
-  if (more) {
-    fetchMoreTracks()
-  }
+  useEffect(() => {
+    if (more) {
+      fetchMoreTracks()
+    }
+  }, [more, offset, input, maxDuration, minDuration, sortingDirection])
 
   return result
 }

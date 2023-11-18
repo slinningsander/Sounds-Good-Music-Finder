@@ -44,10 +44,7 @@ export default function GetAlbum(
         },
       })
       .then((res) => {
-        if (res.data.albums.length < 5) {
-          // If there are no more albums to fetch, set more to false
-          setMore(false)
-        }
+        setMore(false)
       })
   }
 

@@ -13,7 +13,7 @@ export default function Homepage() {
   const [selectedValue, setSelectedValue] = useState('TRACK')
   const [maxDuration, setMaxDuration] = useState(600)
   const [minDuration, setMinDuration] = useState(0)
-  const [sortingDirection, setSortingDirection] = useState('ASC') // State for sorting direction
+  const [sortingDirection, setSortingDirection] = useState('Default') // State for sorting direction
 
   const handleSortingChange = (event: any) => {
     setSortingDirection(event.target.value) // Update sorting direction state when the user changes the selection
@@ -54,6 +54,7 @@ export default function Homepage() {
                 value={sortingDirection}
                 onChange={handleSortingChange}
               >
+                <option value="Default">Default</option>
                 <option value="ASC">Alphabetically(a-z)</option>
                 <option value="DESC">Alphabetically(z-a)</option>
               </select>
