@@ -8,9 +8,6 @@ type ArtistCardContainerProps = {
   input: string
 }
 const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
-  const firstletter = input.charAt(0).toUpperCase()
-  const rest = input.slice(1)
-  input = firstletter + rest
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
   const { data, error, loading } = GetArtist(input, offset, more, setMore)
