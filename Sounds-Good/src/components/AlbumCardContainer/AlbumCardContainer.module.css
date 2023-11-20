@@ -19,4 +19,11 @@
   border-radius: 1ch;
   font-size: large;
   align-self: center;
+  color: white;
+}
+
+.button:hover {
+  background-color: rgb(195, 62, 106);
+  opacity: 0.5;
+  cursor: pointer;
 }
