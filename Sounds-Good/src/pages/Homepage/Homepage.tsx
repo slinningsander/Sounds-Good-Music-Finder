@@ -30,7 +30,6 @@ export default function Homepage() {
         searchbarName="homePageSearch"
         isRequired={true}
         placeholder="Search here..."
-        labelValue="Search"
         ariaLabel="Searchbar"
         setSearchbarValue={setSearchbarValue}
       />
