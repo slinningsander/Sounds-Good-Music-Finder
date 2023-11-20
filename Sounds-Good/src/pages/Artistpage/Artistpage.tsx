@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import styles from './Artistpage.module.css'
 import Page from '../../components/Page/Page'
 import GetArtist from '../../queries/getArtist'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useApolloClient } from '@apollo/client'
 
 type Album = {
@@ -12,7 +12,6 @@ type Album = {
 
 const Artistpage = () => {
   const url = new URL(window.location.href)
-  const navigate = useNavigate()
   const client = useApolloClient()
 
   // Extract the value of the parameter "name" from the URL
@@ -53,13 +52,9 @@ const Artistpage = () => {
             {data.artists[0].createdAlbumAlbums.map((album: Album) => (
               <div className={styles.albums}>
                 <p> {album.album_title}</p>
-                <img
-                  src={album.album_art}
-                  className={styles.albumCover}
-                  onClick={() =>
-                    navigate('album/' + encodeURIComponent(album.album_title))
-                  }
-                />
+                <Link to={'album/' + encodeURIComponent(album.album_title)}>
+                  <img src={album.album_art} className={styles.albumCover} />
+                </Link>
               </div>
             ))}
           </div>
