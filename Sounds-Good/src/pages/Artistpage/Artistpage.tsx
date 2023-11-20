@@ -53,7 +53,11 @@ const Artistpage = () => {
               <div className={styles.albums}>
                 <p> {album.album_title}</p>
                 <Link to={'album/' + encodeURIComponent(album.album_title)}>
-                  <img src={album.album_art} className={styles.albumCover} />
+                  <img
+                    src={album.album_art}
+                    className={styles.albumCover}
+                    alt={album.album_title + 'album cover'}
+                  />
                 </Link>
               </div>
             ))}
