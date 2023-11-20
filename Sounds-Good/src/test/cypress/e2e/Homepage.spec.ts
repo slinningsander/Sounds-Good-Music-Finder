@@ -44,4 +44,21 @@ describe('Test the different components in the Homepage', () => {
     cy.get('[data-cy=Slider]').should('exist').click(100, 0)
     cy.get('[data-cy=Slider]').click('right').click(250, 0)
   })
+
+  //Checks if the dropdown exists and that the options can be selected.
+  it('Test sorting dropdown', () => {
+    cy.get('[data-cy=Select]').should('exist')
+    cy.get('[data-cy=Select]')
+      .should('exist')
+      .select('Default')
+      .should('have.value', 'Default')
+    cy.get('[data-cy=Select]')
+      .should('exist')
+      .select('Alphabetically(a-z)')
+      .should('have.value', 'ASC')
+    cy.get('[data-cy=Select]')
+      .should('exist')
+      .select('Alphabetically(z-a)')
+      .should('have.value', 'DESC')
+  })
 })
