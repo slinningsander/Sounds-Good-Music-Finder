@@ -80,11 +80,11 @@ Web accessibility is an important aspect of web development, because it allows e
 
 Wave showed us that our constrast on the 'Show more' button was too low when we have white button text:
 
-![Image showing constrast too low](/Sounds-Good/src/assets/Screenshot%202023-11-20%20at%2011.24.56.png)
+<img src="Sounds-Good/src/assets/Screenshot%202023-11-20%20at%2011.24.56.png" alt="Image showing contrast too low" width="400" height="200" />
 
 When we changed the text color to white, it is clear that the button is much more legible. Wave also doesn't complain anymore:
 
-![Image showing new button](/Sounds-Good/src/assets/Screenshot%202023-11-20%20at%2011.11.38.png)
+<img src="Sounds-Good/src/assets/Screenshot%202023-11-20%20at%2011.11.38.png" alt="Image showing new button" width="300" height="75">
 
 There is however some things that Wave can't check for such as keyboard accessibility. WCAG guideline 2.1 states: Make all functionality available from a keyboard. We had to check this manually. A lot of our components were wrapped in HTML div tags with onclick functions which made them work with a mouse, but not when navigating the page with a keyboard. We have now replaced a lot of divs with Link components from react-router-dom, which makes them keyboard accessible.
 
