@@ -1,19 +1,15 @@
 import { gql, useQuery } from '@apollo/client'
 
 const GET_TRACK = gql`
-  query GetTrack(
-    $where: TrackWhere
-    $albumsHasTrackWhere2: AlbumWhere
-    $artistsCreatedTrackWhere2: ArtistWhere
-  ) {
+  query GetTrack($where: TrackWhere) {
     tracks(where: $where) {
       duration
       track_title
       cover_art
-      albumsHasTrack(where: $albumsHasTrackWhere2) {
+      albumsHasTrack {
         album_title
       }
-      artistsCreatedTrack(where: $artistsCreatedTrackWhere2) {
+      artistsCreatedTrack {
         artist_name
       }
     }
@@ -25,12 +21,12 @@ export default function GetTrack(track: string, artist: string, album: string) {
     variables: {
       where: {
         track_title: track,
-      },
-      albumsHasTrackWhere2: {
-        album_title: album,
-      },
-      artistsCreatedTrackWhere2: {
-        artist_name: artist,
+        albumsHasTrack_SINGLE: {
+          album_title: album,
+        },
+        artistsCreatedTrack_SINGLE: {
+          artist_name: artist,
+        },
       },
     },
   })
