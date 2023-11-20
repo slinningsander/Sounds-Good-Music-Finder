@@ -38,8 +38,10 @@ describe('Test the different components in the Homepage', () => {
     cy.get('[data-cy=SongsContainer]').should('exist')
   })
 
+  //Checks if the slider exists and can be used.
   it('Test slider', () => {
-    cy.get('[data-cy=SliderContainer]')
-    cy.get('[data-cy=Slider]')
+    cy.get('[data-cy=SliderContainer]').should('exist')
+    cy.get('[data-cy=Slider]').should('exist').click(100, 0)
+    cy.get('[data-cy=Slider]').click('right').click(250, 0)
   })
 })
