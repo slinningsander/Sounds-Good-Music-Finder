@@ -1,13 +1,25 @@
+// '[data-cy=]'
+
 describe('Start application', () => {
+
+  //Checks if the application can be started and refreshes the page before all tests.
   beforeEach(() => {
     cy.visit('/')
   })
 
   it('Test navbar', () => {
-    cy.get('h6').should('contain', 'Sounds Good')
-    cy.get('button').should('contain', 'Home')
+    //Checks if the navbar exists and contains the logo.
+    cy.get('[data-cy=Navbar] > :nth-child(1)')
+      .should('exist')
+      .should('contain', 'Sounds Good')
+
+    //Checks if the navbar contains the Homebutton.
+    cy.get('[data-cy=Navbar] > :nth-child(2)')
+      .should('exist')
+      .should('contain', 'Home')
   })
 
+  //Checks if the radio buttons exist and can be clicked.
   it('Test radiobuttons', () => {
     cy.get('[data-cy=ArtistButton]').should('exist').click()
     cy.get('[data-cy=AlbumButton]').should('exist').click()
