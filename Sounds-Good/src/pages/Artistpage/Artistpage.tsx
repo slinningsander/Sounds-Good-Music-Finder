@@ -43,7 +43,7 @@ const Artistpage = () => {
         <div className={styles.container}>
           <div className={styles.infoContainer}>
             <h1>{data.artists[0].artist_name}</h1>
-            <h3>Last.fm listeners: {formattedlisteners}</h3>
+            <sub>Last.fm listeners: {formattedlisteners}</sub>
             <h2>About</h2>
             <p className={styles.bio}>{sanitizedBio}</p>
           </div>
