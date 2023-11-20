@@ -86,6 +86,8 @@ When we changed the text color to white, it is clear that the button is much mor
 
 <img src="Sounds-Good/src/assets/Screenshot%202023-11-20%20at%2011.11.38.png" alt="Image showing new button" width="300" height="75">
 
+Wave also helped with discovering missing form-labels and ARIA-labels. It also helped with discovering heading level skips, which should should be avoided and is now fixed.
+
 There is however some things that Wave can't check for such as keyboard accessibility. WCAG guideline 2.1 states: Make all functionality available from a keyboard. We had to check this manually. A lot of our components were wrapped in HTML div tags with onclick functions which made them work with a mouse, but not when navigating the page with a keyboard. We have now replaced a lot of divs with Link components from react-router-dom, which makes them keyboard accessible.
 
 Here is a complete list of what relevant WCAG guidelines we have followed and a short description of how we followed them. (Note that some guidelines do not apply due too their irrelevancy. E.g. guidelines related to video content)
@@ -116,7 +118,7 @@ Here is a complete list of what relevant WCAG guidelines we have followed and a 
 
 ## Sustainable web development
 
-Sustainable web development in a topic that is gaining increasing importance. To make our website more sustainable we chose to split up our search into three different categories, namely an artist search, an an album search and a song search. Our original plan was to make it possible to search for everything all at once. However, we let sustainability influence us to choose differently. By splitting up the search into different categories, the query only gets data from one node from the database, making it computationally simpler and thus also more sustainable.
+Sustainable web development in a topic that is gaining increasing importance. To make our website more sustainable we chose to split up our search into three different categories, namely an artist search, an an album search and a song search. Our original plan was to make it possible to search for everything all at once. However, we let sustainability influence us to choose differently. By splitting up the search into different categories, the query only gets data from one node in the database, making it computationally simpler and thus more sustainable.
 
 Pagination also plays a big role in sustainable web development. By only retrieving a few pieces of data at a time, the amount of data sent for every search is reduced by a large amount.
 
