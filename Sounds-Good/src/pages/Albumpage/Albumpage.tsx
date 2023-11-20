@@ -35,7 +35,7 @@ const Albumpage = () => {
         <div className={styles.container}>
           <div className={styles.infoContainer}>
             <h1>{data.albums[0].album_title}</h1>
-            <h3>{data.albums[0].artistsCreatedAlbum[0].artist_name}</h3>
+            <h2>{data.albums[0].artistsCreatedAlbum[0].artist_name}</h2>
             <img
               className={styles.albumArt}
               src={data.albums[0].album_art}
