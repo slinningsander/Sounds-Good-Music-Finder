@@ -42,7 +42,7 @@ export default function Homepage() {
         </div>
         {selectedValue === 'TRACK' && (
           <>
-            <div className={styles.children}>
+            <div className={styles.children} data-cy="SliderContainer">
               <TrackDurationFilter
                 setMaxDuration={setMaxDuration}
                 setMinDuration={setMinDuration}
