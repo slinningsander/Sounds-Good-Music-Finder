@@ -11,9 +11,9 @@ export const CommentsContainer = () => {
           <CommentComponent text="This is another comment" />
           <CommentComponent text="This is yet another comment" />
         </div>
-        <h2>Add a comment</h2>
         <div className={styles.commentForm}>
-          <input type="text" />
+          <label htmlFor="commentInput">Add a comment:</label>
+          <input type="text" id="commentInput" />
           <button
             type="submit"
             onClick={() =>
