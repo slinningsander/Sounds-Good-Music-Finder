@@ -6,7 +6,7 @@ export default defineConfig({
   screenshotsFolder: 'src/test/cypress/screenshots',
   e2e: {
     specPattern: 'src/test/cypress/e2e/*.spec.ts',
-    baseUrl: 'http://it2810-23.idi.ntnu.no/project2',
+    baseUrl: 'http://localhost:5173/project2',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },

@@ -1,5 +1,3 @@
-import { cyan } from '@mui/material/colors'
-
 describe('Start application', () => {
   beforeEach(() => {
     cy.visit('/')
@@ -22,6 +20,7 @@ describe('Start application', () => {
   })
 
   it('Test slider', () => {
-    cy.get('[data-cy=SliderContainer]').shadow()
+    cy.get('[data-cy=SliderContainer]')
+    cy.get('[data-cy=Slider]')
   })
 })
