@@ -27,7 +27,6 @@ export function SearchFilter({
       <FormControl>
         <RadioGroup
           row
-          aria-labelledby="filter search radio group"
           name="search-filter-radio-group"
           value={selectedValue}
           onChange={handleValue}
