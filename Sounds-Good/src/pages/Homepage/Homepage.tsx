@@ -29,7 +29,7 @@ export default function Homepage() {
       <Searchbar
         searchbarName="homePageSearch"
         isRequired={true}
-        placeholder="Drake"
+        placeholder="Search here..."
         labelValue="Search"
         ariaLabel="Searchbar"
         setSearchbarValue={setSearchbarValue}
