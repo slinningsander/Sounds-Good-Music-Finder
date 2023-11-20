@@ -79,8 +79,11 @@ We have chosen Redux for our global state management. We have not yet put it to 
 Web accessibility is an important aspect of web development, because it allows everyone regardless of who they are to use your application. We have chosen to demonstrate the most relevant aspects of web accessibility in our app. To help us discover accessibility errors we have used a Google Chrome extension called [Wave](https://wave.webaim.org/).
 
 Wave showed us that our constrast on the 'Show more' button was too low when we have white button text:
+
 ![Image showing constrast too low](/Sounds-Good/src/assets/Screenshot%202023-11-20%20at%2011.24.56.png)
+
 When we changed the text color to white, it is clear that the button is much more legible. Wave also doesn't complain anymore:
+
 ![Image showing new button](/Sounds-Good/src/assets/Screenshot%202023-11-20%20at%2011.11.38.png)
 
 There is however some things that Wave can't check for such as keyboard accessibility. WCAG guideline 2.1 states: Make all functionality available from a keyboard. We had to check this manually. A lot of our components were wrapped in HTML div tags with onclick functions which made them work with a mouse, but not when navigating the page with a keyboard. We have now replaced a lot of divs with Link components from react-router-dom, which makes them keyboard accessible.
