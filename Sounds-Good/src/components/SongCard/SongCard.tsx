@@ -30,7 +30,7 @@ export default function BasicInfoCard(props: Props) {
           <img
             className={styles.albumCover}
             src={props.img}
-            alt="Album cover"
+            alt={props.album + ' album cover'}
           />
           <div>
             <Typography variant="h6" component="div">
