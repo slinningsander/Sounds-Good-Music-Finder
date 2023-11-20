@@ -74,7 +74,7 @@ We have used [MUI](https://mui.com) to create some of the more complex component
 
 We have chosen Redux for our global state management. We have not yet put it to use, but we will in the future.
 
-## Web Accessibility
+## Web accessibility
 
 Web accessibility is an important aspect of web development, because it allows everyone regardless of who they are to use your application. We have chosen to demonstrate the most relevant aspects of web accessibility in our app. To help us discover accessibility errors we have used a Google Chrome extension called [Wave](https://wave.webaim.org/).
 
@@ -113,6 +113,12 @@ Here is a complete list of what relevant WCAG guidelines we have followed and a 
 
 - #### Guideline 4.1 Compatible
   We have used ESLint to ensure that our code is free from errors. This is to ensure robustness and compatibility with most standard browsers.
+
+## Sustainable web development
+
+Sustainable web development in a topic that is gaining increasing importance. To make our website more sustainable we chose to split up our search into three different categories, namely an artist search, an an album search and a song search. Our original plan was to make it possible to search for everything all at once. However, we let sustainability influence us to choose differently. By splitting up the search into different categories, the query only gets data from one node from the database, making it computationally simpler and thus also more sustainable.
+
+Pagination also plays a big role in sustainable web development. By only retrieving a few pieces of data at a time, the amount of data sent for every search is reduced by a large amount.
 
 ## Discussion
 
