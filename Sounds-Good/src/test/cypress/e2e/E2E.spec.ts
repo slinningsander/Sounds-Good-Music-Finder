@@ -9,9 +9,9 @@ describe('Start application', () => {
   })
 
   it('Test radiobuttons', () => {
-    cy.contains('Artist').click()
-    cy.contains('Album').click()
-    cy.contains('Track').click()
+    cy.get('[data-cy=ArtistButton]').should('exist').click()
+    cy.get('[data-cy=AlbumButton]').should('exist').click()
+    cy.get('[data-cy=TrackButton]').should('exist').click()
   })
 
   it('Test search', () => {

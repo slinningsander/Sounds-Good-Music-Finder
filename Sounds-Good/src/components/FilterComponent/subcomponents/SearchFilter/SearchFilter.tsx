@@ -46,6 +46,7 @@ export function SearchFilter({
                 }}
                 // checked={selectedValue === 'ARTIST'}
                 onChange={handleValue}
+                data-cy="ArtistButton"
               />
             }
             label="Artist"
@@ -64,6 +65,7 @@ export function SearchFilter({
                 }}
                 // checked={selectedValue === 'ALBUM'}
                 onChange={handleValue}
+                data-cy="AlbumButton"
               />
             }
             label="Album"
@@ -82,6 +84,7 @@ export function SearchFilter({
                 }}
                 onChange={handleValue}
                 // checked={selectedValue === 'TRACK'}
+                data-cy="TrackButton"
               />
             }
             label="Track"
