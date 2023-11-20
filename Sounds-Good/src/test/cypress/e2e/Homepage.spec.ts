@@ -1,6 +1,6 @@
 // '[data-cy=]'
 
-describe('Start application', () => {
+describe('Test the different components in the Homepage', () => {
 
   //Checks if the application can be started and refreshes the page before all tests.
   beforeEach(() => {
