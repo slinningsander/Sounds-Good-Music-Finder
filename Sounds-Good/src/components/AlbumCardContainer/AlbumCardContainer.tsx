@@ -73,6 +73,7 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
             setOffset(data.albumsFulltextAlbumTitle.length)
           }}
           className={styles.button}
+          data-cy="ShowMoreButton"
         >
           Show More
         </button>

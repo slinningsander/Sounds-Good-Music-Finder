@@ -78,6 +78,19 @@ describe('Test the different components in the Homepage', () => {
     cy.get('[data-cy=AlbumsContainer]').children().should('have.length', 1)
   })
 
+  it('Test pagination', () => {
+    //Switch to albums and type "G".
+    cy.get('[data-cy=AlbumButton]').click()
+    cy.get('[data-cy=Searchbar]').type('G')
+    //Check that a div with the id "DivForTest" exists and that it contains 5 children.
+    //This div is only needed for testing purposes and is not used in the application.
+    cy.get('[data-cy=DivForTest]').should('exist')
+    cy.get('[data-cy=DivForTest]').children().should('have.length', 5)
+    //Then click the "Show more" button and check that the div now contains 10 children.
+    cy.get('[data-cy=ShowMoreButton]').should('exist').click()
+    cy.get('[data-cy=DivForTest]').children().should('have.length', 10)
+  })
+
   it('Test the track duration filter (Slider)', () => {
     //Start off by typing in "test" and checking that the three results are returned.
     cy.get('[data-cy=Searchbar]').type('test')
@@ -122,7 +135,6 @@ describe('Test the different components in the Homepage', () => {
     cy.get('[data-cy=AlbumButton]').click()
     cy.get('[data-cy=Searchbar]').type('G')
     //Check that a div with the id "DivForTest" exists and that it contains 5 children.
-    //This div is only needed for testing purposes and is not used in the application.
     //The length of the result is only 5 because it is not paginated.
     cy.get('[data-cy=DivForTest]').should('exist')
     cy.get('[data-cy=DivForTest]').children().should('have.length', 5)
