@@ -1,5 +1,4 @@
 import styles from './Searchbar.module.css'
-import React from 'react'
 
 type SearchbarProps = {
   searchbarName: string
