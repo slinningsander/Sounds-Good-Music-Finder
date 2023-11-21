@@ -28,8 +28,7 @@ export default function Homepage() {
       <Searchbar
         searchbarName="homePageSearch"
         isRequired={true}
-        placeholder="Drake"
-        labelValue="Search"
+        placeholder="Search here..."
         ariaLabel="Searchbar"
         setSearchbarValue={setSearchbarValue}
       />
@@ -49,6 +48,9 @@ export default function Homepage() {
               />
             </div>
             <div className={styles.children}>
+              <label htmlFor="select" className={styles.label}>
+                Sorting:
+              </label>
               <select
                 id="select"
                 value={sortingDirection}
