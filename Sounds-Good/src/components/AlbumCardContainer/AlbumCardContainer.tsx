@@ -32,7 +32,7 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
   }, [input])
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-cy="AlbumsContainer">
       {loading ? (
         <></>
       ) : (

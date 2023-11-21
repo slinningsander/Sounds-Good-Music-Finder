@@ -26,7 +26,7 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
   }, [input])
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-cy="ArtistsContainer">
       {loading ? (
         <></>
       ) : (

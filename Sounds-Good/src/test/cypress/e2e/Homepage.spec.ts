@@ -61,4 +61,22 @@ describe('Test the different components in the Homepage', () => {
       .select('Alphabetically(z-a)')
       .should('have.value', 'DESC')
   })
+
+  //Tests if the radiobuttons have the desired effect on the search.
+  it('Test the song search functionality', () => {
+    //Start off by typing in "test". The default value of the radiobuttons is "Track".
+    //The search should therefore return 3 results.
+    cy.get('[data-cy=Searchbar]').type('test')
+    cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
+    //Check the radiobutton "Artist". The search should now return 0 results,
+    //since there are no artists in our dataset that contains the word "test".
+    cy.get('[data-cy=ArtistButton]').click()
+    cy.get('[data-cy=ArtistsContainer]').should('exist')
+    cy.get('[data-cy=ArtistsContainer]').children().should('have.length', 0)
+    //Check the radiobutton "Album". The search should now return 1 result,
+    //since there is one album in our dataset that contains the word "test".
+    cy.get('[data-cy=AlbumButton]').click()
+    cy.get('[data-cy=AlbumsContainer]').should('exist')
+    cy.get('[data-cy=AlbumsContainer]').children().should('have.length', 1)
+  })
 })
