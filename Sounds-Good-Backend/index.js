@@ -6,7 +6,7 @@ import path from "path";
 import fs from "fs";
 
 const typeDefsString = `#graphql
-type Album {
+type Album @fulltext(indexes: [{ indexName: "AlbumTitle", fields: ["album_title"] }]){
 	album_art: String!
 	album_title: String!
 	artistsCreatedAlbum: [Artist!]! @relationship(type: "CREATED_ALBUM", direction: IN)
@@ -16,7 +16,7 @@ type Album {
 	summary: String!
 }
 
-type Artist {
+type Artist @fulltext(indexes: [{ indexName: "ArtistName", fields: ["artist_name"] }]){
 	artist_bio: String!
 	artist_name: String!
 	createdAlbumAlbums: [Album!]! @relationship(type: "CREATED_ALBUM", direction: OUT)
@@ -31,7 +31,7 @@ type Tag {
 	tag_name: String!
 }
 
-type Track {
+type Track @fulltext(indexes: [{ indexName: "TrackTitle", fields: ["track_title"] }]){
 	albumsHasTrack: [Album!]! @relationship(type: "HAS_TRACK", direction: IN)
 	artistsCreatedTrack: [Artist!]! @relationship(type: "CREATED_TRACK", direction: IN)
 	cover_art: String!
@@ -39,7 +39,14 @@ type Track {
 	id: String!
 	rank: BigInt!
 	track_title: String!
-}`;
+	comments: [Comment!]! @relationship(type: "COMMENTED_ON_TRACK", direction: IN)
+}
+
+type Comment {
+	id: String
+	text: String!
+	commentedOnTrack: [Track!]! @relationship(type: "COMMENTED_ON_TRACK", direction: OUT)
+  }`;
 
 const initializeServer = async () => {
   const driver = neo4j.driver(
