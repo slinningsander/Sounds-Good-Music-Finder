@@ -31,7 +31,6 @@ export function AlbumTagFilter() {
 
     const GroupHeader = styled('div')({
       position: 'sticky',
-      top: '-8px',
       padding: '4px 10px',
       color: 'white',
       backgroundColor: '#5C469C',
@@ -78,9 +77,12 @@ export function AlbumTagFilter() {
                   InputProps={{
                     ...params.InputProps,
                     style: {
-                      color: 'white', // Set text color to white
-                      backgroundColor: '#5C469C',
+                      backgroundColor: '#1D267D',
+                      color: 'white'
                     },
+                  }}
+                  InputLabelProps={{
+                    style: { color: '#fff' },
                   }}
                 />
               )}
@@ -90,7 +92,7 @@ export function AlbumTagFilter() {
                   <GroupItems>{params.children}</GroupItems>
                 </li>
               )}
-              sx={{ width: '300px' }}
+              sx={{ width: '300px'}}
             />
           }
           labelPlacement="top"
