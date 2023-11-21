@@ -31,25 +31,30 @@ export default function GetAlbumBySearchAndTag(
   more: boolean,
   setMore: (more: boolean) => void
 ) {
-  let where = {}
-
+  let variables = {}
   if (tagInput.length > 0) {
-    where = {
-      album: {
-        hasTagTags_SOME: {
-          tag_name_IN: tagInput,
+    variables = {
+      phrase: searchInput + '*',
+      where: {
+        album: {
+          hasTagTags_SOME: {
+            tag_name_IN: tagInput,
+          },
         },
       },
+      limit: 5,
+      offset: offset,
+    }
+  } else {
+    variables = {
+      phrase: searchInput + '*',
+      limit: 5,
+      offset: offset,
     }
   }
 
   const result = useQuery(GET_ALBUM_BY_TAGS_AND_SEARCH, {
-    variables: {
-      phrase: searchInput + '*',
-      where: where,
-      limit: 5,
-      offset: offset,
-    },
+    variables: variables,
   })
 
   const fetchMoreAlbums = () => {
