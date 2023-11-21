@@ -21,7 +21,7 @@ export function TrackDurationFilter({
         padding: '0.5em',
       }}
     >
-      <span>min: {value[0]} sekunder</span>
+      <span>min: {value[0]} seconds</span>
       <Slider
         size="small"
         value={value}
@@ -36,7 +36,7 @@ export function TrackDurationFilter({
         min={0}
         max={600}
       />
-      <span>max: {value[1]} sekunder</span>
+      <span>max: {value[1]} seconds</span>
     </Box>
   )
 }
