@@ -1,35 +1,24 @@
 //import React from 'react'
 import styles from './AlbumTagFilter.module.css'
 import {
+  Alert,
   Autocomplete,
   FormControlLabel,
   TextField,
   styled,
 } from '@mui/material'
 import GetAllTags from '../../../../queries/getAllTags'
-import GetAlbumsByTags from '../../../../queries/getAlbumsByTags'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import {
-  //selectFilterTags,
-  //selectFilterTags,
-  updateTags,
-} from '../../../../redux/slices/tagFilterSlice'
-//useEffect
+import { updateTags } from '../../../../redux/slices/tagFilterSlice'
 export function AlbumTagFilter() {
   const [values, setValues] = useState<string[]>([])
   const dispatch = useDispatch()
-  //const [selectedTags, setSelectedTags] = useState<string[]>([])
-  //const selectedFilterTags = useSelector(selectFilterTags)
   const { data, loading, error } = GetAllTags()
-  // const {
-  //   data: albumsData,
-  //   loading: albumsLoading,
-  //   error: albumsError,
-  // } = GetAlbumsByTags(selectedFilterTags)
 
   const alltags: string[] = []
-  if (!loading && data.tags) {
+
+  if (!loading && data.tags && !error) {
     for (let i = 0; i < data.tags.length; i++) {
       alltags.push(data.tags[i].tag_name)
     }
@@ -40,14 +29,6 @@ export function AlbumTagFilter() {
         option: option,
       }
     })
-
-    // if (albumsLoading) {
-    //   console.log('albumsData is loading')
-    // } else if (albumsError) {
-    //   console.log('albumsData is error', albumsError || error)
-    // } else if (albumsData) {
-    //   console.log('Album Data: ', albumsData)
-    // }
 
     const GroupHeader = styled('div')({
       position: 'sticky',
@@ -64,11 +45,6 @@ export function AlbumTagFilter() {
 
     const getPickedTags = (newValues: string[]) => {
       const tagsQueryFormat = newValues.map((item) => item.option)
-      // {
-      //tag_name: item.option,
-      // }
-
-      console.log('Formatted tags for query: ', tagsQueryFormat)
       setValues(newValues)
       dispatch(updateTags(tagsQueryFormat))
     }
@@ -110,6 +86,12 @@ export function AlbumTagFilter() {
           label="Search tags"
           className={styles.tagSearch}
         />
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Alert severity="info">Was not able to load tag filter</Alert>
       </>
     )
   }

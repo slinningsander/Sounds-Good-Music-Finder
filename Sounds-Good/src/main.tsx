@@ -17,7 +17,7 @@ const client = new ApolloClient({
               return [...existing, ...incoming]
             },
           },
-          albums: {
+          albumsFulltextAlbumTitle: {
             keyArgs: false,
             merge(existing = [], incoming) {
               return [...existing, ...incoming]
