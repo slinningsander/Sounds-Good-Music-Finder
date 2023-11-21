@@ -79,4 +79,18 @@ describe('Test the different components in the Homepage', () => {
     cy.get('[data-cy=AlbumsContainer]').should('exist')
     cy.get('[data-cy=AlbumsContainer]').children().should('have.length', 1)
   })
+
+  it('Test the Track duration filter (Slider)', () => {
+    //Start off by typing in "test" and checking that the three results are returned.
+    cy.get('[data-cy=Searchbar]').type('test')
+    cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
+    //Change the minimum value of the slider to 201 seconds. The search should now return 1 result,
+    cy.get('[data-cy=Slider]').should('exist').click(100, 0)
+    cy.get('[data-cy=SongsContainer]').children().should('have.length', 1)
+    //Check that it is the correct song that is returned. The other two song are under 200 seconds long
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+  })
 })
