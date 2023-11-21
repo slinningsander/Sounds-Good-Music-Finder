@@ -118,9 +118,15 @@ Here is a complete list of what relevant WCAG guidelines we have followed and a 
 
 ## Sustainable web development
 
-Sustainable web development in a topic that is gaining increasing importance. To make our website more sustainable we chose to split up our search into three different categories, namely an artist search, an an album search and a song search. Our original plan was to make it possible to search for everything all at once. However, we let sustainability influence us to choose differently. By splitting up the search into different categories, the query only gets data from one node in the database, making it computationally simpler and thus more sustainable.
+Sustainable web development in a topic that is gaining increasing importance. We have chosen to focus on UN's sustainability goals, 12: Responsible production and consumption and 13: Climate action. These goals are tightly tied together, as responsible production and consumption will help in taking climate action.
 
-Pagination also plays a big role in sustainable web development. By only retrieving a few pieces of data at a time, the amount of data sent for every search is reduced by a large amount.
+To make our website more sustainable we chose to split up our search into three different categories, namely an artist search, an an album search and a song search. Our original plan was to make it possible to search for everything all at once. However, we let sustainability influence us to choose differently. By splitting up the search into different categories, the query only gets data from one node in the database, making it computationally simpler, using less power and thus more sustainable.
+
+Pagination also plays a big role in sustainable web development. By only retrieving a few pieces of data at a time, the amount of data sent for every search is reduced by a large amount. Less data traffic means that less power is needed, resulting in a more sustainable website.
+
+We have also taken sustainability into account when showing images on our page. All the images are 300x300 px which is a size that we felt was a good balance between having a good quality image while not having excessive image quality. This again goes back to reducing the amount of data that is being transmitted.
+
+Another thing we did was to change our color palette. Dark colors uses less energy than light colors, so we decided to go for a darker color palette, to align with our sustainibility goals.
 
 ## Discussion
 
