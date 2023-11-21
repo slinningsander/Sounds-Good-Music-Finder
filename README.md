@@ -126,7 +126,9 @@ Pagination also plays a big role in sustainable web development. By only retriev
 
 We have also taken sustainability into account when showing images on our page. All the images are 300x300 px which is a size that we felt was a good balance between having a good quality image while not having excessive image quality. This again goes back to reducing the amount of data that is being transmitted.
 
-Another thing we did was to change our color palette. Dark colors uses less energy than light colors, so we decided to go for a darker color palette, to align with our sustainibility goals.
+Another thing we did was to change our color palette. Dark colors uses less energy than light colors, so we decided to go for a darker color palette, to align with our sustainibility goals. Here you can see our color palette:
+
+<img src="Sounds-Good/src/assets/colorpalette.png" alt="Image showing color palette" width=400>
 
 ## Discussion
 
