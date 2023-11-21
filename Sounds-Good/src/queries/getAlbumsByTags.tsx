@@ -16,8 +16,11 @@ const GET_ALBUMS_BY_TAGS = gql`
 // }
 
 export default function GetAlbumsByTags(tags: string[]) {
+  const formattedTags = tags.map((tag) => {
+    return { tag_name: tag }
+  })
   const result = useQuery(GET_ALBUMS_BY_TAGS, {
-    variables: { tagsConnectionWhere: tags },
+    variables: { tagsConnectionWhere: formattedTags },
   })
 
   return result

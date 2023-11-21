@@ -1,40 +1,39 @@
 import { gql, useQuery } from '@apollo/client'
 
-const GET_ALBUM_BY_TAGS_AND_SEARCH = gql`
-  query AlbumsConnection(
-    $tagsConnectionWhere: [TagWhere!]
-    $albumTitleStartsWith: String
+const GET_ALBUM_BY_TAGS_AND_SEARCH_TWO = gql`
+  query GET_ALBUM_BY_TAGS_AND_SEARCH_TWO(
+    $phrase: String!
+    $where: AlbumFulltextWhere
   ) {
-    albumsConnection(
-      where: {
-        hasTagTags_SOME: { OR: $tagsConnectionWhere }
-        AND: { album_title_STARTS_WITH: $albumTitleStartsWith }
-      }
-    ) {
-      edges {
-        node {
-          album_title
-          album_art
-          artistsCreatedAlbum {
-            artist_name
-          }
+    albumsFulltextAlbumTitle(phrase: $phrase, where: $where) {
+      album {
+        album_title
+        album_art
+        artistsCreatedAlbum {
+          artist_name
         }
       }
     }
   }
 `
-export default function GetAlbumBySearchAndTag(
+export default function GetAlbumBySearchAndTagTwo(
   searchInput: string,
   tagInput: string[],
   offset: number,
   more: boolean,
   setMore: (more: boolean) => void
 ) {
-  const result = useQuery(GET_ALBUM_BY_TAGS_AND_SEARCH, {
+  let where = {}
+  //const tagsQueryFormat = tagInput.map((tag) => (tag_name: tag ))
+  const result = useQuery(GET_ALBUM_BY_TAGS_AND_SEARCH_TWO, {
     variables: {
+      phrase: searchInput + '*',
       where: {
-        album_title_STARTS_WITH: searchInput,
-        hasTagTags_SOME: tagInput,
+        album: {
+          hasTagTags_SOME: {
+            tag_name_IN: tagInput,
+          },
+        },
       },
       options: {
         limit: 5,

@@ -7,7 +7,7 @@ import SongCardContainer from '../../components/SongCardContainer/SongCardContai
 import { TrackDurationFilter } from '../../components/FilterComponent/subcomponents/TrackDurationFilter/TrackDurationFilter.tsx'
 import styles from './Homepage.module.css'
 import { AlbumTagFilter } from '../../components/FilterComponent/subcomponents/AlbumTagFilter/AlbumTagFilter.tsx'
-import { useSelector } from 'react-redux'
+//import { useSelector } from 'react-redux'
 
 export default function Homepage() {
   const [searchbarValue, setSearchbarValue] = useState('')
@@ -15,15 +15,14 @@ export default function Homepage() {
   const [maxDuration, setMaxDuration] = useState(0)
   const [minDuration, setMinDuration] = useState(0)
   const [sortingDirection, setSortingDirection] = useState('ASC') // State for sorting direction
-  const selctedTags = useSelector((state) => state.tags.selectedTags)
+  //const selctedTags = useSelector((state) => state.tags.selectedTags)
   const handleSortingChange = (event: any) => {
     setSortingDirection(event.target.value) // Update sorting direction state when the user changes the selection
   }
 
   useEffect(() => {
     console.log(searchbarValue)
-    console.log('### reduxxxx' + selctedTags)
-  }, [searchbarValue, selctedTags])
+  }, [searchbarValue])
 
   return (
     <>
@@ -31,7 +30,7 @@ export default function Homepage() {
       <Searchbar
         searchbarName="homePageSearch"
         isRequired={true}
-        placeholder="Drake"
+        placeholder="Search..."
         labelValue="Search"
         ariaLabel="Searchbar"
         setSearchbarValue={setSearchbarValue}

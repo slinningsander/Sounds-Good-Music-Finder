@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import tagsReducer from './reducers/tagReducers.ts'
+import filterTagsReducer from './slices/tagFilterSlice'
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    tags: tagsReducer,
+    filterTags: filterTagsReducer,
   },
 })
 
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 export default store

@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 import styles from './AlbumTagFilter.module.css'
 import {
   Autocomplete,
@@ -8,15 +8,26 @@ import {
 } from '@mui/material'
 import GetAllTags from '../../../../queries/getAllTags'
 import GetAlbumsByTags from '../../../../queries/getAlbumsByTags'
-import { useDispatch } from 'react-redux'
-import { useState, useEffect } from 'react'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { useState } from 'react'
+import {
+  //selectFilterTags,
+  //selectFilterTags,
+  updateTags,
+} from '../../../../redux/slices/tagFilterSlice'
+//useEffect
 export function AlbumTagFilter() {
   const [values, setValues] = useState<string[]>([])
   const dispatch = useDispatch()
-  const [selectedTags, setSelectedTags] = useState<string[]>([])
-
+  //const [selectedTags, setSelectedTags] = useState<string[]>([])
+  //const selectedFilterTags = useSelector(selectFilterTags)
   const { data, loading, error } = GetAllTags()
+  // const {
+  //   data: albumsData,
+  //   loading: albumsLoading,
+  //   error: albumsError,
+  // } = GetAlbumsByTags(selectedFilterTags)
+
   const alltags: string[] = []
   if (!loading && data.tags) {
     for (let i = 0; i < data.tags.length; i++) {
@@ -30,19 +41,13 @@ export function AlbumTagFilter() {
       }
     })
 
-    const {
-      data: albumsData,
-      loading: albumsLoading,
-      error: albumsError,
-    } = GetAlbumsByTags(selectedTags)
-
-    if (albumsLoading) {
-      console.log('albumsData is loading')
-    } else if (albumsError) {
-      console.log('albumsData is error', albumsError || error)
-    } else if (albumsData) {
-      console.log('Album Data: ', albumsData)
-    }
+    // if (albumsLoading) {
+    //   console.log('albumsData is loading')
+    // } else if (albumsError) {
+    //   console.log('albumsData is error', albumsError || error)
+    // } else if (albumsData) {
+    //   console.log('Album Data: ', albumsData)
+    // }
 
     const GroupHeader = styled('div')({
       position: 'sticky',
@@ -57,14 +62,15 @@ export function AlbumTagFilter() {
       backgroundColor: 'white',
     })
 
-    const getPickedTags = (newValues: any[]) => {
-      const tagsQueryFormat = newValues.map((item) => ({
-        tag_name: item.option,
-      }))
+    const getPickedTags = (newValues: string[]) => {
+      const tagsQueryFormat = newValues.map((item) => item.option)
+      // {
+      //tag_name: item.option,
+      // }
+
       console.log('Formatted tags for query: ', tagsQueryFormat)
       setValues(newValues)
-      setSelectedTags(tagsQueryFormat)
-      dispatch(setSelectedTags(tagsQueryFormat))
+      dispatch(updateTags(tagsQueryFormat))
     }
     return (
       <>
