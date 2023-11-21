@@ -1,5 +1,3 @@
-// '[data-cy=]'
-
 describe('Test the different components in the Homepage', () => {
   //Checks if the application can be started and refreshes the page before all tests.
   beforeEach(() => {
@@ -118,4 +116,31 @@ describe('Test the different components in the Homepage', () => {
       'Testify'
     )
   })
+
+  it('Test the tag filter for albums', () => {
+    //Start of by navigating to album search and typing "G"
+    cy.get('[data-cy=AlbumButton]').click()
+    cy.get('[data-cy=Searchbar]').type('G')
+    //Check that a div with the id "DivForTest" exists and that it contains 5 children.
+    //This div is only needed for testing purposes and is not used in the application.
+    //The length of the result is only 5 because it is not paginated.
+    cy.get('[data-cy=DivForTest]').should('exist')
+    cy.get('[data-cy=DivForTest]').children().should('have.length', 5)
+    //Clicks on the filter and finds the the tag "kanye west" and clicks on it.
+    cy.get('[data-cy=Autocomplete]').click()
+    cy.contains('kanye west').click()
+    //Check that the tag has an effect on the search result, returning the only album with the tag "kanye west".
+    cy.get('[data-cy=AlbumsContainer]').children().should('have.length', 1)
+    cy.get('[data-cy=AlbumsContainer] > :nth-child(1)').should(
+      'contain',
+      'Graduation'
+    )
+    //Add another the tag "2014" and checks that the search result is effected. This adds another album to the result.
+    //This is to demonstrate the nature of the tag-filter, showing that it returns all albums that contains any of the tags.
+    cy.get('[data-cy=Autocomplete]').click()
+    cy.contains('2014').click()
+    cy.get('[data-cy=AlbumsContainer]').should('contain', 'Stay Gold')
+  })
 })
+
+// '[data-cy=]'

@@ -51,15 +51,17 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
       ) : error ? (
         <Alert severity="error">Search error, try something else!</Alert>
       ) : data.albumsFulltextAlbumTitle.length > 0 ? (
-        data.albumsFulltextAlbumTitle.map((edge) => (
-          <div key={edge.album.album_title} className={styles.childWrapper}>
-            <AlbumCard
-              album={edge.album.album_title}
-              artist={edge.album.artistsCreatedAlbum[0].artist_name}
-              img={edge.album.album_art}
-            />
-          </div>
-        ))
+        <div data-cy="DivForTest">
+          {data.albumsFulltextAlbumTitle.map((edge) => (
+            <div key={edge.album.album_title} className={styles.childWrapper}>
+              <AlbumCard
+                album={edge.album.album_title}
+                artist={edge.album.artistsCreatedAlbum[0].artist_name}
+                img={edge.album.album_art}
+              />
+            </div>
+          ))}
+        </div>
       ) : (
         <Alert severity="info">No albums found :/</Alert>
       )}
