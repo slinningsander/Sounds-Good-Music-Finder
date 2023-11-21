@@ -1,17 +1,35 @@
-import { render, screen } from '@testing-library/react'
-import { Navbar } from './Navbar'
+import { render, fireEvent } from '@testing-library/react'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { Navbar } from './Navbar'
 
-test('renders Navbar component', () => {
-  render(
+test('Navbar renders correctly', () => {
+  const { getByText } = render(
     <Router>
       <Navbar />
     </Router>
   )
 
-  const navbarElement = screen.getByText('Sounds Good')
-  expect(navbarElement).toBeInTheDocument()
+  // Check if the Navbar title "Sounds Good" is rendered
+  const titleElement = getByText('Sounds Good')
+  expect(titleElement).toBeInTheDocument()
 
-  const homeButton = screen.getByText('Home')
+  // Check if the "Home" button is rendered
+  const homeButton = getByText('Home')
   expect(homeButton).toBeInTheDocument()
+})
+
+test('Clicking on the Home button navigates to the correct route', () => {
+  const { getByText } = render(
+    <Router>
+      <Navbar />
+    </Router>
+  )
+
+  const homeButton = getByText('Home')
+
+  // Simulate a click on the Home button
+  fireEvent.click(homeButton)
+
+  // Assert if the URL changes to the expected route (e.g., `/project2/`)
+  expect(window.location.pathname).toBe('/project2/')
 })
