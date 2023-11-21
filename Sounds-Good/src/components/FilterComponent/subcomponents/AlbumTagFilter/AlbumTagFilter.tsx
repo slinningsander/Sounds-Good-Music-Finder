@@ -44,15 +44,16 @@ export function AlbumTagFilter() {
 
   const GroupHeader = styled('div')({
     position: 'sticky',
-    top: '-8px',
+    /* top: '-8px', */
     padding: '4px 10px',
     color: 'white',
-    backgroundColor: '#800080',
+    backgroundColor: '#5C469C',
   })
 
   const GroupItems = styled('ul')({
     padding: '0',
-    backgroundColor: 'white',
+    backgroundColor: '#1D267D',
+    color: 'white',
   })
 
   const [values, setValues] = React.useState<string[]>([])
@@ -85,11 +86,21 @@ export function AlbumTagFilter() {
             options={options.sort(
               (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
             )}
-            // options={options}
             groupBy={(option) => option.firstLetter}
             getOptionLabel={(option) => option.option}
             renderInput={(params) => (
-              <TextField {...params} label="Tags" placeholder="Rock" />
+              <TextField
+                {...params}
+                label="Tags"
+                placeholder="Rock"
+                InputProps={{
+                  ...params.InputProps,
+                  style: {
+                    color: 'white', // Set text color to white
+                    backgroundColor: '#5C469C',
+                  },
+                }}
+              />
             )}
             renderGroup={(params) => (
               <li key={params.key}>
