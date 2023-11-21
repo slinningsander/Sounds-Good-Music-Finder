@@ -80,11 +80,11 @@ Web accessibility is an important aspect of web development, because it allows e
 
 Wave showed us that our constrast on the 'Show more' button was too low when we have white button text:
 
-<img src="Sounds-Good/src/assets/Screenshot%202023-11-20%20at%2011.24.56.png" alt="Image showing contrast too low" width="400" height="200" />
+<img src="Sounds-Good/src/assets/lowcontrast.png" alt="Image showing contrast too low" width="400" height="200" />
 
-When we changed the text color to white, it is clear that the button is much more legible. Wave also doesn't complain anymore:
+When we changed colors, it is clear that the button is much more legible because it has a higher contrast. Wave also doesn't complain anymore:
 
-<img src="Sounds-Good/src/assets/Screenshot%202023-11-20%20at%2011.11.38.png" alt="Image showing new button" width="300" height="75">
+<img src="Sounds-Good/src/assets/highcontrast.png" alt="Image showing new button" width="300">
 
 Wave also helped with discovering missing form-labels and ARIA-labels. It also helped with discovering heading level skips, which should should be avoided and is now fixed.
 
