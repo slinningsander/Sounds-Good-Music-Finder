@@ -34,10 +34,9 @@ export const CommentsContainer = ({ title, artist, album }: Props) => {
           ))}
         </div>
         <div className={styles.commentForm}>
-
           <label htmlFor="commentInput">Add a comment:</label>
-          <input 
-            type="text" 
+          <input
+            type="text"
             id="commentInput"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
