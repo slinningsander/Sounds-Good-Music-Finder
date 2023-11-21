@@ -25,6 +25,7 @@ export function TrackDurationFilter({
       <Slider
         size="small"
         value={value}
+        getAriaLabel={() => 'Duration range'}
         disableSwap
         onChangeCommitted={(_, value) => {
           setValue(value as number[])

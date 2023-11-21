@@ -1,10 +1,9 @@
-.wrapper:hover {
+.container:hover {
   opacity: 0.5;
 }
-.wrapper {
-  margin-bottom: 20px;
-  margin-left: 25%;
-  margin-right: 25%;
+.container {
+  text-decoration: none;
+  color: inherit;
 }
 .albumCover {
   width: 100px;

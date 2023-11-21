@@ -12,11 +12,11 @@ export const Navbar = () => {
   const navigate = useNavigate()
 
   return (
-    <AppBar sx={{ backgroundColor: 'purple' }}>
+    <AppBar sx={{ backgroundColor: '#5C469C' }}>
       <Container maxWidth="xl">
         <Toolbar data-cy="Navbar">
           <Typography
-            variant="h6"
+            variant="h1"
             noWrap
             sx={{
               mr: 2,
@@ -26,6 +26,7 @@ export const Navbar = () => {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize: '2rem',
             }}
           >
             Sounds Good
