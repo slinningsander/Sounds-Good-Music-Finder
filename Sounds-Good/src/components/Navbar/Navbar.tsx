@@ -16,7 +16,7 @@ export const Navbar = () => {
       <Container maxWidth="xl">
         <Toolbar>
           <Typography
-            variant="h6"
+            variant="h1"
             noWrap
             sx={{
               mr: 2,
@@ -26,6 +26,7 @@ export const Navbar = () => {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize: '2rem',
             }}
           >
             Sounds Good

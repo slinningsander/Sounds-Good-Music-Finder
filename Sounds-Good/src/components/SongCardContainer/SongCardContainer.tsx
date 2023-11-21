@@ -55,10 +55,10 @@ const SongCardContainer = ({
           (song: {
             track_title: string
             cover_art: string
-            albumsHasTrack: string
-            artistsCreatedTrack: string
+            albumsHasTrack: { album_art: string; album_title: string }[]
+            artistsCreatedTrack: { artist_name: string }[]
           }) => (
-            <div>
+            <div className={styles.childWrapper}>
               <SongCard
                 song={song.track_title}
                 artist={song.artistsCreatedTrack[0].artist_name}
