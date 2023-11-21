@@ -80,7 +80,7 @@ describe('Test the different components in the Homepage', () => {
     cy.get('[data-cy=AlbumsContainer]').children().should('have.length', 1)
   })
 
-  it('Test the Track duration filter (Slider)', () => {
+  it('Test the track duration filter (Slider)', () => {
     //Start off by typing in "test" and checking that the three results are returned.
     cy.get('[data-cy=Searchbar]').type('test')
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
@@ -91,6 +91,31 @@ describe('Test the different components in the Homepage', () => {
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
       'contain',
       'Science & Blood Tests'
+    )
+  })
+
+  it('Test the sorting functionality', () => {
+    //Starts off by typing in "test".
+    cy.get('[data-cy=Searchbar]').type('test')
+    //Check that the first song is "TEST DRIVE", since this is the correct
+    //behaviour for default sorting.
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'TEST DRIVE'
+    )
+    //Change the sorting to alphabetical and check that the first song
+    //is "Science & Blood Tests", since "S" comes before "T".
+    cy.get('[data-cy=Select]').select('Alphabetically(a-z)')
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+    //Change the sorting to reverse alphabetical and check that the first song
+    //is "Testify", since "T" comes after "S".
+    cy.get('[data-cy=Select]').select('Alphabetically(z-a)')
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'Testify'
     )
   })
 })
