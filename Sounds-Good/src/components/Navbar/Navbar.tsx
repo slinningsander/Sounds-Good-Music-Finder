@@ -12,7 +12,7 @@ export const Navbar = () => {
   const navigate = useNavigate()
 
   return (
-    <AppBar sx={{ backgroundColor: 'purple' }}>
+    <AppBar sx={{ backgroundColor: '#5C469C' }}>
       <Container maxWidth="xl">
         <Toolbar>
           <Typography

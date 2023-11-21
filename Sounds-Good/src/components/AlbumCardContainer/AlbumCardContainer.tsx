@@ -52,7 +52,7 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
         <Alert severity="error">Search error, try something else!</Alert>
       ) : data.albumsFulltextAlbumTitle.length > 0 ? (
         data.albumsFulltextAlbumTitle.map((edge) => (
-          <div key={edge.album.album_title}>
+          <div key={edge.album.album_title} className={styles.childWrapper}>
             <AlbumCard
               album={edge.album.album_title}
               artist={edge.album.artistsCreatedAlbum[0].artist_name}

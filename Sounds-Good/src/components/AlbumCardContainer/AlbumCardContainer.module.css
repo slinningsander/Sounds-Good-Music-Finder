@@ -15,7 +15,7 @@
 .button {
   width: 20%;
   border: 1px solid #000000;
-  background-color: rgb(195, 62, 106);
+  background-color: #5c469c;
   border-radius: 1ch;
   font-size: large;
   align-self: center;
@@ -23,7 +23,6 @@
 }
 
 .button:hover {
-  background-color: rgb(195, 62, 106);
   opacity: 0.5;
   cursor: pointer;
 }

@@ -34,12 +34,13 @@ export function AlbumTagFilter() {
       top: '-8px',
       padding: '4px 10px',
       color: 'white',
-      backgroundColor: '#800080',
+      backgroundColor: '#5C469C',
     })
 
     const GroupItems = styled('ul')({
       padding: '0',
-      backgroundColor: 'white',
+      backgroundColor: '#1D267D',
+      color: 'white',
     })
 
     const getPickedTags = (newValues: string[]) => {
@@ -70,7 +71,18 @@ export function AlbumTagFilter() {
               groupBy={(option) => option.firstLetter}
               getOptionLabel={(option) => option.option}
               renderInput={(params) => (
-                <TextField {...params} label="Tags" placeholder="Rock" />
+                <TextField
+                  {...params}
+                  label="Tags"
+                  placeholder="Rock"
+                  InputProps={{
+                    ...params.InputProps,
+                    style: {
+                      color: 'white', // Set text color to white
+                      backgroundColor: '#5C469C',
+                    },
+                  }}
+                />
               )}
               renderGroup={(params) => (
                 <li key={params.key}>

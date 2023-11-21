@@ -22,7 +22,7 @@ export default function BasicInfoCard(props: Props) {
     >
       <Card
         variant="outlined"
-        sx={{ width: 1, backgroundColor: 'white', cursor: 'pointer' }}
+        sx={{ width: 1, backgroundColor: '#1D267D', cursor: 'pointer' }}
       >
         <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
           <img
@@ -31,10 +31,15 @@ export default function BasicInfoCard(props: Props) {
             alt={props.album + ' album cover'}
           />
           <div>
-            <Typography sx={{ mb: 1 }} variant="h6" component="div">
+            <Typography
+              sx={{ mb: 1 }}
+              variant="h6"
+              component="div"
+              color="white"
+            >
               {props.album}
             </Typography>
-            <Typography color="text.secondary">{props.artist}</Typography>
+            <Typography color="white">{props.artist}</Typography>
           </div>
         </CardContent>
       </Card>
