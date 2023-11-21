@@ -70,15 +70,17 @@ const SongCardContainer = ({
         )
       )}
 
-      <button
-        onClick={() => {
-          setMore(true)
-          setOffset(data.tracks.length)
-        }}
-        className={styles.button}
-      >
-        Show More
-      </button>
+      {data && data.tracks.length == offset + 5 && (
+        <button
+          onClick={() => {
+            setMore(true)
+            setOffset(data.tracks.length)
+          }}
+          className={styles.button}
+        >
+          Show More
+        </button>
+      )}
     </div>
   )
 }

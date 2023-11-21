@@ -53,15 +53,17 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
         )
       )}
 
-      <button
-        onClick={() => {
-          setMore(true)
-          setOffset(data.albums.length)
-        }}
-        className={styles.button}
-      >
-        Show More
-      </button>
+      {data && data.albums.length == offset + 5 && (
+        <button
+          onClick={() => {
+            setMore(true)
+            setOffset(data.albums.length)
+          }}
+          className={styles.button}
+        >
+          Show More
+        </button>
+      )}
     </div>
   )
 }

@@ -38,7 +38,11 @@ const Songpage = () => {
             length={formatDuration(data.tracks[0].duration)}
             album={data.tracks[0].albumsHasTrack[0].album_title}
           />
-          <CommentsContainer />
+          <CommentsContainer
+            title={data.tracks[0].track_title}
+            artist={data.tracks[0].artistsCreatedTrack[0].artist_name}
+            album={data.tracks[0].albumsHasTrack[0].album_title}
+          />
         </div>
       </Page>
     </>

@@ -1,8 +1,13 @@
 import { gql, useQuery } from '@apollo/client'
+import { useEffect } from 'react'
 
 const GET_TRACK = gql`
-  query GetTrack($options: TrackOptions, $where: TrackWhere) {
-    tracks(options: $options, where: $where) {
+  query GetTrack(
+    $options: TrackOptions
+    $where: TrackWhere
+    $fulltext: TrackFulltext
+  ) {
+    tracks(options: $options, where: $where, fulltext: $fulltext) {
       track_title
       albumsHasTrack {
         album_title
@@ -24,22 +29,37 @@ export default function GetSongBySearch(
   sortingDirection: string,
   setMore: (more: boolean) => void
 ) {
+  let options = {}
+
+  if (sortingDirection === 'Default') {
+    options = {
+      limit: 5,
+      offset: offset,
+    }
+  } else {
+    options = {
+      limit: 5,
+      offset: offset,
+      sort: [
+        {
+          track_title: sortingDirection,
+        },
+      ],
+    }
+  }
+
   const result = useQuery(GET_TRACK, {
     variables: {
       where: {
-        track_title_STARTS_WITH: input,
         duration_LTE: maxDuration.toString(),
         duration_GTE: minDuration.toString(),
       },
-      options: {
-        limit: 5,
-        offset: offset,
-        sort: [
-          {
-            track_title: sortingDirection,
-          },
-        ],
+      fulltext: {
+        TrackTitle: {
+          phrase: input + '*',
+        },
       },
+      options: options,
     },
   })
 
@@ -49,23 +69,19 @@ export default function GetSongBySearch(
     result
       .fetchMore({
         variables: {
-          options: {
-            limit: 5,
-            offset: offset,
-          },
+          options: options,
         },
       })
       .then((res) => {
         console.log(res)
+        setMore(false)
       })
-    console.log('fetching more')
-    console.log(result.data)
-    setMore(false)
   }
-
-  if (more) {
-    fetchMoreTracks()
-  }
+  useEffect(() => {
+    if (more) {
+      fetchMoreTracks()
+    }
+  }, [more, offset, input, maxDuration, minDuration, sortingDirection])
 
   return result
 }

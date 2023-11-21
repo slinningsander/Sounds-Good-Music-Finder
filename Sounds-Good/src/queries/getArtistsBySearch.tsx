@@ -1,8 +1,9 @@
 import { gql, useQuery } from '@apollo/client'
+import { useEffect } from 'react'
 
 const GET_ARTIST = gql`
-  query GetArtist($options: ArtistOptions, $where: ArtistWhere) {
-    artists(options: $options, where: $where) {
+  query GetArtist($options: ArtistOptions, $fulltext: ArtistFulltext) {
+    artists(options: $options, fulltext: $fulltext) {
       artist_name
     }
   }
@@ -16,7 +17,11 @@ export default function GetArtist(
 ) {
   const result = useQuery(GET_ARTIST, {
     variables: {
-      where: { artist_name_STARTS_WITH: input },
+      fulltext: {
+        ArtistName: {
+          phrase: input + '*',
+        },
+      },
       options: {
         limit: 5,
         offset: offset,
@@ -36,16 +41,15 @@ export default function GetArtist(
         },
       })
       .then((res) => {
-        console.log(res)
+        setMore(false)
       })
-    console.log('fetching more')
-    console.log(result.data)
-    setMore(false)
   }
 
-  if (more) {
-    fetchMoreArtists()
-  }
+  useEffect(() => {
+    if (more) {
+      fetchMoreArtists()
+    }
+  }, [more, offset, input])
 
   return result
 }

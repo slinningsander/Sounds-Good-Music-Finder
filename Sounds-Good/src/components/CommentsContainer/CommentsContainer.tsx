@@ -1,27 +1,48 @@
+import { Create } from '@mui/icons-material'
+import GetComments from '../../queries/getComments'
 import CommentComponent from '../CommentComponent/CommentComponent'
 import styles from './CommentsContainer.module.css'
+import CreateComment from '../../mutations/createComment'
+import { useState } from 'react'
 
-export const CommentsContainer = () => {
+type Props = {
+  title: string
+  artist: string
+  album: string
+}
+
+export const CommentsContainer = ({ title, artist, album }: Props) => {
+  const [inputValue, setInputValue] = useState('')
+  const { createComments } = CreateComment(inputValue, title, album, artist)
+
+  const addComment = async () => {
+    await createComments()
+    setInputValue('')
+  }
+  const { data, loading, error } = GetComments(title, album, artist)
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error</p>
+  console.log(data)
+
   return (
     <>
       <div className={styles.CommentsWrapper}>
-        <h2>Comments (not implemented)</h2>
+        <h2>Comments</h2>
         <div className={styles.CommentsContainer}>
-          <CommentComponent text="This is a comment" />
-          <CommentComponent text="This is another comment" />
-          <CommentComponent text="This is yet another comment" />
+          {data.comments.map((comment: any) => (
+            <CommentComponent text={comment.text} />
+          ))}
         </div>
         <div className={styles.commentForm}>
+
           <label htmlFor="commentInput">Add a comment:</label>
-          <input type="text" id="commentInput" />
-          <button
-            type="submit"
-            onClick={() =>
-              alert(
-                'This will add the comment to the database. Not yet implemented.'
-              )
-            }
-          >
+          <input 
+            type="text" 
+            id="commentInput"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <button type="submit" onClick={() => addComment()}>
             Add
           </button>
         </div>

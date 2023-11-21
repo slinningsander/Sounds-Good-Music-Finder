@@ -25,7 +25,6 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
     }
   }, [input])
 
-
   return (
     <div className={styles.wrapper}>
       {loading ? (
@@ -38,15 +37,17 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
         ))
       )}
 
-      <button
-        onClick={() => {
-          setMore(true)
-          setOffset(data.artists.length)
-        }}
-        className={styles.button}
-      >
-        Show More
-      </button>
+      {data && data.artists.length == offset + 5 && (
+        <button
+          onClick={() => {
+            setMore(true)
+            setOffset(data.artists.length)
+          }}
+          className={styles.button}
+        >
+          Show More
+        </button>
+      )}
     </div>
   )
 }

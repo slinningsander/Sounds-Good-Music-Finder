@@ -22,7 +22,6 @@ export function Searchbar({
         method="get"
         action="/project2/searchResult"
       >*/}
-
       <input
         type="search"
         className={styles.searchbar}
