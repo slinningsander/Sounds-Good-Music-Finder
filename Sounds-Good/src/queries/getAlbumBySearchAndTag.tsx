@@ -1,21 +1,24 @@
 import { gql, useQuery } from '@apollo/client'
+import { useEffect } from 'react'
 
 const GET_ALBUM_BY_TAGS_AND_SEARCH = gql`
-  query AlbumsConnection(
-    $tagsConnectionWhere: [TagWhere!]
-    $albumTitleStartsWith: String
-    $fulltext: AlbumFulltext
+  query GET_ALBUM_BY_TAGS_AND_SEARCH_TWO(
+    $limit: Int
+    $offset: Int
+    $phrase: String!
+    $where: AlbumFulltextWhere
   ) {
-    albumsConnection(
-      where: {
-        hasTagTags_SOME: { OR: $tagsConnectionWhere }
-        AND: { album_title_STARTS_WITH: $albumTitleStartsWith }
-        fulltext: $fulltext
-      }
+    albumsFulltextAlbumTitle(
+      limit: $limit
+      offset: $offset
+      phrase: $phrase
+      where: $where
     ) {
-      edges {
-        node {
-          album_title
+      album {
+        album_title
+        album_art
+        artistsCreatedAlbum {
+          artist_name
         }
       }
     }
@@ -28,24 +31,26 @@ export default function GetAlbumBySearchAndTag(
   more: boolean,
   setMore: (more: boolean) => void
 ) {
-  const result = useQuery(GET_ALBUM_BY_TAGS_AND_SEARCH, {
-    variables: {
-      fulltext: {
-        AlbumTitle: {
-          phrase: searchInput + '*',
+  let where = {}
+
+  if (tagInput.length > 0) {
+    where = {
+      album: {
+        hasTagTags_SOME: {
+          tag_name_IN: tagInput,
         },
       },
-      where: {
-        hasTagTags_SOME: tagInput,
-      },
-      options: {
-        limit: 5,
-        offset: offset,
-      },
+    }
+  }
+
+  const result = useQuery(GET_ALBUM_BY_TAGS_AND_SEARCH, {
+    variables: {
+      phrase: searchInput + '*',
+      where: where,
+      limit: 5,
+      offset: offset,
     },
   })
-
-  console.log('more search by tag', more)
 
   const fetchMoreAlbums = () => {
     result
@@ -58,16 +63,14 @@ export default function GetAlbumBySearchAndTag(
         },
       })
       .then((res) => {
-        console.log(res)
+        setMore(false)
       })
-    console.log('fetching more | more search by tag |')
-    console.log(result.data)
-    setMore(false)
   }
-
-  if (more) {
-    fetchMoreAlbums()
-  }
+  useEffect(() => {
+    if (more) {
+      fetchMoreAlbums()
+    }
+  }, [more, offset, searchInput])
 
   return result
 }
