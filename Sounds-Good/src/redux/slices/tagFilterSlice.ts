@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 
 interface FilterTagsState {
@@ -16,9 +16,6 @@ export const filterTagsSlice = createSlice({
     updateTags: (state, action) => {
       state.value = action.payload
     },
-    // updateTags: (state, action: PayloadAction<string[]>) => {
-    //   state.value = action.payload // Updating the state with the array of strings
-    // },
   },
 })
 
