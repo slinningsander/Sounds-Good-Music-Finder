@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 import { CommentComponent } from './CommentComponent'
 import styles from './CommentComponent.module.css'
