@@ -43,6 +43,7 @@ export const CommentsContainer = ({ title, artist, album }: Props) => {
           <input
             type="text"
             id="commentInput"
+            data-testid="comment-input"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
