@@ -50,6 +50,9 @@ export default function Homepage() {
               />
             </div>
             <div className={styles.children}>
+              <label htmlFor="select" className={styles.label}>
+                Sorting:
+              </label>
               <select
                 id="select"
                 value={sortingDirection}

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import GetAlbum from '../../queries/getAlbum'
 import styles from './Albumpage.module.css'
 import Page from '../../components/Page/Page'
@@ -8,7 +8,6 @@ import { useEffect } from 'react'
 
 const Albumpage = () => {
   const url = new URL(window.location.href)
-  const navigate = useNavigate()
   const album_title = url.pathname.split('/').pop()
   const artist_name = url.pathname.split('/')[2]
   const decodedArtistName = decodeURIComponent(artist_name || '')
@@ -36,7 +35,7 @@ const Albumpage = () => {
         <div className={styles.container}>
           <div className={styles.infoContainer}>
             <h1>{data.albums[0].album_title}</h1>
-            <h3>{data.albums[0].artistsCreatedAlbum[0].artist_name}</h3>
+            <h2>{data.albums[0].artistsCreatedAlbum[0].artist_name}</h2>
             <img
               className={styles.albumArt}
               src={data.albums[0].album_art}
@@ -48,16 +47,14 @@ const Albumpage = () => {
           <h2>Tracks</h2>
           <div className={styles.albumContainer}>
             {data.albums[0].hasTrackTracks.map((track: any) => (
-              <div
-                className={styles.track}
-                onClick={() =>
-                  navigate('song/' + encodeURIComponent(track.track_title))
-                }
-              >
-                <p>
+              <div className={styles.track}>
+                <Link
+                  className={styles.link}
+                  to={'song/' + encodeURIComponent(track.track_title)}
+                >
                   {track.rank}. {track.track_title}{' '}
                   {formatDuration(track.duration)}
-                </p>
+                </Link>
               </div>
             ))}
           </div>

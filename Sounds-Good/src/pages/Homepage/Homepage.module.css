@@ -16,3 +16,7 @@
   align-items: center;
   flex: 1;
 }
+
+.label {
+  margin-right: 10px;
+}

@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import styles from './SongCard.module.css'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 type Props = {
   song: string
@@ -10,20 +10,17 @@ type Props = {
 }
 
 export default function BasicInfoCard(props: Props) {
-  const navigate = useNavigate()
   return (
-    <div
-      className={styles.wrapper}
-      onClick={() => {
-        navigate(
-          '/project2/' +
-            encodeURIComponent(props.artist) +
-            '/album/' +
-            encodeURIComponent(props.album) +
-            '/song/' +
-            encodeURIComponent(props.song)
-        )
-      }}
+    <Link
+      className={styles.container}
+      to={
+        '/project2/' +
+        encodeURIComponent(props.artist) +
+        '/album/' +
+        encodeURIComponent(props.album) +
+        '/song/' +
+        encodeURIComponent(props.song)
+      }
     >
       <Card
         variant="outlined"
@@ -33,7 +30,7 @@ export default function BasicInfoCard(props: Props) {
           <img
             className={styles.albumCover}
             src={props.img}
-            alt="Album cover"
+            alt={props.album + ' album cover'}
           />
           <div>
             <Typography variant="h6" component="div">
@@ -46,6 +43,6 @@ export default function BasicInfoCard(props: Props) {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </Link>
   )
 }
