@@ -56,7 +56,6 @@ export default function GetArtist(
         },
       })
       .then(() => {
-        //res
         setMore(false)
       })
   }

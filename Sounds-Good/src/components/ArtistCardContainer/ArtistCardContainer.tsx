@@ -31,9 +31,7 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
     } else if (error) {
       console.log(error)
     } else {
-      console.log(data)
       setOffset(0)
-      // console.log('listeners', listenersList[1])
     }
   }, [input, listenersList[1], listenersList[0]])
 
