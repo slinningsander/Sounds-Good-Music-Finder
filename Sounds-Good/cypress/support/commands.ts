@@ -34,4 +34,3 @@ Cypress.Commands.add('deleteComment', () => {
     deleteComments()
   })
 })
-
