@@ -1,8 +1,8 @@
-# Sounds Good v0.1
+# Sounds Good v1.1
 
 ## Description
 
-Sounds Good is a web application that allows you to search for different artists, albums, and songs and view details about them. It should also allow you to look at and post comments (not yet implemented).
+Sounds Good is a web application that allows you to search for different artists, albums, and songs and view details about them. On every song you can comment and view other users comments.
 
 ## Installation
 
@@ -30,10 +30,6 @@ This will run the project locally on localhost.
 
     node index
 
-## Usage
-
-You can now search for artists, albums and songs and view details about them.
-
 ## Roadmap
 
 - _V0.1_
@@ -56,7 +52,7 @@ You can now search for artists, albums and songs and view details about them.
 
 ## Dataset
 
-We got our dataset from last.fm. We have taken data from the 150 most popular artists, their top 5 albums and all the songs on those albums. Our dataset is big enough so that search functionality is a natural part of our application.
+View our dedicated dataset documentation [here](/Sounds-Good-Backend/dataset-utils/README.md).
 
 ## Database
 
@@ -64,7 +60,7 @@ Since we already were going to use GraphQL instead of REST, we chose to make a N
 
 ## Sorting and filtering
 
-We have created a search where you first choose what category you want to search. Either artists, albums or songs. When searching for artists you have the ability to further filter the search by amount of listeners, which in reality means their popularity. When searching for albums you have the ability to filter by multiple tags. These tags are user-generated in the dataset, so some tags might only apply to one album. When searching for songs you can further filter by the duration of the song.
+We have created a search where you first choose what category you want to search. Either artists, albums or songs. When searching for artists you have the ability to further filter the search by amount of listeners, which in reality means their popularity. When searching for albums you have the ability to filter by multiple tags. These tags are user-generated in the dataset, so some tags might only apply to one album and some tags might seem obscure. When searching for songs you can further filter by the duration of the song.
 
 ## Components
 
@@ -122,6 +118,8 @@ Sustainable web development in a topic that is gaining increasing importance. We
 
 To make our website more sustainable we chose to split up our search into three different categories, namely an artist search, an an album search and a song search. Our original plan was to make it possible to search for everything all at once. However, we let sustainability influence us to choose differently. By splitting up the search into different categories, the query only gets data from one node in the database, making it computationally simpler, using less power and thus more sustainable.
 
+Currently we do a query on every keypress in the search. We considered switching to searching on pressing "Enter", but since we do not have all the songs in the world we found that getting results was more difficult when you couldn't see them during typing. This of course comes at a cost considering sustainability, but we felt that the user experience was more important.
+
 Pagination also plays a big role in sustainable web development. By only retrieving a few pieces of data at a time, the amount of data sent for every search is reduced by a large amount. Less data traffic means that less power is needed, resulting in a more sustainable website.
 
 We have also taken sustainability into account when showing images on our page. All the images are 300x300 px which is a size that we felt was a good balance between having a good quality image while not having excessive image quality. This again goes back to reducing the amount of data that is being transmitted.
@@ -129,6 +127,21 @@ We have also taken sustainability into account when showing images on our page. 
 Another thing we did was to change our color palette. Dark colors uses less energy than light colors, so we decided to go for a darker color palette, to align with our sustainibility goals. Here you can see our color palette:
 
 <img src="Sounds-Good/src/assets/colorpalette.png" alt="Image showing color palette" width=400>
+
+## Testing
+
+We have done both end-to-end testing and component and unit testing. E2E testing is the most relevant because it actually tests use cases. The component and unit tests is mostly so see if components render correctly and that functions function as intended.
+
+### E2E testing
+
+### Component and unit testing
+
+We have used Vitest and @react-testing-library to do component and unit testing.
+To run these test write the following command when you are in the Sounds-Good directory.
+
+```
+npm test
+```
 
 ## Discussion
 
