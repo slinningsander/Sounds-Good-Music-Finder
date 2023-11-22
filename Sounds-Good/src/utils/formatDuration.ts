@@ -1,6 +1,6 @@
 export default function formatDuration(duration: number): string {
-  if (duration === 0) {
-    return 'N/A'
+  if (duration == 0) {
+    return ''
   } else {
     const minutes = Math.floor(duration / 60)
     const seconds = duration % 60

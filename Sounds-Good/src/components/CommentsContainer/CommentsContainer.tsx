@@ -1,8 +1,7 @@
-import { Create } from '@mui/icons-material'
-import GetComments from '../../queries/getComments'
+import GetComments from '../../graphql/queries/getComments'
 import CommentComponent from '../CommentComponent/CommentComponent'
 import styles from './CommentsContainer.module.css'
-import CreateComment from '../../mutations/createComment'
+import CreateComment from '../../graphql/mutations/createComment'
 import { useState } from 'react'
 
 type Props = {
@@ -43,6 +42,7 @@ export const CommentsContainer = ({ title, artist, album }: Props) => {
           <input
             type="text"
             id="commentInput"
+            data-testid="comment-input"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             data-cy="CommentInput"

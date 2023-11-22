@@ -10,7 +10,7 @@
 // ***********************************************
 //
 //
-import { DELETE_COMMENT } from '../../src/mutations/deleteComment.tsx'
+import { DELETE_COMMENT } from '../../src/graphql/mutations/deleteComment.tsx'
 
 Cypress.Commands.add('deleteComment', () => {
   return cy.window().then((win) => {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import AlbumCard from '../AlbumCard/AlbumCard'
 import styles from './AlbumCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
-import GetAlbumBySearchAndTagTwo from '../../queries/getAlbumBySearchAndTag'
+import GetAlbumBySearchAndTagTwo from '../../graphql/queries/getAlbumBySearchAndTag'
 import { useSelector } from 'react-redux'
 import { Alert, Box, CircularProgress } from '@mui/material'
 
@@ -12,6 +12,7 @@ type AlbumCardContainerProps = {
 
 const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
   const selectedTags = useSelector((state) => state.filterTags.value)
+  const sortingDirection = useSelector((state) => state.sortingDirection.value)
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
   const { data, error, loading } = GetAlbumBySearchAndTagTwo(
@@ -19,6 +20,7 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
     selectedTags,
     offset,
     more,
+    sortingDirection,
     setMore
   )
   const client = useApolloClient()
@@ -32,7 +34,7 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
     } else {
       setOffset(0)
     }
-  }, [input, selectedTags])
+  }, [input, selectedTags, sortingDirection])
 
   return (
     <div className={styles.wrapper} data-cy="AlbumsContainer">

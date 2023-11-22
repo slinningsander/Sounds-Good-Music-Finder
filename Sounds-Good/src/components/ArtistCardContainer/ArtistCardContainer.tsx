@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import GetArtist from '../../queries/getArtistsBySearch'
+import GetArtist from '../../graphql/queries/getArtistsBySearch'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import styles from './ArtistCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
@@ -12,7 +12,7 @@ type ArtistCardContainerProps = {
 
 const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
   const listenersList = useSelector((state) => state.filterListeners.value)
-  console.log('REDUX DATA: ', listenersList)
+  const sortingDirection = useSelector((state) => state.sortingDirection.value)
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
   const { data, error, loading } = GetArtist(
@@ -21,6 +21,7 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
     more,
     listenersList[1],
     listenersList[0],
+    sortingDirection,
     setMore
   )
   const client = useApolloClient()
@@ -34,7 +35,7 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
     } else {
       setOffset(0)
     }
-  }, [input, listenersList[1], listenersList[0]])
+  }, [input, listenersList[1], listenersList[0], sortingDirection])
 
   return (
     <div className={styles.wrapper} data-cy="ArtistsContainer">

@@ -16,9 +16,12 @@ export const filterTagsSlice = createSlice({
     updateTags: (state, action) => {
       state.value = action.payload
     },
+    resetState: (state) => {
+      state.value = initialState.value
+    },
   },
 })
 
-export const { updateTags } = filterTagsSlice.actions
+export const { updateTags, resetState } = filterTagsSlice.actions
 export const selectFilterTags = (state: RootState) => state.filterTags.value
 export default filterTagsSlice.reducer
