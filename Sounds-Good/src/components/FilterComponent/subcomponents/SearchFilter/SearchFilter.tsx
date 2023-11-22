@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-} from '@mui/material'
+import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 
 import { pink, orange, green } from '@mui/material/colors'
 import React from 'react'
