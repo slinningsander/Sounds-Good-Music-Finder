@@ -19,7 +19,6 @@ vi.mock('../../queries/getArtist', () => ({
               album_art: 'album-image.jpg',
               album_title: 'Album Title 1',
             },
-            // Add more mock albums as needed
           ],
         },
       ],
