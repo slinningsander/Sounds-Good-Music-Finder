@@ -187,6 +187,33 @@ describe('Test the different components in the Homepage', () => {
       .should('exist')
       .should('be.visible')
   })
+
+  it('Test the Album page', () => {
+    //Start of by searching for "Graduation" and clicking on the first result.
+    cy.get('[data-cy=AlbumButton]').click()
+    cy.get('[data-cy=Searchbar]').type('Graduation')
+    cy.get('[data-cy=AlbumsContainer] > :nth-child(1)').click()
+    //Check that the album page exists and contains the correct information.
+    cy.get('[data-cy=AlbumPageContainer]').should('exist')
+    cy.get('[data-cy=AlbumTitleHeader]')
+      .should('exist')
+      .should('contain', 'Graduation')
+    cy.get('[data-cy=AlbumArtistHeader]')
+      .should('exist')
+      .should('contain', 'Kanye West')
+    cy.get('[data-cy=AlbumArt]').should('exist').should('be.visible')
+    cy.get('[data-cy=AlbumSummary]').should('exist').should('include.text', ' ') //The summary is too long to check for a specific string.
+    //Check that the number of songs is correct and that the album images are clickable.
+    cy.get('[data-cy=AlbumSongsContainer]')
+      .should('exist')
+      .children()
+      .should('have.length', 13) //number is checked to be correct in the database.
+    cy.get('[data-cy=AlbumSongsContainer]')
+      .find('[data-cy=LinkToSong]')
+      .should('exist')
+      .should('be.visible')
+    cy.get('[data-cy=LinkToSong]').should('include.text', ' ') //This is to check that the link has some text
+  })
 })
 
 // '[data-cy=]'
