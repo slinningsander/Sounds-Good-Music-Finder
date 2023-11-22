@@ -1,6 +1,6 @@
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import { CommentsContainer } from './CommentsContainer'
-import createComment from '../../mutations/createComment'
+import createComment from '../../graphql/mutations/createComment'
 
 vi.mock('../../queries/getComments', () => ({
   __esModule: true,

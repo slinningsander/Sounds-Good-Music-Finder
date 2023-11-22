@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import styles from './Artistpage.module.css'
 import Page from '../../components/Page/Page'
-import GetArtist from '../../queries/getArtist'
+import GetArtist from '../../graphql/queries/getArtist'
 import { Link } from 'react-router-dom'
 import { useApolloClient } from '@apollo/client'
 

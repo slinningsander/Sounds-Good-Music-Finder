@@ -5,10 +5,10 @@ import {
   TextField,
   styled,
 } from '@mui/material'
-import GetAllTags from '../../../../queries/getAllTags'
+import GetAllTags from '../../../graphql/queries/getAllTags'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { updateTags } from '../../../../redux/slices/tagFilterSlice'
+import { updateTags } from '../../../redux/slices/tagFilterSlice'
 import CloseIcon from '@mui/icons-material/Close'
 
 export function AlbumTagFilter() {
@@ -75,7 +75,7 @@ export function AlbumTagFilter() {
           control={
             <Autocomplete
               value={values}
-              onChange={(event: unknown, newValue: string[] | null) => {
+              onChange={(_event: unknown, newValue: string[] | null) => {
                 setValues(newValue || [])
                 getPickedTags(newValue || [])
               }}

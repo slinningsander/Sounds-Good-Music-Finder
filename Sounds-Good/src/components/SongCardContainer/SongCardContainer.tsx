@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import GetSongBySearch from '../../queries/getTracksBySearch'
+import GetSongBySearch from '../../graphql/queries/getTracksBySearch'
 import SongCard from '../SongCard/SongCard'
 import styles from './SongCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'

@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import styles from './AlbumCard.module.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 type Props = {
   artist: string
@@ -9,7 +9,6 @@ type Props = {
 }
 
 export default function BasicInfoCard(props: Props) {
-  const navigate = useNavigate()
   return (
     <Link
       className={styles.container}

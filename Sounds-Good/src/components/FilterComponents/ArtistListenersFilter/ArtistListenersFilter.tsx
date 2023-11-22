@@ -1,12 +1,12 @@
 import { Box, Slider } from '@mui/material'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateListenersFilter } from '../../../../redux/slices/filterListenersSlice'
+import { updateListenersFilter } from '../../../redux/slices/filterListenersSlice'
 
 export function ArtistListenersFilter() {
   const dispatch = useDispatch()
   const [value, setValue] = useState<number[]>([0, 6500000])
-  const handleListenerChange = (event: Event, newValue: number | number[]) => {
+  const handleListenerChange = (_event: Event, newValue: number | number[]) => {
     setValue(newValue as number[])
     dispatch(updateListenersFilter(newValue))
   }
