@@ -250,6 +250,29 @@ describe('Test the different components in the Homepage', () => {
       .should('be.visible')
       .should('contain', 'Add')
   })
-})
 
+  it('Test that the comment functionality works', () => {
+    //Start of by searching for "TEST DRIVE" and clicking on the first result.
+    cy.get('[data-cy=Searchbar]').type('TEST DRIVE')
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').click()
+    //Input a comment and check that it is added to the list of comments.
+    cy.get('[data-cy=CommentInput]').type('yWy2VUd5p6Pgo95chDbM')
+    cy.get('[data-cy=CommentButton]').click()
+    cy.reload()
+    cy.get('[data-cy=CommentsContainer]')
+      .children()
+      .should('have.length.greaterThan', 0)
+    cy.get('[data-cy=CommentsContainer]').should(
+      'contain',
+      'yWy2VUd5p6Pgo95chDbM'
+    )
+    //Delete the comment using a Cypress command and check that it is removed from the list of comments.
+    cy.deleteComment()
+    cy.reload()
+    cy.get('[data-cy=CommentsContainer]').should(
+      'not.contain',
+      'yWy2VUd5p6Pgo95chDbM'
+    )
+  })
+})
 // '[data-cy=]'
