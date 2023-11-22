@@ -153,6 +153,13 @@ describe('Test the different components in the Homepage', () => {
     cy.contains('2014').click()
     cy.get('[data-cy=AlbumsContainer]').should('contain', 'Stay Gold')
   })
+
+
+  it('Test the Artist page', () => {
+    cy.get('[data-cy=ArtistButton]').click()
+    cy.get('[data-cy=Searchbar]').type('Kanye West')
+    cy.get('[data-cy=ArtistsContainer] > :nth-child(1)').click()
+  })
 })
 
 // '[data-cy=]'
