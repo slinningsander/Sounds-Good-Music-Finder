@@ -12,21 +12,38 @@ const GET_ARTIST = gql`
     }
   }
 `
-
 export default function GetArtist(
   input: string,
   offset: number,
   more: boolean,
   maxListeners: number,
   minListeners: number,
+  sortingDirection: string,
   setMore: (more: boolean) => void
 ) {
   let where = {}
-
+  let options = {}
   if (maxListeners || minListeners) {
     where = {
       listeners_LTE: maxListeners.toString(),
       listeners_GTE: minListeners.toString(),
+    }
+  }
+
+  if (sortingDirection === 'Default') {
+    options = {
+      limit: 5,
+      offset: offset,
+    }
+  } else {
+    options = {
+      limit: 5,
+      offset: offset,
+      sort: [
+        {
+          artist_name: sortingDirection,
+        },
+      ],
     }
   }
   const result = useQuery(GET_ARTIST, {
@@ -37,10 +54,7 @@ export default function GetArtist(
           phrase: input + '*',
         },
       },
-      options: {
-        limit: 5,
-        offset: offset,
-      },
+      options: options,
     },
   })
 
@@ -49,10 +63,7 @@ export default function GetArtist(
     result
       .fetchMore({
         variables: {
-          options: {
-            limit: 5,
-            offset: offset,
-          },
+          options: options,
         },
       })
       .then(() => {
@@ -64,7 +75,7 @@ export default function GetArtist(
     if (more) {
       fetchMoreArtists()
     }
-  }, [more, offset, input, maxListeners, minListeners])
+  }, [more, offset, input, maxListeners, minListeners, sortingDirection])
 
   return result
 }
