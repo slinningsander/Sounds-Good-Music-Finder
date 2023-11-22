@@ -3,14 +3,26 @@ import GetArtist from '../../queries/getArtistsBySearch'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import styles from './ArtistCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
+import { useSelector } from 'react-redux'
+import { Alert, Box, CircularProgress } from '@mui/material'
 
 type ArtistCardContainerProps = {
   input: string
 }
+
 const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
+  const listenersList = useSelector((state) => state.filterListeners.value)
+  console.log('REDUX DATA: ', listenersList)
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
-  const { data, error, loading } = GetArtist(input, offset, more, setMore)
+  const { data, error, loading } = GetArtist(
+    input,
+    offset,
+    more,
+    listenersList[1],
+    listenersList[0],
+    setMore
+  )
   const client = useApolloClient()
 
   useEffect(() => {
@@ -20,21 +32,34 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
     } else if (error) {
       console.log(error)
     } else {
-      console.log(data.artists)
       setOffset(0)
     }
-  }, [input])
+  }, [input, listenersList[1], listenersList[0]])
 
   return (
     <div className={styles.wrapper}>
       {loading ? (
-        <></>
-      ) : (
+        <>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <CircularProgress color="success" />
+          </Box>
+        </>
+      ) : error ? (
+        <Alert severity="error">Search error, try something else!</Alert>
+      ) : data.artists.length > 0 ? (
         data.artists.map((artist: { artist_name: string }) => (
           <div>
             <ArtistCard artistName={artist.artist_name} />
           </div>
         ))
+      ) : (
+        <Alert severity="info">No artists found :/</Alert>
       )}
 
       {data && data.artists.length == offset + 5 && (
