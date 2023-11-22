@@ -43,7 +43,7 @@ export default function GetAlbum(
           },
         },
       })
-      .then((res) => {
+      .then(() => {
         setMore(false)
       })
   }

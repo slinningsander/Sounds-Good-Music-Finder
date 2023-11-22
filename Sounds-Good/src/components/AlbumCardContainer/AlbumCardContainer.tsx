@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import AlbumCard from '../AlbumCard/AlbumCard'
 import styles from './AlbumCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
-import GetAlbumBySearchAndTagTwo from '../../queries/getAlbumBySearchAndTag'
+import GetAlbumBySearchAndTagTwo from '../../graphql/queries/getAlbumBySearchAndTag'
 import { useSelector } from 'react-redux'
 import { Alert, Box, CircularProgress } from '@mui/material'
 
