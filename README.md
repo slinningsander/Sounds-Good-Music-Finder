@@ -157,7 +157,13 @@ Press the "E2E Testing" option which will lead you further to another screen:
 
 <img src="Sounds-Good/src/assets/CypressChooseBrowser.png" alt="Image showing choice between installed browsers" width=400>
 
-Here you can choose which browser you want to run the E2E test on. We highly recommend choosing Google Chrome or Firefox, as these are definitely going to run the test. Note that for Mac users, the Safari browser will not be recognized. After you have chosen a browser, a new browser window will open with a new interface:
+Here you can choose which browser you want to run the E2E test on. We strongly advise you to use Firefox, as this browser is definitely going to run the test, with Chrome remaining in a constant refresh loop when running the test. If you change the "baseURL" to the localhost in "cypress.config.ts", Chrome will also run the test. In that case, remember to run:
+
+```
+npm run dev
+```
+
+Note that for Mac users, the Safari browser will not be recognized. After you have chosen a browser, a new browser window will open with a new interface:
 
 <img src="Sounds-Good/src/assets/CypressChooseSpec.png" alt="Image showing the available specs(tests)" width=700>
 
