@@ -40,19 +40,26 @@ const Artistpage = () => {
   return (
     <>
       <Page>
-        <div className={styles.container}>
+        <div className={styles.container} data-cy="ArtistPageContainer">
           <div className={styles.infoContainer}>
-            <h1>{data.artists[0].artist_name}</h1>
-            <sub>Last.fm listeners: {formattedlisteners}</sub>
+            <h1 data-cy="ArtistNameHeader">{data.artists[0].artist_name}</h1>
+            <sub data-cy="ArtistListeners">
+              Last.fm listeners: {formattedlisteners}
+            </sub>
             <h2>About</h2>
-            <p className={styles.bio}>{sanitizedBio}</p>
+            <p className={styles.bio} data-cy="ArtistBio">
+              {sanitizedBio}
+            </p>
           </div>
-          <h2>Most Popular Albums</h2>
-          <div className={styles.albumContainer}>
+          <h2 data-cy="ArtistsAlbumsHeader">Most Popular Albums</h2>
+          <div className={styles.albumContainer} data-cy="ArtistsAlbums">
             {data.artists[0].createdAlbumAlbums.map((album: Album) => (
               <div className={styles.albums}>
-                <p> {album.album_title}</p>
-                <Link to={'album/' + encodeURIComponent(album.album_title)}>
+                <p data-cy="ArtistsAlbumTitle"> {album.album_title}</p>
+                <Link
+                  to={'album/' + encodeURIComponent(album.album_title)}
+                  data-cy="LinkToAlbumPage"
+                >
                   <img
                     src={album.album_art}
                     className={styles.albumCover}
