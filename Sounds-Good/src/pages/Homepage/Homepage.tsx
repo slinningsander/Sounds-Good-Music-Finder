@@ -7,6 +7,7 @@ import SongCardContainer from '../../components/SongCardContainer/SongCardContai
 import { TrackDurationFilter } from '../../components/FilterComponent/subcomponents/TrackDurationFilter/TrackDurationFilter.tsx'
 import styles from './Homepage.module.css'
 import { AlbumTagFilter } from '../../components/FilterComponent/subcomponents/AlbumTagFilter/AlbumTagFilter.tsx'
+import { ArtistListenersFilter } from '../../components/FilterComponent/subcomponents/ArtistListenersFilter/ArtistListenersFilter.tsx'
 
 export default function Homepage() {
   const [searchbarValue, setSearchbarValue] = useState('')
@@ -64,6 +65,7 @@ export default function Homepage() {
           </>
         )}
         {selectedValue === 'ALBUM' && <AlbumTagFilter />}
+        {selectedValue == 'ARTIST' && <ArtistListenersFilter />}
       </div>
 
       {searchbarValue && selectedValue === 'ARTIST' && (
