@@ -4,6 +4,7 @@ import SongCard from '../SongCard/SongCard'
 import styles from './SongCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
 import { useSelector } from 'react-redux'
+import { Alert, Box, CircularProgress } from '@mui/material'
 
 type SongCardContainerProps = {
   input: string
@@ -44,8 +45,20 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
   return (
     <div className={styles.wrapper}>
       {loading ? (
-        <></>
-      ) : (
+        <>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <CircularProgress color="success" />
+          </Box>
+        </>
+      ) : error ? (
+        <Alert severity="error">Search error, try something else!</Alert>
+      ) : data.tracks.length > 0 ? (
         data.tracks.map(
           (song: {
             track_title: string
@@ -63,6 +76,8 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
             </div>
           )
         )
+      ) : (
+        <Alert severity="info">No tracks found :/</Alert>
       )}
 
       {data && data.tracks.length == offset + 5 && (
