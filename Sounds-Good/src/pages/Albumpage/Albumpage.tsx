@@ -32,25 +32,31 @@ const Albumpage = () => {
   return (
     <>
       <Page>
-        <div className={styles.container}>
+        <div className={styles.container} data-cy="AlbumPageContainer">
           <div className={styles.infoContainer}>
-            <h1>{data.albums[0].album_title}</h1>
-            <h2>{data.albums[0].artistsCreatedAlbum[0].artist_name}</h2>
+            <h1 data-cy="AlbumTitleHeader">{data.albums[0].album_title}</h1>
+            <h2 data-cy="AlbumArtistHeader">
+              {data.albums[0].artistsCreatedAlbum[0].artist_name}
+            </h2>
             <img
               className={styles.albumArt}
               src={data.albums[0].album_art}
               alt="Album art"
+              data-cy="AlbumArt"
             />
             <h2>Summary</h2>
-            <p className={styles.bio}>{sanitizedSummary}</p>
+            <p className={styles.bio} data-cy="AlbumSummary">
+              {sanitizedSummary}
+            </p>
           </div>
           <h2>Tracks</h2>
-          <div className={styles.albumContainer}>
+          <div className={styles.albumContainer} data-cy="AlbumSongsContainer">
             {data.albums[0].hasTrackTracks.map((track: any) => (
               <div className={styles.track}>
                 <Link
                   className={styles.link}
                   to={'song/' + encodeURIComponent(track.track_title)}
+                  data-cy="LinkToSong"
                 >
                   {track.rank}. {track.track_title}{' '}
                   {formatDuration(track.duration)}
