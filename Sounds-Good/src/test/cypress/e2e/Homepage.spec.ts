@@ -66,11 +66,12 @@ describe('Test the different components in the Homepage', () => {
     //The search should therefore return 3 results.
     cy.get('[data-cy=Searchbar]').type('test')
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
-    //Check the radiobutton "Artist". The search should now return 0 results,
+    //Check the radiobutton "Artist". The search should now return 1 result, an error message,
     //since there are no artists in our dataset that contains the word "test".
     cy.get('[data-cy=ArtistButton]').click()
     cy.get('[data-cy=ArtistsContainer]').should('exist')
-    cy.get('[data-cy=ArtistsContainer]').children().should('have.length', 0)
+    cy.get('[data-cy=ArtistsContainer]').children().should('have.length', 1)
+    cy.get('[data-cy=ArtistsContainer]').should('contain', 'No artists found')
     //Check the radiobutton "Album". The search should now return 1 result,
     //since there is one album in our dataset that contains the word "test".
     cy.get('[data-cy=AlbumButton]').click()
@@ -213,6 +214,41 @@ describe('Test the different components in the Homepage', () => {
       .should('exist')
       .should('be.visible')
     cy.get('[data-cy=LinkToSong]').should('include.text', ' ') //This is to check that the link has some text
+  })
+
+  it('Test that the song page renders', () => {
+    //Start of by searching for "TEST DRIVE" and clicking on the first result.
+    cy.get('[data-cy=Searchbar]').type('TEST DRIVE')
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').click()
+    //Check that the component with song info exists and contains the correct information.
+    cy.get('[data-cy=SongPageContainer]').should('exist')
+    cy.get('[data-cy=SongTitleHeader]')
+      .should('exist')
+      .should('contain', 'TEST DRIVE')
+    cy.get('[data-cy=LinkToArtistFromSong]')
+      .should('exist')
+      .should('be.visible')
+      .should('contain', 'Joji')
+    cy.get('[data-cy=LinkToAlbumFromSong]')
+      .should('exist')
+      .should('be.visible')
+      .should('contain', 'BALLADS 1')
+    cy.get('[data-cy=SongAlbumImage').should('exist').should('be.visible')
+    cy.get('[data-cy=SongLength]').should('exist').should('be.visible')
+    //Check that the component with the comments exists
+    cy.get('[data-cy=SongCommentsHeader]')
+      .should('exist')
+      .should('include.text', 'Comments')
+    cy.get('[data-cy=CommentsContainer]').should('exist')
+    cy.get('[data-cy=CommentsContainer]')
+      .children()
+      .should('have.length', 1)
+      .should('contain', 'No comments yet')
+    cy.get('[data-cy=CommentInput]').should('exist').should('be.visible')
+    cy.get('[data-cy=CommentButton]')
+      .should('exist')
+      .should('be.visible')
+      .should('contain', 'Add')
   })
 })
 
