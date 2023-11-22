@@ -38,23 +38,12 @@ export default function GetAlbumBySearchAndTag(
   let variables = {}
 
   if (tagInput.length > 0) {
-    variables = {
-      phrase: searchInput + '*',
-      where: {
-        album: {
-          hasTagTags_SOME: {
-            tag_name_IN: tagInput,
-          },
+    where = {
+      album: {
+        hasTagTags_SOME: {
+          tag_name_IN: tagInput,
         },
       },
-      limit: 5,
-      offset: offset,
-    }
-  } else {
-    variables = {
-      phrase: searchInput + '*',
-      limit: 5,
-      offset: offset,
     }
   }
 
