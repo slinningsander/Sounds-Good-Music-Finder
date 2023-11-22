@@ -6,7 +6,7 @@ interface SortingState {
 }
 
 const initialState: SortingState = {
-  value: 'ASC',
+  value: 'Default',
 }
 
 export const sortingDirectionSlice = createSlice({
@@ -16,10 +16,14 @@ export const sortingDirectionSlice = createSlice({
     updateSortingDirection: (state, action) => {
       state.value = action.payload
     },
+    resetSortingDirectionState: (state) => {
+      state.value = 'Default'
+    },
   },
 })
 
-export const { updateSortingDirection } = sortingDirectionSlice.actions
+export const { updateSortingDirection, resetSortingDirectionState } =
+  sortingDirectionSlice.actions
 export const selectSortingDirection = (state: RootState) =>
   state.sortingDirection.value
 export default sortingDirectionSlice.reducer

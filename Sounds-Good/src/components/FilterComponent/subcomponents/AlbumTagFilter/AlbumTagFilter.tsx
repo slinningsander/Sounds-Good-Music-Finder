@@ -7,13 +7,19 @@ import {
 } from '@mui/material'
 import GetAllTags from '../../../../queries/getAllTags'
 import { useDispatch } from 'react-redux'
-import { useState } from 'react'
-import { updateTags } from '../../../../redux/slices/tagFilterSlice'
+import { useEffect, useState } from 'react'
+import { updateTags, resetState } from '../../../../redux/slices/tagFilterSlice'
 import CloseIcon from '@mui/icons-material/Close'
 
 export function AlbumTagFilter() {
   const [values, setValues] = useState<string[]>([])
   const dispatch = useDispatch()
+  useEffect(() => {
+    return () => {
+      dispatch(resetState())
+    }
+  }, [dispatch])
+  // const selectedTags = useSelector((state) => state.filterTags.value)
   const { data, loading, error } = GetAllTags()
 
   const alltags: string[] = []
@@ -95,7 +101,7 @@ export function AlbumTagFilter() {
                 <TextField
                   {...params}
                   label="Tags"
-                  placeholder="Rock"
+                  placeholder="Pick multiple... "
                   InputProps={{
                     ...params.InputProps,
                     style: {

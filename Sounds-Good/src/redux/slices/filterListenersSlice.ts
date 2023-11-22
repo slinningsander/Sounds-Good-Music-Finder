@@ -16,10 +16,14 @@ export const filterListenersSlice = createSlice({
     updateListenersFilter: (state, action) => {
       state.value = action.payload
     },
+    resetListenerState: (state) => {
+      state.value = []
+    },
   },
 })
 
-export const { updateListenersFilter } = filterListenersSlice.actions
+export const { updateListenersFilter, resetListenerState } =
+  filterListenersSlice.actions
 export const selectFilterListeners = (state: RootState) =>
   state.filterListeners.value
 export default filterListenersSlice.reducer

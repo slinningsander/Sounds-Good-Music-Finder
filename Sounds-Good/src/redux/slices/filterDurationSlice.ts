@@ -16,10 +16,14 @@ export const filterDurationSlice = createSlice({
     updateDurationFilter: (state, action) => {
       state.value = action.payload
     },
+    resetDurationState: (state) => {
+      state.value = []
+    },
   },
 })
 
-export const { updateDurationFilter } = filterDurationSlice.actions
+export const { updateDurationFilter, resetDurationState } =
+  filterDurationSlice.actions
 export const selectFilterDuration = (state: RootState) =>
   state.filterDuration.value
 export default filterDurationSlice.reducer
