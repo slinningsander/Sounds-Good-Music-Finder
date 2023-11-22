@@ -27,8 +27,8 @@ export const CommentsContainer = ({ title, artist, album }: Props) => {
   return (
     <>
       <div className={styles.CommentsWrapper}>
-        <h2>Comments</h2>
-        <div className={styles.CommentsContainer}>
+        <h2 data-cy="SongCommentsHeader">Comments</h2>
+        <div className={styles.CommentsContainer} data-cy="CommentsContainer">
           {data.comments.length !== 0 ? (
             data.comments.map((comment: any) => (
               <CommentComponent key={comment.id} text={comment.text} />
@@ -45,8 +45,13 @@ export const CommentsContainer = ({ title, artist, album }: Props) => {
             id="commentInput"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
+            data-cy="CommentInput"
           />
-          <button type="submit" onClick={() => addComment()}>
+          <button
+            type="submit"
+            onClick={() => addComment()}
+            data-cy="CommentButton"
+          >
             Add
           </button>
         </div>
