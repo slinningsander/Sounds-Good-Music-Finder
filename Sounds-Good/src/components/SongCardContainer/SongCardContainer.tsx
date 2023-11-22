@@ -3,28 +3,24 @@ import GetSongBySearch from '../../queries/getTracksBySearch'
 import SongCard from '../SongCard/SongCard'
 import styles from './SongCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
+import { useSelector } from 'react-redux'
+import { Alert, Box, CircularProgress } from '@mui/material'
 
 type SongCardContainerProps = {
   input: string
-  maxDuration: number
-  minDuration: number
-  sortingDirection: string
 }
 
-const SongCardContainer = ({
-  input,
-  maxDuration,
-  minDuration,
-  sortingDirection,
-}: SongCardContainerProps) => {
+const SongCardContainer = ({ input }: SongCardContainerProps) => {
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
+  const durationList = useSelector((state) => state.filterDuration.value)
+  const sortingDirection = useSelector((state) => state.sortingDirection.value)
   const { data, error, loading } = GetSongBySearch(
     input,
     offset,
     more,
-    maxDuration,
-    minDuration,
+    durationList[1],
+    durationList[0],
     sortingDirection,
     setMore
   )
@@ -33,8 +29,8 @@ const SongCardContainer = ({
 
   useEffect(() => {
     client.resetStore()
-    console.log('minDuration: ' + minDuration)
-    console.log('maxDuration: ' + maxDuration)
+    console.log('minDuration: ' + durationList[0])
+    console.log('maxDuration: ' + durationList[1])
     console.log(input)
     if (loading) {
       console.log('loading')
@@ -44,13 +40,25 @@ const SongCardContainer = ({
       console.log(data.tracks)
       setOffset(0)
     }
-  }, [input, maxDuration, minDuration, sortingDirection])
+  }, [input, durationList[1], durationList[0], sortingDirection])
 
   return (
     <div className={styles.wrapper}>
       {loading ? (
-        <></>
-      ) : (
+        <>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <CircularProgress color="success" />
+          </Box>
+        </>
+      ) : error ? (
+        <Alert severity="error">Search error, try something else!</Alert>
+      ) : data.tracks.length > 0 ? (
         data.tracks.map(
           (song: {
             track_title: string
@@ -68,6 +76,8 @@ const SongCardContainer = ({
             </div>
           )
         )
+      ) : (
+        <Alert severity="info">No tracks found :/</Alert>
       )}
 
       {data && data.tracks.length == offset + 5 && (
