@@ -6,14 +6,10 @@ import { updateListenersFilter } from '../../../../redux/slices/filterListenersS
 
 export function ArtistListenersFilter() {
   const dispatch = useDispatch()
-
-  //TODO : remove this
   const [value, setValue] = useState<number[]>([0, 6500000])
-
   const handleListenerChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[])
-    console.log(newValue)
-    dispatch(updateListenersFilter(value))
+    dispatch(updateListenersFilter(newValue))
   }
   return (
     <Box

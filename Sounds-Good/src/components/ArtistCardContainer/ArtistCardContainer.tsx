@@ -18,8 +18,8 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
     input,
     offset,
     more,
-    listenersList[0],
     listenersList[1],
+    listenersList[0],
     setMore
   )
   const client = useApolloClient()
@@ -33,7 +33,7 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
     } else {
       console.log(data)
       setOffset(0)
-      console.log('listeners', listenersList[1])
+      // console.log('listeners', listenersList[1])
     }
   }, [input, listenersList[1], listenersList[0]])
 

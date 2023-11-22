@@ -23,7 +23,7 @@ export default function GetArtist(
 ) {
   let where = {}
 
-  if (maxListeners && minListeners) {
+  if (maxListeners || minListeners) {
     where = {
       listeners_LTE: maxListeners.toString(),
       listeners_GTE: minListeners.toString(),
