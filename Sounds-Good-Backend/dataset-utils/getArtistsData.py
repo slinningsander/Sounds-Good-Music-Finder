@@ -1,7 +1,7 @@
 import json
 import requests
 
-api_key = "691ee9c1ac42404e59e5e2fb690e9451"
+api_key = "SECRET_KEY"
 
 # Load the data from the existing top_Artists.json
 with open('top100_w50Scandi_artists.json', 'r', encoding='utf-8') as file:
@@ -19,7 +19,8 @@ for artist_name, artist_info in top_artists.items():
     artist_info_data = artist_info_response.json()
 
     # Extract bio summary; use an empty string if summary is not available
-    bio_summary = artist_info_data.get("artist", {}).get("bio", {}).get("summary", "")
+    bio_summary = artist_info_data.get(
+        "artist", {}).get("bio", {}).get("summary", "")
 
     # Add to the updated artists dictionary
     updated_artists[artist_name] = {

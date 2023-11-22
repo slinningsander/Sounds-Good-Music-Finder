@@ -1,0 +1,14 @@
+# Dataset and database
+
+We did not find a dataset which fitted our need, so we generated one that does.
+To summarize we made queries to the last.fm open API to compile a dataset which we felt had enough relevant data for the purpos of this course. The database contains 9018 nodes where each node is either an music artist, album, song or tag (realated to album). There are 150 artist, 100 internal artists most popular on last.fm and 50 varius scandinavian artists. These artists have a realtion to the top 5 album nodes (according to last.fm) and all song nodes on these albums. The albums also has realtion to songs on them as well as usergenerated tags (on last.fm). We also added support for commenting on albums. The comments are represented as nodes with relations to the song in the database and are saved permanently.
+
+## How we did it
+
+We started by writing a Python script (*getTopArtist.py*) to fetch the top 100 artists and theire listenercount on last.fm, then asked ChatGPT to provide a varied list of 50 scandinavian artists to fetch these and theire listenercount using the *addScandinavianArtist.py* script. The listenercount property is used to filter artist. This was compiled into a collective JSON file using *getArtistData.py*. Then we got the data (bio-summary) we wanted realted to these artists by making API calls to last.fm. Further, we got the top 5 albums (name and link to cover-art) of all these artiststs with *getTopAlbums.py* and data related to these albums (song-name, duration and rank), as well as albumcover links and song duration (which is used to filter songs). We also got all tag data (*getTopTags.py*) related to every album we fetched, which is used to filter albums. All album data was merged into the same JSON fil. All album data was merged with *getAlbumData.py* into one file using. The *merge_data.py* was used to merge all data artist data and related album data into one JSON file. Then we transformed (*transformJSONforGraph_v2.py*) this JSON data into a JSON file which easily could be loaded into a graph database with overview of which datapoints should be nodes, and what relations these should have to each other. Finaly we used *loadDB.py* to load our GraphDB with the data.
+
+#### Comments on dataset
+
+Because a lot of the data on last.fm is usergenerated some of the data in our dataset is incomplete. This can be seen in some searches on our webpage. Incomplete data from the last.fm API also made it challenging to both fetch and put together a dataset, therefor we added error handeling in the python scripts, which both log if anything went wrong or makes checkpoints in the handeling of the data to be able to start where the progress left of if a script failed.
+
+If anyone wants to try the scripts there might be errors in the filnames the the scripts try to append data to.
