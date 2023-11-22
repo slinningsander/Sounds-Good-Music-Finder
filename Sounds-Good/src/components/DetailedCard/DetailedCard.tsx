@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styles from './DetailedCard.module.css'
 
 type Props = {
@@ -10,33 +10,41 @@ type Props = {
 }
 
 const DetailedCard = ({ title, artist, img, length, album }: Props) => {
-  const navigate = useNavigate()
   return (
     <>
       <div className={styles.contentWrapper}>
         <div className={styles.contentContainer}>
-          <h1 className={styles.children}>{title}</h1>
-          <div
+          <h1 className={styles.children} data-cy="SongTitleHeader">
+            {title}
+          </h1>
+          <Link
             className={styles.linkContainer}
-            onClick={() => navigate('/project2/' + encodeURIComponent(artist))}
+            to={'/project2/' + encodeURIComponent(artist)}
+            data-cy="LinkToArtistFromSong"
           >
             <h2 className={styles.children}>{artist}</h2>
-          </div>
-          <div
-            onClick={() =>
-              navigate(
-                '/project2/' +
-                  encodeURIComponent(artist) +
-                  '/album/' +
-                  encodeURIComponent(album)
-              )
-            }
+          </Link>
+          <Link
             className={styles.linkContainer}
+            to={
+              '/project2/' +
+              encodeURIComponent(artist) +
+              '/album/' +
+              encodeURIComponent(album)
+            }
+            data-cy="LinkToAlbumFromSong"
           >
             <h3 className={styles.children}>{album}</h3>
-          </div>
-          <img src={img} alt={title} className={styles.image} />
-          <h3 className={styles.children}>{length}</h3>
+          </Link>
+          <img
+            src={img}
+            alt={title}
+            className={styles.image}
+            data-cy="SongAlbumImage"
+          />
+          <h3 className={styles.children} data-cy="SongLength">
+            {length}
+          </h3>
         </div>
       </div>
     </>

@@ -1,0 +1,34 @@
+.searchbarContainer {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7%;
+}
+
+.searchbarLabel {
+  display: block;
+}
+::placeholder {
+  color: rgb(210, 209, 209);
+}
+.searchbar {
+  background-color: #1d267d;
+  color: white;
+  font-size: 1em;
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 1.5rem;
+  border: 4px solid #5c469c;
+}
+
+.searchbar:focus {
+  /* outline: lightgray solid 1.5px; */
+  /* outline-offset: 3px; */
+  outline: 0 none;
+}
+
+.searchbar:valid {
+  border: 4px solid #d4adfc;
+}

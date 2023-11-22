@@ -1,23 +1,30 @@
 import { useEffect, useState } from 'react'
-import Searchbar from '../../components/Search/subcomponents/Searchbar/Searchbar.tsx'
-import { SearchFilter } from '../../components/FilterComponent/subcomponents/SearchFilter/SearchFilter.tsx'
+import Searchbar from '../../components/Searchbar/Searchbar.tsx'
+import { SearchFilter } from '../../components/FilterComponents/SearchFilter/SearchFilter.tsx'
 import ArtistCardContainer from '../../components/ArtistCardContainer/ArtistCardContainer.tsx'
 import AlbumCardContainer from '../../components/AlbumCardContainer/AlbumCardContainer.tsx'
 import SongCardContainer from '../../components/SongCardContainer/SongCardContainer.tsx'
-import { TrackDurationFilter } from '../../components/FilterComponent/subcomponents/TrackDurationFilter/TrackDurationFilter.tsx'
+import { TrackDurationFilter } from '../../components/FilterComponents/TrackDurationFilter/TrackDurationFilter.tsx'
 import styles from './Homepage.module.css'
-import { AlbumTagFilter } from '../../components/FilterComponent/subcomponents/AlbumTagFilter/AlbumTagFilter.tsx'
-// import Search from '../../components/Search/Search.tsx'
+import { AlbumTagFilter } from '../../components/FilterComponents/AlbumTagFilter/AlbumTagFilter.tsx'
+import { ArtistListenersFilter } from '../../components/FilterComponents/ArtistListenersFilter/ArtistListenersFilter.tsx'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateSortingDirection } from '../../redux/slices/sortingDirectionSlice.ts'
+
 export default function Homepage() {
   const [searchbarValue, setSearchbarValue] = useState('')
   const [selectedValue, setSelectedValue] = useState('TRACK')
   const [maxDuration, setMaxDuration] = useState(600)
   const [minDuration, setMinDuration] = useState(0)
-  const [sortingDirection, setSortingDirection] = useState('Default') // State for sorting direction
+  const dispatch = useDispatch()
 
-  const handleSortingChange = (event: any) => {
-    setSortingDirection(event.target.value) // Update sorting direction state when the user changes the selection
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const setSortingChange = (event: any) => {
+    //sets value in redux store
+    dispatch(updateSortingDirection(event.target.value))
   }
+  //gets sortingDirectionState from store
+  const sortingDirection = useSelector((state) => state.sortingDirection.value)
 
   useEffect(() => {
     console.log(searchbarValue)
@@ -28,7 +35,7 @@ export default function Homepage() {
       <Searchbar
         searchbarName="homePageSearch"
         isRequired={true}
-        placeholder="Drake"
+        placeholder="Search..."
         labelValue="Search"
         ariaLabel="Searchbar"
         setSearchbarValue={setSearchbarValue}
@@ -42,17 +49,21 @@ export default function Homepage() {
         </div>
         {selectedValue === 'TRACK' && (
           <>
-            <div className={styles.children}>
+            <div className={styles.children} data-cy="SliderContainer">
               <TrackDurationFilter
                 setMaxDuration={setMaxDuration}
                 setMinDuration={setMinDuration}
               />
             </div>
             <div className={styles.children}>
+              <label htmlFor="select" className={styles.label}>
+                Sorting:
+              </label>
               <select
                 id="select"
                 value={sortingDirection}
-                onChange={handleSortingChange}
+                onChange={setSortingChange}
+                data-cy="Select"
               >
                 <option value="Default">Default</option>
                 <option value="ASC">Alphabetically(a-z)</option>
@@ -61,7 +72,48 @@ export default function Homepage() {
             </div>
           </>
         )}
-        {selectedValue === 'ALBUM' && <AlbumTagFilter />}
+        {selectedValue === 'ALBUM' && (
+          <>
+            <div className={styles.children}>
+              <AlbumTagFilter />
+            </div>
+            <div className={styles.children}>
+              <label htmlFor="select" className={styles.label}>
+                Sorting:
+              </label>
+              <select
+                id="select"
+                value={sortingDirection}
+                onChange={setSortingChange}
+              >
+                <option value="Default">Default</option>
+                <option value="ASC">Alphabetically(a-z)</option>
+                <option value="DESC">Alphabetically(z-a)</option>
+              </select>
+            </div>
+          </>
+        )}
+        {selectedValue == 'ARTIST' && (
+          <>
+            <div className={styles.children}>
+              <ArtistListenersFilter />
+            </div>
+            <div className={styles.children}>
+              <label htmlFor="select" className={styles.label}>
+                Sorting:
+              </label>
+              <select
+                id="select"
+                value={sortingDirection}
+                onChange={setSortingChange}
+              >
+                <option value="Default">Default</option>
+                <option value="ASC">Alphabetically(a-z)</option>
+                <option value="DESC">Alphabetically(z-a)</option>
+              </select>
+            </div>
+          </>
+        )}
       </div>
 
       {searchbarValue && selectedValue === 'ARTIST' && (

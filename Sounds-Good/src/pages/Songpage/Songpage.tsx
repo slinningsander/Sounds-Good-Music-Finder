@@ -2,7 +2,7 @@ import DetailedCard from '../../components/DetailedCard/DetailedCard'
 import { CommentsContainer } from '../../components/CommentsContainer/CommentsContainer'
 import styles from './Songpage.module.css'
 import Page from '../../components/Page/Page'
-import GetTrack from '../../queries/getTrack'
+import GetTrack from '../../graphql/queries/getTrack'
 import formatDuration from '../../utils/formatDuration'
 import { useApolloClient } from '@apollo/client'
 import { useEffect } from 'react'
@@ -30,7 +30,7 @@ const Songpage = () => {
   return (
     <>
       <Page>
-        <div className={styles.container}>
+        <div className={styles.container} data-cy="SongPageContainer">
           <DetailedCard
             title={data.tracks[0].track_title}
             artist={data.tracks[0].artistsCreatedTrack[0].artist_name}

@@ -1,8 +1,7 @@
-import { Create } from '@mui/icons-material'
-import GetComments from '../../queries/getComments'
+import GetComments from '../../graphql/queries/getComments'
 import CommentComponent from '../CommentComponent/CommentComponent'
 import styles from './CommentsContainer.module.css'
-import CreateComment from '../../mutations/createComment'
+import CreateComment from '../../graphql/mutations/createComment'
 import { useState } from 'react'
 
 type Props = {
@@ -27,20 +26,32 @@ export const CommentsContainer = ({ title, artist, album }: Props) => {
   return (
     <>
       <div className={styles.CommentsWrapper}>
-        <h2>Comments</h2>
-        <div className={styles.CommentsContainer}>
-          {data.comments.map((comment: any) => (
-            <CommentComponent text={comment.text} />
-          ))}
+        <h2 data-cy="SongCommentsHeader">Comments</h2>
+        <div className={styles.CommentsContainer} data-cy="CommentsContainer">
+          {data.comments.length !== 0 ? (
+            data.comments.map((comment: any) => (
+              <CommentComponent key={comment.id} text={comment.text} />
+            ))
+          ) : (
+            <p>No comments yet :(</p>
+          )}
         </div>
-        <h2>Add a comment</h2>
+
         <div className={styles.commentForm}>
+          <label htmlFor="commentInput">Add a comment:</label>
           <input
             type="text"
+            id="commentInput"
+            data-testid="comment-input"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
+            data-cy="CommentInput"
           />
-          <button type="submit" onClick={() => addComment()}>
+          <button
+            type="submit"
+            onClick={() => addComment()}
+            data-cy="CommentButton"
+          >
             Add
           </button>
         </div>

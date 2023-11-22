@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   width: 70%;
-  background-color: plum;
+  background-color: #1d267d;
   border-radius: 2ch;
 }
 
@@ -18,5 +18,3 @@
     width: 100%;
   }
 }
-    
-
