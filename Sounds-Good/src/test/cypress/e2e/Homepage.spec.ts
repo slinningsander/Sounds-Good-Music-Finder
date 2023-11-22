@@ -154,11 +154,38 @@ describe('Test the different components in the Homepage', () => {
     cy.get('[data-cy=AlbumsContainer]').should('contain', 'Stay Gold')
   })
 
-
   it('Test the Artist page', () => {
+    //Start of by searching for "Kanye West" and clicking on the first result.
     cy.get('[data-cy=ArtistButton]').click()
     cy.get('[data-cy=Searchbar]').type('Kanye West')
     cy.get('[data-cy=ArtistsContainer] > :nth-child(1)').click()
+    //Check that the artist page exists and contains the correct information.
+    cy.get('[data-cy=ArtistPageContainer]').should('exist')
+    cy.get('[data-cy=ArtistNameHeader]')
+      .should('exist')
+      .should('contain', 'Kanye West')
+    cy.get('[data-cy=ArtistListeners]').should('exist').should(
+      'contain',
+      'Last.fm listeners: ',
+      '6 239 970' //This number has been checked to be correct in the database.
+    )
+    cy.get('[data-cy=ArtistBio]').should('exist').should('include.text', ' ') //The bio is too long to check for a specific string.
+    cy.get('[data-cy=ArtistsAlbumsHeader]')
+      .should('exist')
+      .should('have.text', 'Most Popular Albums')
+    //Check that the number of albums is correct and that the album images are clickable.
+    cy.get('[data-cy=ArtistsAlbums]')
+      .should('exist')
+      .children()
+      .should('have.length', 5)
+    cy.get('[data-cy=ArtistsAlbums]')
+      .find('[data-cy=LinkToAlbumPage]')
+      .should('exist')
+      .should('be.visible')
+    cy.get('[data-cy=LinkToAlbumPage]')
+      .find('img')
+      .should('exist')
+      .should('be.visible')
   })
 })
 
