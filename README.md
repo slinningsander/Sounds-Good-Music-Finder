@@ -134,15 +134,54 @@ We have done both end-to-end testing and component and unit testing. E2E testing
 
 ### E2E testing
 
+We used Cypress to make and execute an automated End-To-End test that would test the functionality found in the application. We decided to have all the tests in one file to make it easier for others to run the test smoothly. An alternative would be to have the tests in separate files that would correspond to different user scenarios.
+
+The testing covers all of our functionality, that being filters, sorting, search and commenting on songs. We additionally have some testing that makes sure the different pages and components render correctly, given a user action. It should also be noted that we only test alphabetical sorting once, even though it is a reoccurring feature. This is because any more of those tests would be redundant.
+
+To run the Cypress test, you need to be in the "Sounds-Good" repo and write the following command:
+
+```
+npm run cypress:open 
+```
+Remember to run this command if you have not done it earlier:
+
+```
+npm install
+```
+
+Once you have run the command to open Cypress, you should be greeted by this window:
+
+<img src="Sounds-Good/src/assets/CypressStartInterface.png" alt="Image showing choice between E2E Testing or Component Testing" width=400>
+
+Press the "E2E Testing" option which will lead you further to another screen:
+
+<img src="Sounds-Good/src/assets/CypressChooseBrowser.png" alt="Image showing choice between installed browsers" width=400>
+
+Here you can choose which browser you want to run the E2E test on. We highly recommend choosing Google Chrome or Firefox, as these are definitely going to run the test. Note that for Mac users, the Safari browser will not be recognized. After you have chosen a browser, a new browser window will open with a new interface:
+
+<img src="Sounds-Good/src/assets/CypressChooseSpec.png" alt="Image showing the available specs(tests)" width=700>
+
+You will now have to choose which test to run, which in our case is only one. After you have clicked on "E2E.spec.ts", the test will start and you will see the results:
+
+<img src="Sounds-Good/src/assets/CypressTest.png" alt="Image showing the test results" width=400>
+
+To close Cypress, you only need to go back to the terminal where you started it and press the keys "CTRL + C".
+
 ### Component and unit testing
 
-We have used Vitest and @react-testing-library to do component and unit testing.
-To run these test write the following command when you are in the Sounds-Good directory.
+We have used Vitest and @react-testing-library to do component and unit testing. Each test is found in the same folder as the corresponding component.
+To run these tests, write the following command when you are in the Sounds-Good directory:
+
 
 ```
 npm test
 ```
 
+Remember to run this command if you have not done it earlier:
+
+```
+npm install
+```
 ## Discussion
 
 For _V1.0_ we have set up the database, deployed the backend and further developed the frontend. We have generated a dataset by making API calls to the last.fm open API. From this we got JSON data, which we generated a graphDB with nodes and relations.
