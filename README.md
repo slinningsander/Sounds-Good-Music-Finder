@@ -132,6 +132,8 @@ Another thing we did was to change our color palette. Dark colors uses less ener
 
 ## Discussion
 
+### V1.0
+
 For _V1.0_ we have set up the database, deployed the backend and further developed the frontend. We have generated a dataset by making API calls to the last.fm open API. From this we got JSON data, which we generated a graphDB with nodes and relations.
 
 The webpage is still centered around the homepage. Here it is possible to search for either artist, album or track. There is a filter which configurates search category that can be picked both before and after search. It is also possible to filter on tracks by duration in seconds. There is also functionality to sort search result either ascending or descending alphabeticaly.
@@ -139,3 +141,9 @@ The webpage is still centered around the homepage. Here it is possible to search
 We wanted to be able to filter on all three search-categories(artist, album and track), but we had alot of issues dealing with MaterialUI components and the graphQL query language, and were only able to filter the track category by duration. We have filter components in FilterComponent -> subcomponent mostly done and will develope these further.
 
 All in all, we have a large dataset and there is a lot of database content to view on the site.
+
+### V1.1
+
+This releas contains all functionality we have planed for during the project. We still had some problems with Material UI components, getting the value output from the filter components. These values where also challenging to pass to our GraphQL queries, as they had to be formated.
+
+We have implemented Redux global state managment for every filter state, and realized we should have done this earlier. Our first solution was prop-drilling, but this quicly became hard to get an overview of. Sentralizing all state into the Redux store and acccessing it show to be simpler. It has to be added that there is a lot of potential in Redux that we are not exploiting.
