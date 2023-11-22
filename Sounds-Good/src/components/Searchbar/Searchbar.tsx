@@ -30,6 +30,7 @@ export function Searchbar({
         aria-label={ariaLabel}
         onChange={(event) => setSearchbarValue(event.target.value)}
         autoComplete="off"
+        data-cy="Searchbar"
       />
       {/*</form>*/}
     </div>

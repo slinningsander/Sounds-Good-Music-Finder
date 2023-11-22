@@ -14,7 +14,7 @@ export const Navbar = () => {
   return (
     <AppBar sx={{ backgroundColor: '#5C469C' }}>
       <Container maxWidth="xl">
-        <Toolbar>
+        <Toolbar data-cy="Navbar">
           <Typography
             variant="h1"
             noWrap

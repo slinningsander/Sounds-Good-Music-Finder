@@ -36,6 +36,7 @@ export function SearchFilter({
                 inputProps={{
                   'aria-label': 'Artist',
                 }}
+                data-cy="ArtistButton"
               />
             }
             label="Artist"
@@ -52,6 +53,7 @@ export function SearchFilter({
                 inputProps={{
                   'aria-label': 'Album',
                 }}
+                data-cy="AlbumButton"
               />
             }
             label="Album"
@@ -68,6 +70,7 @@ export function SearchFilter({
                 inputProps={{
                   'aria-label': 'Tracks',
                 }}
+                data-cy="TrackButton"
               />
             }
             label="Track"

@@ -40,6 +40,7 @@ export function TrackDurationFilter() {
         onChangeCommitted={handleDurationChange}
         min={0}
         max={600}
+        data-cy="Slider"
       />
       <span>max: {value[1]} seconds</span>
     </Box>

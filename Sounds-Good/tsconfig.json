@@ -23,6 +23,6 @@
 
     "esModuleInterop": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "cypress/support/*.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

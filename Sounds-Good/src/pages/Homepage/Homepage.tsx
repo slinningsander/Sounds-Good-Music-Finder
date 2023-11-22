@@ -49,7 +49,7 @@ export default function Homepage() {
         </div>
         {selectedValue === 'TRACK' && (
           <>
-            <div className={styles.children}>
+            <div className={styles.children} data-cy="SliderContainer">
               <TrackDurationFilter
                 setMaxDuration={setMaxDuration}
                 setMinDuration={setMinDuration}
@@ -63,6 +63,7 @@ export default function Homepage() {
                 id="select"
                 value={sortingDirection}
                 onChange={setSortingChange}
+                data-cy="Select"
               >
                 <option value="Default">Default</option>
                 <option value="ASC">Alphabetically(a-z)</option>

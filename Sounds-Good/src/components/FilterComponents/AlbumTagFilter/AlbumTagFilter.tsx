@@ -140,7 +140,7 @@ export function AlbumTagFilter() {
           }
           labelPlacement="top"
           label="Search tags"
-          //className={styles.tagSearch}
+          data-cy="Autocomplete"
         />
       </>
     )

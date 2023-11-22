@@ -30,7 +30,7 @@ const Songpage = () => {
   return (
     <>
       <Page>
-        <div className={styles.container}>
+        <div className={styles.container} data-cy="SongPageContainer">
           <DetailedCard
             title={data.tracks[0].track_title}
             artist={data.tracks[0].artistsCreatedTrack[0].artist_name}

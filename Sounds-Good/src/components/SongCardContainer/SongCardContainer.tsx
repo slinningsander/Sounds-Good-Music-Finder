@@ -43,7 +43,7 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
   }, [input, durationList[1], durationList[0], sortingDirection])
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-cy="SongsContainer">
       {loading ? (
         <>
           <Box

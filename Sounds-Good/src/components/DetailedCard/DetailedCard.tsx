@@ -14,10 +14,13 @@ const DetailedCard = ({ title, artist, img, length, album }: Props) => {
     <>
       <div className={styles.contentWrapper}>
         <div className={styles.contentContainer}>
-          <h1 className={styles.children}>{title}</h1>
+          <h1 className={styles.children} data-cy="SongTitleHeader">
+            {title}
+          </h1>
           <Link
             className={styles.linkContainer}
             to={'/project2/' + encodeURIComponent(artist)}
+            data-cy="LinkToArtistFromSong"
           >
             <h2 className={styles.children}>{artist}</h2>
           </Link>
@@ -29,11 +32,19 @@ const DetailedCard = ({ title, artist, img, length, album }: Props) => {
               '/album/' +
               encodeURIComponent(album)
             }
+            data-cy="LinkToAlbumFromSong"
           >
             <h3 className={styles.children}>{album}</h3>
           </Link>
-          <img src={img} alt={title} className={styles.image} />
-          <h3 className={styles.children}>{length}</h3>
+          <img
+            src={img}
+            alt={title}
+            className={styles.image}
+            data-cy="SongAlbumImage"
+          />
+          <h3 className={styles.children} data-cy="SongLength">
+            {length}
+          </h3>
         </div>
       </div>
     </>
