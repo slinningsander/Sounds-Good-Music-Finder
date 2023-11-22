@@ -1,10 +1,20 @@
 import { Box, Slider } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateDurationFilter } from '../../../redux/slices/filterDurationSlice'
+import {
+  resetDurationState,
+  updateDurationFilter,
+} from '../../../redux/slices/filterDurationSlice'
 
 export function TrackDurationFilter() {
   const dispatch = useDispatch()
+  useEffect(() => {
+    return () => {
+      console.log(resetDurationState())
+      dispatch(resetDurationState())
+    }
+  }, [dispatch])
+
   const [value, setValue] = useState<number[]>([0, 600])
 
   const handleDurationChange = (event: Event, newValue: number | number[]) => {
