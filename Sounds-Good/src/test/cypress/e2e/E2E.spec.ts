@@ -1,4 +1,4 @@
-describe('Test the different components in the Homepage', () => {
+describe('Test the different pages and the functionality of the application', () => {
   //Checks if the application can be started and refreshes the page before all tests.
   beforeEach(() => {
     cy.visit('/')
