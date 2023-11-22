@@ -1,13 +1,19 @@
 import { Box, Slider } from '@mui/material'
-import React from 'react'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { updateListenersFilter } from '../../../../redux/slices/filterListenersSlice'
+//import React from 'react'
 
 export function ArtistListenersFilter() {
-  const [value, setValue] = React.useState<number[]>([0, 6500000])
+  const dispatch = useDispatch()
+
+  //TODO : remove this
+  const [value, setValue] = useState<number[]>([0, 6500000])
 
   const handleListenerChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[])
-    console.log(value[0])
-    console.log(value[1])
+    console.log(newValue)
+    dispatch(updateListenersFilter(value))
   }
   return (
     <Box

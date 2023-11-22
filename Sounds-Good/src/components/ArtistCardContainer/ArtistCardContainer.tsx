@@ -3,14 +3,25 @@ import GetArtist from '../../queries/getArtistsBySearch'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import styles from './ArtistCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
+import { useSelector } from 'react-redux'
 
 type ArtistCardContainerProps = {
   input: string
 }
+
 const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
+  const listenersList = useSelector((state) => state.filterListeners.value)
+  console.log('REDUX DATA: ', listenersList)
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
-  const { data, error, loading } = GetArtist(input, offset, more, setMore)
+  const { data, error, loading } = GetArtist(
+    input,
+    offset,
+    more,
+    listenersList[0],
+    listenersList[1],
+    setMore
+  )
   const client = useApolloClient()
 
   useEffect(() => {
@@ -20,10 +31,11 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
     } else if (error) {
       console.log(error)
     } else {
-      console.log(data.artists)
+      console.log(data)
       setOffset(0)
+      console.log('listeners', listenersList[1])
     }
-  }, [input])
+  }, [input, listenersList[1], listenersList[0]])
 
   return (
     <div className={styles.wrapper}>
