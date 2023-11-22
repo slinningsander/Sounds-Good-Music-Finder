@@ -29,10 +29,15 @@ export const CommentsContainer = ({ title, artist, album }: Props) => {
       <div className={styles.CommentsWrapper}>
         <h2>Comments</h2>
         <div className={styles.CommentsContainer}>
-          {data.comments.map((comment: any) => (
-            <CommentComponent text={comment.text} />
-          ))}
+          {data.comments.length !== 0 ? (
+            data.comments.map((comment: any) => (
+              <CommentComponent key={comment.id} text={comment.text} />
+            ))
+          ) : (
+            <p>No comments yet :(</p>
+          )}
         </div>
+
         <div className={styles.commentForm}>
           <label htmlFor="commentInput">Add a comment:</label>
           <input

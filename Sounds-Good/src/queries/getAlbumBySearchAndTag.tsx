@@ -7,12 +7,14 @@ const GET_ALBUM_BY_TAGS_AND_SEARCH = gql`
     $offset: Int
     $phrase: String!
     $where: AlbumFulltextWhere
+    $sort: [AlbumFulltextSort!]
   ) {
     albumsFulltextAlbumTitle(
       limit: $limit
       offset: $offset
       phrase: $phrase
       where: $where
+      sort: $sort
     ) {
       album {
         album_title
@@ -29,9 +31,12 @@ export default function GetAlbumBySearchAndTag(
   tagInput: string[],
   offset: number,
   more: boolean,
+  sortingDirection: string,
   setMore: (more: boolean) => void
 ) {
+  let where = {}
   let variables = {}
+
   if (tagInput.length > 0) {
     variables = {
       phrase: searchInput + '*',
@@ -53,6 +58,29 @@ export default function GetAlbumBySearchAndTag(
     }
   }
 
+  if (sortingDirection === 'Default') {
+    variables = {
+      where: where,
+      phrase: searchInput + '*',
+      limit: 5,
+      offset: offset,
+    }
+  } else {
+    variables = {
+      where: where,
+      phrase: searchInput + '*',
+      limit: 5,
+      offset: offset,
+      sort: [
+        {
+          album: {
+            album_title: sortingDirection,
+          },
+        },
+      ],
+    }
+  }
+
   const result = useQuery(GET_ALBUM_BY_TAGS_AND_SEARCH, {
     variables: variables,
   })
@@ -60,12 +88,7 @@ export default function GetAlbumBySearchAndTag(
   const fetchMoreAlbums = () => {
     result
       .fetchMore({
-        variables: {
-          options: {
-            limit: 5,
-            offset: offset,
-          },
-        },
+        variables: variables,
       })
       .then((res) => {
         setMore(false)
@@ -75,7 +98,7 @@ export default function GetAlbumBySearchAndTag(
     if (more) {
       fetchMoreAlbums()
     }
-  }, [more, offset, searchInput])
+  }, [more, offset, searchInput, sortingDirection])
 
   return result
 }
