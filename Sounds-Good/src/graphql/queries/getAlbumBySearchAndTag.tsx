@@ -79,7 +79,7 @@ export default function GetAlbumBySearchAndTag(
       .fetchMore({
         variables: variables,
       })
-      .then((res) => {
+      .then(() => {
         setMore(false)
       })
   }
