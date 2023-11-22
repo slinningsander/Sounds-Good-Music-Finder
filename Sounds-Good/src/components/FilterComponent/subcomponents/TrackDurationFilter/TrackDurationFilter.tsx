@@ -10,6 +10,7 @@ export function TrackDurationFilter() {
   const dispatch = useDispatch()
   useEffect(() => {
     return () => {
+      console.log(resetDurationState())
       dispatch(resetDurationState())
     }
   }, [dispatch])

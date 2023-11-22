@@ -17,7 +17,7 @@ export const filterTagsSlice = createSlice({
       state.value = action.payload
     },
     resetState: (state) => {
-      state.value = []
+      state.value = initialState.value
     },
   },
 })

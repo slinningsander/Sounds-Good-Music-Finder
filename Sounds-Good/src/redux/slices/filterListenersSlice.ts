@@ -17,7 +17,7 @@ export const filterListenersSlice = createSlice({
       state.value = action.payload
     },
     resetListenerState: (state) => {
-      state.value = []
+      state.value = initialState.value
     },
   },
 })

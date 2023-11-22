@@ -9,10 +9,7 @@ import styles from './Homepage.module.css'
 import { AlbumTagFilter } from '../../components/FilterComponent/subcomponents/AlbumTagFilter/AlbumTagFilter.tsx'
 import { ArtistListenersFilter } from '../../components/FilterComponent/subcomponents/ArtistListenersFilter/ArtistListenersFilter.tsx'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  resetSortingDirectionState,
-  updateSortingDirection,
-} from '../../redux/slices/sortingDirectionSlice.ts'
+import { updateSortingDirection } from '../../redux/slices/sortingDirectionSlice.ts'
 
 export default function Homepage() {
   const [searchbarValue, setSearchbarValue] = useState('')
@@ -20,11 +17,6 @@ export default function Homepage() {
   const [maxDuration, setMaxDuration] = useState(600)
   const [minDuration, setMinDuration] = useState(0)
   const dispatch = useDispatch()
-  useEffect(() => {
-    return () => {
-      dispatch(resetSortingDirectionState())
-    }
-  }, [dispatch])
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setSortingChange = (event: any) => {

@@ -17,7 +17,7 @@ export const filterDurationSlice = createSlice({
       state.value = action.payload
     },
     resetDurationState: (state) => {
-      state.value = []
+      state.value = initialState.value
     },
   },
 })
