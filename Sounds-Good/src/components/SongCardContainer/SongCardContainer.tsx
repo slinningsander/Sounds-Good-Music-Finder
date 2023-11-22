@@ -7,9 +7,6 @@ import { useSelector } from 'react-redux'
 
 type SongCardContainerProps = {
   input: string
-  // maxDuration: number
-  // minDuration: number
-  // sortingDirection: string
 }
 
 const SongCardContainer = ({ input }: SongCardContainerProps) => {

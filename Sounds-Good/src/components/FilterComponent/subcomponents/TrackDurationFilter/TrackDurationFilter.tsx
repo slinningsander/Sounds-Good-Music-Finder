@@ -3,14 +3,6 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateDurationFilter } from '../../../../redux/slices/filterDurationSlice'
 
-// type TrackDurationFilterProps = {
-//   setMaxDuration: (value: number) => void
-//   setMinDuration: (value: number) => void
-// }
-// {
-//   setMaxDuration,
-//   setMinDuration,
-// }: TrackDurationFilterProps
 export function TrackDurationFilter() {
   const dispatch = useDispatch()
   const [value, setValue] = useState<number[]>([0, 600])
@@ -19,6 +11,7 @@ export function TrackDurationFilter() {
     setValue(newValue as number[])
     dispatch(updateDurationFilter(newValue))
   }
+
   return (
     <Box
       sx={{
@@ -34,12 +27,6 @@ export function TrackDurationFilter() {
         value={value}
         getAriaLabel={() => 'Duration range'}
         disableSwap
-        // onChangeCommitted={(_, value) => {
-        //   setValue(value as number[])
-        //   setMinDuration(value[0])
-        //   setMaxDuration(value[1])
-        //   console.log(value)
-        // }}
         onChangeCommitted={handleDurationChange}
         min={0}
         max={600}
