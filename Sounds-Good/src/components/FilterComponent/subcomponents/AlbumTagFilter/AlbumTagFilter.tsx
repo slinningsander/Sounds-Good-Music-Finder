@@ -1,4 +1,3 @@
-import styles from './AlbumTagFilter.module.css'
 import {
   Alert,
   Autocomplete,
@@ -10,6 +9,8 @@ import GetAllTags from '../../../../queries/getAllTags'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { updateTags } from '../../../../redux/slices/tagFilterSlice'
+import CloseIcon from '@mui/icons-material/Close'
+
 export function AlbumTagFilter() {
   const [values, setValues] = useState<string[]>([])
   const dispatch = useDispatch()
@@ -17,7 +18,7 @@ export function AlbumTagFilter() {
 
   const alltags: string[] = []
 
-  if (!loading && data.tags && !error) {
+  if (!loading && data?.tags && !error) {
     for (let i = 0; i < data.tags.length; i++) {
       alltags.push(data.tags[i].tag_name)
     }
@@ -29,9 +30,28 @@ export function AlbumTagFilter() {
       }
     })
 
+    const CustomChip = styled('div')(({ theme }) => ({
+      backgroundColor: '#5C469C',
+      color: 'white',
+      padding: '4px 10px',
+      borderRadius: '16px',
+      marginRight: '8px',
+      marginBottom: '8px',
+      display: 'flex',
+      alignItems: 'center',
+      '& .MuiSvgIcon-root': {
+        cursor: 'pointer',
+        marginLeft: theme.spacing(1),
+      },
+      '& .MuiSvgIcon-root:hover': {
+        color: 'rgba(255, 255, 255, 0.7)',
+      },
+      '&:hover .MuiSvgIcon-root': {
+        display: 'block',
+      },
+    }))
     const GroupHeader = styled('div')({
       position: 'sticky',
-      top: '-8px',
       padding: '4px 10px',
       color: 'white',
       backgroundColor: '#5C469C',
@@ -48,6 +68,7 @@ export function AlbumTagFilter() {
       setValues(newValues)
       dispatch(updateTags(tagsQueryFormat))
     }
+
     return (
       <>
         <FormControlLabel
@@ -78,12 +99,30 @@ export function AlbumTagFilter() {
                   InputProps={{
                     ...params.InputProps,
                     style: {
-                      color: 'white', // Set text color to white
-                      backgroundColor: '#5C469C',
+                      backgroundColor: '#1D267D',
+                      color: 'white',
                     },
+                  }}
+                  InputLabelProps={{
+                    style: { color: '#fff' },
                   }}
                 />
               )}
+              renderTags={(value, getTagProps) =>
+                value.map((option, index) => (
+                  <CustomChip key={index} {...getTagProps({ index })}>
+                    {option.option}
+                    <CloseIcon
+                      onClick={() => {
+                        const updatedValues = [...values]
+                        updatedValues.splice(index, 1)
+                        setValues(updatedValues)
+                        getPickedTags(updatedValues)
+                      }}
+                    />
+                  </CustomChip>
+                ))
+              }
               renderGroup={(params) => (
                 <li key={params.key}>
                   <GroupHeader>{params.group}</GroupHeader>
@@ -95,7 +134,7 @@ export function AlbumTagFilter() {
           }
           labelPlacement="top"
           label="Search tags"
-          className={styles.tagSearch}
+          //className={styles.tagSearch}
         />
       </>
     )
