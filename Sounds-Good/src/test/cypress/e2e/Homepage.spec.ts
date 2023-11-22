@@ -106,6 +106,25 @@ describe('Test the different components in the Homepage', () => {
     )
   })
 
+  it('Test the LastFM listeners filter (Slider)', () => {
+    //Start off by typing in "Dra" and checking that the two results are returned.
+    cy.get('[data-cy=ArtistButton]').click()
+    cy.get('[data-cy=Searchbar]').type('Dra')
+    cy.get('[data-cy=ListenerSlider]').should('exist')
+    cy.get('[data-cy=ArtistsContainer]')
+      .children()
+      .should('have.length', 2)
+      .should('contain', 'Drake', 'Imagine Dragons')
+    //Change the minimum value of the slider to apply filtration. The search should now return 1 result,
+    cy.get('[data-cy=ListenerSlider]').should('exist').click(140, 0)
+    cy.get('[data-cy=ArtistsContainer]').children().should('have.length', 1)
+    //Check that it is the correct artist that is returned. The other artist's number of listeners is under the min value.
+    cy.get('[data-cy=ArtistsContainer] > :nth-child(1)').should(
+      'contain',
+      'Drake'
+    )
+  })
+
   it('Test the sorting functionality', () => {
     //Starts off by typing in "test".
     cy.get('[data-cy=Searchbar]').type('test')
