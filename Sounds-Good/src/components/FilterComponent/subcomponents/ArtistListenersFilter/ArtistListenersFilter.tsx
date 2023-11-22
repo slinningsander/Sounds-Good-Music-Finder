@@ -27,6 +27,7 @@ export function ArtistListenersFilter() {
         onChangeCommitted={handleListenerChange}
         min={0}
         max={6500000}
+        data-cy="ListenerSlider"
       />
       <span>max: {value[1]} listeners</span>
     </Box>
