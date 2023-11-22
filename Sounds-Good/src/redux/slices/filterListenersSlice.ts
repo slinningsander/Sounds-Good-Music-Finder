@@ -6,7 +6,7 @@ interface FilterListenersState {
 }
 
 const initialState: FilterListenersState = {
-  value: [],
+  value: [0, 6500000],
 }
 
 export const filterListenersSlice = createSlice({
@@ -20,6 +20,6 @@ export const filterListenersSlice = createSlice({
 })
 
 export const { updateListenersFilter } = filterListenersSlice.actions
-export const selectFilterTags = (state: RootState) =>
+export const selectFilterListeners = (state: RootState) =>
   state.filterListeners.value
 export default filterListenersSlice.reducer

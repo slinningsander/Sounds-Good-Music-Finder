@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import filterTagsReducer from './slices/tagFilterSlice'
-import filterListenersReducer from './slices/tagFilterSlice'
+import filterListenersReducer from './slices/filterListenersSlice'
 
 const store = configureStore({
   reducer: {
