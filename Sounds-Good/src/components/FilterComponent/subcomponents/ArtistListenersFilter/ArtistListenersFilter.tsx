@@ -2,7 +2,6 @@ import { Box, Slider } from '@mui/material'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateListenersFilter } from '../../../../redux/slices/filterListenersSlice'
-//import React from 'react'
 
 export function ArtistListenersFilter() {
   const dispatch = useDispatch()
