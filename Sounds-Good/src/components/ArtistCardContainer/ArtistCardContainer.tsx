@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import GetArtist from '../../queries/getArtistsBySearch'
+import GetArtist from '../../graphql/queries/getArtistsBySearch'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import styles from './ArtistCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import GetAlbum from '../../queries/getAlbum'
+import GetAlbum from '../../graphql/queries/getAlbum'
 import styles from './Albumpage.module.css'
 import Page from '../../components/Page/Page'
 import formatDuration from '../../utils/formatDuration'
