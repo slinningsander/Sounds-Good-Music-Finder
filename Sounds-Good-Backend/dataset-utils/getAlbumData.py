@@ -3,18 +3,17 @@ import json
 import time
 from urllib.parse import quote
 
-api_key = '691ee9c1ac42404e59e5e2fb690e9451'
+api_key = 'SECRET_KEY'
 failed_requests = []
 
-
-# 1. Read the generated JSON file
+# Read the generated JSON file
 with open('top5_albums.json', 'r', encoding='utf-8') as file:
     all_albums_data = json.load(file)
 
 total = 150 * 5
 count = 1
 
-# 2. Iterate through each artist in the file
+# Iterate through each artist in the file
 try:
     with open('checkpoint.txt', 'r') as file:
         checkpoint_artist = file.readline().strip()
@@ -23,35 +22,32 @@ except FileNotFoundError:
     checkpoint_artist = None
     checkpoint_album = None
 
-# ...
-#first_artist_processed = False
-
 for artist_name, artist_data in all_albums_data.items():
-    #if first_artist_processed: 
-    #    break
 
     for album in artist_data["albums"]:
         if checkpoint_artist and artist_name != checkpoint_artist:
             continue
         if checkpoint_album and album_name != checkpoint_album:
             continue
-        checkpoint_artist = None  # Clear after reaching the checkpointed artist
-        checkpoint_album = None   # Clear after reaching the checkpointed album
-        
+        # Error handeling: Clear after reaching the checkpointed artist
+        checkpoint_artist = None
+        checkpoint_album = None   # Error handeling: Clear after reaching the checkpointed album
+
     for album in artist_data["albums"]:
         prosent = (count/total)*100
         album_name = album["album_name"]
-        print("\n---- "+artist_name + " ---- "+ album_name + " ---- " + "{:.2f}".format(prosent) + "'%' ferdig")
-        
-        api_url = f"http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key={api_key}&artist={quote(artist_name)}&album={quote(album_name)}&format=json"        
-      
-        
+        print("\n---- "+artist_name + " ---- " + album_name +
+              " ---- " + "{:.2f}".format(prosent) + "'%' ferdig")  # shows progress (this script takes a long time to run)
+
+        api_url = f"http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key={api_key}&artist={quote(artist_name)}&album={quote(album_name)}&format=json"
+
         try:
             response = requests.get(api_url)
             response.raise_for_status()
-    
+
         except requests.exceptions.HTTPError as err:
-            print(f"Failed to fetch info for {artist_name} - {album_name}. Error: {err}")
+            print(
+                f"Failed to fetch info for {artist_name} - {album_name}. Error: {err}")
             failed_requests.append({
                 "artist": artist_name,
                 "album": album_name
@@ -59,20 +55,18 @@ for artist_name, artist_data in all_albums_data.items():
             continue
 
         album_info = response.json()
-        
-        
-        # Add any additional fields from album_info you need here. For this example, let's assume we're adding 'tracks'.
+
         if 'album' in album_info and 'tracks' in album_info['album']:
-   
+
             cleanedTracks = []
             tracksData = album_info["album"]["tracks"]["track"]
 
             if isinstance(tracksData, dict):
                 tracksData = [tracksData]
-            
-            #for track in album_info["album"]["tracks"]["track"]:
-            for track in tracksData:   
-                #print(track)
+
+            # for track in album_info["album"]["tracks"]["track"]:
+            for track in tracksData:
+                # print(track)
                 print(track["name"])
                 cleanedTrack = {
                     "name": track["name"],
@@ -80,20 +74,19 @@ for artist_name, artist_data in all_albums_data.items():
                     "rank": int(track["@attr"]["rank"])
                 }
                 cleanedTracks.append(cleanedTrack)
-            
+
             album["tracks"] = cleanedTracks
 
-        #Tags are user submitted and usually weird
-        if ('album' in album_info and 
-        isinstance(album_info["album"], dict) and 
-        'tags' in album_info['album'] and 
-        isinstance(album_info["album"]["tags"], dict) and 
-        'tag' in album_info["album"]["tags"] and 
-        isinstance(album_info["album"]["tags"]["tag"], list)):
+        # Tags are user submitted and usually weird
+        if ('album' in album_info and
+            isinstance(album_info["album"], dict) and
+            'tags' in album_info['album'] and
+            isinstance(album_info["album"]["tags"], dict) and
+            'tag' in album_info["album"]["tags"] and
+                isinstance(album_info["album"]["tags"]["tag"], list)):
             tags = album_info["album"]["tags"]["tag"]
-            album["tags"] = [tag["name"] for tag in tags if isinstance(tag, dict) and "name" in tag]
-
-
+            album["tags"] = [tag["name"]
+                             for tag in tags if isinstance(tag, dict) and "name" in tag]
 
         # Extracting and saving wiki
         if 'album' in album_info and 'wiki' in album_info['album']:
@@ -105,8 +98,8 @@ for artist_name, artist_data in all_albums_data.items():
             }
         time.sleep(2)
         count = count + 1
-    
-    #first_artist_processed = True
+
+    # first_artist_processed = True
 
 
 with open('checkpoint.txt', 'w') as file:
