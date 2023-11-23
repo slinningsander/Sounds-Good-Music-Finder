@@ -75,9 +75,6 @@ There are alot of alternatives to Redux, and some are more suitable for smaller 
 
 We have used [MUI](https://mui.com) to create some of the more complex components such as the navbar. For simple components, or components where we want to be more in control we make our own using just tsx and css.
 
-## Global state management
-
-We have chosen Redux for our global state management. We have not yet put it to use, but we will in the future.
 
 ## Web accessibility
 
@@ -199,6 +196,12 @@ npm install
 ```
 ## Discussion
 
+### V1.1
+
+This releas contains all functionality we have planed for during the project. We still had some problems with Material UI components, getting the value output from the filter components. These values where also challenging to pass to our GraphQL queries, as they had to be formated.
+
+We have implemented Redux global state managment for every filter state, and realized we should have done this earlier. Our first solution was prop-drilling, but this quicly became hard to get an overview of. Sentralizing all state into the Redux store and acccessing it show to be simpler. It has to be added that there is a lot of potential in Redux that we are not exploiting.
+
 ### V1.0
 
 For _V1.0_ we have set up the database, deployed the backend and further developed the frontend. We have generated a dataset by making API calls to the last.fm open API. From this we got JSON data, which we generated a graphDB with nodes and relations.
@@ -208,9 +211,3 @@ The webpage is still centered around the homepage. Here it is possible to search
 We wanted to be able to filter on all three search-categories(artist, album and track), but we had alot of issues dealing with MaterialUI components and the graphQL query language, and were only able to filter the track category by duration. We have filter components in FilterComponent -> subcomponent mostly done and will develope these further.
 
 All in all, we have a large dataset and there is a lot of database content to view on the site.
-
-### V1.1
-
-This releas contains all functionality we have planed for during the project. We still had some problems with Material UI components, getting the value output from the filter components. These values where also challenging to pass to our GraphQL queries, as they had to be formated.
-
-We have implemented Redux global state managment for every filter state, and realized we should have done this earlier. Our first solution was prop-drilling, but this quicly became hard to get an overview of. Sentralizing all state into the Redux store and acccessing it show to be simpler. It has to be added that there is a lot of potential in Redux that we are not exploiting.
