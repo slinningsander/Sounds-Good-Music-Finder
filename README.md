@@ -65,7 +65,11 @@ We have created a search where you first choose what category you want to search
 ### Redux global state managment
 
 To pass the filter component output values to the search result components we are using Redux Toolkit. The values are tdispatched to the Redux store and retived using selector. In the simpelest terms it works as eventlisteners and eventsubscribers. 
-This way of dealing with state requires some setup, but when this is done it is easier than regualer propdrilling to pass state from one component to another. 
+
+
+This way of dealing with state requires some setup, but when this is done it is easier than regualer propdrilling to pass state from one component to another.
+
+There are alot of alternatives to Redux, and some are more suitable for smaller webapp, but we chose Redux because it is well documented and has alot of potential if we want to do more with it than we are doing now. 
 
 ## Components
 
