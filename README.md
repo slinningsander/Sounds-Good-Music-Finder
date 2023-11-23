@@ -62,6 +62,11 @@ Since we already were going to use GraphQL instead of REST, we chose to make a N
 
 We have created a search where you first choose what category you want to search. Either artists, albums or songs. When searching for artists you have the ability to further filter the search by amount of listeners, which in reality means their popularity. When searching for albums you have the ability to filter by multiple tags. These tags are user-generated in the dataset, so some tags might only apply to one album and some tags might seem obscure. When searching for songs you can further filter by the duration of the song.
 
+### Redux global state managment
+
+To pass the filter component output values to the search result components we are using Redux Toolkit. The values are tdispatched to the Redux store and retived using selector. In the simpelest terms it works as eventlisteners and eventsubscribers. 
+This way of dealing with state requires some setup, but when this is done it is easier than regualer propdrilling to pass state from one component to another. 
+
 ## Components
 
 We have used [MUI](https://mui.com) to create some of the more complex components such as the navbar. For simple components, or components where we want to be more in control we make our own using just tsx and css.
