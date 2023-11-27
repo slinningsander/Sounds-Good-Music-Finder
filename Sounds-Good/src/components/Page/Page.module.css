@@ -1,19 +1,19 @@
-.page{
-    /*lifts from bottom*/
-    padding-bottom: 2em;
+.page {
+  /*lifts from bottom*/
+  padding-bottom: 2em;
 
-    /*guarantees min page height*/
-    min-height: calc(100vh - 70px - 2em);
+  /*guarantees min page height*/
+  min-height: calc(100vh - 70px - 2em);
 
-    /*centers horizontally and vertically*/
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    
-    /*for mobile only*/
-    @media (max-width: 768px){
-        /*reduces page width*/
-        width: calc(100% - 1em * 2);
-    }
+  /*centers horizontally and vertically*/
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  /*for mobile only*/
+  @media (max-width: 768px) {
+    /*reduces page width*/
+    width: calc(100% - 1em * 2);
+  }
 }

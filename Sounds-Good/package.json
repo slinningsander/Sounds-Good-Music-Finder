@@ -14,7 +14,8 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@apollo/client": "^3.8.6",
