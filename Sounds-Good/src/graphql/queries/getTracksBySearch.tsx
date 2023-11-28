@@ -9,6 +9,7 @@ const GET_TRACK = gql`
   ) {
     tracks(options: $options, where: $where, fulltext: $fulltext) {
       track_title
+      duration
       albumsHasTrack {
         album_title
         album_art
