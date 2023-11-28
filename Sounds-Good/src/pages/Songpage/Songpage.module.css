@@ -1,10 +1,26 @@
 .container {
+  position: relative;
   margin-top: 10ch;
   display: flex;
   flex-direction: row;
+  align-items: flex-start; /* Align items to the start */
   width: 70%;
   background-color: #1d267d;
   border-radius: 2ch;
+}
+.goBackButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  z-index: 1;
+  background-color: #5c369c;
+  border-radius: 50%;
+}
+
+.goBackButton:hover {
+  opacity: 0.7;
+  transition: 0.3s;
 }
 
 @media screen and (max-width: 720px) {
