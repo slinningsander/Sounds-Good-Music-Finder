@@ -5,6 +5,7 @@ import styles from './SongCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
 import { useSelector } from 'react-redux'
 import { Alert, Box, CircularProgress } from '@mui/material'
+import { RootState } from '../../redux/store'
 
 type SongCardContainerProps = {
   input: string
@@ -13,14 +14,20 @@ type SongCardContainerProps = {
 const SongCardContainer = ({ input }: SongCardContainerProps) => {
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
-  const durationList = useSelector((state) => state.filterDuration.value)
-  const sortingDirection = useSelector((state) => state.sortingDirection.value)
+  const durationList = useSelector(
+    (state: RootState) => state.filterDuration.value
+  )
+  const maxDuration = durationList[1]
+  const minDuration = durationList[0]
+  const sortingDirection = useSelector(
+    (state: RootState) => state.sortingDirection.value
+  )
   const { data, error, loading } = GetSongBySearch(
     input,
     offset,
     more,
-    durationList[1],
-    durationList[0],
+    maxDuration,
+    minDuration,
     sortingDirection,
     setMore
   )
@@ -29,19 +36,19 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
 
   useEffect(() => {
     client.resetStore()
-    console.log('minDuration: ' + durationList[0])
-    console.log('maxDuration: ' + durationList[1])
-    console.log(input)
-    if (loading) {
-      console.log('loading')
-    } else if (error) {
-      console.log(error)
-    } else {
-      console.log(data.tracks)
-      setOffset(0)
-    }
-  }, [input, durationList[1], durationList[0], sortingDirection])
-
+    // console.log('minDuration: ' + durationList[0])
+    // console.log('maxDuration: ' + durationList[1])
+    // console.log(input)
+    // if (loading) {
+    //   console.log('loading')
+    // } else if (error) {
+    //   console.log(error)
+    // } else {
+    //   console.log(data.tracks)
+    setOffset(0)
+    // }
+  }, [client, input, sortingDirection, minDuration, maxDuration])
+  // durationList[1], durationList[0],
   return (
     <div className={styles.wrapper} data-cy="SongsContainer">
       {loading ? (

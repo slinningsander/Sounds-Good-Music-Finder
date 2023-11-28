@@ -11,8 +11,13 @@ import { useEffect, useState } from 'react'
 import { updateTags, resetState } from '../../../redux/slices/tagFilterSlice'
 import CloseIcon from '@mui/icons-material/Close'
 
+type Tag = {
+  firstLetter: string
+  option: string
+}
+
 export function AlbumTagFilter() {
-  const [values, setValues] = useState<string[]>([])
+  const [values, setValues] = useState<Tag[]>([])
   const dispatch = useDispatch()
   useEffect(() => {
     return () => {
@@ -69,7 +74,8 @@ export function AlbumTagFilter() {
       color: 'white',
     })
 
-    const getPickedTags = (newValues: string[]) => {
+    const getPickedTags = (newValues: Tag[]) => {
+      console.log(newValues)
       const tagsQueryFormat = newValues.map((item) => item.option)
       setValues(newValues)
       dispatch(updateTags(tagsQueryFormat))
@@ -81,7 +87,8 @@ export function AlbumTagFilter() {
           control={
             <Autocomplete
               value={values}
-              onChange={(_event: unknown, newValue: string[] | null) => {
+              onChange={(_event: unknown, newValue: Tag[] | null) => {
+                console.log(newValue)
                 setValues(newValue || [])
                 getPickedTags(newValue || [])
               }}
@@ -116,7 +123,7 @@ export function AlbumTagFilter() {
               )}
               renderTags={(value, getTagProps) =>
                 value.map((option, index) => (
-                  <CustomChip key={index} {...getTagProps({ index })}>
+                  <CustomChip {...getTagProps({ index })}>
                     {option.option}
                     <CloseIcon
                       onClick={() => {

@@ -7,6 +7,12 @@ import { useApolloClient } from '@apollo/client'
 import { useEffect } from 'react'
 import BackIcon from '../../assets/icons/arrow-left.svg'
 
+type trackProps = {
+  track_title: string
+  duration: number
+  rank: number
+}
+
 const Albumpage = () => {
   const url = new URL(window.location.href)
   const album_title = url.pathname.split('/').pop()
@@ -62,7 +68,7 @@ const Albumpage = () => {
               className={styles.albumContainer}
               data-cy="AlbumSongsContainer"
             >
-              {data.albums[0].hasTrackTracks.map((track: any) => (
+              {data.albums[0].hasTrackTracks.map((track: trackProps) => (
                 <div className={styles.track}>
                   <Link
                     className={styles.link}

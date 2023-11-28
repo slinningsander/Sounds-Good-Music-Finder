@@ -2,20 +2,24 @@ import { useEffect, useState } from 'react'
 import AlbumCard from '../AlbumCard/AlbumCard'
 import styles from './AlbumCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
-import GetAlbumBySearchAndTagTwo from '../../graphql/queries/getAlbumBySearchAndTag'
+import GetAlbumBySearchAndTag from '../../graphql/queries/getAlbumBySearchAndTag'
 import { useSelector } from 'react-redux'
 import { Alert, Box, CircularProgress } from '@mui/material'
+import { RootState } from '../../redux/store'
+import { AlbumEdgeType } from '../../types'
 
 type AlbumCardContainerProps = {
   input: string
 }
 
 const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
-  const selectedTags = useSelector((state) => state.filterTags.value)
-  const sortingDirection = useSelector((state) => state.sortingDirection.value)
+  const selectedTags = useSelector((state: RootState) => state.filterTags.value)
+  const sortingDirection = useSelector(
+    (state: RootState) => state.sortingDirection.value
+  )
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
-  const { data, error, loading } = GetAlbumBySearchAndTagTwo(
+  const { data, error, loading } = GetAlbumBySearchAndTag(
     input,
     selectedTags,
     offset,
@@ -27,14 +31,8 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
 
   useEffect(() => {
     client.resetStore()
-    if (loading) {
-      console.log('loading')
-    } else if (error) {
-      console.log(error)
-    } else {
-      setOffset(0)
-    }
-  }, [input, selectedTags, sortingDirection])
+    setOffset(0)
+  }, [client, input, selectedTags, sortingDirection])
 
   return (
     <div className={styles.wrapper} data-cy="AlbumsContainer">
@@ -54,7 +52,7 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
         <Alert severity="error">Search error, try something else!</Alert>
       ) : data.albumsFulltextAlbumTitle.length > 0 ? (
         <div data-cy="DivForTest">
-          {data.albumsFulltextAlbumTitle.map((edge) => (
+          {data.albumsFulltextAlbumTitle.map((edge: AlbumEdgeType) => (
             <div key={edge.album.album_title} className={styles.childWrapper}>
               <AlbumCard
                 album={edge.album.album_title}

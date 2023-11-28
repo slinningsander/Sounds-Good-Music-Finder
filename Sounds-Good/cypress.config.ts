@@ -7,7 +7,7 @@ export default defineConfig({
   e2e: {
     specPattern: 'src/test/cypress/e2e/*.spec.ts',
     baseUrl: 'http://it2810-23.idi.ntnu.no/project2',
-    setupNodeEvents(on, config) {
+    setupNodeEvents() {
       // implement node event listeners here
     },
   },
