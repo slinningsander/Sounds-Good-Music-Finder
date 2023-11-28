@@ -14,7 +14,10 @@ export function ArtistListenersFilter() {
     }
   }, [dispatch])
   const [value, setValue] = useState<number[]>([0, 6500000])
-  const handleListenerChange = (_event: Event, newValue: number | number[]) => {
+  const handleListenerChange = (
+    _event: unknown,
+    newValue: number | number[]
+  ) => {
     setValue(newValue as number[])
     dispatch(updateListenersFilter(newValue))
   }
