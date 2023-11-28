@@ -4,6 +4,7 @@ import Page from '../../components/Page/Page'
 import GetArtist from '../../graphql/queries/getArtist'
 import { Link } from 'react-router-dom'
 import { useApolloClient } from '@apollo/client'
+import BackIcon from '../../assets/icons/arrow-left.svg'
 
 type Album = {
   album_art: string | undefined
@@ -41,6 +42,12 @@ const Artistpage = () => {
     <>
       <Page>
         <div className={styles.container} data-cy="ArtistPageContainer">
+          <img
+            src={BackIcon}
+            className={styles.goBackButton}
+            onClick={() => window.history.back()}
+            alt="Go back"
+          />
           <div className={styles.infoContainer}>
             <h1 data-cy="ArtistNameHeader">{data.artists[0].artist_name}</h1>
             <sub data-cy="ArtistListeners">
