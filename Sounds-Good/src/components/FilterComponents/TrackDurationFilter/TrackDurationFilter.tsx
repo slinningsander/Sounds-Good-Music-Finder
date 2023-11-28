@@ -30,9 +30,7 @@ export function TrackDurationFilter() {
     <Box
       sx={{
         width: '400px',
-        border: '2px solid #0099cc',
-        borderRadius: '1.5em',
-        padding: '0.5em',
+        margin: '0.5em',
         display: 'flex',
         flexDirection: 'row',
         gap: '1em',
