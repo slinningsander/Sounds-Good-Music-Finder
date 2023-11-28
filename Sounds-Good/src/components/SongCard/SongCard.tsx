@@ -1,12 +1,14 @@
 import { Card, CardContent, Typography } from '@mui/material'
 import styles from './SongCard.module.css'
 import { Link } from 'react-router-dom'
+import formatDuration from '../../utils/formatDuration'
 
 type Props = {
   song: string
   artist: string
   album: string
   img: string
+  tracklength: number
 }
 
 export default function BasicInfoCard(props: Props) {
@@ -35,6 +37,8 @@ export default function BasicInfoCard(props: Props) {
           <div>
             <Typography variant="h6" component="div" color="white">
               {props.song}
+              {props.tracklength != 0 &&
+                ' ' + '(' + formatDuration(props.tracklength) + ')'}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="white">
               {props.artist}

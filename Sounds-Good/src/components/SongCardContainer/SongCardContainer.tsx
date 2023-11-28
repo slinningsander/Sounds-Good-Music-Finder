@@ -69,6 +69,7 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
         data.tracks.map(
           (song: {
             track_title: string
+            duration: string
             cover_art: string
             albumsHasTrack: { album_art: string; album_title: string }[]
             artistsCreatedTrack: { artist_name: string }[]
@@ -79,6 +80,7 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
                 artist={song.artistsCreatedTrack[0].artist_name}
                 img={song.albumsHasTrack[0].album_art}
                 album={song.albumsHasTrack[0].album_title}
+                tracklength={song.duration}
               />
             </div>
           )
