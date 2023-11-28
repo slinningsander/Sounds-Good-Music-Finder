@@ -29,15 +29,18 @@ export function TrackDurationFilter() {
   return (
     <Box
       sx={{
-        width: '300px',
+        width: '400px',
         border: '2px solid #0099cc',
         borderRadius: '1.5em',
         padding: '0.5em',
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '1em',
       }}
     >
       <span>
-        Min duration:{' '}
-        {formatDuration(value[0]) != '' ? formatDuration(value[0]) : '0'}
+        {formatDuration(value[0]) != '' ? formatDuration(value[0]) : '0'}{' '}
+        minutes
       </span>
       <Slider
         size="small"
@@ -50,8 +53,7 @@ export function TrackDurationFilter() {
         data-cy="Slider"
       />
       <span>
-        Max duration:{' '}
-        {formatDuration(value[1]) != '' ? formatDuration(value[1]) : '0'}
+        {formatDuration(value[1]) != '' ? formatDuration(value[1]) : '0'} min
       </span>
     </Box>
   )

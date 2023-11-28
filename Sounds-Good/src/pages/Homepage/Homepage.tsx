@@ -125,7 +125,6 @@ export default function Homepage() {
             searchbarName="homePageSearch"
             isRequired={true}
             placeholder="Search..."
-            labelValue="Search"
             ariaLabel="Searchbar"
             setSearchbarValue={setSearchbarValue}
           />

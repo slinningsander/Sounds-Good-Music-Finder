@@ -1,14 +1,14 @@
-.page{
-    /*lifts from bottom*/
-    padding-bottom: 2em;
-    padding-top: 75px;
+.page {
+  /*lifts from bottom*/
+  padding-bottom: 2em;
+  padding-top: 75px;
 
-    /*guarantees min page height*/
-    min-height: calc(100vh - 70px - 2em);
+  /*guarantees min page height*/
+  min-height: calc(100vh - 70px - 2em);
 
-    /*for mobile only*/
-    @media (max-width: 768px){
-        /*reduces page width*/
-        width: calc(100% - 1em * 2);
-    }  
+  /*for mobile only*/
+  @media (max-width: 768px) {
+    /*reduces page width*/
+    width: calc(100% - 1em * 2);
+  }
 }

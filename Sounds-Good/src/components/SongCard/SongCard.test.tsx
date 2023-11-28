@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import SongCard from './SongCard'
+import formatDuration from '../../utils/formatDuration'
 
 test('Renders BasicInfoCard with provided props and link', () => {
   const mockProps = {
@@ -8,6 +9,7 @@ test('Renders BasicInfoCard with provided props and link', () => {
     artist: 'Artist Name',
     album: 'Album Name',
     img: 'image-url.jpg',
+    tracklength: 200,
   }
 
   const { getByText } = render(
@@ -16,7 +18,9 @@ test('Renders BasicInfoCard with provided props and link', () => {
     </MemoryRouter>
   )
 
-  const songElement = getByText(mockProps.song)
+  const songElement = getByText(
+    mockProps.song + ' ' + '(' + formatDuration(mockProps.tracklength) + ')'
+  )
   const artistElement = getByText(mockProps.artist)
   const albumElement = getByText(mockProps.album)
 
