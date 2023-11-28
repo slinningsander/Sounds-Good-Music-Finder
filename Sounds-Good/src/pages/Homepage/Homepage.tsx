@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Searchbar from '../../components/Searchbar/Searchbar.tsx'
 import { SearchFilter } from '../../components/FilterComponents/SearchFilter/SearchFilter.tsx'
 import ArtistCardContainer from '../../components/ArtistCardContainer/ArtistCardContainer.tsx'
@@ -14,33 +14,24 @@ import { RootState } from '../../redux/store.ts'
 import Page from '../../components/Page/Page.tsx'
 
 export default function Homepage() {
-  // const filterContainer = document.getElementById('filterContainer')
-  const [searchbarValue, setSearchbarValue] = useState('')
   const [selectedValue, setSelectedValue] = useState('TRACK')
   const [filterVisible, setFilterVisible] = useState(false)
   const dispatch = useDispatch()
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setSortingChange = (event: any) => {
-    //sets value in redux store
     dispatch(updateSortingDirection(event.target.value))
   }
-  //gets sortingDirectionState from store
   const sortingDirection = useSelector(
     (state: RootState) => state.sortingDirection.value
   )
 
-  // const setFilterVisible = (event: any) => {
-  //   filterVisible = 'flex'
-  // }
-  useEffect(() => {
-    console.log(searchbarValue)
-  }, [searchbarValue])
+  const searchInput = useSelector((state: RootState) => state.searchInput.value)
 
   const toggleFilterVisibility = () => {
     setFilterVisible(!filterVisible)
   }
-
+  //const durationFilter = useSelector((state: RootState) => state.filterDuration.value);
   return (
     <Page>
       <div className={styles.container}>
@@ -126,7 +117,6 @@ export default function Homepage() {
             isRequired={true}
             placeholder="Search..."
             ariaLabel="Searchbar"
-            setSearchbarValue={setSearchbarValue}
           />
           <div className={styles.children}>
             <SearchFilter
@@ -136,18 +126,18 @@ export default function Homepage() {
           </div>
         </div>
 
-        {searchbarValue && selectedValue === 'ARTIST' && (
-          <ArtistCardContainer input={searchbarValue} />
-        )}
+        {searchInput && selectedValue === 'ARTIST' && <ArtistCardContainer />}
 
-        {searchbarValue && selectedValue === 'ALBUM' && (
-          <AlbumCardContainer input={searchbarValue} />
-        )}
+        {searchInput && selectedValue === 'ALBUM' && <AlbumCardContainer />}
 
-        {searchbarValue && selectedValue === 'TRACK' && (
-          <SongCardContainer input={searchbarValue} />
-        )}
+        {searchInput && selectedValue === 'ALBUM' && <SongCardContainer />}
+
+        {/* {(searchInput || durationFilter) && selectedValue === 'TRACK' && (
+          <SongCardContainer />
+        )} */}
       </div>
     </Page>
   )
 }
+
+//input={searchbarValue}
