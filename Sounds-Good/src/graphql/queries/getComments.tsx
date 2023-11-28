@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const GET_COMMENTS = gql`
   query Comments($where: CommentWhere) {
     comments(where: $where) {

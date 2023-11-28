@@ -6,6 +6,7 @@ import GetTrack from '../../graphql/queries/getTrack'
 import formatDuration from '../../utils/formatDuration'
 import { useApolloClient } from '@apollo/client'
 import { useEffect } from 'react'
+import BackIcon from '../../assets/icons/arrow-left.svg'
 
 const Songpage = () => {
   const url = new URL(window.location.href)
@@ -25,13 +26,19 @@ const Songpage = () => {
     client.resetStore()
   }, [client])
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <p>Loading</p>
   if (error) return <p>Error</p>
   return (
     <>
       <Page>
         <div className={styles.container}>
           <div className={styles.songDetailCard} data-cy="SongPageContainer">
+            <img
+              src={BackIcon}
+              className={styles.goBackButton}
+              onClick={() => window.history.back()}
+              alt="Go back"
+            />
             <DetailedCard
               title={data.tracks[0].track_title}
               artist={data.tracks[0].artistsCreatedTrack[0].artist_name}

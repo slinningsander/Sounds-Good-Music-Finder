@@ -1,6 +1,7 @@
 import { Box, Slider } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import formatDuration from '../../../utils/formatDuration'
 import {
   resetDurationState,
   updateDurationFilter,
@@ -17,7 +18,10 @@ export function TrackDurationFilter() {
 
   const [value, setValue] = useState<number[]>([0, 600])
 
-  const handleDurationChange = (event: Event, newValue: number | number[]) => {
+  const handleDurationChange = (
+    _event: unknown,
+    newValue: number | number[]
+  ) => {
     setValue(newValue as number[])
     dispatch(updateDurationFilter(newValue))
   }
@@ -31,7 +35,10 @@ export function TrackDurationFilter() {
         padding: '0.5em',
       }}
     >
-      <span>min: {value[0]} seconds</span>
+      <span>
+        Min duration:{' '}
+        {formatDuration(value[0]) != '' ? formatDuration(value[0]) : '0'}
+      </span>
       <Slider
         size="small"
         value={value}
@@ -42,7 +49,10 @@ export function TrackDurationFilter() {
         max={600}
         data-cy="Slider"
       />
-      <span>max: {value[1]} seconds</span>
+      <span>
+        Max duration:{' '}
+        {formatDuration(value[1]) != '' ? formatDuration(value[1]) : '0'}
+      </span>
     </Box>
   )
 }

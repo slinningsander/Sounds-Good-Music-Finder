@@ -75,7 +75,9 @@ export default function GetArtist(
     if (more) {
       fetchMoreArtists()
     }
-  }, [more, offset, input, maxListeners, minListeners, sortingDirection])
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [more, offset, input, maxListeners, minListeners, sortingDirection]) //Eslint disabled because of warning that would cause unnecessary fetching
 
   return result
 }

@@ -5,22 +5,31 @@ import styles from './ArtistCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
 import { useSelector } from 'react-redux'
 import { Alert, Box, CircularProgress } from '@mui/material'
+import { RootState } from '../../redux/store'
 
 type ArtistCardContainerProps = {
   input: string
 }
 
 const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
-  const listenersList = useSelector((state) => state.filterListeners.value)
-  const sortingDirection = useSelector((state) => state.sortingDirection.value)
+  const listenersList = useSelector(
+    (state: RootState) => state.filterListeners.value
+  )
+  const maxListeners = listenersList[1]
+  const minListeners = listenersList[0]
+  const sortingDirection = useSelector(
+    (state: RootState) => state.sortingDirection.value
+  )
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
   const { data, error, loading } = GetArtist(
     input,
     offset,
     more,
-    listenersList[1],
-    listenersList[0],
+    maxListeners,
+    minListeners,
+    // listenersList[1],
+    // listenersList[0],
     sortingDirection,
     setMore
   )
@@ -28,14 +37,14 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
 
   useEffect(() => {
     client.resetStore()
-    if (loading) {
-      console.log('loading')
-    } else if (error) {
-      console.log(error)
-    } else {
-      setOffset(0)
-    }
-  }, [input, listenersList[1], listenersList[0], sortingDirection])
+    // if (loading) {
+    //   console.log('loading')
+    // } else if (error) {
+    //   console.log(error)
+    // } else {
+    setOffset(0)
+    // }
+  }, [client, input, sortingDirection, maxListeners, minListeners])
 
   return (
     <div className={styles.wrapper} data-cy="ArtistsContainer">

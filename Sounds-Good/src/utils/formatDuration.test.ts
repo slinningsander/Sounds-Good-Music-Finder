@@ -2,7 +2,7 @@ import formatDuration from './formatDuration'
 
 describe('formatDuration', () => {
   test('returns "N/A" when duration is 0', () => {
-    expect(formatDuration(0)).toBe('N/A')
+    expect(formatDuration(0)).toBe('')
   })
 
   test('returns correct format when duration is less than 10', () => {

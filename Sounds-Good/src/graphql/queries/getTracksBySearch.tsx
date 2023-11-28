@@ -9,6 +9,7 @@ const GET_TRACK = gql`
   ) {
     tracks(options: $options, where: $where, fulltext: $fulltext) {
       track_title
+      duration
       albumsHasTrack {
         album_title
         album_art
@@ -81,7 +82,8 @@ export default function GetSongBySearch(
     if (more) {
       fetchMoreTracks()
     }
-  }, [more, offset, input, maxDuration, minDuration, sortingDirection])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [more, offset, input, maxDuration, minDuration, sortingDirection]) //Eslint disabled because of warning that would cause unnecessary fetching.
 
   return result
 }

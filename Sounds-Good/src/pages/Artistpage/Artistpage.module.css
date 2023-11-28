@@ -17,6 +17,20 @@
   font-family: 'Roboto', sans-serif;
   padding-bottom: 2rem;
 }
+.goBackButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  z-index: 1;
+  background-color: #5c369c;
+  border-radius: 50%;
+}
+
+.goBackButton:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+}
 
 .bio {
   font-size: larger;
