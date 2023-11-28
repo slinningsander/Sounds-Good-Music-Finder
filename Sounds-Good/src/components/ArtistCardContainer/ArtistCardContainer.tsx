@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import GetArtist from '../../graphql/queries/getArtistsBySearch'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import styles from './ArtistCardContainer.module.css'
@@ -7,11 +7,7 @@ import { useSelector } from 'react-redux'
 import { Alert, Box, CircularProgress } from '@mui/material'
 import { RootState } from '../../redux/store'
 
-type ArtistCardContainerProps = {
-  input: string
-}
-
-const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
+const ArtistCardContainer = () => {
   const listenersList = useSelector(
     (state: RootState) => state.filterListeners.value
   )
@@ -20,31 +16,30 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
   const sortingDirection = useSelector(
     (state: RootState) => state.sortingDirection.value
   )
+  const searchInput = useSelector((state: RootState) => state.searchInput.value)
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
   const { data, error, loading } = GetArtist(
-    input,
+    searchInput,
     offset,
     more,
     maxListeners,
     minListeners,
-    // listenersList[1],
-    // listenersList[0],
     sortingDirection,
     setMore
   )
   const client = useApolloClient()
+  const prevSrchInpRef = useRef<string | null>(null)
 
   useEffect(() => {
-    client.resetStore()
-    // if (loading) {
-    //   console.log('loading')
-    // } else if (error) {
-    //   console.log(error)
-    // } else {
-    setOffset(0)
-    // }
-  }, [client, input, sortingDirection, maxListeners, minListeners])
+    if (prevSrchInpRef.current !== searchInput) {
+      client.resetStore()
+      setOffset(0)
+      console.log('Search')
+    }
+    prevSrchInpRef.current = searchInput
+    console.log('NO SEARCH')
+  }, [client, searchInput, sortingDirection, maxListeners, minListeners])
 
   return (
     <div className={styles.wrapper} data-cy="ArtistsContainer">
