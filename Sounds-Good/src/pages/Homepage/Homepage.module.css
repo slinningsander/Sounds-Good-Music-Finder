@@ -1,3 +1,17 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+  height: fit-content;
+  transition: height 10s;
+  transition-timing-function: ease-in-out;
+
+}
+
 .filterContainer {
   display: flex;
   flex-direction: row;
@@ -9,7 +23,20 @@
   padding: 0 20px;
   box-sizing: border-box;
   margin-bottom: 20px;
+  height: 115px;
 }
+
+.searchContainer {
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px dotted red;
+  margin: 2em;
+}
+
 .children {
   display: flex;
   justify-content: center;

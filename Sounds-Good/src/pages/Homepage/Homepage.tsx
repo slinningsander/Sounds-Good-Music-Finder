@@ -10,6 +10,7 @@ import { AlbumTagFilter } from '../../components/FilterComponents/AlbumTagFilter
 import { ArtistListenersFilter } from '../../components/FilterComponents/ArtistListenersFilter/ArtistListenersFilter.tsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateSortingDirection } from '../../redux/slices/sortingDirectionSlice.ts'
+import Page from '../../components/Page/Page.tsx'
 
 export default function Homepage() {
   const [searchbarValue, setSearchbarValue] = useState('')
@@ -31,107 +32,111 @@ export default function Homepage() {
   }, [searchbarValue])
 
   return (
-    <>
-      <Searchbar
-        searchbarName="homePageSearch"
-        isRequired={true}
-        placeholder="Search..."
-        labelValue="Search"
-        ariaLabel="Searchbar"
-        setSearchbarValue={setSearchbarValue}
-      />
-      <div className={styles.filterContainer}>
-        <div className={styles.children}>
-          <SearchFilter
-            selectedValue={selectedValue}
-            setSelectedValue={setSelectedValue}
-          />
+    <Page>
+      <div className={styles.container}>
+        <div className={styles.filterContainer}>
+          {selectedValue === 'TRACK' && (
+            <>
+              <div className={styles.children} data-cy="SliderContainer">
+                <TrackDurationFilter
+                  setMaxDuration={setMaxDuration}
+                  setMinDuration={setMinDuration}
+                />
+              </div>
+              <div className={styles.children}>
+                <label htmlFor="select" className={styles.label}>
+                  Sorting:
+                </label>
+                <select
+                  id="select"
+                  value={sortingDirection}
+                  onChange={setSortingChange}
+                  data-cy="Select"
+                >
+                  <option value="Default">Default</option>
+                  <option value="ASC">Alphabetically(a-z)</option>
+                  <option value="DESC">Alphabetically(z-a)</option>
+                </select>
+              </div>
+            </>
+          )}
+          {selectedValue === 'ALBUM' && (
+            <>
+              <div className={styles.children}>
+                <AlbumTagFilter />
+              </div>
+              <div className={styles.children}>
+                <label htmlFor="select" className={styles.label}>
+                  Sorting:
+                </label>
+                <select
+                  id="select"
+                  value={sortingDirection}
+                  onChange={setSortingChange}
+                >
+                  <option value="Default">Default</option>
+                  <option value="ASC">Alphabetically(a-z)</option>
+                  <option value="DESC">Alphabetically(z-a)</option>
+                </select>
+              </div>
+            </>
+          )}
+          {selectedValue == 'ARTIST' && (
+            <>
+              <div className={styles.children}>
+                <ArtistListenersFilter />
+              </div>
+              <div className={styles.children}>
+                <label htmlFor="select" className={styles.label}>
+                  Sorting:
+                </label>
+                <select
+                  id="select"
+                  value={sortingDirection}
+                  onChange={setSortingChange}
+                >
+                  <option value="Default">Default</option>
+                  <option value="ASC">Alphabetically(a-z)</option>
+                  <option value="DESC">Alphabetically(z-a)</option>
+                </select>
+              </div>
+            </>
+          )}
         </div>
-        {selectedValue === 'TRACK' && (
-          <>
-            <div className={styles.children} data-cy="SliderContainer">
-              <TrackDurationFilter
-                setMaxDuration={setMaxDuration}
-                setMinDuration={setMinDuration}
-              />
-            </div>
-            <div className={styles.children}>
-              <label htmlFor="select" className={styles.label}>
-                Sorting:
-              </label>
-              <select
-                id="select"
-                value={sortingDirection}
-                onChange={setSortingChange}
-                data-cy="Select"
-              >
-                <option value="Default">Default</option>
-                <option value="ASC">Alphabetically(a-z)</option>
-                <option value="DESC">Alphabetically(z-a)</option>
-              </select>
-            </div>
-          </>
+        <div className={styles.searchContainer}>
+          <Searchbar
+            searchbarName="homePageSearch"
+            isRequired={true}
+            placeholder="Search..."
+            labelValue="Search"
+            ariaLabel="Searchbar"
+            setSearchbarValue={setSearchbarValue}
+          />
+          <div className={styles.children}>
+            <SearchFilter
+              selectedValue={selectedValue}
+              setSelectedValue={setSelectedValue}
+            />
+          </div>
+        </div>
+
+        {searchbarValue && selectedValue === 'ARTIST' && (
+          <ArtistCardContainer input={searchbarValue} />
         )}
-        {selectedValue === 'ALBUM' && (
-          <>
-            <div className={styles.children}>
-              <AlbumTagFilter />
-            </div>
-            <div className={styles.children}>
-              <label htmlFor="select" className={styles.label}>
-                Sorting:
-              </label>
-              <select
-                id="select"
-                value={sortingDirection}
-                onChange={setSortingChange}
-              >
-                <option value="Default">Default</option>
-                <option value="ASC">Alphabetically(a-z)</option>
-                <option value="DESC">Alphabetically(z-a)</option>
-              </select>
-            </div>
-          </>
+
+        {searchbarValue && selectedValue === 'ALBUM' && (
+          <AlbumCardContainer input={searchbarValue} />
         )}
-        {selectedValue == 'ARTIST' && (
-          <>
-            <div className={styles.children}>
-              <ArtistListenersFilter />
-            </div>
-            <div className={styles.children}>
-              <label htmlFor="select" className={styles.label}>
-                Sorting:
-              </label>
-              <select
-                id="select"
-                value={sortingDirection}
-                onChange={setSortingChange}
-              >
-                <option value="Default">Default</option>
-                <option value="ASC">Alphabetically(a-z)</option>
-                <option value="DESC">Alphabetically(z-a)</option>
-              </select>
-            </div>
-          </>
+
+        {searchbarValue && selectedValue === 'TRACK' && (
+          <SongCardContainer
+            input={searchbarValue}
+            maxDuration={maxDuration}
+            minDuration={minDuration}
+            sortingDirection={sortingDirection}
+          />
         )}
       </div>
-
-      {searchbarValue && selectedValue === 'ARTIST' && (
-        <ArtistCardContainer input={searchbarValue} />
-      )}
-
-      {searchbarValue && selectedValue === 'ALBUM' && (
-        <AlbumCardContainer input={searchbarValue} />
-      )}
-
-      {searchbarValue && selectedValue === 'TRACK' && (
-        <SongCardContainer
-          input={searchbarValue}
-          maxDuration={maxDuration}
-          minDuration={minDuration}
-          sortingDirection={sortingDirection}
-        />
-      )}
-    </>
+    </Page>
   )
 }
