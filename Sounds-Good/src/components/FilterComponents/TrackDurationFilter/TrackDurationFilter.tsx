@@ -53,7 +53,8 @@ export function TrackDurationFilter() {
         data-cy="Slider"
       />
       <span>
-        {formatDuration(value[1]) != '' ? formatDuration(value[1]) : '0'} min
+        {formatDuration(value[1]) != '' ? formatDuration(value[1]) : '0'}{' '}
+        minutes
       </span>
     </Box>
   )
