@@ -30,19 +30,21 @@ const Songpage = () => {
   return (
     <>
       <Page>
-        <div className={styles.container} data-cy="SongPageContainer">
-          <DetailedCard
-            title={data.tracks[0].track_title}
-            artist={data.tracks[0].artistsCreatedTrack[0].artist_name}
-            img={data.tracks[0].cover_art}
-            length={formatDuration(data.tracks[0].duration)}
-            album={data.tracks[0].albumsHasTrack[0].album_title}
-          />
-          <CommentsContainer
-            title={data.tracks[0].track_title}
-            artist={data.tracks[0].artistsCreatedTrack[0].artist_name}
-            album={data.tracks[0].albumsHasTrack[0].album_title}
-          />
+        <div className={styles.container}>
+          <div className={styles.songDetailCard} data-cy="SongPageContainer">
+            <DetailedCard
+              title={data.tracks[0].track_title}
+              artist={data.tracks[0].artistsCreatedTrack[0].artist_name}
+              img={data.tracks[0].cover_art}
+              length={formatDuration(data.tracks[0].duration)}
+              album={data.tracks[0].albumsHasTrack[0].album_title}
+            />
+            <CommentsContainer
+              title={data.tracks[0].track_title}
+              artist={data.tracks[0].artistsCreatedTrack[0].artist_name}
+              album={data.tracks[0].albumsHasTrack[0].album_title}
+            />
+          </div>
         </div>
       </Page>
     </>

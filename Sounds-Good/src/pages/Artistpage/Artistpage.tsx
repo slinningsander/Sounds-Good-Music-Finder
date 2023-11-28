@@ -40,34 +40,39 @@ const Artistpage = () => {
   return (
     <>
       <Page>
-        <div className={styles.container} data-cy="ArtistPageContainer">
-          <div className={styles.infoContainer}>
-            <h1 data-cy="ArtistNameHeader">{data.artists[0].artist_name}</h1>
-            <sub data-cy="ArtistListeners">
-              Last.fm listeners: {formattedlisteners}
-            </sub>
-            <h2>About</h2>
-            <p className={styles.bio} data-cy="ArtistBio">
-              {sanitizedBio}
-            </p>
-          </div>
-          <h2 data-cy="ArtistsAlbumsHeader">Most Popular Albums</h2>
-          <div className={styles.albumContainer} data-cy="ArtistsAlbums">
-            {data.artists[0].createdAlbumAlbums.map((album: Album) => (
-              <div className={styles.albums}>
-                <p data-cy="ArtistsAlbumTitle"> {album.album_title}</p>
-                <Link
-                  to={'album/' + encodeURIComponent(album.album_title)}
-                  data-cy="LinkToAlbumPage"
-                >
-                  <img
-                    src={album.album_art}
-                    className={styles.albumCover}
-                    alt={album.album_title + 'album cover'}
-                  />
-                </Link>
-              </div>
-            ))}
+        <div className={styles.container}>
+          <div
+            className={styles.artistDetailCard}
+            data-cy="ArtistPageContainer"
+          >
+            <div className={styles.infoContainer}>
+              <h1 data-cy="ArtistNameHeader">{data.artists[0].artist_name}</h1>
+              <sub data-cy="ArtistListeners">
+                Last.fm listeners: {formattedlisteners}
+              </sub>
+              <h2>About</h2>
+              <p className={styles.bio} data-cy="ArtistBio">
+                {sanitizedBio}
+              </p>
+            </div>
+            <h2 data-cy="ArtistsAlbumsHeader">Most Popular Albums</h2>
+            <div className={styles.albumContainer} data-cy="ArtistsAlbums">
+              {data.artists[0].createdAlbumAlbums.map((album: Album) => (
+                <div className={styles.albums}>
+                  <p data-cy="ArtistsAlbumTitle"> {album.album_title}</p>
+                  <Link
+                    to={'album/' + encodeURIComponent(album.album_title)}
+                    data-cy="LinkToAlbumPage"
+                  >
+                    <img
+                      src={album.album_art}
+                      className={styles.albumCover}
+                      alt={album.album_title + 'album cover'}
+                    />
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Page>

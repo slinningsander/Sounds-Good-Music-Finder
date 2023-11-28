@@ -1,5 +1,13 @@
 .container {
-  margin-top: 10ch;
+  height:100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.songDetailCard {
   display: flex;
   flex-direction: row;
   width: 70%;
@@ -8,13 +16,13 @@
 }
 
 @media screen and (max-width: 720px) {
-  .container {
+  .songDetailCard {
     flex-direction: column;
     width: 60%;
     justify-content: center;
     align-items: center;
   }
-  .container > * {
+  .songDetailCard > * {
     width: 100%;
   }
 }

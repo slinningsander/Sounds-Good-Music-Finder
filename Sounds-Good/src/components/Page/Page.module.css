@@ -1,17 +1,11 @@
 .page{
     /*lifts from bottom*/
     padding-bottom: 2em;
-    padding-top: 70px;
+    padding-top: 75px;
 
     /*guarantees min page height*/
     min-height: calc(100vh - 70px - 2em);
 
-    /*centers horizontally and vertically*/
-    /* justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column; */
-    
     /*for mobile only*/
     @media (max-width: 768px){
         /*reduces page width*/
