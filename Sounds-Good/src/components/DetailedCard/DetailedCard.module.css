@@ -11,10 +11,14 @@
 .linkContainer {
   transition: transform 0.2s;
   color: inherit;
+  background-color: #0c134f;
+  border-radius: 1ch;
+  margin-bottom: 1ch;
 }
 .linkContainer:hover {
   transform: scale(1.05);
   cursor: pointer;
+  color: #5c469c;
 }
 
 .contentContainer {
