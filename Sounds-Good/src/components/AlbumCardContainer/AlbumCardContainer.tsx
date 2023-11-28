@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AlbumCard from '../AlbumCard/AlbumCard'
 import styles from './AlbumCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
@@ -8,19 +8,16 @@ import { Alert, Box, CircularProgress } from '@mui/material'
 import { RootState } from '../../redux/store'
 import { AlbumEdgeType } from '../../types'
 
-type AlbumCardContainerProps = {
-  input: string
-}
-
-const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
+const AlbumCardContainer = () => {
   const selectedTags = useSelector((state: RootState) => state.filterTags.value)
   const sortingDirection = useSelector(
     (state: RootState) => state.sortingDirection.value
   )
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
+  const searchInput = useSelector((state: RootState) => state.searchInput.value)
   const { data, error, loading } = GetAlbumBySearchAndTag(
-    input,
+    searchInput,
     selectedTags,
     offset,
     more,
@@ -29,10 +26,15 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
   )
   const client = useApolloClient()
 
+  const prevSrchInpRef = useRef<string | null>(null)
+
   useEffect(() => {
-    client.resetStore()
-    setOffset(0)
-  }, [client, input, selectedTags, sortingDirection])
+    if (prevSrchInpRef.current !== searchInput) {
+      client.resetStore()
+      setOffset(0)
+    }
+    prevSrchInpRef.current = searchInput
+  }, [client, searchInput, selectedTags, sortingDirection])
 
   return (
     <div className={styles.wrapper} data-cy="AlbumsContainer">
