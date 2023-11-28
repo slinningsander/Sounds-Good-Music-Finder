@@ -26,9 +26,6 @@ const Songpage = () => {
     client.resetStore()
   }, [client])
 
-  const handleBack = () => {
-    window.history.back()
-  }
   if (loading) return <p>Loading</p>
   if (error) return <p>Error</p>
   return (
@@ -38,7 +35,7 @@ const Songpage = () => {
           <img
             src={BackIcon}
             className={styles.goBackButton}
-            onClick={handleBack}
+            onClick={() => window.history.back()}
             alt="Go back"
           />
           <DetailedCard
