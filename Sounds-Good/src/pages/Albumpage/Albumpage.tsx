@@ -5,6 +5,7 @@ import Page from '../../components/Page/Page'
 import formatDuration from '../../utils/formatDuration'
 import { useApolloClient } from '@apollo/client'
 import { useEffect } from 'react'
+import BackIcon from '../../assets/icons/arrow-left.svg'
 
 const Albumpage = () => {
   const url = new URL(window.location.href)
@@ -33,6 +34,12 @@ const Albumpage = () => {
     <>
       <Page>
         <div className={styles.container} data-cy="AlbumPageContainer">
+          <img
+            src={BackIcon}
+            className={styles.goBackButton}
+            onClick={() => window.history.back()}
+            alt="Go back"
+          />
           <div className={styles.infoContainer}>
             <h1 data-cy="AlbumTitleHeader">{data.albums[0].album_title}</h1>
             <h2 data-cy="AlbumArtistHeader">
@@ -49,20 +56,25 @@ const Albumpage = () => {
               {sanitizedSummary}
             </p>
           </div>
-          <h2>Tracks</h2>
-          <div className={styles.albumContainer} data-cy="AlbumSongsContainer">
-            {data.albums[0].hasTrackTracks.map((track: any) => (
-              <div className={styles.track}>
-                <Link
-                  className={styles.link}
-                  to={'song/' + encodeURIComponent(track.track_title)}
-                  data-cy="LinkToSong"
-                >
-                  {track.rank}. {track.track_title}{' '}
-                  {formatDuration(track.duration)}
-                </Link>
-              </div>
-            ))}
+          <div className={styles.trackListContainer}>
+            <h2 className={styles.trackHeading}>Tracks</h2>
+            <div
+              className={styles.albumContainer}
+              data-cy="AlbumSongsContainer"
+            >
+              {data.albums[0].hasTrackTracks.map((track: any) => (
+                <div className={styles.track}>
+                  <Link
+                    className={styles.link}
+                    to={'song/' + encodeURIComponent(track.track_title)}
+                    data-cy="LinkToSong"
+                  >
+                    {track.rank}. {track.track_title}{' '}
+                    {formatDuration(track.duration)}
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Page>
