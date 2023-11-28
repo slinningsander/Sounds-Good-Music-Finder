@@ -13,10 +13,12 @@ import { updateSortingDirection } from '../../redux/slices/sortingDirectionSlice
 import Page from '../../components/Page/Page.tsx'
 
 export default function Homepage() {
+  // const filterContainer = document.getElementById('filterContainer')
   const [searchbarValue, setSearchbarValue] = useState('')
   const [selectedValue, setSelectedValue] = useState('TRACK')
   const [maxDuration, setMaxDuration] = useState(600)
   const [minDuration, setMinDuration] = useState(0)
+  const [filterVisible, setFilterVisible] = useState(false)
   const dispatch = useDispatch()
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,82 +29,99 @@ export default function Homepage() {
   //gets sortingDirectionState from store
   const sortingDirection = useSelector((state) => state.sortingDirection.value)
 
+  // const setFilterVisible = (event: any) => {
+  //   filterVisible = 'flex'
+  // }
   useEffect(() => {
     console.log(searchbarValue)
   }, [searchbarValue])
 
+  const toggleFilterVisibility = () => {
+    setFilterVisible(!filterVisible)
+  }
+
   return (
     <Page>
       <div className={styles.container}>
-        <div className={styles.filterContainer}>
-          {selectedValue === 'TRACK' && (
-            <>
-              <div className={styles.children} data-cy="SliderContainer">
-                <TrackDurationFilter
-                  setMaxDuration={setMaxDuration}
-                  setMinDuration={setMinDuration}
-                />
-              </div>
-              <div className={styles.children}>
-                <label htmlFor="select" className={styles.label}>
-                  Sorting:
-                </label>
-                <select
-                  id="select"
-                  value={sortingDirection}
-                  onChange={setSortingChange}
-                  data-cy="Select"
-                >
-                  <option value="Default">Default</option>
-                  <option value="ASC">Alphabetically(a-z)</option>
-                  <option value="DESC">Alphabetically(z-a)</option>
-                </select>
-              </div>
-            </>
-          )}
-          {selectedValue === 'ALBUM' && (
-            <>
-              <div className={styles.children}>
-                <AlbumTagFilter />
-              </div>
-              <div className={styles.children}>
-                <label htmlFor="select" className={styles.label}>
-                  Sorting:
-                </label>
-                <select
-                  id="select"
-                  value={sortingDirection}
-                  onChange={setSortingChange}
-                >
-                  <option value="Default">Default</option>
-                  <option value="ASC">Alphabetically(a-z)</option>
-                  <option value="DESC">Alphabetically(z-a)</option>
-                </select>
-              </div>
-            </>
-          )}
-          {selectedValue == 'ARTIST' && (
-            <>
-              <div className={styles.children}>
-                <ArtistListenersFilter />
-              </div>
-              <div className={styles.children}>
-                <label htmlFor="select" className={styles.label}>
-                  Sorting:
-                </label>
-                <select
-                  id="select"
-                  value={sortingDirection}
-                  onChange={setSortingChange}
-                >
-                  <option value="Default">Default</option>
-                  <option value="ASC">Alphabetically(a-z)</option>
-                  <option value="DESC">Alphabetically(z-a)</option>
-                </select>
-              </div>
-            </>
-          )}
-        </div>
+        <button
+          type="button"
+          onClick={toggleFilterVisibility}
+          className={styles.toggleFilterBtn}
+        >
+          {filterVisible ? 'Hide filter' : 'Show filter'}
+        </button>
+        {filterVisible && (
+          <div className={styles.filterContainer}>
+            {selectedValue === 'TRACK' && (
+              <>
+                <div className={styles.children} data-cy="SliderContainer">
+                  <TrackDurationFilter
+                    setMaxDuration={setMaxDuration}
+                    setMinDuration={setMinDuration}
+                  />
+                </div>
+                <div className={styles.children}>
+                  <label htmlFor="select" className={styles.label}>
+                    Sorting:
+                  </label>
+                  <select
+                    id="select"
+                    value={sortingDirection}
+                    onChange={setSortingChange}
+                    data-cy="Select"
+                  >
+                    <option value="Default">Default</option>
+                    <option value="ASC">Alphabetically(a-z)</option>
+                    <option value="DESC">Alphabetically(z-a)</option>
+                  </select>
+                </div>
+              </>
+            )}
+            {selectedValue === 'ALBUM' && (
+              <>
+                <div className={styles.children}>
+                  <AlbumTagFilter />
+                </div>
+                <div className={styles.children}>
+                  <label htmlFor="select" className={styles.label}>
+                    Sorting:
+                  </label>
+                  <select
+                    id="select"
+                    value={sortingDirection}
+                    onChange={setSortingChange}
+                  >
+                    <option value="Default">Default</option>
+                    <option value="ASC">Alphabetically(a-z)</option>
+                    <option value="DESC">Alphabetically(z-a)</option>
+                  </select>
+                </div>
+              </>
+            )}
+            {selectedValue == 'ARTIST' && (
+              <>
+                <div className={styles.children}>
+                  <ArtistListenersFilter />
+                </div>
+                <div className={styles.children}>
+                  <label htmlFor="select" className={styles.label}>
+                    Sorting:
+                  </label>
+                  <select
+                    id="select"
+                    value={sortingDirection}
+                    onChange={setSortingChange}
+                  >
+                    <option value="Default">Default</option>
+                    <option value="ASC">Alphabetically(a-z)</option>
+                    <option value="DESC">Alphabetically(z-a)</option>
+                  </select>
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
         <div className={styles.searchContainer}>
           <Searchbar
             searchbarName="homePageSearch"

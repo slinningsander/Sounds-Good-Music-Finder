@@ -6,24 +6,27 @@
   display: flex;
   flex-direction: column;
   margin: 2em;
-  height: fit-content;
-  transition: height 10s;
-  transition-timing-function: ease-in-out;
-
 }
 
 .filterContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  z-index: 999;
   margin: 0 auto;
-  width: 100%;
-  max-width: 1000px;
+  width: 50vw;
   padding: 0 20px;
   box-sizing: border-box;
   margin-bottom: 20px;
-  height: 115px;
+  height: fit-content;
+  padding: 1.5em;
+  border-radius: 2em;
+  background-color: rgba(92,70,156,0.4);
+  backdrop-filter: blur(10px);
+  bottom:0;
+  gap: 1em;
 }
 
 .searchContainer {
@@ -33,7 +36,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2px dotted red;
   margin: 2em;
 }
 
@@ -47,3 +49,22 @@
 .label {
   margin-right: 10px;
 }
+
+.toggleFilterBtn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: 2em;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+  padding: 1.5em;
+  border-radius: 1.5em;
+  outline: none;
+  border: none;
+}
+
+.toggleFilterBtn:hover {
+ cursor: pointer;
+}
+
