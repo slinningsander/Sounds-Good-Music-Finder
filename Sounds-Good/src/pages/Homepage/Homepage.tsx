@@ -10,12 +10,11 @@ import { AlbumTagFilter } from '../../components/FilterComponents/AlbumTagFilter
 import { ArtistListenersFilter } from '../../components/FilterComponents/ArtistListenersFilter/ArtistListenersFilter.tsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateSortingDirection } from '../../redux/slices/sortingDirectionSlice.ts'
+import { RootState } from '../../redux/store.ts'
 
 export default function Homepage() {
   const [searchbarValue, setSearchbarValue] = useState('')
   const [selectedValue, setSelectedValue] = useState('TRACK')
-  const [maxDuration, setMaxDuration] = useState(600)
-  const [minDuration, setMinDuration] = useState(0)
   const dispatch = useDispatch()
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,7 +23,9 @@ export default function Homepage() {
     dispatch(updateSortingDirection(event.target.value))
   }
   //gets sortingDirectionState from store
-  const sortingDirection = useSelector((state) => state.sortingDirection.value)
+  const sortingDirection = useSelector(
+    (state: RootState) => state.sortingDirection.value
+  )
 
   useEffect(() => {
     console.log(searchbarValue)
@@ -36,7 +37,6 @@ export default function Homepage() {
         searchbarName="homePageSearch"
         isRequired={true}
         placeholder="Search..."
-        labelValue="Search"
         ariaLabel="Searchbar"
         setSearchbarValue={setSearchbarValue}
       />
@@ -50,10 +50,7 @@ export default function Homepage() {
         {selectedValue === 'TRACK' && (
           <>
             <div className={styles.children} data-cy="SliderContainer">
-              <TrackDurationFilter
-                setMaxDuration={setMaxDuration}
-                setMinDuration={setMinDuration}
-              />
+              <TrackDurationFilter />
             </div>
             <div className={styles.children}>
               <label htmlFor="select" className={styles.label}>
@@ -125,12 +122,7 @@ export default function Homepage() {
       )}
 
       {searchbarValue && selectedValue === 'TRACK' && (
-        <SongCardContainer
-          input={searchbarValue}
-          maxDuration={maxDuration}
-          minDuration={minDuration}
-          sortingDirection={sortingDirection}
-        />
+        <SongCardContainer input={searchbarValue} />
       )}
     </>
   )
