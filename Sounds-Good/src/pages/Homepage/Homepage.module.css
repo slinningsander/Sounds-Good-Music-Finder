@@ -1,15 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+}
+
 .filterContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  z-index: 999;
   margin: 0 auto;
-  width: 100%;
-  max-width: 1000px;
-  padding: 0 20px;
+  width: 50vw;
   box-sizing: border-box;
   margin-bottom: 20px;
+  height: fit-content;
+  padding: 1.5em;
+  border-radius: 2em;
+  background-color: rgba(92, 70, 156, 0.4);
+  backdrop-filter: blur(10px);
+  bottom: 0;
+  gap: 1em;
 }
+
+.searchContainer {
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2em;
+}
+
 .children {
   display: flex;
   justify-content: center;
@@ -19,4 +46,22 @@
 
 .label {
   margin-right: 10px;
+}
+
+.toggleFilterBtn {
+  position: fixed;
+  left: 0;
+  bottom: 10%;
+  margin: 2em;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+  padding: 1.5em;
+  border-radius: 1.5em;
+  outline: none;
+  border: none;
+}
+
+.toggleFilterBtn:hover {
+  cursor: pointer;
 }

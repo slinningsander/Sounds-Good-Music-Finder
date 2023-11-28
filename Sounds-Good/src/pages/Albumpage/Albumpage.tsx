@@ -39,47 +39,49 @@ const Albumpage = () => {
   return (
     <>
       <Page>
-        <div className={styles.container} data-cy="AlbumPageContainer">
-          <img
-            src={BackIcon}
-            className={styles.goBackButton}
-            onClick={() => window.history.back()}
-            alt="Go back"
-          />
-          <div className={styles.infoContainer}>
-            <h1 data-cy="AlbumTitleHeader">{data.albums[0].album_title}</h1>
-            <h2 data-cy="AlbumArtistHeader">
-              {data.albums[0].artistsCreatedAlbum[0].artist_name}
-            </h2>
+        <div className={styles.container}>
+          <div className={styles.albumDetailCard} data-cy="AlbumPageContainer">
             <img
-              className={styles.albumArt}
-              src={data.albums[0].album_art}
-              alt="Album art"
-              data-cy="AlbumArt"
+              src={BackIcon}
+              className={styles.goBackButton}
+              onClick={() => window.history.back()}
+              alt="Go back"
             />
-            <h2>Summary</h2>
-            <p className={styles.bio} data-cy="AlbumSummary">
-              {sanitizedSummary}
-            </p>
-          </div>
-          <div className={styles.trackListContainer}>
-            <h2 className={styles.trackHeading}>Tracks</h2>
-            <div
-              className={styles.albumContainer}
-              data-cy="AlbumSongsContainer"
-            >
-              {data.albums[0].hasTrackTracks.map((track: trackProps) => (
-                <div className={styles.track}>
-                  <Link
-                    className={styles.link}
-                    to={'song/' + encodeURIComponent(track.track_title)}
-                    data-cy="LinkToSong"
-                  >
-                    {track.rank}. {track.track_title}{' '}
-                    {formatDuration(track.duration)}
-                  </Link>
-                </div>
-              ))}
+            <div className={styles.infoContainer}>
+              <h1 data-cy="AlbumTitleHeader">{data.albums[0].album_title}</h1>
+              <h2 data-cy="AlbumArtistHeader">
+                {data.albums[0].artistsCreatedAlbum[0].artist_name}
+              </h2>
+              <img
+                className={styles.albumArt}
+                src={data.albums[0].album_art}
+                alt="Album art"
+                data-cy="AlbumArt"
+              />
+              <h2>Summary</h2>
+              <p className={styles.bio} data-cy="AlbumSummary">
+                {sanitizedSummary}
+              </p>
+            </div>
+            <div className={styles.trackListContainer}>
+              <h2 className={styles.trackHeading}>Tracks</h2>
+              <div
+                className={styles.albumContainer}
+                data-cy="AlbumSongsContainer"
+              >
+                {data.albums[0].hasTrackTracks.map((track: trackProps) => (
+                  <div className={styles.track}>
+                    <Link
+                      className={styles.link}
+                      to={'song/' + encodeURIComponent(track.track_title)}
+                      data-cy="LinkToSong"
+                    >
+                      {track.rank}. {track.track_title}{' '}
+                      {formatDuration(track.duration)}
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -24,13 +24,14 @@ export function ArtistListenersFilter() {
   return (
     <Box
       sx={{
-        width: '300px',
-        border: '2px solid #cc99cc',
-        borderRadius: '1.5em',
-        padding: '0.5em',
+        width: '400px',
+        margin: '0.5em',
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '1em',
       }}
     >
-      <span>min: {value[0]} listeners</span>
+      <span>{value[0]} listeners</span>
       <Slider
         size="small"
         disableSwap
@@ -40,7 +41,7 @@ export function ArtistListenersFilter() {
         max={6500000}
         data-cy="ListenerSlider"
       />
-      <span>max: {value[1]} listeners</span>
+      <span>{value[1]} listeners</span>
     </Box>
   )
 }

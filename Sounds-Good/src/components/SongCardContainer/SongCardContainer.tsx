@@ -80,7 +80,7 @@ const SongCardContainer = ({ input }: SongCardContainerProps) => {
                 artist={song.artistsCreatedTrack[0].artist_name}
                 img={song.albumsHasTrack[0].album_art}
                 album={song.albumsHasTrack[0].album_title}
-                tracklength={song.duration}
+                tracklength={Number(song.duration)}
               />
             </div>
           )
