@@ -3,6 +3,7 @@ import CommentComponent from '../CommentComponent/CommentComponent'
 import styles from './CommentsContainer.module.css'
 import CreateComment from '../../graphql/mutations/createComment'
 import { useState } from 'react'
+import { CommentType } from '../../types'
 
 type Props = {
   title: string
@@ -29,7 +30,7 @@ export const CommentsContainer = ({ title, artist, album }: Props) => {
         <h2 data-cy="SongCommentsHeader">Comments</h2>
         <div className={styles.CommentsContainer} data-cy="CommentsContainer">
           {data.comments.length !== 0 ? (
-            data.comments.map((comment: any) => (
+            data.comments.map((comment: CommentType) => (
               <CommentComponent key={comment.id} text={comment.text} />
             ))
           ) : (

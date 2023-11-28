@@ -17,7 +17,10 @@ export function TrackDurationFilter() {
 
   const [value, setValue] = useState<number[]>([0, 600])
 
-  const handleDurationChange = (event: Event, newValue: number | number[]) => {
+  const handleDurationChange = (
+    _event: unknown,
+    newValue: number | number[]
+  ) => {
     setValue(newValue as number[])
     dispatch(updateDurationFilter(newValue))
   }
