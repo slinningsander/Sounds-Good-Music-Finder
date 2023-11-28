@@ -87,7 +87,8 @@ export default function GetAlbumBySearchAndTag(
     if (more) {
       fetchMoreAlbums()
     }
-  }, [more, offset, searchInput, sortingDirection])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [more, offset, searchInput, sortingDirection]) //Eslint warning wanted all variables in the dependency array, but that would cause unnecessary refetching
 
   return result
 }
