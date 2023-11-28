@@ -63,11 +63,16 @@ const ArtistCardContainer = ({ input }: ArtistCardContainerProps) => {
       ) : error ? (
         <Alert severity="error">Search error, try something else!</Alert>
       ) : data.artists.length > 0 ? (
-        data.artists.map((artist: { artist_name: string }) => (
-          <div>
-            <ArtistCard artistName={artist.artist_name} />
-          </div>
-        ))
+        data.artists.map(
+          (artist: { artist_name: string; listeners: number }) => (
+            <div>
+              <ArtistCard
+                artistName={artist.artist_name}
+                listeners={artist.listeners}
+              />
+            </div>
+          )
+        )
       ) : (
         <Alert severity="info">No artists found :/</Alert>
       )}
