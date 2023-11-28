@@ -9,6 +9,7 @@ const GET_ARTIST = gql`
   ) {
     artists(options: $options, where: $where, fulltext: $fulltext) {
       artist_name
+      listeners
     }
   }
 `

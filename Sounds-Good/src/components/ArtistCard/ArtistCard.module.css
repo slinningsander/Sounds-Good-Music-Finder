@@ -9,9 +9,13 @@
   text-decoration: none;
   color: inherit;
   background-color: #1d267d;
-
+  padding: 2ch;
   justify-content: center;
   align-items: center;
   display: flex;
+  flex-direction: column;
   font-family: "Roboto", sans-serif;
+}
+.text {
+  margin: 0;
 }
