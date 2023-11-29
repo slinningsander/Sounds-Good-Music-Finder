@@ -10,19 +10,19 @@ const initialState: FilterSearchState = {
 }
 
 export const filterSearchSlice = createSlice({
-  name: 'filterSearch',
+  name: 'searchFilter',
   initialState,
   reducers: {
     updateSearchFilter: (state, action) => {
       state.value = action.payload
     },
-    resetSearchState: (state) => {
+    resetSearchFilterState: (state) => {
       state.value = initialState.value
     },
   },
 })
 
-export const { updateSearchFilter, resetSearchState } =
+export const { updateSearchFilter, resetSearchFilterState } =
   filterSearchSlice.actions
-export const selectFilterSearch = (state: RootState) => state.filterSearch.value
+export const selectFilterSearch = (state: RootState) => state.searchFilter.value
 export default filterSearchSlice.reducer
