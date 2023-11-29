@@ -35,7 +35,7 @@ const SongCardContainer = () => {
   useEffect(() => {
     client.resetStore()
     setOffset(0)
-  }, [client, searchInput, sortingDirection, minDuration, maxDuration, data])
+  }, [client, searchInput, sortingDirection, minDuration, maxDuration])
 
   return (
     <>

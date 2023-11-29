@@ -80,3 +80,7 @@
   outline: none;
   border: none;
 }
+
+.searchHeader{
+  margin-bottom: 0.4em;
+}
