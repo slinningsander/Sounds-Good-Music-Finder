@@ -9,12 +9,14 @@ import styles from './Homepage.module.css'
 import { AlbumTagFilter } from '../../components/FilterComponents/AlbumTagFilter/AlbumTagFilter.tsx'
 import { ArtistListenersFilter } from '../../components/FilterComponents/ArtistListenersFilter/ArtistListenersFilter.tsx'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateSortingDirection } from '../../redux/slices/sortingDirectionSlice.ts'
+import {
+  resetSortingDirectionState,
+  updateSortingDirection,
+} from '../../redux/slices/sortingDirectionSlice.ts'
 import { RootState } from '../../redux/store.ts'
 import Page from '../../components/Page/Page.tsx'
 import { resetDurationState } from '../../redux/slices/filterDurationSlice.ts'
 import { resetListenerState } from '../../redux/slices/filterListenersSlice.ts'
-import { resetSearchFilterState } from '../../redux/slices/filterSearchSlice.ts'
 import { resetTagFilterState } from '../../redux/slices/tagFilterSlice.ts'
 
 export default function Homepage() {
@@ -42,8 +44,8 @@ export default function Homepage() {
   const clearFilter = () => {
     dispatch(resetDurationState())
     dispatch(resetListenerState())
-    dispatch(resetSearchFilterState())
     dispatch(resetTagFilterState())
+    dispatch(resetSortingDirectionState())
   }
 
   return (
