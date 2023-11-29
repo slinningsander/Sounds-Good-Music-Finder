@@ -5,10 +5,7 @@
 
   /*guarantees min page height*/
   min-height: calc(100vh - 70px - 2em);
+  overflow: hidden;
 
-  /*for mobile only*/
-  @media (max-width: 768px) {
-    /*reduces page width*/
-    width: calc(100% - 1em * 2);
-  }
+ 
 }

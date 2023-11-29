@@ -16,9 +16,11 @@ describe('Test the different pages and the functionality of the application', ()
       .should('contain', 'Home')
   })
 
-  //Check if the filte buttons are visible and can be clicked.
+  //Check if the filter buttons are visible and can be clicked.
   it('Test filter buttons', () => {
     cy.get('[data-cy=ToggleFilter]').should('exist').click()
+    cy.get('[data-cy=Select]').click()
+    cy.get('[data-cy=ASCOption]').click()
     cy.get('[data-cy=ClearFilter]').should('exist').click()
   })
 

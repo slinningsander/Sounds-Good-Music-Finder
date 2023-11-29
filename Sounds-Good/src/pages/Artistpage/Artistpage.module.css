@@ -10,13 +10,14 @@
 .artistDetailCard {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 70vw;
   background-color: #1d267d;
   border-radius: 2ch;
   align-items: flex-start;
   font-family: 'Roboto', sans-serif;
   padding-bottom: 2rem;
 }
+
 .goBackButton {
   position: relative;
   top: 10px;
@@ -25,6 +26,8 @@
   z-index: 1;
   background-color: #5c369c;
   border-radius: 50%;
+  width: 2.5em;
+  height:2.5em;
 }
 
 .goBackButton:hover {
@@ -33,19 +36,29 @@
 }
 
 .bio {
-  font-size: larger;
+  font-size: 1em;
   text-align: center;
+  margin: 2em;
 }
 h1 {
   margin-bottom: 0;
 }
 h2 {
-  margin-bottom: 0;
+  margin: 1em;
+  width: 100%;
+  text-align:center;
 }
+
+.albumTitle {
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+}
+
 .albumCover {
-  width: 20rem;
-  height: 20rem;
-  margin: 0 auto;
+  max-width: 15em;
+  width: 25vw;
+  hight: auto;
   transition: transform 0.2s;
 }
 
@@ -67,13 +80,26 @@ h2 {
 .albums {
   display: flex;
   flex-direction: column;
+  align-items:center;
+  justify-content:center;
   border-radius: 2ch;
-  text-align: center;
 }
 
 .infoContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 5rem;
 }
+
+@media(max-width: 780px){
+  .artistDetailCard {
+    width: 100%;
+  }
+
+  .albumTitle {
+    max-width: 7em;
+    text-align:center;
+  }
+}
+
+

@@ -23,13 +23,13 @@
 .albumDetailCard {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 70%;
+  width: 70vw;
   background-color: #1d267d;
   border-radius: 2ch;
   font-family: 'Roboto', sans-serif;
   padding-bottom: 2rem;
 }
+
 .goBackButton {
   position: relative;
   top: 10px;
@@ -38,6 +38,8 @@
   z-index: 1;
   background-color: #5c369c;
   border-radius: 50%;
+  width: 2.5em;
+  height:2.5em;
 }
 
 .goBackButton:hover {
@@ -46,18 +48,28 @@
 }
 
 .albumArt {
-  width: 30rem;
-  height: 30rem;
+  max-width: 15em;
+  width: 40vw;
+  hight: auto;
 }
+
 .bio {
-  font-size: larger;
-  text-align: center;
+  font-size: 1em;
+  text-align:  center;
+  margin: 2em;
 }
+
 h1 {
   margin-bottom: 0;
 }
+
 h2 {
   margin: 0;
+}
+
+.albumTitle {
+  width: 100%;
+  text-align: center;
 }
 
 .track:hover {
@@ -71,14 +83,11 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 0 5rem;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1em;
 }
 
 .track {
-  display: flex;
-  flex-direction: column;
   border-radius: 2ch;
   text-align: center;
   transition: transform 0.2s;
@@ -87,6 +96,7 @@ h2 {
   border-radius: 1ch;
   margin-bottom: 1ch;
   padding: 1ch;
+  width: fit-content;
 }
 
 .infoContainer {
@@ -102,11 +112,24 @@ h2 {
 
 .trackListContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   width: 100%;
 }
 
 .trackHeading {
   margin-bottom: 20px;
+  text-align:center;
+  width:100%;
+}
+
+@media(max-width: 780px){
+  .albumDetailCard {
+    width: 100vw;
+  }
+
+  .track {
+    min-width: 15em;
+    margin-bottom:0.5ch;
+  }
+
 }

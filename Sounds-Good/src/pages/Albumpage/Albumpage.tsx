@@ -48,7 +48,9 @@ const Albumpage = () => {
               alt="Go back"
             />
             <div className={styles.infoContainer}>
-              <h1 data-cy="AlbumTitleHeader">{data.albums[0].album_title}</h1>
+              <h1 data-cy="AlbumTitleHeader" className={styles.albumTitle}>
+                {data.albums[0].album_title}
+              </h1>
               <Link
                 to={'/project2/' + encodeURIComponent(decodedArtistName)}
                 className={styles.linkContainer}
@@ -69,8 +71,8 @@ const Albumpage = () => {
                 {sanitizedSummary}
               </p>
             </div>
+            <h2 className={styles.trackHeading}>Tracks</h2>
             <div className={styles.trackListContainer}>
-              <h2 className={styles.trackHeading}>Tracks</h2>
               <div
                 className={styles.albumContainer}
                 data-cy="AlbumSongsContainer"
