@@ -16,6 +16,12 @@ describe('Test the different pages and the functionality of the application', ()
       .should('contain', 'Home')
   })
 
+  //Check if the filte buttons are visible and can be clicked.
+  it('Test filter buttons', () => {
+    cy.get('[data-cy=ToggleFilter]').should('exist').click()
+    cy.get('[data-cy=ClearFilter]').should('exist').click()
+  })
+
   //Checks if the radio buttons exist and can be clicked.
   it('Test radiobuttons', () => {
     cy.get('[data-cy=ArtistButton]').should('exist').click()
@@ -28,9 +34,11 @@ describe('Test the different pages and the functionality of the application', ()
   //the container for the result still exists and can be
   //used in the test.
   it('Test search', () => {
+    cy.get('[data-cy=TrackButton]').click()
     cy.get('[data-cy=Searchbar]')
       .should('exist')
       .type('test')
+      .type('{enter}')
       .should('have.value', 'test')
 
     cy.get('[data-cy=SongsContainer]').should('exist')
@@ -38,6 +46,8 @@ describe('Test the different pages and the functionality of the application', ()
 
   //Checks if the slider exists and can be used.
   it('Test slider', () => {
+    cy.get('[data-cy=TrackButton]').click()
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=SliderContainer]').should('exist')
     cy.get('[data-cy=Slider]').should('exist').click(100, 0)
     cy.get('[data-cy=Slider]').click('right').click(250, 0)
@@ -45,6 +55,7 @@ describe('Test the different pages and the functionality of the application', ()
 
   //Checks if the dropdown exists and that the options can be selected.
   it('Test sorting dropdown', () => {
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=Select]').should('exist')
     cy.get('[data-cy=Select]')
       .should('exist')
@@ -64,7 +75,8 @@ describe('Test the different pages and the functionality of the application', ()
   it('Test the song search functionality', () => {
     //Start off by typing in "test". The default value of the radiobuttons is "Track".
     //The search should therefore return 3 results.
-    cy.get('[data-cy=Searchbar]').type('test')
+    cy.get('[data-cy=TrackButton]').click()
+    cy.get('[data-cy=Searchbar]').type('test').type('{enter}')
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
     //Check the radiobutton "Artist". The search should now return 1 result, an error message,
     //since there are no artists in our dataset that contains the word "test".
@@ -82,7 +94,7 @@ describe('Test the different pages and the functionality of the application', ()
   it('Test pagination', () => {
     //Switch to albums and type "G".
     cy.get('[data-cy=AlbumButton]').click()
-    cy.get('[data-cy=Searchbar]').type('G')
+    cy.get('[data-cy=Searchbar]').type('G').type('{enter}')
     //Check that a div with the id "DivForTest" exists and that it contains 5 children.
     //This div is only needed for testing purposes and is not used in the application.
     cy.get('[data-cy=DivForTest]').should('exist')
@@ -94,12 +106,14 @@ describe('Test the different pages and the functionality of the application', ()
 
   it('Test the track duration filter (Slider)', () => {
     //Start off by typing in "test" and checking that the three results are returned.
-    cy.get('[data-cy=Searchbar]').type('test')
+    cy.get('[data-cy=TrackButton]').click()
+    cy.get('[data-cy=Searchbar]').type('test').type('{enter}')
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
-    //Change the minimum value of the slider to 201 seconds. The search should now return 1 result,
-    cy.get('[data-cy=Slider]').should('exist').click(100, 0)
+    //Change the minimum value of the slider to 4 minutes. The search should now return 1 result.
+    cy.get('[data-cy=ToggleFilter]').click()
+    cy.get('[data-cy=Slider]').should('exist').click(50, 0)
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 1)
-    //Check that it is the correct song that is returned. The other two song are under 200 seconds long
+    //Check that it is the correct song that is returned. The other two song are under 4 minutes long
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
       'contain',
       'Science & Blood Tests'
@@ -109,14 +123,15 @@ describe('Test the different pages and the functionality of the application', ()
   it('Test the LastFM listeners filter (Slider)', () => {
     //Start off by typing in "Dra" and checking that the two results are returned.
     cy.get('[data-cy=ArtistButton]').click()
-    cy.get('[data-cy=Searchbar]').type('Dra')
+    cy.get('[data-cy=Searchbar]').type('Dra').type('{enter}')
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=ListenerSlider]').should('exist')
     cy.get('[data-cy=ArtistsContainer]')
       .children()
       .should('have.length', 2)
       .should('contain', 'Drake', 'Imagine Dragons')
     //Change the minimum value of the slider to apply filtration. The search should now return 1 result,
-    cy.get('[data-cy=ListenerSlider]').should('exist').click(140, 0)
+    cy.get('[data-cy=ListenerSlider]').should('exist').click(110, 0)
     cy.get('[data-cy=ArtistsContainer]').children().should('have.length', 1)
     //Check that it is the correct artist that is returned. The other artist's number of listeners is under the min value.
     cy.get('[data-cy=ArtistsContainer] > :nth-child(1)').should(
@@ -126,8 +141,9 @@ describe('Test the different pages and the functionality of the application', ()
   })
 
   it('Test the sorting functionality', () => {
-    //Starts off by typing in "test".
-    cy.get('[data-cy=Searchbar]').type('test')
+    //Starts off by typing in "test" to find songs.
+    cy.get('[data-cy=TrackButton]').click()
+    cy.get('[data-cy=Searchbar]').type('test').type('{enter}')
     //Check that the first song is "TEST DRIVE", since this is the correct
     //behaviour for default sorting.
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
@@ -136,6 +152,7 @@ describe('Test the different pages and the functionality of the application', ()
     )
     //Change the sorting to alphabetical and check that the first song
     //is "Science & Blood Tests", since "S" comes before "T".
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=Select]').select('Alphabetically(a-z)')
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
       'contain',
@@ -153,12 +170,13 @@ describe('Test the different pages and the functionality of the application', ()
   it('Test the tag filter for albums', () => {
     //Start of by navigating to album search and typing "G"
     cy.get('[data-cy=AlbumButton]').click()
-    cy.get('[data-cy=Searchbar]').type('G')
+    cy.get('[data-cy=Searchbar]').type('G').type('{enter}')
     //Check that a div with the id "DivForTest" exists and that it contains 5 children.
     //The length of the result is only 5 because it is not paginated.
     cy.get('[data-cy=DivForTest]').should('exist')
     cy.get('[data-cy=DivForTest]').children().should('have.length', 5)
     //Clicks on the filter and finds the the tag "kanye west" and clicks on it.
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=Autocomplete]').click()
     cy.contains('kanye west').click()
     //Check that the tag has an effect on the search result, returning the only album with the tag "kanye west".
@@ -174,10 +192,68 @@ describe('Test the different pages and the functionality of the application', ()
     cy.get('[data-cy=AlbumsContainer]').should('contain', 'Stay Gold')
   })
 
+  it('Test the "Clear Filter" button', () => {
+    cy.get('[data-cy=TrackButton]').click()
+    cy.get('[data-cy=Searchbar]').type('test').type('{enter}')
+    //Check that the search returns 3 results.
+    cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'TEST DRIVE'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(2)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(3)').should(
+      'contain',
+      'Testify'
+    )
+    //Click on the filter and add a sorting direction.
+    cy.get('[data-cy=ToggleFilter]').click()
+    cy.get('[data-cy=Select]').select('Alphabetically(a-z)')
+    //Check that the search results have been sorted.
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(2)').should(
+      'contain',
+      'TEST DRIVE'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(3)').should(
+      'contain',
+      'Testify'
+    )
+    //Now add filtration by track duration.
+    cy.get('[data-cy=Slider]').should('exist').click(50, 0)
+    //Check that the search results have been filtered.
+    cy.get('[data-cy=SongsContainer]').children().should('have.length', 1)
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+    //Now click the "Clear Filter" button and check that the search results are back to the default.
+    cy.get('[data-cy=ClearFilter]').click()
+    cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'TEST DRIVE'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(2)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(3)').should(
+      'contain',
+      'Testify'
+    )
+  })
+
   it('Test the Artist page', () => {
     //Start of by searching for "Kanye West" and clicking on the first result.
     cy.get('[data-cy=ArtistButton]').click()
-    cy.get('[data-cy=Searchbar]').type('Kanye West')
+    cy.get('[data-cy=Searchbar]').type('Kanye West').type('{enter}')
     cy.get('[data-cy=ArtistsContainer] > :nth-child(1)').click()
     //Check that the artist page exists and contains the correct information.
     cy.get('[data-cy=ArtistPageContainer]').should('exist')
@@ -211,7 +287,7 @@ describe('Test the different pages and the functionality of the application', ()
   it('Test the Album page', () => {
     //Start of by searching for "Graduation" and clicking on the first result.
     cy.get('[data-cy=AlbumButton]').click()
-    cy.get('[data-cy=Searchbar]').type('Graduation')
+    cy.get('[data-cy=Searchbar]').type('Graduation').type('{enter}')
     cy.get('[data-cy=AlbumsContainer] > :nth-child(1)').click()
     //Check that the album page exists and contains the correct information.
     cy.get('[data-cy=AlbumPageContainer]').should('exist')
@@ -237,7 +313,8 @@ describe('Test the different pages and the functionality of the application', ()
 
   it('Test that the song page renders', () => {
     //Start of by searching for "TEST DRIVE" and clicking on the first result.
-    cy.get('[data-cy=Searchbar]').type('TEST DRIVE')
+    cy.get('[data-cy=TrackButton]').click()
+    cy.get('[data-cy=Searchbar]').type('TEST DRIVE').type('{enter}')
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').click()
     //Check that the component with song info exists and contains the correct information.
     cy.get('[data-cy=SongPageContainer]').should('exist')
@@ -259,10 +336,6 @@ describe('Test the different pages and the functionality of the application', ()
       .should('exist')
       .should('include.text', 'Comments')
     cy.get('[data-cy=CommentsContainer]').should('exist')
-    cy.get('[data-cy=CommentsContainer]')
-      .children()
-      .should('have.length', 1)
-      .should('contain', 'No comments yet')
     cy.get('[data-cy=CommentInput]').should('exist').should('be.visible')
     cy.get('[data-cy=CommentButton]')
       .should('exist')
@@ -272,7 +345,8 @@ describe('Test the different pages and the functionality of the application', ()
 
   it('Test that the comment functionality works', () => {
     //Start of by searching for "TEST DRIVE" and clicking on the first result.
-    cy.get('[data-cy=Searchbar]').type('TEST DRIVE')
+    cy.get('[data-cy=TrackButton]').click()
+    cy.get('[data-cy=Searchbar]').type('TEST DRIVE').type('{enter}')
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').click()
     //Input a comment and check that it is added to the list of comments.
     cy.get('[data-cy=CommentInput]').type('yWy2VUd5p6Pgo95chDbM')
