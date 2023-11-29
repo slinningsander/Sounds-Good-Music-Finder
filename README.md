@@ -64,17 +64,15 @@ We have created a search where you first choose what category you want to search
 
 ### Redux global state managment
 
-To pass the filter component output values to the search result components we are using Redux Toolkit. The values are tdispatched to the Redux store and retived using selector. In the simpelest terms it works as eventlisteners and eventsubscribers. 
-
+To pass the filter component output values to the search result components we are using Redux Toolkit. The values are tdispatched to the Redux store and retived using selector. In the simpelest terms it works as eventlisteners and eventsubscribers.
 
 This way of dealing with state requires some setup, but when this is done it is easier than regualer propdrilling to pass state from one component to another.
 
-There are alot of alternatives to Redux, and some are more suitable for smaller webapp, but we chose Redux because it is well documented and has alot of potential if we want to do more with it than we are doing now. 
+There are alot of alternatives to Redux, and some are more suitable for smaller webapp, but we chose Redux because it is well documented and has alot of potential if we want to do more with it than we are doing now.
 
 ## Components
 
 We have used [MUI](https://mui.com) to create some of the more complex components such as the navbar. For simple components, or components where we want to be more in control we make our own using just tsx and css.
-
 
 ## Web accessibility
 
@@ -98,8 +96,8 @@ Here is a complete list of what relevant WCAG guidelines we have followed and a 
 
 - #### Guideline 1.1 Text Alternatives
   We have quite a lot of images of album covers on our website. All of them have been given an alt-text.
-  <!-- - #### Guideline 1.3 Adaptable
-    The content of the website can be viewed horisontally (such as on a laptop) or vertically (mobile device). We have also achieved adaptability by concious coding of headings and such. -->
+- #### Guideline 1.3 Adaptable
+  The content of the website can be viewed horisontally (such as on a laptop) or vertically (mobile device). We have also achieved adaptability by concious coding of headings and such.
 - #### Guideline 1.4 Distinguishable
   We have achieved this guidline by the use of sufficient contrast. Making it easy to distinguish the foreground from the background.
 
@@ -107,16 +105,24 @@ Here is a complete list of what relevant WCAG guidelines we have followed and a 
 
 - #### Guideline 2.1 Keyboard Accessible
   All functionality on the website is accessible through the keyboard. Mainly by using the tabulator, but also the arrow buttons and spacebar to select between options in radio buttons and drop-down menus.
+- #### Guideline 2.4 Navigable
+  The application has an intuitive focus order that makes sense.
 
 ### Principle 3: Understandable
 
 - #### Guideline 3.1 Readable
+
   The language of the page (english) is specified in index.html
+
+- #### Guideline 3.2 Predictable
+  We used to make queries and load content when the input in the searchbar changed. We have now made it so content only load after you have pressed enter or the search button to make our application more predictable.
+- #### Guideline 3.3 Input assistance
+  We have made sure to prompt the user with the text "Search..." so that they better understand that the searchbar in fact is a searchbar and not something else.
 
 ### Principle 4: Robust
 
 - #### Guideline 4.1 Compatible
-  We have used ESLint to ensure that our code is free from errors. This is to ensure robustness and compatibility with most standard browsers.
+  We have used ESLint to ensure that our code is free from errors. This is to ensure robustness and compatibility with most standard browsers. We also give the users feedback if something goes wrong or their search doesn't yield any results.
 
 ## Sustainable web development
 
@@ -124,7 +130,7 @@ Sustainable web development in a topic that is gaining increasing importance. We
 
 To make our website more sustainable we chose to split up our search into three different categories, namely an artist search, an an album search and a song search. Our original plan was to make it possible to search for everything all at once. However, we let sustainability influence us to choose differently. By splitting up the search into different categories, the query only gets data from one node in the database, making it computationally simpler, using less power and thus more sustainable.
 
-Currently we do a query on every keypress in the search. We considered switching to searching on pressing "Enter", but since we do not have all the songs in the world we found that getting results was more difficult when you couldn't see them during typing. This of course comes at a cost considering sustainability, but we felt that the user experience was more important.
+Previously we did a query on every keypress in the search. This would cause a lot of data to be sent every kepress and wasn't very good considering sustainibility and environmental impact. This will of course sometimes lead to the user not getting any results when searching for something, but we felt that this didn't impact the user experience in a negative way.
 
 Pagination also plays a big role in sustainable web development. By only retrieving a few pieces of data at a time, the amount of data sent for every search is reduced by a large amount. Less data traffic means that less power is needed, resulting in a more sustainable website.
 
@@ -147,8 +153,9 @@ The testing covers all of our functionality, that being filters, sorting, search
 To run the Cypress test, you need to be in the "Sounds-Good" repo and write the following command:
 
 ```
-npm run cypress:open 
+npm run cypress:open
 ```
+
 Remember to run this command if you have not done it earlier:
 
 ```
@@ -184,7 +191,6 @@ To close Cypress, you only need to go back to the terminal where you started it 
 We have used Vitest and @react-testing-library to do component and unit testing. Each test is found in the same folder as the corresponding component.
 To run these tests, write the following command when you are in the Sounds-Good directory:
 
-
 ```
 npm test
 ```
@@ -194,6 +200,7 @@ Remember to run this command if you have not done it earlier:
 ```
 npm install
 ```
+
 ## Discussion
 
 ### V1.1
