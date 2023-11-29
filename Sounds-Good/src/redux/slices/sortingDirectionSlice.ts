@@ -5,7 +5,7 @@ interface SortingState {
   value: string
 }
 
-const initialState: SortingState = {
+export const initialState: SortingState = {
   value: 'Default',
 }
 

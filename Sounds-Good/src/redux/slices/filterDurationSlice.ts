@@ -5,7 +5,7 @@ interface FilterDurationState {
   value: number[]
 }
 
-const initialState: FilterDurationState = {
+export const initialState: FilterDurationState = {
   value: [0, 1200],
 }
 

@@ -5,7 +5,7 @@ interface FilterListenersState {
   value: number[]
 }
 
-const initialState: FilterListenersState = {
+export const initialState: FilterListenersState = {
   value: [0, 6500000],
 }
 

@@ -5,7 +5,7 @@ interface FilterTagsState {
   value: string[]
 }
 
-const initialState: FilterTagsState = {
+export const initialState: FilterTagsState = {
   value: [],
 }
 
