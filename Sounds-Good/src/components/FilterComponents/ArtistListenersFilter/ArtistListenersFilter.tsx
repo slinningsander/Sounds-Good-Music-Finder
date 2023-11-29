@@ -6,10 +6,10 @@ import { RootState } from '../../../redux/store'
 
 export function ArtistListenersFilter() {
   const dispatch = useDispatch()
-  const [value, setValue] = useState<number[]>([0, 6500000])
   const reduxFilterState = useSelector(
     (state: RootState) => state.filterListeners.value
   )
+  const [value, setValue] = useState<number[]>(reduxFilterState)
 
   useEffect(() => {
     setValue(reduxFilterState)
