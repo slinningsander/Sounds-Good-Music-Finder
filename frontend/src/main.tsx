@@ -3,7 +3,7 @@ import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { Provider } from 'react-redux'
-import store from './redux/store'
+import store from './redux/store.ts'
 
 const client = new ApolloClient({
   uri: 'http://it2810-23.idi.ntnu.no:4000', //Change this url to the url of the server
