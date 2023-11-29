@@ -34,7 +34,7 @@ describe('Test the different pages and the functionality of the application', ()
   //the container for the result still exists and can be
   //used in the test.
   it('Test search', () => {
-    cy.get('[data-cy=Trackbutton]').click()
+    cy.get('[data-cy=TrackButton]').click()
     cy.get('[data-cy=Searchbar]')
       .should('exist')
       .type('test')
@@ -46,6 +46,7 @@ describe('Test the different pages and the functionality of the application', ()
   //Checks if the slider exists and can be used.
   it('Test slider', () => {
     cy.get('[data-cy=Trackbutton]').click()
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=SliderContainer]').should('exist')
     cy.get('[data-cy=Slider]').should('exist').click(100, 0)
     cy.get('[data-cy=Slider]').click('right').click(250, 0)
@@ -53,6 +54,7 @@ describe('Test the different pages and the functionality of the application', ()
 
   //Checks if the dropdown exists and that the options can be selected.
   it('Test sorting dropdown', () => {
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=Select]').should('exist')
     cy.get('[data-cy=Select]')
       .should('exist')
@@ -120,6 +122,7 @@ describe('Test the different pages and the functionality of the application', ()
     //Start off by typing in "Dra" and checking that the two results are returned.
     cy.get('[data-cy=ArtistButton]').click()
     cy.get('[data-cy=Searchbar]').type('Dra')
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=ListenerSlider]').should('exist')
     cy.get('[data-cy=ArtistsContainer]')
       .children()
@@ -147,6 +150,7 @@ describe('Test the different pages and the functionality of the application', ()
     )
     //Change the sorting to alphabetical and check that the first song
     //is "Science & Blood Tests", since "S" comes before "T".
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=Select]').select('Alphabetically(a-z)')
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
       'contain',
@@ -170,6 +174,7 @@ describe('Test the different pages and the functionality of the application', ()
     cy.get('[data-cy=DivForTest]').should('exist')
     cy.get('[data-cy=DivForTest]').children().should('have.length', 5)
     //Clicks on the filter and finds the the tag "kanye west" and clicks on it.
+    cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=Autocomplete]').click()
     cy.contains('kanye west').click()
     //Check that the tag has an effect on the search result, returning the only album with the tag "kanye west".
