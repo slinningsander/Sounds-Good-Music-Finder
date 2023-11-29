@@ -102,6 +102,7 @@ export default function Homepage() {
                     id="select"
                     value={sortingDirection}
                     onChange={setSortingChange}
+                    data-cy="Select"
                   >
                     <option value="Default">Default</option>
                     <option value="ASC">Alphabetically(a-z)</option>
@@ -123,6 +124,7 @@ export default function Homepage() {
                     id="select"
                     value={sortingDirection}
                     onChange={setSortingChange}
+                    data-cy="Select"
                   >
                     <option value="Default">Default</option>
                     <option value="ASC">Alphabetically(a-z)</option>
