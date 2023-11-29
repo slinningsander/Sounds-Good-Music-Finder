@@ -95,16 +95,22 @@ Here is a complete list of what relevant WCAG guidelines we have followed and a 
 ### Principle 1: Perceivable
 
 - #### Guideline 1.1 Text Alternatives
+
   We have quite a lot of images of album covers on our website. All of them have been given an alt-text.
+
 - #### Guideline 1.3 Adaptable
+
   The content of the website can be viewed horisontally (such as on a laptop) or vertically (mobile device). We have also achieved adaptability by concious coding of headings and such.
+
 - #### Guideline 1.4 Distinguishable
   We have achieved this guidline by the use of sufficient contrast. Making it easy to distinguish the foreground from the background.
 
 ### Principle 2: Operable
 
 - #### Guideline 2.1 Keyboard Accessible
+
   All functionality on the website is accessible through the keyboard. Mainly by using the tabulator, but also the arrow buttons and spacebar to select between options in radio buttons and drop-down menus.
+
 - #### Guideline 2.4 Navigable
   The application has an intuitive focus order that makes sense.
 
@@ -115,7 +121,9 @@ Here is a complete list of what relevant WCAG guidelines we have followed and a 
   The language of the page (english) is specified in index.html
 
 - #### Guideline 3.2 Predictable
+
   We used to make queries and load content when the input in the searchbar changed. We have now made it so content only load after you have pressed enter or the search button to make our application more predictable.
+
 - #### Guideline 3.3 Input assistance
   We have made sure to prompt the user with the text "Search..." so that they better understand that the searchbar in fact is a searchbar and not something else.
 
