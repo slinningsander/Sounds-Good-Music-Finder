@@ -16,6 +16,12 @@ describe('Test the different pages and the functionality of the application', ()
       .should('contain', 'Home')
   })
 
+  //Check if the filte buttons are visible and can be clicked.
+  it('Test filter buttons', () => {
+    cy.get('[data-cy=ToggleFilter]').should('exist').click()
+    cy.get('[data-cy=ClearFilter]').should('exist').click()
+  })
+
   //Checks if the radio buttons exist and can be clicked.
   it('Test radiobuttons', () => {
     cy.get('[data-cy=ArtistButton]').should('exist').click()

@@ -53,6 +53,7 @@ export default function Homepage() {
           type="button"
           onClick={toggleFilterVisibility}
           className={styles.toggleFilterBtn}
+          data-cy="ToggleFilter"
         >
           {filterVisible ? 'Hide filter' : 'Show filter'}
         </button>
@@ -60,6 +61,7 @@ export default function Homepage() {
           type="button"
           onClick={clearFilter}
           className={styles.resetFilterBtn}
+          data-cy="ClearFilter"
         >
           Clear filters
         </button>
