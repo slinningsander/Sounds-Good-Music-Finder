@@ -34,6 +34,7 @@ describe('Test the different pages and the functionality of the application', ()
   //the container for the result still exists and can be
   //used in the test.
   it('Test search', () => {
+    cy.get('[data-cy=Trackbutton]').click()
     cy.get('[data-cy=Searchbar]')
       .should('exist')
       .type('test')
@@ -44,6 +45,7 @@ describe('Test the different pages and the functionality of the application', ()
 
   //Checks if the slider exists and can be used.
   it('Test slider', () => {
+    cy.get('[data-cy=Trackbutton]').click()
     cy.get('[data-cy=SliderContainer]').should('exist')
     cy.get('[data-cy=Slider]').should('exist').click(100, 0)
     cy.get('[data-cy=Slider]').click('right').click(250, 0)
@@ -70,6 +72,7 @@ describe('Test the different pages and the functionality of the application', ()
   it('Test the song search functionality', () => {
     //Start off by typing in "test". The default value of the radiobuttons is "Track".
     //The search should therefore return 3 results.
+    cy.get('[data-cy=Trackbutton]').click()
     cy.get('[data-cy=Searchbar]').type('test')
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
     //Check the radiobutton "Artist". The search should now return 1 result, an error message,
@@ -100,6 +103,7 @@ describe('Test the different pages and the functionality of the application', ()
 
   it('Test the track duration filter (Slider)', () => {
     //Start off by typing in "test" and checking that the three results are returned.
+    cy.get('[data-cy=Trackbutton]').click()
     cy.get('[data-cy=Searchbar]').type('test')
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
     //Change the minimum value of the slider to 201 seconds. The search should now return 1 result,
@@ -132,7 +136,8 @@ describe('Test the different pages and the functionality of the application', ()
   })
 
   it('Test the sorting functionality', () => {
-    //Starts off by typing in "test".
+    //Starts off by typing in "test" to find songs.
+    cy.get('[data-cy=Trackbutton]').click()
     cy.get('[data-cy=Searchbar]').type('test')
     //Check that the first song is "TEST DRIVE", since this is the correct
     //behaviour for default sorting.
@@ -243,6 +248,7 @@ describe('Test the different pages and the functionality of the application', ()
 
   it('Test that the song page renders', () => {
     //Start of by searching for "TEST DRIVE" and clicking on the first result.
+    cy.get('[data-cy=Trackbutton]').click()
     cy.get('[data-cy=Searchbar]').type('TEST DRIVE')
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').click()
     //Check that the component with song info exists and contains the correct information.
@@ -278,6 +284,7 @@ describe('Test the different pages and the functionality of the application', ()
 
   it('Test that the comment functionality works', () => {
     //Start of by searching for "TEST DRIVE" and clicking on the first result.
+    cy.get('[data-cy=Trackbutton]').click()
     cy.get('[data-cy=Searchbar]').type('TEST DRIVE')
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').click()
     //Input a comment and check that it is added to the list of comments.
