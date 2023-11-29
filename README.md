@@ -181,7 +181,7 @@ We have done both end-to-end testing and component and unit testing. E2E testing
 
 We used Cypress to make and execute an automated End-To-End test that would test the functionality found in the application. We decided to have all the tests in one file to make it easier for others to run the test smoothly. An alternative would be to have the tests in separate files that would correspond to different user scenarios.
 
-The testing covers all of our functionality, that being filters, sorting, searching and commenting on songs. We additionally have some testing that makes sure the different pages and components render correctly, given a user action. It should also be noted that we only test alphabetical sorting once, even though it is a reoccurring feature. This is because any more of those tests would be redundant.
+The testing covers all of our functionality, that being filters, sorting, searching and commenting on songs. We additionally have some testing that makes sure the different pages and components render correctly, given a user action. It should also be noted that we only test alphabetical sorting once, even though it is a recurring feature. This is because any more of those tests would be redundant.
 
 To run the Cypress test, you need to be in the "Sounds-Good" repo and write the following command:
 
@@ -247,6 +247,16 @@ npm install
 ```
 
 ## Discussion
+
+### Final release
+
+After the last round of feedback, we have made several improvements. We have changed the search functionality so that we search when we press the enter button on the keyboard or the search button on the screen. This was due to two things. First of all, we considered that it was not very sustainable to make a query towards the database every keypress. Secondly, to provide a more predictable page it is not good to have major changes in the page when typing in an input field, according to WCAG and accessibility standards.
+
+Another thing we have done is that we have redesigned the homepage so that the search bar is bigger. This is similar to the way [Google](Google.com) has done it. Making the search bar big encourages the user even more than before to use the search bar. We also moved the filters so that they are possible to show and hide, making the page cleaner.
+
+We have also fixed some small bugs. Most notably we changed it so that the text is white all the time and not only in browsers that use dark mode like before. This ensures that we have good contrast regardless of what browser and color scheme you are using, which is very important for accessibility.
+
+Almost all our states are now handled through Redux. This means that we have removed all prop drilling and the code has become much more concise.
 
 ### V1.1
 
