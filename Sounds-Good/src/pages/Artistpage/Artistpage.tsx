@@ -66,7 +66,9 @@ const Artistpage = () => {
             <div className={styles.albumContainer} data-cy="ArtistsAlbums">
               {data.artists[0].createdAlbumAlbums.map((album: Album) => (
                 <div className={styles.albums}>
-                  <p data-cy="ArtistsAlbumTitle"> {album.album_title}</p>
+                  <p data-cy="ArtistsAlbumTitle" className={styles.albumTitle}>
+                    {album.album_title}
+                  </p>
                   <Link
                     to={'album/' + encodeURIComponent(album.album_title)}
                     data-cy="LinkToAlbumPage"
