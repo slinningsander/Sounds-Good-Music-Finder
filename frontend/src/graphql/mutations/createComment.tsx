@@ -19,10 +19,7 @@ export default function CreateComment(
   const [createComments, { data, loading, error }] = useMutation(
     CREATE_COMMENT,
     {
-      refetchQueries: [
-        GET_COMMENTS, // DocumentNode object parsed with gql
-        'Comments', // Query name
-      ],
+      refetchQueries: [GET_COMMENTS, 'Comments'],
       variables: {
         input: [
           {

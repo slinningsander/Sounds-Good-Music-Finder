@@ -12,10 +12,12 @@ export function ArtistListenersFilter() {
   )
   const [value, setValue] = useState<number[]>(reduxFilterState)
 
+  // Update the local state when the redux filter state changes
   useEffect(() => {
     setValue(reduxFilterState)
   }, [reduxFilterState])
 
+  // Handle the change event of the slider
   const handleListenerChange = (
     _event: unknown,
     newValue: number | number[]
@@ -24,6 +26,7 @@ export function ArtistListenersFilter() {
     dispatch(updateListenersFilter(newValue))
   }
 
+  // Update the local state when the slider value changes
   const onChange = (_event: unknown, newValue: number | number[]) => {
     setValue(newValue as number[])
   }
@@ -38,7 +41,10 @@ export function ArtistListenersFilter() {
         gap: '1em',
       }}
     >
+      {/* Display the formatted value of the first slider thumb */}
       <span>{formatListeners(value[0])} listeners</span>
+
+      {/* Render the slider component */}
       <Slider
         size="small"
         disableSwap
@@ -57,6 +63,8 @@ export function ArtistListenersFilter() {
           },
         }}
       />
+
+      {/* Display the formatted value of the second slider thumb */}
       <span>{formatListeners(value[1])} listeners</span>
     </Box>
   )

@@ -7,15 +7,21 @@ import { updateSearchFilter } from '../../../redux/slices/filterSearchSlice'
 
 export function SearchFilter() {
   const dispatch = useDispatch()
+
+  // Get the current search filter value from the Redux store
   const reduxSearchFilter = useSelector(
     (state: RootState) => state.searchFilter.value
   )
+
+  // Set the initial search filter value to the value from the Redux store
   const [searchFilterValue, setSearchFilterValue] = useState(reduxSearchFilter)
 
+  // Update the search filter value when the Redux store value changes
   useEffect(() => {
     setSearchFilterValue(reduxSearchFilter)
   }, [reduxSearchFilter])
 
+  // Handle the change event when a radio button is selected
   const handleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchFilterValue(event.target.value)
     dispatch(updateSearchFilter(event.target.value))

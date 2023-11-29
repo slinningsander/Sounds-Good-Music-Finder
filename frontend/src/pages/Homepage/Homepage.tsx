@@ -19,28 +19,37 @@ import { resetDurationState } from '../../redux/slices/filterDurationSlice.ts'
 import { resetListenerState } from '../../redux/slices/filterListenersSlice.ts'
 import { resetTagFilterState } from '../../redux/slices/tagFilterSlice.ts'
 
+// Define the Homepage component
 export default function Homepage() {
+  // Define state variables
   const [filterVisible, setFilterVisible] = useState(false)
   const dispatch = useDispatch()
 
+  // Handle sorting direction change
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setSortingChange = (event: any) => {
     dispatch(updateSortingDirection(event.target.value))
   }
+
+  // Get sorting direction from Redux store
   const sortingDirection = useSelector(
     (state: RootState) => state.sortingDirection.value
   )
 
+  // Get search input from Redux store
   const searchInput = useSelector((state: RootState) => state.searchInput.value)
 
+  // Get search filter from Redux store
   const searchFilter = useSelector(
     (state: RootState) => state.searchFilter.value
   )
 
+  // Toggle filter visibility
   const toggleFilterVisibility = () => {
     setFilterVisible(!filterVisible)
   }
 
+  // Clear all filters
   const clearFilter = () => {
     dispatch(resetDurationState())
     dispatch(resetListenerState())
@@ -48,9 +57,11 @@ export default function Homepage() {
     dispatch(resetSortingDirectionState())
   }
 
+  // Render the Homepage component
   return (
     <Page>
       <div className={styles.container}>
+        {/* Toggle filter visibility button */}
         <button
           type="button"
           onClick={toggleFilterVisibility}
@@ -59,6 +70,8 @@ export default function Homepage() {
         >
           {filterVisible ? 'Hide filter' : 'Show filter'}
         </button>
+
+        {/* Clear filters button */}
         <button
           type="button"
           onClick={clearFilter}
@@ -67,8 +80,11 @@ export default function Homepage() {
         >
           Clear filters
         </button>
+
+        {/* Render filter components if filterVisible is true */}
         {filterVisible && (
           <div className={styles.filterContainer}>
+            {/* Render TrackDurationFilter component if searchFilter is 'TRACK' */}
             {searchFilter === 'TRACK' && (
               <>
                 <div className={styles.children} data-cy="SliderContainer">
@@ -91,6 +107,8 @@ export default function Homepage() {
                 </div>
               </>
             )}
+
+            {/* Render AlbumTagFilter component if searchFilter is 'ALBUM' */}
             {searchFilter === 'ALBUM' && (
               <>
                 <div className={styles.children}>
@@ -113,6 +131,8 @@ export default function Homepage() {
                 </div>
               </>
             )}
+
+            {/* Render ArtistListenersFilter component if searchFilter is 'ARTIST' */}
             {searchFilter == 'ARTIST' && (
               <>
                 <div className={styles.children}>
@@ -138,6 +158,7 @@ export default function Homepage() {
           </div>
         )}
 
+        {/* Searchbar and SearchFilter components */}
         <div className={styles.searchContainer}>
           <Searchbar
             searchbarName="homePageSearch"
@@ -150,14 +171,15 @@ export default function Homepage() {
           </div>
         </div>
 
+        {/* Render ArtistCardContainer if searchInput is not empty and searchFilter is 'ARTIST' */}
         {searchInput && searchFilter === 'ARTIST' && <ArtistCardContainer />}
 
+        {/* Render AlbumCardContainer if searchInput is not empty and searchFilter is 'ALBUM' */}
         {searchInput && searchFilter === 'ALBUM' && <AlbumCardContainer />}
 
+        {/* Render SongCardContainer if searchInput is not empty and searchFilter is 'TRACK' */}
         {searchInput && searchFilter === 'TRACK' && <SongCardContainer />}
       </div>
     </Page>
   )
 }
-
-//input={searchbarValue}

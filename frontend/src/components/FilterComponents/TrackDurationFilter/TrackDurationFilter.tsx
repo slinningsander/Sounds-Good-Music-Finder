@@ -12,16 +12,20 @@ export function TrackDurationFilter() {
   )
   const [value, setValue] = useState<number[]>(reduxFilterState)
 
+  // Update the value state when reduxFilterState changes
   useEffect(() => {
     setValue(reduxFilterState)
   }, [reduxFilterState])
 
+  // Handle the change event of the Slider component
   const handleDurationChange = (
     _event: unknown,
     newValue: number | number[]
   ) => {
     dispatch(updateDurationFilter(newValue))
   }
+
+  // Update the value state when the Slider component value changes
   const onChange = (_event: unknown, newValue: number | number[]) => {
     setValue(newValue as number[])
   }
@@ -37,9 +41,11 @@ export function TrackDurationFilter() {
       }}
     >
       <span>
+        {/* Display the formatted duration value or '0' if empty */}
         {formatDuration(value[0]) != '' ? formatDuration(value[0]) : '0'}{' '}
         minutes
       </span>
+      {/* Slider component for selecting duration range */}
       <Slider
         size="small"
         value={value}
@@ -60,6 +66,7 @@ export function TrackDurationFilter() {
         }}
       />
       <span>
+        {/* Display the formatted duration value or '0' if empty */}
         {formatDuration(value[1]) != '' ? formatDuration(value[1]) : '0'}{' '}
         minutes
       </span>

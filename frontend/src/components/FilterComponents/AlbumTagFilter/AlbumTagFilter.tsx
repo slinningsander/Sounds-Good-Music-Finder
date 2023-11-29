@@ -14,10 +14,14 @@ import { RootState } from '../../../redux/store'
 import { Tag } from '../../../types'
 
 export function AlbumTagFilter() {
+  // Redux hooks for dispatching actions and selecting state
   const dispatch = useDispatch()
   const selectedTags = useSelector((state: RootState) => state.filterTags.value)
+
+  // State for storing and updating selected tags
   const [values, setValues] = useState<Tag[]>([])
 
+  // Transform selected tags for display when they change
   useEffect(() => {
     const transformedSelectedTags = selectedTags.map((tag) => {
       const firstLetter = tag.charAt(0).toUpperCase()
@@ -29,14 +33,18 @@ export function AlbumTagFilter() {
     setValues(transformedSelectedTags)
   }, [selectedTags])
 
+  // Fetch all tags from GraphQL query
   const { data, loading, error } = GetAllTags()
 
+  // Array to store all tags
   const alltags: string[] = []
 
+  // Push fetched tags to the array
   if (!loading && data?.tags && !error) {
     for (let i = 0; i < data.tags.length; i++) {
       alltags.push(data.tags[i].tag_name)
     }
+    // Transform fetched tags for display
     const options = alltags.map((option) => {
       const firstLetter = option.charAt(0).toUpperCase()
       return {
@@ -45,6 +53,7 @@ export function AlbumTagFilter() {
       }
     })
 
+    // Custom styles for rendering tags
     const CustomChip = styled('div')(({ theme }) => ({
       backgroundColor: '#5C469C',
       color: 'white',
@@ -65,6 +74,8 @@ export function AlbumTagFilter() {
         display: 'block',
       },
     }))
+
+    // Custom styles for rendering group headers
     const GroupHeader = styled('div')({
       position: 'sticky',
       padding: '4px 10px',
@@ -72,12 +83,14 @@ export function AlbumTagFilter() {
       backgroundColor: '#5C469C',
     })
 
+    // Custom styles for rendering group items
     const GroupItems = styled('ul')({
       padding: '0',
       backgroundColor: '#1D267D',
       color: 'white',
     })
 
+    // Function to handle the selection of tags
     const getPickedTags = (newValues: Tag[]) => {
       console.log(newValues)
       const tagsQueryFormat = newValues.map((item) => item.option)
@@ -85,6 +98,7 @@ export function AlbumTagFilter() {
       dispatch(updateTags(tagsQueryFormat))
     }
 
+    // Render the Autocomplete component with necessary props and styles
     return (
       <>
         <FormControlLabel
@@ -156,6 +170,7 @@ export function AlbumTagFilter() {
       </>
     )
   } else {
+    // Render an info alert if loading or error occurs
     return (
       <>
         <Alert severity="info">Was not able to load tag filter</Alert>
