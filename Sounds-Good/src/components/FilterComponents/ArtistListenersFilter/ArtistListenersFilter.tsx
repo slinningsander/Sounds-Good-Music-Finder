@@ -23,6 +23,10 @@ export function ArtistListenersFilter() {
     dispatch(updateListenersFilter(newValue))
   }
 
+  const onChange = (_event: unknown, newValue: number | number[]) => {
+    setValue(newValue as number[])
+  }
+
   return (
     <Box
       sx={{
