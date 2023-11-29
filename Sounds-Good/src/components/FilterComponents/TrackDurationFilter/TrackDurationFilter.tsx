@@ -7,10 +7,10 @@ import { RootState } from '../../../redux/store'
 
 export function TrackDurationFilter() {
   const dispatch = useDispatch()
-  const [value, setValue] = useState<number[]>([0, 1200])
   const reduxFilterState = useSelector(
     (state: RootState) => state.filterDuration.value
   )
+  const [value, setValue] = useState<number[]>(reduxFilterState)
 
   useEffect(() => {
     setValue(reduxFilterState)
