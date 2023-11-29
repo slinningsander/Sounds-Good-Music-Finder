@@ -4,11 +4,13 @@ import ArtistCard from './ArtistCard'
 
 const mockArtistName = 'Mock Artist'
 
+const mockListeners = 10000000
+
 describe('ArtistCard component', () => {
   test('Renders with correct content and link', () => {
     const { getByText } = render(
       <Router>
-        <ArtistCard artistName={mockArtistName} />
+        <ArtistCard artistName={mockArtistName} listeners={mockListeners} />
       </Router>
     )
 
@@ -28,7 +30,7 @@ describe('ArtistCard component', () => {
   test('Navigates to correct route on click', () => {
     const { getByText } = render(
       <Router>
-        <ArtistCard artistName={mockArtistName} />
+        <ArtistCard artistName={mockArtistName} listeners={mockListeners} />
       </Router>
     )
 

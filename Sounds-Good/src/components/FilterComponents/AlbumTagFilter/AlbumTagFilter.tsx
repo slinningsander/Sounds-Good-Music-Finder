@@ -6,25 +6,29 @@ import {
   styled,
 } from '@mui/material'
 import GetAllTags from '../../../graphql/queries/getAllTags'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { updateTags, resetState } from '../../../redux/slices/tagFilterSlice'
+import { updateTags } from '../../../redux/slices/tagFilterSlice'
 import CloseIcon from '@mui/icons-material/Close'
-
-type Tag = {
-  firstLetter: string
-  option: string
-}
+import { RootState } from '../../../redux/store'
+import { Tag } from '../../../types'
 
 export function AlbumTagFilter() {
-  const [values, setValues] = useState<Tag[]>([])
   const dispatch = useDispatch()
+  const selectedTags = useSelector((state: RootState) => state.filterTags.value)
+  const [values, setValues] = useState<Tag[]>([])
+
   useEffect(() => {
-    return () => {
-      dispatch(resetState())
-    }
-  }, [dispatch])
-  // const selectedTags = useSelector((state) => state.filterTags.value)
+    const transformedSelectedTags = selectedTags.map((tag) => {
+      const firstLetter = tag.charAt(0).toUpperCase()
+      return {
+        firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+        option: tag,
+      }
+    })
+    setValues(transformedSelectedTags)
+  }, [selectedTags])
+
   const { data, loading, error } = GetAllTags()
 
   const alltags: string[] = []

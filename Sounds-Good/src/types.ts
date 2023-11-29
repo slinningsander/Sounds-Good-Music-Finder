@@ -14,3 +14,8 @@ export type CommentType = {
   id: string
   text: string
 }
+
+export type Tag = {
+  firstLetter: string
+  option: string
+}

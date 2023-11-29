@@ -1,19 +1,20 @@
 import { Box, Slider } from '@mui/material'
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import {
-  resetListenerState,
-  updateListenersFilter,
-} from '../../../redux/slices/filterListenersSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateListenersFilter } from '../../../redux/slices/filterListenersSlice'
+import { RootState } from '../../../redux/store'
 
 export function ArtistListenersFilter() {
   const dispatch = useDispatch()
+  const reduxFilterState = useSelector(
+    (state: RootState) => state.filterListeners.value
+  )
+  const [value, setValue] = useState<number[]>(reduxFilterState)
+
   useEffect(() => {
-    return () => {
-      dispatch(resetListenerState())
-    }
-  }, [dispatch])
-  const [value, setValue] = useState<number[]>([0, 6500000])
+    setValue(reduxFilterState)
+  }, [reduxFilterState])
+
   const handleListenerChange = (
     _event: unknown,
     newValue: number | number[]
@@ -21,9 +22,11 @@ export function ArtistListenersFilter() {
     setValue(newValue as number[])
     dispatch(updateListenersFilter(newValue))
   }
+
   const onChange = (_event: unknown, newValue: number | number[]) => {
     setValue(newValue as number[])
   }
+
   return (
     <Box
       sx={{

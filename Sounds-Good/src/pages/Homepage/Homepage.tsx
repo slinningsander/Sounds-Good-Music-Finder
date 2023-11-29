@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Searchbar from '../../components/Searchbar/Searchbar.tsx'
 import { SearchFilter } from '../../components/FilterComponents/SearchFilter/SearchFilter.tsx'
 import ArtistCardContainer from '../../components/ArtistCardContainer/ArtistCardContainer.tsx'
@@ -14,28 +14,22 @@ import { RootState } from '../../redux/store.ts'
 import Page from '../../components/Page/Page.tsx'
 
 export default function Homepage() {
-  // const filterContainer = document.getElementById('filterContainer')
-  const [searchbarValue, setSearchbarValue] = useState('')
-  const [selectedValue, setSelectedValue] = useState('TRACK')
   const [filterVisible, setFilterVisible] = useState(false)
   const dispatch = useDispatch()
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setSortingChange = (event: any) => {
-    //sets value in redux store
     dispatch(updateSortingDirection(event.target.value))
   }
-  //gets sortingDirectionState from store
   const sortingDirection = useSelector(
     (state: RootState) => state.sortingDirection.value
   )
 
-  // const setFilterVisible = (event: any) => {
-  //   filterVisible = 'flex'
-  // }
-  useEffect(() => {
-    console.log(searchbarValue)
-  }, [searchbarValue])
+  const searchInput = useSelector((state: RootState) => state.searchInput.value)
+
+  const searchFilter = useSelector(
+    (state: RootState) => state.searchFilter.value
+  )
 
   const toggleFilterVisibility = () => {
     setFilterVisible(!filterVisible)
@@ -53,7 +47,7 @@ export default function Homepage() {
         </button>
         {filterVisible && (
           <div className={styles.filterContainer}>
-            {selectedValue === 'TRACK' && (
+            {searchFilter === 'TRACK' && (
               <>
                 <div className={styles.children} data-cy="SliderContainer">
                   <TrackDurationFilter />
@@ -75,7 +69,7 @@ export default function Homepage() {
                 </div>
               </>
             )}
-            {selectedValue === 'ALBUM' && (
+            {searchFilter === 'ALBUM' && (
               <>
                 <div className={styles.children}>
                   <AlbumTagFilter />
@@ -96,7 +90,7 @@ export default function Homepage() {
                 </div>
               </>
             )}
-            {selectedValue == 'ARTIST' && (
+            {searchFilter == 'ARTIST' && (
               <>
                 <div className={styles.children}>
                   <ArtistListenersFilter />
@@ -126,28 +120,20 @@ export default function Homepage() {
             isRequired={true}
             placeholder="Search..."
             ariaLabel="Searchbar"
-            setSearchbarValue={setSearchbarValue}
           />
           <div className={styles.children}>
-            <SearchFilter
-              selectedValue={selectedValue}
-              setSelectedValue={setSelectedValue}
-            />
+            <SearchFilter />
           </div>
         </div>
 
-        {searchbarValue && selectedValue === 'ARTIST' && (
-          <ArtistCardContainer input={searchbarValue} />
-        )}
+        {searchInput && searchFilter === 'ARTIST' && <ArtistCardContainer />}
 
-        {searchbarValue && selectedValue === 'ALBUM' && (
-          <AlbumCardContainer input={searchbarValue} />
-        )}
+        {searchInput && searchFilter === 'ALBUM' && <AlbumCardContainer />}
 
-        {searchbarValue && selectedValue === 'TRACK' && (
-          <SongCardContainer input={searchbarValue} />
-        )}
+        {searchInput && searchFilter === 'TRACK' && <SongCardContainer />}
       </div>
     </Page>
   )
 }
+
+//input={searchbarValue}

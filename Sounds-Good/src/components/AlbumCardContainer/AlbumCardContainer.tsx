@@ -8,19 +8,16 @@ import { Alert, Box, CircularProgress } from '@mui/material'
 import { RootState } from '../../redux/store'
 import { AlbumEdgeType } from '../../types'
 
-type AlbumCardContainerProps = {
-  input: string
-}
-
-const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
+const AlbumCardContainer = () => {
   const selectedTags = useSelector((state: RootState) => state.filterTags.value)
   const sortingDirection = useSelector(
     (state: RootState) => state.sortingDirection.value
   )
   const [offset, setOffset] = useState(0)
   const [more, setMore] = useState(false)
+  const searchInput = useSelector((state: RootState) => state.searchInput.value)
   const { data, error, loading } = GetAlbumBySearchAndTag(
-    input,
+    searchInput,
     selectedTags,
     offset,
     more,
@@ -32,7 +29,7 @@ const AlbumCardContainer = ({ input }: AlbumCardContainerProps) => {
   useEffect(() => {
     client.resetStore()
     setOffset(0)
-  }, [client, input, selectedTags, sortingDirection])
+  }, [client, searchInput, selectedTags, sortingDirection])
 
   return (
     <div className={styles.wrapper} data-cy="AlbumsContainer">

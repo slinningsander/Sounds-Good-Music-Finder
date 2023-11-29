@@ -1,22 +1,20 @@
 import { Box, Slider } from '@mui/material'
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import formatDuration from '../../../utils/formatDuration'
-import {
-  resetDurationState,
-  updateDurationFilter,
-} from '../../../redux/slices/filterDurationSlice'
+import { updateDurationFilter } from '../../../redux/slices/filterDurationSlice'
+import { RootState } from '../../../redux/store'
 
 export function TrackDurationFilter() {
   const dispatch = useDispatch()
-  useEffect(() => {
-    return () => {
-      console.log(resetDurationState())
-      dispatch(resetDurationState())
-    }
-  }, [dispatch])
+  const reduxFilterState = useSelector(
+    (state: RootState) => state.filterDuration.value
+  )
+  const [value, setValue] = useState<number[]>(reduxFilterState)
 
-  const [value, setValue] = useState<number[]>([0, 600])
+  useEffect(() => {
+    setValue(reduxFilterState)
+  }, [reduxFilterState])
 
   const handleDurationChange = (
     _event: unknown,
@@ -50,7 +48,7 @@ export function TrackDurationFilter() {
         onChangeCommitted={handleDurationChange}
         onChange={onChange}
         min={0}
-        max={600}
+        max={1200}
         data-cy="Slider"
         sx={{
           ':hover': {

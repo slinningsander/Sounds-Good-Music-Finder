@@ -6,7 +6,7 @@ interface FilterDurationState {
 }
 
 const initialState: FilterDurationState = {
-  value: [0, 600],
+  value: [0, 1200],
 }
 
 export const filterDurationSlice = createSlice({
