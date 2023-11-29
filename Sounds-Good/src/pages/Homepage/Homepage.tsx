@@ -16,6 +16,10 @@ import { resetDurationState } from '../../redux/slices/filterDurationSlice.ts'
 import { resetListenerState } from '../../redux/slices/filterListenersSlice.ts'
 import { resetSearchFilterState } from '../../redux/slices/filterSearchSlice.ts'
 import { resetTagFilterState } from '../../redux/slices/tagFilterSlice.ts'
+import { initialState as initalStateDuration } from '../../redux/slices/filterDurationSlice.ts'
+import { initialState as initalStateTags } from '../../redux/slices/tagFilterSlice.ts'
+import { initialState as initialStateListenrs } from '../../redux/slices/filterListenersSlice.ts'
+import { initialState as initialStateSort } from '../../redux/slices/sortingDirectionSlice.ts'
 
 export default function Homepage() {
   const [filterVisible, setFilterVisible] = useState(false)
@@ -35,6 +39,16 @@ export default function Homepage() {
     (state: RootState) => state.searchFilter.value
   )
 
+  const durationFilterState = useSelector(
+    (state: RootState) => state.filterDuration.value
+  )
+  const tagsFilterState = useSelector(
+    (state: RootState) => state.filterTags.value
+  )
+  const listenerFilterState = useSelector(
+    (state: RootState) => state.filterListeners.value
+  )
+
   const toggleFilterVisibility = () => {
     setFilterVisible(!filterVisible)
   }
@@ -46,23 +60,36 @@ export default function Homepage() {
     dispatch(resetTagFilterState())
   }
 
+  const isAnyFilterActive = () => {
+    return (
+      durationFilterState != initalStateDuration.value ||
+      listenerFilterState != initialStateListenrs.value ||
+      tagsFilterState != initalStateTags.value ||
+      sortingDirection != initialStateSort.value
+    )
+  }
+
   return (
     <Page>
       <div className={styles.container}>
-        <button
-          type="button"
-          onClick={toggleFilterVisibility}
-          className={styles.toggleFilterBtn}
-        >
-          {filterVisible ? 'Hide filter' : 'Show filter'}
-        </button>
-        <button
-          type="button"
-          onClick={clearFilter}
-          className={styles.resetFilterBtn}
-        >
-          Clear filters
-        </button>
+        <div className={styles.buttoContainer}>
+          <button
+            type="button"
+            onClick={toggleFilterVisibility}
+            className={styles.toggleFilterBtn}
+          >
+            {filterVisible ? 'Hide filter' : 'Show filter'}
+          </button>
+          {isAnyFilterActive() && (
+            <button
+              type="button"
+              onClick={clearFilter}
+              className={styles.resetFilterBtn}
+            >
+              Clear filters
+            </button>
+          )}
+        </div>
         {filterVisible && (
           <div className={styles.filterContainer}>
             {searchFilter === 'TRACK' && (
