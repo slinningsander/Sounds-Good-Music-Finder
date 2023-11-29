@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import { pink, orange, green } from '@mui/material/colors'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../redux/store'
 import { updateSearchFilter } from '../../../redux/slices/filterSearchSlice'
@@ -11,6 +11,10 @@ export function SearchFilter() {
     (state: RootState) => state.searchFilter.value
   )
   const [searchFilterValue, setSearchFilterValue] = useState(reduxSearchFilter)
+
+  useEffect(() => {
+    setSearchFilterValue(reduxSearchFilter)
+  }, [reduxSearchFilter])
 
   const handleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchFilterValue(event.target.value)
