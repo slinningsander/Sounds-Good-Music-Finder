@@ -8,27 +8,52 @@ Sounds Good is a web application that allows you to search for different artists
 
 The project is fully functional [here](http://it2810-23.idi.ntnu.no/project2).
 
-If you for some reason want to use the application locally you can follow these steps:
+### Start local backend
 
 Navigate to the Sounds-Good folder like this:
 
-    cd Sounds-Good
+```bash
+cd Sounds-Good
+```
 
 Then run:
 
-    npm install
+```bash
+npm install
+```
 
 Then finally to run the project:
 
-    npm run dev
+```bash
+npm run dev
+```
 
-This will run the project locally on localhost.
+This will run the project on localhost.
 
-**Note:** This will also use the backend that is hosted on the server. To use a local backend you have to change the ApolloClient URI in main.tsx to localhost, and start the backend manually:
+**Note:** This will also use the backend that is hosted on the server.
 
-    cd Sounds-Good-Backend
+### Start local backend
 
-    node index
+First you have to change line 9 in main.tsx
+
+From this:
+
+```javascript lineos 9
+uri: "http://it2810-23.idi.ntnu.no:4000";
+```
+
+To this:
+
+```javascript
+uri: "http://localhost:4000";
+```
+
+Then you have to navigate to the backend folder:
+
+```bash
+cd Sounds-Good-Backend
+node index
+```
 
 ## Roadmap
 
@@ -160,13 +185,13 @@ The testing covers all of our functionality, that being filters, sorting, search
 
 To run the Cypress test, you need to be in the "Sounds-Good" repo and write the following command:
 
-```
+```bash
 npm run cypress:open
 ```
 
 Remember to run this command if you have not done it earlier:
 
-```
+```bash
 npm install
 ```
 
@@ -180,7 +205,7 @@ Press the "E2E Testing" option which will lead you further to another screen:
 
 Here you can choose which browser you want to run the E2E test on. We strongly advise you to use Firefox, as this browser is definitely going to run the test, with Chrome remaining in a constant refresh loop when running the test. If you change the "baseURL" to the localhost in "cypress.config.ts", Chrome will also run the test. In that case, remember to run:
 
-```
+```bash
 npm run dev
 ```
 
@@ -205,7 +230,7 @@ npm test
 
 Remember to run this command if you have not done it earlier:
 
-```
+```bash
 npm install
 ```
 
