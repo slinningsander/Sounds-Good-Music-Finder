@@ -10,8 +10,7 @@
 .songDetailCard {
   display: flex;
   flex-direction: row;
-  align-items: flex-start; /* Align items to the start */
-  width: 70%;
+  width: 70vw;
   background-color: #1d267d;
   border-radius: 2ch;
 }
@@ -24,6 +23,8 @@
   z-index: 1;
   background-color: #5c369c;
   border-radius: 50%;
+  width: 2.5em;
+  height:2.5em;
 }
 
 .goBackButton:hover {
@@ -31,14 +32,11 @@
   transition: 0.3s;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 780px) {
   .songDetailCard {
-    flex-direction: column;
-    width: 60%;
-    justify-content: center;
-    align-items: center;
-  }
-  .songDetailCard > * {
     width: 100%;
+    height: fit-content;
+    padding: 2em;
+    flex-direction: column;
   }
 }

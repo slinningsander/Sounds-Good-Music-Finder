@@ -16,9 +16,11 @@ describe('Test the different pages and the functionality of the application', ()
       .should('contain', 'Home')
   })
 
-  //Check if the filte buttons are visible and can be clicked.
+  //Check if the filter buttons are visible and can be clicked.
   it('Test filter buttons', () => {
     cy.get('[data-cy=ToggleFilter]').should('exist').click()
+    cy.get('[data-cy=Select]').click()
+    cy.get('[data-cy=ASCOption]').click()
     cy.get('[data-cy=ClearFilter]').should('exist').click()
   })
 
@@ -30,9 +32,6 @@ describe('Test the different pages and the functionality of the application', ()
   })
 
   //Checks if the searchbar exists and can be used.
-  //The result from the search will be empty, however
-  //the container for the result still exists and can be
-  //used in the test.
   it('Test search', () => {
     cy.get('[data-cy=TrackButton]').click()
     cy.get('[data-cy=Searchbar]')
@@ -54,27 +53,22 @@ describe('Test the different pages and the functionality of the application', ()
   })
 
   //Checks if the dropdown exists and that the options can be selected.
+  //Because the component is from MUI, so normal Cypress commands cannot be used.
   it('Test sorting dropdown', () => {
     cy.get('[data-cy=ToggleFilter]').click()
     cy.get('[data-cy=Select]').should('exist')
-    cy.get('[data-cy=Select]')
-      .should('exist')
-      .select('Default')
-      .should('have.value', 'Default')
-    cy.get('[data-cy=Select]')
-      .should('exist')
-      .select('Alphabetically(a-z)')
-      .should('have.value', 'ASC')
-    cy.get('[data-cy=Select]')
-      .should('exist')
-      .select('Alphabetically(z-a)')
-      .should('have.value', 'DESC')
+    cy.get('[data-cy=Select]').should('exist').click()
+    cy.get('[data-cy=DefaultOption]').should('exist').click()
+    cy.get('[data-cy=Select]').should('exist').click()
+    cy.get('[data-cy=ASCOption]').should('exist').click()
+    cy.get('[data-cy=Select]').should('exist').click()
+    cy.get('[data-cy=DESCOption]').should('exist').click()
   })
 
   //Tests if the radiobuttons have the desired effect on the search.
   it('Test the song search functionality', () => {
-    //Start off by typing in "test". The default value of the radiobuttons is "Track".
-    //The search should therefore return 3 results.
+    //Start off by typing "test" when searching for songs.
+    //The search should return 3 results.
     cy.get('[data-cy=TrackButton]').click()
     cy.get('[data-cy=Searchbar]').type('test').type('{enter}')
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
@@ -153,14 +147,16 @@ describe('Test the different pages and the functionality of the application', ()
     //Change the sorting to alphabetical and check that the first song
     //is "Science & Blood Tests", since "S" comes before "T".
     cy.get('[data-cy=ToggleFilter]').click()
-    cy.get('[data-cy=Select]').select('Alphabetically(a-z)')
+    cy.get('[data-cy=Select]').click()
+    cy.get('[data-cy=ASCOption]').click()
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
       'contain',
       'Science & Blood Tests'
     )
     //Change the sorting to reverse alphabetical and check that the first song
     //is "Testify", since "T" comes after "S".
-    cy.get('[data-cy=Select]').select('Alphabetically(z-a)')
+    cy.get('[data-cy=Select]').click()
+    cy.get('[data-cy=DESCOption]').click()
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
       'contain',
       'Testify'
@@ -211,7 +207,8 @@ describe('Test the different pages and the functionality of the application', ()
     )
     //Click on the filter and add a sorting direction.
     cy.get('[data-cy=ToggleFilter]').click()
-    cy.get('[data-cy=Select]').select('Alphabetically(a-z)')
+    cy.get('[data-cy=Select]').click()
+    cy.get('[data-cy=ASCOption]').click()
     //Check that the search results have been sorted.
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
       'contain',
@@ -368,4 +365,3 @@ describe('Test the different pages and the functionality of the application', ()
     )
   })
 })
-// '[data-cy=]'

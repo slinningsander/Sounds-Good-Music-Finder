@@ -14,7 +14,7 @@ const SongDetailsComponent = ({ title, artist, img, length, album }: Props) => {
     <>
       <div className={styles.contentWrapper}>
         <div className={styles.contentContainer}>
-          <h1 className={styles.children} data-cy="SongTitleHeader">
+          <h1 className={styles.header} data-cy="SongTitleHeader">
             {title}
           </h1>
           <Link
@@ -22,7 +22,7 @@ const SongDetailsComponent = ({ title, artist, img, length, album }: Props) => {
             to={'/project2/' + encodeURIComponent(artist)}
             data-cy="LinkToArtistFromSong"
           >
-            <h2 className={styles.children}>{artist}</h2>
+            <h2 className={styles.header}>{artist}</h2>
           </Link>
           <Link
             className={styles.linkContainer}
@@ -34,7 +34,7 @@ const SongDetailsComponent = ({ title, artist, img, length, album }: Props) => {
             }
             data-cy="LinkToAlbumFromSong"
           >
-            <h3 className={styles.children}>{album}</h3>
+            <h3 className={styles.header}>{album}</h3>
           </Link>
           <img
             src={img}
@@ -42,7 +42,7 @@ const SongDetailsComponent = ({ title, artist, img, length, album }: Props) => {
             className={styles.image}
             data-cy="SongAlbumImage"
           />
-          <h3 className={styles.children} data-cy="SongLength">
+          <h3 className={styles.header} data-cy="SongLength">
             {length}
           </h3>
         </div>

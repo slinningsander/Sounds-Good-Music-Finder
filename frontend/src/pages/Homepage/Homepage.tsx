@@ -18,6 +18,11 @@ import Page from '../../components/Page/Page.tsx'
 import { resetDurationState } from '../../redux/slices/filterDurationSlice.ts'
 import { resetListenerState } from '../../redux/slices/filterListenersSlice.ts'
 import { resetTagFilterState } from '../../redux/slices/tagFilterSlice.ts'
+import { initialState as initalStateDuration } from '../../redux/slices/filterDurationSlice.ts'
+import { initialState as initalStateTags } from '../../redux/slices/tagFilterSlice.ts'
+import { initialState as initialStateListenrs } from '../../redux/slices/filterListenersSlice.ts'
+import { initialState as initialStateSort } from '../../redux/slices/sortingDirectionSlice.ts'
+import { MenuItem, Select } from '@mui/material'
 
 // Define the Homepage component
 export default function Homepage() {
@@ -44,7 +49,16 @@ export default function Homepage() {
     (state: RootState) => state.searchFilter.value
   )
 
-  // Toggle filter visibility
+  const durationFilterState = useSelector(
+    (state: RootState) => state.filterDuration.value
+  )
+  const tagsFilterState = useSelector(
+    (state: RootState) => state.filterTags.value
+  )
+  const listenerFilterState = useSelector(
+    (state: RootState) => state.filterListeners.value
+  )
+
   const toggleFilterVisibility = () => {
     setFilterVisible(!filterVisible)
   }
@@ -57,31 +71,38 @@ export default function Homepage() {
     dispatch(resetSortingDirectionState())
   }
 
-  // Render the Homepage component
+  const isAnyFilterActive = () => {
+    return (
+      durationFilterState != initalStateDuration.value ||
+      listenerFilterState != initialStateListenrs.value ||
+      tagsFilterState != initalStateTags.value ||
+      sortingDirection != initialStateSort.value
+    )
+  }
+
   return (
     <Page>
       <div className={styles.container}>
-        {/* Toggle filter visibility button */}
-        <button
-          type="button"
-          onClick={toggleFilterVisibility}
-          className={styles.toggleFilterBtn}
-          data-cy="ToggleFilter"
-        >
-          {filterVisible ? 'Hide filter' : 'Show filter'}
-        </button>
-
-        {/* Clear filters button */}
-        <button
-          type="button"
-          onClick={clearFilter}
-          className={styles.resetFilterBtn}
-          data-cy="ClearFilter"
-        >
-          Clear filters
-        </button>
-
-        {/* Render filter components if filterVisible is true */}
+        <div className={styles.buttoContainer}>
+          <button
+            type="button"
+            onClick={toggleFilterVisibility}
+            className={styles.toggleFilterBtn}
+            data-cy="ToggleFilter"
+          >
+            {filterVisible ? 'Hide filter' : 'Show filter'}
+          </button>
+          {isAnyFilterActive() && (
+            <button
+              type="button"
+              onClick={clearFilter}
+              className={styles.resetFilterBtn}
+              data-cy="ClearFilter"
+            >
+              Clear filters
+            </button>
+          )}
+        </div>
         {filterVisible && (
           <div className={styles.filterContainer}>
             {/* Render TrackDurationFilter component if searchFilter is 'TRACK' */}
@@ -94,16 +115,35 @@ export default function Homepage() {
                   <label htmlFor="select" className={styles.label}>
                     Sorting:
                   </label>
-                  <select
+                  <Select
+                    sx={{
+                      width: '11.5em',
+                      backgroundColor: '#1D267D',
+                      color: 'white',
+                    }}
+                    MenuProps={{
+                      PaperProps: {
+                        style: {
+                          backgroundColor: '#1D267D',
+                          color: 'white',
+                        },
+                      },
+                    }}
                     id="select"
                     value={sortingDirection}
                     onChange={setSortingChange}
                     data-cy="Select"
                   >
-                    <option value="Default">Default</option>
-                    <option value="ASC">Alphabetically(a-z)</option>
-                    <option value="DESC">Alphabetically(z-a)</option>
-                  </select>
+                    <MenuItem value="Default" data-cy="DefaultOption">
+                      Default
+                    </MenuItem>
+                    <MenuItem value="ASC" data-cy="ASCOption">
+                      Alphabetically(a-z)
+                    </MenuItem>
+                    <MenuItem value="DESC" data-cy="DESCOption">
+                      Alphabetically(z-a)
+                    </MenuItem>
+                  </Select>
                 </div>
               </>
             )}
@@ -118,16 +158,35 @@ export default function Homepage() {
                   <label htmlFor="select" className={styles.label}>
                     Sorting:
                   </label>
-                  <select
+                  <Select
+                    sx={{
+                      width: '11.5em',
+                      backgroundColor: '#1D267D',
+                      color: 'white',
+                    }}
+                    MenuProps={{
+                      PaperProps: {
+                        style: {
+                          backgroundColor: '#1D267D',
+                          color: 'white',
+                        },
+                      },
+                    }}
                     id="select"
                     value={sortingDirection}
                     onChange={setSortingChange}
                     data-cy="Select"
                   >
-                    <option value="Default">Default</option>
-                    <option value="ASC">Alphabetically(a-z)</option>
-                    <option value="DESC">Alphabetically(z-a)</option>
-                  </select>
+                    <MenuItem value="Default" data-cy="DefaultOption">
+                      Default
+                    </MenuItem>
+                    <MenuItem value="ASC" data-cy="ASCOption">
+                      Alphabetically(a-z)
+                    </MenuItem>
+                    <MenuItem value="DESC" data-cy="DESCOption">
+                      Alphabetically(z-a)
+                    </MenuItem>
+                  </Select>
                 </div>
               </>
             )}
@@ -142,16 +201,35 @@ export default function Homepage() {
                   <label htmlFor="select" className={styles.label}>
                     Sorting:
                   </label>
-                  <select
+                  <Select
+                    sx={{
+                      width: '11.5em',
+                      backgroundColor: '#1D267D',
+                      color: 'white',
+                    }}
+                    MenuProps={{
+                      PaperProps: {
+                        style: {
+                          backgroundColor: '#1D267D',
+                          color: 'white',
+                        },
+                      },
+                    }}
                     id="select"
                     value={sortingDirection}
                     onChange={setSortingChange}
                     data-cy="Select"
                   >
-                    <option value="Default">Default</option>
-                    <option value="ASC">Alphabetically(a-z)</option>
-                    <option value="DESC">Alphabetically(z-a)</option>
-                  </select>
+                    <MenuItem value="Default" data-cy="DefaultOption">
+                      Default
+                    </MenuItem>
+                    <MenuItem value="ASC" data-cy="ASCOption">
+                      Alphabetically(a-z)
+                    </MenuItem>
+                    <MenuItem value="DESC" data-cy="DESCOption">
+                      Alphabetically(z-a)
+                    </MenuItem>
+                  </Select>
                 </div>
               </>
             )}
@@ -170,8 +248,11 @@ export default function Homepage() {
             <SearchFilter />
           </div>
         </div>
-
-        {/* Render ArtistCardContainer if searchInput is not empty and searchFilter is 'ARTIST' */}
+        {searchInput && (
+          <h2 className={styles.searchHeader}>
+            Showing results for "{searchInput}":
+          </h2>
+        )}
         {searchInput && searchFilter === 'ARTIST' && <ArtistCardContainer />}
 
         {/* Render AlbumCardContainer if searchInput is not empty and searchFilter is 'ALBUM' */}

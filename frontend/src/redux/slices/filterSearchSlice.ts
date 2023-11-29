@@ -5,7 +5,7 @@ interface FilterSearchState {
   value: string
 }
 
-const initialState: FilterSearchState = {
+export const initialState: FilterSearchState = {
   value: 'ALBUM',
 }
 

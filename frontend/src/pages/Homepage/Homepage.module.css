@@ -4,7 +4,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 2em;
+  width:100%;
 }
 
 .filterContainer {
@@ -17,7 +17,7 @@
   margin: 0 auto;
   width: 50vw;
   box-sizing: border-box;
-  margin-bottom: 20px;
+  margin-bottom: 2em;
   height: fit-content;
   padding: 1.5em;
   border-radius: 2em;
@@ -36,6 +36,7 @@
   align-items: center;
   flex-direction: column;
   margin: 2em;
+  width: 100%;
 }
 
 .children {
@@ -49,34 +50,61 @@
   margin-right: 10px;
 }
 
+.buttonContainer {
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
 .toggleFilterBtn {
-  position: fixed;
-  left: 0;
-  bottom: 10%;
-  margin: 2em;
-  background-color: blue;
+  background-color: #5c369c;
   color: white;
   font-weight: 700;
-  padding: 1.5em;
+  padding: 1em;
   border-radius: 1.5em;
-  outline: none;
   border: none;
+  margin: 1em;
+  width: 10em;
 }
 
 .toggleFilterBtn:hover {
   cursor: pointer;
+  transform: scale(1.05);
+  opacity: 0.7;
+  transition: 0.3s;
 }
 
 .resetFilterBtn {
-  position: fixed;
-  left: 0;
-  bottom: 30%;
-  margin: 2em;
-  background-color: red;
+  background-color: #5c369c;
   color: white;
   font-weight: 700;
-  padding: 1.5em;
+  padding: 1em;
   border-radius: 1.5em;
-  outline: none;
   border: none;
+  margin: 1em;
+  width: 10em;
+}
+
+.resetFilterBtn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+@media(max-width: 780px){
+  .filterContainer {
+    width: 100%;
+    min-width: 20em;
+    height: 40vh;
+    margin: 0;
+    border-radius: 0;
+
+  }
+}
+
+.searchHeader{
+  margin-bottom: 0.4em;
 }
