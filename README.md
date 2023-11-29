@@ -256,7 +256,7 @@ Another thing we have done is that we have redesigned the homepage so that the s
 
 We have also fixed some small bugs. Most notably we changed it so that the text is white all the time and not only in browsers that use dark mode like before. This ensures that we have good contrast regardless of what browser and color scheme you are using, which is very important for accessibility.
 
-Almost all our states are now handled through Redux. This means that we have removed all prop drilling and the code has become much more concise.
+Almost all our states are now handled through Redux. This means that we have removed all prop drilling and the code has become much more concise. We also use Redux to persist all filter, sorting and search state so that the user can get back to the same settings if they go to checkout a song, album or artist. We could have tried to persist the lates query as well, but did not have time to implement this. The search queries only run if the searchbar value is updated. 
 
 ### V1.1
 
