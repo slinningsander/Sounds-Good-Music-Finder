@@ -12,6 +12,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateSortingDirection } from '../../redux/slices/sortingDirectionSlice.ts'
 import { RootState } from '../../redux/store.ts'
 import Page from '../../components/Page/Page.tsx'
+import { resetDurationState } from '../../redux/slices/filterDurationSlice.ts'
+import { resetListenerState } from '../../redux/slices/filterListenersSlice.ts'
+import { resetSearchFilterState } from '../../redux/slices/filterSearchSlice.ts'
+import { resetTagFilterState } from '../../redux/slices/tagFilterSlice.ts'
 
 export default function Homepage() {
   const [filterVisible, setFilterVisible] = useState(false)
@@ -35,6 +39,13 @@ export default function Homepage() {
     setFilterVisible(!filterVisible)
   }
 
+  const clearFilter = () => {
+    dispatch(resetDurationState())
+    dispatch(resetListenerState())
+    dispatch(resetSearchFilterState())
+    dispatch(resetTagFilterState())
+  }
+
   return (
     <Page>
       <div className={styles.container}>
@@ -44,6 +55,13 @@ export default function Homepage() {
           className={styles.toggleFilterBtn}
         >
           {filterVisible ? 'Hide filter' : 'Show filter'}
+        </button>
+        <button
+          type="button"
+          onClick={clearFilter}
+          className={styles.resetFilterBtn}
+        >
+          Clear filters
         </button>
         {filterVisible && (
           <div className={styles.filterContainer}>

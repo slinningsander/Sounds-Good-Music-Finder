@@ -63,6 +63,19 @@
 }
 
 .toggleFilterBtn:hover {
-  
   cursor: pointer;
+}
+
+.resetFilterBtn {
+  position: fixed;
+  left: 0;
+  bottom: 30%;
+  margin: 2em;
+  background-color: red;
+  color: white;
+  font-weight: 700;
+  padding: 1.5em;
+  border-radius: 1.5em;
+  outline: none;
+  border: none;
 }
