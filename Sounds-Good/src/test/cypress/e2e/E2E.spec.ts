@@ -109,8 +109,9 @@ describe('Test the different pages and the functionality of the application', ()
     cy.get('[data-cy=TrackButton]').click()
     cy.get('[data-cy=Searchbar]').type('test').type('{enter}')
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
-    //Change the minimum value of the slider to 201 seconds. The search should now return 1 result,
-    cy.get('[data-cy=Slider]').should('exist').click(100, 0)
+    //Change the minimum value of the slider to 201 seconds. The search should now return 1 result.
+    cy.get('[data-cy=ToggleFilter]').click()
+    cy.get('[data-cy=Slider]').should('exist').click(50, 0)
     cy.get('[data-cy=SongsContainer]').children().should('have.length', 1)
     //Check that it is the correct song that is returned. The other two song are under 200 seconds long
     cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
