@@ -11,16 +11,12 @@ import { useEffect, useState } from 'react'
 import { updateTags } from '../../../redux/slices/tagFilterSlice'
 import CloseIcon from '@mui/icons-material/Close'
 import { RootState } from '../../../redux/store'
-
-type Tag = {
-  firstLetter: string
-  option: string
-}
+import { Tag } from '../../../types'
 
 export function AlbumTagFilter() {
-  const [values, setValues] = useState<Tag[]>([])
   const dispatch = useDispatch()
   const selectedTags = useSelector((state: RootState) => state.filterTags.value)
+  const [values, setValues] = useState<Tag[]>([])
 
   useEffect(() => {
     const transformedSelectedTags = selectedTags.map((tag) => {
