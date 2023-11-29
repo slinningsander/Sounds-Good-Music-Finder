@@ -7,6 +7,7 @@ import {
 import styles from './Searchbar.module.css'
 import { useEffect, useState } from 'react'
 import { RootState } from '../../redux/store'
+import SearchIcon from '@mui/icons-material/Search'
 
 type SearchbarProps = {
   searchbarName: string
@@ -21,6 +22,7 @@ export function Searchbar({
   placeholder,
   ariaLabel,
 }: SearchbarProps) {
+  // const isMobile = useMobile()
   const dispatch = useDispatch()
   const reduxInputValue = useSelector(
     (state: RootState) => state.searchInput.value
@@ -31,13 +33,6 @@ export function Searchbar({
     event.preventDefault()
     dispatch(updateSearchInput(inputValue))
   }
-
-  // useEffect(() => {
-  //   if (inputValue === '') {
-  //     console.log('Dispatching resetSearchInput') // Debug log
-  //     dispatch(resetSearchInput())
-  //   }
-  // }, [dispatch, inputValue])
 
   useEffect(() => {
     if (inputValue === '' && reduxInputValue !== '') {
@@ -69,8 +64,7 @@ export function Searchbar({
           className={styles.searchBtn}
           onClick={handleSubmit}
         >
-          {' '}
-          Search{' '}
+          <SearchIcon />
         </button>
       </form>
     </div>
