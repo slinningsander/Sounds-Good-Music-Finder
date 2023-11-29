@@ -39,9 +39,18 @@ export function ArtistListenersFilter() {
         disableSwap
         value={value}
         onChangeCommitted={handleListenerChange}
+        onChange={onChange}
         min={0}
         max={6500000}
         data-cy="ListenerSlider"
+        sx={{
+          ':hover': {
+            cursor: 'grab',
+          },
+          ':active': {
+            cursor: 'grabbing',
+          },
+        }}
       />
       <span>{value[1]} listeners</span>
     </Box>

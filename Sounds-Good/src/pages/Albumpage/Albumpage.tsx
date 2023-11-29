@@ -49,9 +49,15 @@ const Albumpage = () => {
             />
             <div className={styles.infoContainer}>
               <h1 data-cy="AlbumTitleHeader">{data.albums[0].album_title}</h1>
-              <h2 data-cy="AlbumArtistHeader">
-                {data.albums[0].artistsCreatedAlbum[0].artist_name}
-              </h2>
+              <Link
+                to={'/project2/' + encodeURIComponent(decodedArtistName)}
+                className={styles.linkContainer}
+              >
+                <h2 data-cy="AlbumArtistHeader">
+                  {data.albums[0].artistsCreatedAlbum[0].artist_name}
+                </h2>
+              </Link>
+
               <img
                 className={styles.albumArt}
                 src={data.albums[0].album_art}

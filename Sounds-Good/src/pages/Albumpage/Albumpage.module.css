@@ -6,6 +6,19 @@
   display: flex;
   flex-direction: column;
 }
+.linkContainer {
+  transition: transform 0.2s;
+  color: inherit;
+  background-color: #0c134f;
+  border-radius: 1ch;
+  padding: 1ch;
+  margin-bottom: 0.5ch;
+}
+.linkContainer:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  color: #5c469c;
+}
 
 .albumDetailCard {
   display: flex;
@@ -44,12 +57,13 @@ h1 {
   margin-bottom: 0;
 }
 h2 {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .track:hover {
   transform: scale(1.05);
   cursor: pointer;
+  color: #5c469c;
 }
 
 .albumContainer {
@@ -68,6 +82,11 @@ h2 {
   border-radius: 2ch;
   text-align: center;
   transition: transform 0.2s;
+  color: inherit;
+  background-color: #0c134f;
+  border-radius: 1ch;
+  margin-bottom: 1ch;
+  padding: 1ch;
 }
 
 .infoContainer {

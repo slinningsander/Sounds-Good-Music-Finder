@@ -20,8 +20,10 @@ export function TrackDurationFilter() {
     _event: unknown,
     newValue: number | number[]
   ) => {
-    setValue(newValue as number[])
     dispatch(updateDurationFilter(newValue))
+  }
+  const onChange = (_event: unknown, newValue: number | number[]) => {
+    setValue(newValue as number[])
   }
 
   return (
@@ -44,9 +46,18 @@ export function TrackDurationFilter() {
         getAriaLabel={() => 'Duration range'}
         disableSwap
         onChangeCommitted={handleDurationChange}
+        onChange={onChange}
         min={0}
         max={1200}
         data-cy="Slider"
+        sx={{
+          ':hover': {
+            cursor: 'grab',
+          },
+          ':active': {
+            cursor: 'grabbing',
+          },
+        }}
       />
       <span>
         {formatDuration(value[1]) != '' ? formatDuration(value[1]) : '0'}{' '}
