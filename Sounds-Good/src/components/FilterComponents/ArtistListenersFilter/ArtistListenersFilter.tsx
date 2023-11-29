@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateListenersFilter } from '../../../redux/slices/filterListenersSlice'
 import { RootState } from '../../../redux/store'
+import formatListeners from '../../../utils/formatListeners'
 
 export function ArtistListenersFilter() {
   const dispatch = useDispatch()
@@ -37,7 +38,7 @@ export function ArtistListenersFilter() {
         gap: '1em',
       }}
     >
-      <span>{value[0]} listeners</span>
+      <span>{formatListeners(value[0])} listeners</span>
       <Slider
         size="small"
         disableSwap
@@ -56,7 +57,7 @@ export function ArtistListenersFilter() {
           },
         }}
       />
-      <span>{value[1]} listeners</span>
+      <span>{formatListeners(value[1])} listeners</span>
     </Box>
   )
 }
