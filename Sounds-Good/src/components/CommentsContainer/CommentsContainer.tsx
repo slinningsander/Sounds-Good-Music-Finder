@@ -27,7 +27,9 @@ export const CommentsContainer = ({ title, artist, album }: Props) => {
   return (
     <>
       <div className={styles.CommentsWrapper}>
-        <h2 data-cy="SongCommentsHeader">Comments</h2>
+        <h2 data-cy="SongCommentsHeader" className={styles.header}>
+          Comments
+        </h2>
         <div className={styles.CommentsContainer} data-cy="CommentsContainer">
           {data.comments.length !== 0 ? (
             data.comments.map((comment: CommentType) => (
