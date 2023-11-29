@@ -29,26 +29,11 @@ function render(
 }
 
 describe('SearchFilter', () => {
-  let setSelectedValue: (value: string) => void
-
-  beforeEach(() => {
-    setSelectedValue = vi.fn()
-  })
-
   test('renders SearchFilter without crashing', () => {
     const { getByRole } = render(<SearchFilter />)
     expect(getByRole('radiogroup')).toBeInTheDocument()
   })
 
-  // test('calls setSelectedValue when radio button value changes', () => {
-  //   const { getByLabelText } = render(<SearchFilter />)
-
-  //   fireEvent.click(getByLabelText('Album'))
-  //   expect(setSelectedValue).toHaveBeenCalledWith('ALBUM')
-
-  //   fireEvent.click(getByLabelText('Track'))
-  //   expect(setSelectedValue).toHaveBeenCalledWith('TRACK')
-  // })
   test('calls updateSearchFilter when radio button value changes', () => {
     const store = configureStore({
       reducer: { searchFilter: searchFilterReducer },
