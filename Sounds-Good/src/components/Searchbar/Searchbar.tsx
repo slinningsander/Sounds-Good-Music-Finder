@@ -22,22 +22,28 @@ export function Searchbar({
   ariaLabel,
 }: SearchbarProps) {
   const dispatch = useDispatch()
-  const [inputValue, setInputValue] = useState('')
   const reduxInputValue = useSelector(
     (state: RootState) => state.searchInput.value
   )
+  const [inputValue, setInputValue] = useState(reduxInputValue)
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault()
     dispatch(updateSearchInput(inputValue))
   }
 
+  // useEffect(() => {
+  //   if (inputValue === '') {
+  //     console.log('Dispatching resetSearchInput') // Debug log
+  //     dispatch(resetSearchInput())
+  //   }
+  // }, [dispatch, inputValue])
+
   useEffect(() => {
-    if (inputValue === '') {
-      console.log('Dispatching resetSearchInput') // Debug log
+    if (inputValue === '' && reduxInputValue !== '') {
       dispatch(resetSearchInput())
     }
-  }, [dispatch, inputValue])
+  }, [inputValue, reduxInputValue, dispatch])
 
   useEffect(() => {
     setInputValue(reduxInputValue)

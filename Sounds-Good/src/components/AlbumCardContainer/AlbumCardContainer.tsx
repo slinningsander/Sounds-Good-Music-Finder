@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import AlbumCard from '../AlbumCard/AlbumCard'
 import styles from './AlbumCardContainer.module.css'
 import { useApolloClient } from '@apollo/client'
@@ -26,14 +26,9 @@ const AlbumCardContainer = () => {
   )
   const client = useApolloClient()
 
-  const prevSrchInpRef = useRef<string | null>(null)
-
   useEffect(() => {
-    if (prevSrchInpRef.current !== searchInput) {
-      client.resetStore()
-      setOffset(0)
-    }
-    prevSrchInpRef.current = searchInput
+    client.resetStore()
+    setOffset(0)
   }, [client, searchInput, selectedTags, sortingDirection])
 
   return (

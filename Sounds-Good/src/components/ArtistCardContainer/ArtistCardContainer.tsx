@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import GetArtist from '../../graphql/queries/getArtistsBySearch'
 import ArtistCard from '../ArtistCard/ArtistCard'
 import styles from './ArtistCardContainer.module.css'
@@ -29,16 +29,10 @@ const ArtistCardContainer = () => {
     setMore
   )
   const client = useApolloClient()
-  const prevSrchInpRef = useRef<string | null>(null)
 
   useEffect(() => {
-    if (prevSrchInpRef.current !== searchInput) {
-      client.resetStore()
-      setOffset(0)
-      console.log('Search')
-    }
-    prevSrchInpRef.current = searchInput
-    console.log('NO SEARCH')
+    client.resetStore()
+    setOffset(0)
   }, [client, searchInput, sortingDirection, maxListeners, minListeners])
 
   return (

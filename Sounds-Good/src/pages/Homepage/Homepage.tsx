@@ -14,7 +14,6 @@ import { RootState } from '../../redux/store.ts'
 import Page from '../../components/Page/Page.tsx'
 
 export default function Homepage() {
-  const [selectedValue, setSelectedValue] = useState('TRACK')
   const [filterVisible, setFilterVisible] = useState(false)
   const dispatch = useDispatch()
 
@@ -28,10 +27,14 @@ export default function Homepage() {
 
   const searchInput = useSelector((state: RootState) => state.searchInput.value)
 
+  const searchFilter = useSelector(
+    (state: RootState) => state.searchFilter.value
+  )
+
   const toggleFilterVisibility = () => {
     setFilterVisible(!filterVisible)
   }
-  //const durationFilter = useSelector((state: RootState) => state.filterDuration.value);
+
   return (
     <Page>
       <div className={styles.container}>
@@ -44,7 +47,7 @@ export default function Homepage() {
         </button>
         {filterVisible && (
           <div className={styles.filterContainer}>
-            {selectedValue === 'TRACK' && (
+            {searchFilter === 'TRACK' && (
               <>
                 <div className={styles.children} data-cy="SliderContainer">
                   <TrackDurationFilter />
@@ -66,7 +69,7 @@ export default function Homepage() {
                 </div>
               </>
             )}
-            {selectedValue === 'ALBUM' && (
+            {searchFilter === 'ALBUM' && (
               <>
                 <div className={styles.children}>
                   <AlbumTagFilter />
@@ -87,7 +90,7 @@ export default function Homepage() {
                 </div>
               </>
             )}
-            {selectedValue == 'ARTIST' && (
+            {searchFilter == 'ARTIST' && (
               <>
                 <div className={styles.children}>
                   <ArtistListenersFilter />
@@ -119,22 +122,15 @@ export default function Homepage() {
             ariaLabel="Searchbar"
           />
           <div className={styles.children}>
-            <SearchFilter
-              selectedValue={selectedValue}
-              setSelectedValue={setSelectedValue}
-            />
+            <SearchFilter />
           </div>
         </div>
 
-        {searchInput && selectedValue === 'ARTIST' && <ArtistCardContainer />}
+        {searchInput && searchFilter === 'ARTIST' && <ArtistCardContainer />}
 
-        {searchInput && selectedValue === 'ALBUM' && <AlbumCardContainer />}
+        {searchInput && searchFilter === 'ALBUM' && <AlbumCardContainer />}
 
-        {searchInput && selectedValue === 'ALBUM' && <SongCardContainer />}
-
-        {/* {(searchInput || durationFilter) && selectedValue === 'TRACK' && (
-          <SongCardContainer />
-        )} */}
+        {searchInput && searchFilter === 'TRACK' && <SongCardContainer />}
       </div>
     </Page>
   )

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import GetSongBySearch from '../../graphql/queries/getTracksBySearch'
 import SongCard from '../SongCard/SongCard'
 import styles from './SongCardContainer.module.css'
@@ -32,15 +32,10 @@ const SongCardContainer = () => {
   )
   const client = useApolloClient()
 
-  const prevSrchInpRef = useRef<string | null>(null)
-
   useEffect(() => {
-    if (prevSrchInpRef.current !== searchInput) {
-      client.resetStore()
-      setOffset(0)
-    }
-    prevSrchInpRef.current = searchInput
-  }, [client, searchInput, sortingDirection, minDuration, maxDuration])
+    client.resetStore()
+    setOffset(0)
+  }, [client, searchInput, sortingDirection, minDuration, maxDuration, data])
 
   return (
     <>
