@@ -21,7 +21,15 @@ export default function BasicInfoCard(props: Props) {
     >
       <Card
         variant="outlined"
-        sx={{ width: 1, backgroundColor: '#1D267D', cursor: 'pointer' }}
+        sx={{
+          width: '70vw',
+          backgroundColor: '#1D267D',
+          minWidth: '20em',
+          cursor: 'pointer',
+          '@media(min-width: 780px)': {
+            width: '50vw',
+          },
+        }}
       >
         <CardContent sx={{ display: 'flex', flexDirection: 'row' }}>
           <img

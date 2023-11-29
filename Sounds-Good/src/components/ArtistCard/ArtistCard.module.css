@@ -2,20 +2,24 @@
   opacity: 0.5;
 }
 .container {
-  margin-bottom: 20px;
-  margin-left: 25%;
-  margin-right: 25%;
+  min-width: 20em;
+  width: 70vw;
+  margin: 2em;
+  background-color: #1d267d;
   border-radius: 4px;
   text-decoration: none;
   color: inherit;
-  background-color: #1d267d;
   padding: 2ch;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
+  @media(min-width: 780px){
+    width: 50vw;
+  }
 }
+
 .text {
   margin: 0;
 }
