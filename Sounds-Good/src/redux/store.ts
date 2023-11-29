@@ -4,7 +4,7 @@ import filterListenersReducer from './slices/filterListenersSlice'
 import sortingDirectionReducer from './slices/sortingDirectionSlice'
 import filterDurationReducer from './slices/filterDurationSlice'
 import searchInputReducer from './slices/searchInputSlice'
-
+import searchFilterReducer from './slices/filterSearchSlice'
 const store = configureStore({
   reducer: {
     filterTags: filterTagsReducer,
@@ -12,6 +12,7 @@ const store = configureStore({
     sortingDirection: sortingDirectionReducer,
     filterDuration: filterDurationReducer,
     searchInput: searchInputReducer,
+    searchFilter: searchFilterReducer,
   },
 })
 
