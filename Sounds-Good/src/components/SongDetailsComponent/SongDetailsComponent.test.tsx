@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import DetailedCard from './DetailedCard'
+import SongDetailsComponent from './SongDetailsComponent'
 
-describe('DetailedCard', () => {
+describe('SongDetailsComponent', () => {
   test('Renders with provided props and links', () => {
     const mockProps = {
       title: 'Song Title',
@@ -14,7 +14,7 @@ describe('DetailedCard', () => {
 
     const { getByText, getByAltText, getByRole } = render(
       <MemoryRouter>
-        <DetailedCard {...mockProps} />
+        <SongDetailsComponent {...mockProps} />
       </MemoryRouter>
     )
 

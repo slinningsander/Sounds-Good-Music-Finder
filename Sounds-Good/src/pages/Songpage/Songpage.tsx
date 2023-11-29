@@ -1,4 +1,4 @@
-import DetailedCard from '../../components/DetailedCard/DetailedCard'
+import SongDetailsComponent from '../../components/SongDetailsComponent/SongDetailsComponent'
 import { CommentsContainer } from '../../components/CommentsContainer/CommentsContainer'
 import styles from './Songpage.module.css'
 import Page from '../../components/Page/Page'
@@ -39,7 +39,7 @@ const Songpage = () => {
               onClick={() => window.history.back()}
               alt="Go back"
             />
-            <DetailedCard
+            <SongDetailsComponent
               title={data.tracks[0].track_title}
               artist={data.tracks[0].artistsCreatedTrack[0].artist_name}
               img={data.tracks[0].cover_art}

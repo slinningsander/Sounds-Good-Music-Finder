@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import styles from './DetailedCard.module.css'
+import styles from './SongDetailsComponent.module.css'
 
 type Props = {
   title: string
@@ -9,7 +9,7 @@ type Props = {
   album: string
 }
 
-const DetailedCard = ({ title, artist, img, length, album }: Props) => {
+const SongDetailsComponent = ({ title, artist, img, length, album }: Props) => {
   return (
     <>
       <div className={styles.contentWrapper}>
@@ -51,4 +51,4 @@ const DetailedCard = ({ title, artist, img, length, album }: Props) => {
   )
 }
 
-export default DetailedCard
+export default SongDetailsComponent
