@@ -149,7 +149,11 @@ export default function Homepage() {
             <SearchFilter />
           </div>
         </div>
-
+        {searchInput && (
+          <h2 className={styles.searchHeader}>
+            Showing results for "{searchInput}":
+          </h2>
+        )}
         {searchInput && searchFilter === 'ARTIST' && <ArtistCardContainer />}
 
         {searchInput && searchFilter === 'ALBUM' && <AlbumCardContainer />}
