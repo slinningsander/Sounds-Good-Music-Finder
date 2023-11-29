@@ -192,6 +192,64 @@ describe('Test the different pages and the functionality of the application', ()
     cy.get('[data-cy=AlbumsContainer]').should('contain', 'Stay Gold')
   })
 
+  it('Test the "Clear Filter" button', () => {
+    cy.get('[data-cy=TrackButton]').click()
+    cy.get('[data-cy=Searchbar]').type('test').type('{enter}')
+    //Check that the search returns 3 results.
+    cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'TEST DRIVE'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(2)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(3)').should(
+      'contain',
+      'Testify'
+    )
+    //Click on the filter and add a sorting direction.
+    cy.get('[data-cy=ToggleFilter]').click()
+    cy.get('[data-cy=Select]').select('Alphabetically(a-z)')
+    //Check that the search results have been sorted.
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(2)').should(
+      'contain',
+      'TEST DRIVE'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(3)').should(
+      'contain',
+      'Testify'
+    )
+    //Now add filtration by track duration.
+    cy.get('[data-cy=Slider]').should('exist').click(50, 0)
+    //Check that the search results have been filtered.
+    cy.get('[data-cy=SongsContainer]').children().should('have.length', 1)
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+    //Now click the "Clear Filter" button and check that the search results are back to the default.
+    cy.get('[data-cy=ClearFilter]').click()
+    cy.get('[data-cy=SongsContainer]').children().should('have.length', 3)
+    cy.get('[data-cy=SongsContainer] > :nth-child(1)').should(
+      'contain',
+      'TEST DRIVE'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(2)').should(
+      'contain',
+      'Science & Blood Tests'
+    )
+    cy.get('[data-cy=SongsContainer] > :nth-child(3)').should(
+      'contain',
+      'Testify'
+    )
+  })
+
   it('Test the Artist page', () => {
     //Start of by searching for "Kanye West" and clicking on the first result.
     cy.get('[data-cy=ArtistButton]').click()
