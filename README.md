@@ -77,7 +77,7 @@ node index
 
 ## Dataset
 
-View our dedicated dataset documentation [here](/Sounds-Good-Backend/dataset-utils/README.md).
+View our dedicated dataset documentation [here](/frontend-Backend/dataset-utils/README.md).
 
 ## Database
 
@@ -105,11 +105,11 @@ Web accessibility is an important aspect of web development because it allows ev
 
 Wave showed us that our contrast on the 'Show more' button was too low when we had white button text:
 
-<img src="Sounds-Good/src/assets/lowcontrast.png" alt="Image showing contrast too low" width="400" height="200" />
+<img src="frontend/src/assets/lowcontrast.png" alt="Image showing contrast too low" width="400" height="200" />
 
 When we changed colors, it was clear that the button was much more legible because it had a higher contrast. Wave also doesn't complain anymore:
 
-<img src="Sounds-Good/src/assets/highcontrast.png" alt="Image showing new button" width="300">
+<img src="frontend/src/assets/highcontrast.png" alt="Image showing new button" width="300">
 
 Wave also helped with discovering missing form-labels and ARIA-labels. It also helped with discovering heading level skips, which should have been avoided and is now fixed.
 
@@ -171,7 +171,7 @@ We have also taken sustainability into account when showing images on our page. 
 
 Another thing we did was to change our color palette. Dark colors use less energy than light colors, so we decided to go for a darker color palette, to align with our sustainability goals. Here you can see our color palette:
 
-<img src="Sounds-Good/src/assets/colorpalette.png" alt="Image showing color palette" width=400>
+<img src="frontend/src/assets/colorpalette.png" alt="Image showing color palette" width=400>
 
 ## Testing
 
@@ -197,11 +197,11 @@ npm install
 
 Once you have run the command to open Cypress, you should be greeted by this window:
 
-<img src="Sounds-Good/src/assets/CypressStartInterface.PNG" alt="Image showing choice between E2E Testing or Component Testing" width=400>
+<img src="frontend/src/assets/CypressStartInterface.PNG" alt="Image showing choice between E2E Testing or Component Testing" width=400>
 
 Press the "E2E Testing" option which will lead you further to another screen:
 
-<img src="Sounds-Good/src/assets/CypressChooseBrowser.PNG" alt="Image showing choice between installed browsers" width=400>
+<img src="frontend/src/assets/CypressChooseBrowser.PNG" alt="Image showing choice between installed browsers" width=400>
 
 Here you can choose which browser you want to run the E2E test on. We strongly advise you to use Firefox, as this browser is going to run the test, with Chrome remaining in a constant refresh loop when running the test. If you change the "baseURL" from this:
 
@@ -223,11 +223,11 @@ npm run dev
 
 Note that for Mac users, the Safari browser will not be recognized. After you have chosen a browser, a new browser window will open with a new interface:
 
-<img src="Sounds-Good/src/assets/CypressChooseSpec.PNG" alt="Image showing the available specs(tests)" width=700>
+<img src="frontend/src/assets/CypressChooseSpec.PNG" alt="Image showing the available specs(tests)" width=700>
 
 You will now have to choose which test to run, which in our case is only one. After you have clicked on "E2E.spec.ts", the test will start and you will see the results:
 
-<img src="Sounds-Good/src/assets/CypressTest.PNG" alt="Image showing the test results" width=400>
+<img src="frontend/src/assets/CypressTest.PNG" alt="Image showing the test results" width=400>
 
 To close Cypress, you only need to go back to the terminal where you started it and press the keys "CTRL + C".
 
@@ -256,7 +256,7 @@ Another thing we have done is that we have redesigned the homepage so that the s
 
 We have also fixed some small bugs. Most notably we changed it so that the text is white all the time and not only in browsers that use dark mode like before. This ensures that we have good contrast regardless of what browser and color scheme you are using, which is very important for accessibility.
 
-Almost all our states are now handled through Redux. This means that we have removed all prop drilling and the code has become much more concise. We also use Redux to persist all filter, sorting and search state so that the user can get back to the same settings if they go to checkout a song, album or artist. We could have tried to persist the lates query as well, but did not have time to implement this. The search queries only run if the searchbar value is updated. 
+Almost all our states are now handled through Redux. This means that we have removed all prop drilling and the code has become much more concise. We also use Redux to persist all filter, sorting and search state so that the user can get back to the same settings if they go to checkout a song, album or artist. We could have tried to persist the lates query as well, but did not have time to implement this. The search queries only run if the searchbar value is updated.
 
 ### V1.1
 
